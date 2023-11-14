@@ -1,8 +1,11 @@
+import { Outlet } from 'react-router-dom';
+import './styles/global.scss';
+
 const App = () => {
   return(
-    <div className="App">
-      <h1>CULTURE</h1>
-    </div>
+    <main>
+      <Outlet />
+    </main>
   );
 };
 
