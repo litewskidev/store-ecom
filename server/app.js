@@ -1,10 +1,12 @@
 import dotenv from 'dotenv';
+import connectDB from './config/db.js';
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 
 dotenv.config();
+connectDB();
 const app = express();
 
 //  CORS
@@ -15,6 +17,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+//  ROUTES
+
+
+//  STATIC
 if (process.env.NODE_ENV === 'production') {
   const __dirname = path.resolve();
   app.use(express.static(path.join(__dirname, 'client/build')));
