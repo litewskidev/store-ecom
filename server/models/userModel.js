@@ -19,10 +19,6 @@ const userSchema = mongoose.Schema(
     emailVerified: {
       type: Boolean
     },
-    username: {
-      type: String,
-      unique: true
-    },
     name: {
       type: String
     },
