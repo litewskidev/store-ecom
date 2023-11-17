@@ -46,6 +46,9 @@ const userSchema = mongoose.Schema(
       }
     },
     addressShipping: {
+      country: {
+        type: String
+      },
       street1: {
         type: String
       },
@@ -66,6 +69,9 @@ const userSchema = mongoose.Schema(
       type: String
     },
     history: {
+      type: Object
+    },
+    wishlist: {
       type: Object
     }
   },
