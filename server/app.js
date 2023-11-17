@@ -2,8 +2,9 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import express from 'express';
 import cors from 'cors';
-import path from 'path';
 import cookieParser from 'cookie-parser';
+import path from 'path';
+import { errorHandler, notFound } from './middleware/errorsMiddleware.js';
 import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();
@@ -11,7 +12,7 @@ connectDB();
 const app = express();
 
 //  CORS
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 
 //  PARSING
 app.use(express.json());
@@ -29,6 +30,10 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   app.get('/', (req, res) => { res.send('Server is ready.')})
 }
+
+//  ERROR HANDLERS
+app.use(notFound);
+app.use(errorHandler);
 
 //  PORT
 const PORT = process.env.PORT || 5000;

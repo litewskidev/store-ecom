@@ -38,6 +38,7 @@ const registerUser = asyncHandler(async (req, res) => {
     password
   });
 
+  if(user)
   res.status(200).json( {message: 'User registered.'} )
 });
 
