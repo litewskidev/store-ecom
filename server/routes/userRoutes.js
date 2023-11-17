@@ -1,9 +1,10 @@
 import express from 'express';
-import { authorizeUser, registerUser, logoutUser, getUserProfile, updateUserProfile } from '../controllers/userController.js';
+import { authorizeUser, registerUser, logoutUser, getUserProfile, updateUserProfile, authorizeAdmin } from '../controllers/userController.js';
 import { protect } from '../middleware/userAuthMiddleware.js';
 
 const router = express.Router();
 
+router.post('/admin', authorizeAdmin);
 router.post('/', registerUser);
 router.post('/auth', authorizeUser);
 router.post('/logout', logoutUser);

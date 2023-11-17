@@ -2,6 +2,25 @@ import asyncHandler from 'express-async-handler';
 import User from '../models/userModel.js';
 import generateToken from '../utils/generateToken.js';
 
+//  desc     Authorize admin / set token
+//  route    POST /api/users/admin
+//  access   Public
+const authorizeAdmin = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = await User.findOne({ email });
+
+  if(user && user.admin && await user.matchPassword(password)) {
+    generateToken(res, user._id);
+    res.status(201);
+  }
+  else {
+    throw new Error('Invalid email or password.');
+  }
+
+  res.status(200).json( {message: 'Admin logged in.'} )
+});
+
 //  desc     Authorize user / set token
 //  route    POST /api/users/auth
 //  access   Public
@@ -10,7 +29,7 @@ const authorizeUser = asyncHandler(async (req, res) => {
 
   const user = await User.findOne({ email });
 
-  if(user && await user.matchPassword(password)) {
+  if(user && !user.admin && await user.matchPassword(password)) {
     generateToken(res, user._id);
     res.status(201);
   }
@@ -153,4 +172,4 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   res.status(200).json( {message: 'User profile updated.'} )
 });
 
-export { authorizeUser, registerUser, logoutUser, getUserProfile, updateUserProfile };
+export { authorizeAdmin, authorizeUser, registerUser, logoutUser, getUserProfile, updateUserProfile };
