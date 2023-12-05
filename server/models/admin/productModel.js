@@ -6,7 +6,14 @@ const productSchema = mongoose.Schema(
       type: String,
       unique: true
     },
-    title: {
+    reference: {
+      type: String,
+      unique: true
+    },
+    brand: {
+      type: String
+    },
+    model: {
       type: String
     },
     quantity: {
@@ -23,18 +30,84 @@ const productSchema = mongoose.Schema(
         type: Number
       }
     },
-    options: {
-      features: {
-        type: Array
+    certificates: {
+      box: {
+        type: Boolean
       },
-      sizes: {
-        type: Array
+      papers: {
+        type: Boolean
       },
-      colors: {
-        type: Array
-      },
-      image: {
+      warranty: {
         type: String
+      }
+    },
+    year: {
+      type: Number
+    },
+    images: {
+      type: String
+    },
+    description: {
+      type: String
+    },
+    features: {
+      details: {
+        origin: {
+          type: String
+        },
+        style: {
+          type: String
+        },
+        gender: {
+          type: String
+        }
+      },
+      case: {
+        size: {
+          type: String
+        },
+        material: {
+          type: String
+        },
+        back: {
+          type: String
+        },
+        shape: {
+          type: String
+        },
+        waterResistance: {
+          type: String
+        },
+      },
+      dial: {
+        color: {
+          type: String
+        },
+        hoursMarkers: {
+          type: String
+        }
+      },
+      function: {
+        movement: {
+          type: String
+        },
+        complications: {
+          type: String
+        }
+      },
+      strapBracelet: {
+        material: {
+          type: String
+        },
+        bandColor: {
+          type: String
+        },
+        buckleType: {
+          type: String
+        },
+        length: {
+          type: String
+        }
       }
     }
   },
