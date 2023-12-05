@@ -7,8 +7,7 @@ const productSchema = mongoose.Schema(
       unique: true
     },
     reference: {
-      type: String,
-      unique: true
+      type: String
     },
     brand: {
       type: String

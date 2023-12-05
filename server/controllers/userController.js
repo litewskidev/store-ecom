@@ -77,32 +77,7 @@ const logoutUser = asyncHandler(async (req, res) => {
 //  route    GET /api/users/profile
 //  access   Private
 const getUserProfile = asyncHandler(async (req, res) => {
-  const user = {
-    id: req.user._id,
-    email: req.user.email,
-    emailVerified: req.user.emailVerified,
-    name: req.user.name,
-    surname: req.user.surname,
-    address: {
-      country: req.user.address.country,
-      street1: req.user.address.street1,
-      street2: req.user.address.street2,
-      city: req.user.address.city,
-      state: req.user.address.state,
-      zip: req.user.address.zip
-    },
-    addressShipping: {
-      country: req.user.addressShipping.country,
-      street1: req.user.addressShipping.street1,
-      street2: req.user.addressShipping.street2,
-      city: req.user.addressShipping.city,
-      state: req.user.addressShipping.state,
-      zip: req.user.addressShipping.zip
-    },
-    image: req.user.image,
-    history: req.user.history,
-    wishlist: req.user.wishlist
-  };
+  const user = await User.findById(req.user._id).select('-password');
 
   res.status(200).json(user);
 });

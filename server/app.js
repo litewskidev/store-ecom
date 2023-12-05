@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import path from 'path';
 import { errorHandler, notFound } from './middleware/errorsMiddleware.js';
 import userRoutes from './routes/userRoutes.js';
+import productRouter from './routes/productRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -21,6 +22,7 @@ app.use(cookieParser());
 
 //  ROUTES
 app.use('/api/users', userRoutes);
+app.use('/api/products', productRouter);
 
 //  STATIC
 if (process.env.NODE_ENV === 'production') {

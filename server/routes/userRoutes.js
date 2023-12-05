@@ -2,14 +2,14 @@ import express from 'express';
 import { authorizeUser, registerUser, logoutUser, getUserProfile, updateUserProfile, authorizeAdmin } from '../controllers/userController.js';
 import { protect } from '../middleware/userAuthMiddleware.js';
 
-const router = express.Router();
+const userRouter = express.Router();
 
-router.post('/admin', authorizeAdmin);
-router.post('/', registerUser);
-router.post('/auth', authorizeUser);
-router.post('/logout', logoutUser);
-router.route('/profile')
+userRouter.post('/admin', authorizeAdmin);
+userRouter.post('/', registerUser);
+userRouter.post('/auth', authorizeUser);
+userRouter.post('/logout', logoutUser);
+userRouter.route('/profile')
 .get(protect, getUserProfile)
 .put(protect, updateUserProfile);
 
-export default router;
+export default userRouter;
