@@ -25,7 +25,7 @@ const updateCart = asyncHandler(async (req, res) => {
     { new: true }
   );
   if(updatedCart) {
-  res.status(200).json( {message: 'Cart updated successfully.'} );
+  res.status(200).json(updatedCart);
   }
   else {
     res.status(404);
