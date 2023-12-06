@@ -18,7 +18,7 @@ const authorizeAdmin = asyncHandler(async (req, res) => {
     throw new Error('Invalid email or password.');
   }
 
-  res.status(200).json( {message: 'Admin logged in.'} )
+  res.status(200).json( {message: 'Admin logged in.'} );
 });
 
 //  desc     Authorize user / set token
@@ -37,7 +37,7 @@ const authorizeUser = asyncHandler(async (req, res) => {
     throw new Error('Invalid email or password.');
   }
 
-  res.status(200).json( {message: 'User logged in.'} )
+  res.status(200).json( {message: 'User logged in.'} );
 });
 
 //  desc     Register a new user
@@ -58,7 +58,7 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 
   if(user)
-  res.status(200).json( {message: 'User registered.'} )
+  res.status(200).json( {message: 'User registered.'} );
 });
 
 //  desc     Logout user
@@ -144,7 +144,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     throw new Error('User not found.');
   }
 
-  res.status(200).json( {message: 'User profile updated.'} )
+  res.status(200).json( {message: 'User profile updated.'} );
 });
 
 export { authorizeAdmin, authorizeUser, registerUser, logoutUser, getUserProfile, updateUserProfile };

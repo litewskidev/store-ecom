@@ -1,5 +1,5 @@
 import asyncHandler from 'express-async-handler';
-import Product from '../models/admin/productModel.js';
+import Product from '../models/productModel.js';
 
 //  desc     Get all products
 //  route    GET /api/products
@@ -27,7 +27,7 @@ const addProduct = asyncHandler(async (req, res) => {
   const newProduct = product.save();
 
   if(newProduct)
-  res.status(200).json( {message: 'Product added successfully.'} )
+  res.status(200).json( {message: 'Product added successfully.'} );
 });
 
 //  desc     Update product
@@ -35,7 +35,7 @@ const addProduct = asyncHandler(async (req, res) => {
 //  access   Private
 const updateProduct = asyncHandler(async (req, res) => {
   const updatedProduct = await Product.findByIdAndUpdate(
-    req.params.id,
+    req.body.id,
     {
       $set: req.body
     },
@@ -46,7 +46,7 @@ const updateProduct = asyncHandler(async (req, res) => {
   }
   else {
     res.status(404);
-    throw new Error('Product not found.')
+    throw new Error('Product not found.');
   }
 });
 
@@ -54,13 +54,13 @@ const updateProduct = asyncHandler(async (req, res) => {
 //  route    DELETE /api/products/delete
 //  access   Private
 const deleteProduct = asyncHandler(async (req, res) => {
-  const deletedProduct = await Product.findByIdAndDelete(req.params.id);
+  const deletedProduct = await Product.findByIdAndDelete(req.body.id);
   if(deletedProduct) {
   res.status(200).json( {message: 'Product deleted successfully.'} );
   }
   else {
     res.status(404);
-    throw new Error('Product not found.')
+    throw new Error('Product not found.');
   }
 });
 
