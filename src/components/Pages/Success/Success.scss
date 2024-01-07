@@ -1,0 +1,26 @@
+.success__wrapper {
+  height: 80vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.success__title {
+  border-radius: .5rem;
+  background-color: aqua;
+  padding: 1rem 3rem;
+
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+.success__desc {
+  p {
+    font-size: 1.5rem;
+  }
+}

@@ -4,12 +4,14 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import { Provider } from 'react-redux';
 import store from './redux/store.js';
 import App from './App.js';
-import Home from './components/Home/Home.jsx';
+import Home from './components/Pages/Home/Home.jsx';
+import Success from './components/Pages/Success/Success.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route exact path='/' element={ <App /> }>
       <Route index={true} path='/' element={ <Home /> } />
+      <Route path='/success' element={ <Success /> } />
     </Route>
   )
 );
