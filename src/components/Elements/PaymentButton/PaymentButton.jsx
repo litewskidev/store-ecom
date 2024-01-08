@@ -31,7 +31,7 @@ const PaymentButton = () => {
   }, [stripeToken, navigate]);
 
   return(
-    <section id='payment'>
+    <div className='payment__wrapper'>
       <StripeCheckout
       name = 'CULTURE'
       billingAddress
@@ -46,7 +46,7 @@ const PaymentButton = () => {
           <p>PAY NOW</p>
         </button>
       </StripeCheckout>
-    </section>
+    </div>
   );
 };
 
