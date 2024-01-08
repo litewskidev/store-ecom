@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import './Success.scss';
 
 const Success = () => {
+  const navigate = useNavigate();
+
   return(
     <section id='success'>
       <div className='success__wrapper'>
@@ -9,6 +12,9 @@ const Success = () => {
         </div>
         <div className='success__desc'>
           <p>Your order is being prepared. Thank you for choosing Culture.</p>
+        </div>
+        <div className='success__backBtn' onClick={() => navigate('/')}>
+          <p>Back</p>
         </div>
       </div>
     </section>

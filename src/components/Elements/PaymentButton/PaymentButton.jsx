@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
-import StripeCheckout from 'react-stripe-checkout';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import StripeCheckout from 'react-stripe-checkout';
 import './PaymentButton.scss';
 
 const PaymentButton = () => {
+  const navigate = useNavigate();
   const [stripeToken, setStripeToken] = useState(null);
 
   const onToken = (token) => {
@@ -19,16 +21,14 @@ const PaymentButton = () => {
             amount: 2000
           }
         )
+        navigate('/success');
       }
       catch(err) {
         console.log(err);
       }
     }
-
-    if(stripeToken) {
-      paymentRequest();
-    }
-  }, [stripeToken]);
+    stripeToken && paymentRequest();
+  }, [stripeToken, navigate]);
 
   return(
     <section id='payment'>

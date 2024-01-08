@@ -15,8 +15,9 @@ const productSchema = mongoose.Schema(
     model: {
       type: String
     },
-    quantity: {
-      type: Number
+    inStock: {
+      type: Boolean,
+      default: true
     },
     price: {
       base : {
