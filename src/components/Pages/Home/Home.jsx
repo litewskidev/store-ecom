@@ -5,7 +5,7 @@ const Home = () => {
   return(
     <section id="home">
       <div className="home__wrapper">
-        <h1>CULTURE</h1>
+        <h1>HOME</h1>
         <PaymentButton />
       </div>
     </section>
