@@ -1,16 +1,23 @@
 import { useRef } from 'react';
-import './Navbar.scss';
 import { NavLink } from 'react-router-dom';
+import './Navbar.scss';
 
 const Navbar = () => {
-  const dropdownBtnRef = useRef(null);
-  const dropdownRef = useRef(null);
+  const dropdownBtnRefMobile = useRef(null);
+  const dropdownBtnRefTablet = useRef(null);
+  const dropdownModalRef = useRef(null);
+  const dropdownModalInnerRef = useRef(null);
 
   const toggleDropdown = () => {
-    const dropdownBtn = dropdownBtnRef.current;
-    const dropdown = dropdownRef.current;
-    dropdownBtn.classList.toggle('active');
-    dropdown.classList.toggle('active');
+    const dropdownBtnMobile = dropdownBtnRefMobile.current;
+    const dropdownBtnTablet = dropdownBtnRefTablet.current;
+    const dropdownModal = dropdownModalRef.current;
+    const dropdownModalInner = dropdownModalInnerRef.current;
+
+    dropdownBtnMobile.classList.toggle('active')
+    dropdownBtnTablet.classList.toggle('active');
+    dropdownModal.classList.toggle('active');
+    dropdownModalInner.classList.toggle('open');
   };
 
   return(
@@ -20,21 +27,19 @@ const Navbar = () => {
           <nav className='navbar__body__left'>
             <ul className='navbar__items'>
               <li className='navbar__item__menu'>
-                <button className='navbar__button'>
-                  <div className='navbar__button__up'></div>
-                  <div className='navbar__button__down'></div>
+                <button className='navbar__item__menu__button' onClick={toggleDropdown} ref={dropdownBtnRefMobile}>
+                  <div className='navbar__item__menu__button__up'></div>
+                  <div className='navbar__item__menu__button__down'></div>
                 </button>
               </li>
               <li className='navbar__item__icon'>
-                <NavLink className='navbar__item__icon__wishlist' to='/profile/wishlist'>
+                <NavLink to='/profile/wishlist'>
                   <img src={process.env.PUBLIC_URL + '/assets/icons/clock.svg'} alt='wishlist button' />
                 </NavLink>
               </li>
             </ul>
           </nav>
-
-          <h1 className='navbar__body__logo'>CULTURE</h1>
-
+          <NavLink to='/' className='navbar__body__logo'>CULTURE</NavLink>
           <nav className='navbar__body__center'>
             <ul className='navbar__items'>
               <li className='navbar__item__link'>
@@ -61,7 +66,6 @@ const Navbar = () => {
               </li>
             </ul>
           </nav>
-
           <nav className='navbar__body__right'>
             <ul className='navbar__items'>
               <li className='navbar__item__icon tablet__only'>
@@ -78,7 +82,7 @@ const Navbar = () => {
                 </div>
               </li>
               <li className='navbar__item__icon desktop__only'>
-                <NavLink className='navbar__item__icon__wishlist' to='/profile/wishlist'>
+                <NavLink to='/profile/wishlist'>
                   <img src={process.env.PUBLIC_URL + '/assets/icons/clock.svg'} alt='wishlist button' />
                 </NavLink>
               </li>
@@ -93,9 +97,9 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className='navbar__item__menu tablet__only'>
-                <button className='navbar__button'>
-                  <div className='navbar__button__up'></div>
-                  <div className='navbar__button__down'></div>
+                <button className='navbar__item__menu__button' onClick={toggleDropdown} ref={dropdownBtnRefTablet}>
+                  <div className='navbar__item__menu__button__up'></div>
+                  <div className='navbar__item__menu__button__down'></div>
                 </button>
               </li>
             </ul>
@@ -103,6 +107,12 @@ const Navbar = () => {
         </div>
 
         <div className='navbar__footer'></div>
+
+        <div className='navbar__modal' ref={dropdownModalRef}>
+          <div className='navbar__modal__inner' ref={dropdownModalInnerRef}>
+
+          </div>
+        </div>
       </div>
     </div>
   );

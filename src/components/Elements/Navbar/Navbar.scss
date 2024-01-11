@@ -1,2 +1,212 @@
 @import '../../../styles/settings.scss';
 
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+
+  }
+
+  &__body {
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+
+      &__left {
+        display: none;
+      }
+
+      &__logo {
+        color: $jet;
+        font-size: 1.5rem;
+        font-weight: 900;
+      }
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__item {
+    &__menu__button {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        cursor: pointer;
+
+        &__up {
+          background-color: $jet;
+          height: .1rem;
+          width: 1.5rem;
+          transition: transform 1s $cubic;
+        }
+
+        &__down {
+          background-color: $jet;
+          height: .1rem;
+          width: 1.5rem;
+          transition: transform 1s $cubic;
+        }
+
+        &.active {
+          .navbar__item__menu__button__up {
+            transform: translateY(.2rem) rotate(45deg);
+          }
+
+          .navbar__item__menu__button__down {
+            transform: translateY(-.44rem) rotate(-45deg);
+          }
+        }
+      }
+
+    &__icon {
+      img {
+        display: block;
+        width: 1.5rem;
+      }
+    }
+
+    &__link {
+      a {
+        font-size: 1rem;
+        color: $jet;
+      }
+    }
+  }
+
+  &__search {
+    &__form {
+      display: flex;
+      align-items: center;
+      gap: .1rem;
+
+      &__field {
+        input {
+          background-color: transparent;
+          border: none;
+          outline: none;
+          border-bottom: solid 0.063rem $jet;
+          width: 7rem;
+        }
+      }
+
+      &__button {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+
+        img {
+          width: 1.5rem;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.tablet__only {
+  display: none;
+}
+
+
+@media (max-width: 1200px) {
+  .navbar {
+    &__body {
+      height: 5rem;
+
+      &__center {
+        display: none;
+      }
+    }
+
+    &__items {
+      gap: 1.2rem;
+    }
+
+  &__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 5rem 2rem 3rem;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s $cubic;
+
+      &.active {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      &__inner {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 60%;
+        background-color: white;
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: all .3s $cubic;
+
+        &.open {
+          visibility: visible;
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  .tablet__only {
+    display: block;
+  }
+}
+
+@media (max-width: 540px) {
+  .navbar{
+    &__wrapper {
+      padding: 0 1rem;
+    }
+
+    &__body {
+      &__left {
+        display: block;
+      }
+    }
+
+    &__items {
+      gap: 1rem;
+    }
+
+    &__modal {
+      &__inner {
+        width: 100%;
+      }
+    }
+  }
+
+  .desktop__only {
+    display: none;
+  }
+
+  .tablet__only {
+    display: none;
+  }
+}
