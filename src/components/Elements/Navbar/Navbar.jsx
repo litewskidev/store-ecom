@@ -44,12 +44,83 @@ const Navbar = () => {
             <ul className='navbar__items'>
               <li className='navbar__item__link'>
                 <NavLink to='/shop/new-arrivals'>NEW ARRIVALS</NavLink>
+
               </li>
               <li className='navbar__item__link'>
                 <NavLink to='/shop/all-watches'>ALL WATCHES</NavLink>
+                <div className='navbar__item__link__dropdown'>
+                  <div className='navbar__item__link__dropdown__img'>
+                    <img src={process.env.PUBLIC_URL + '/assets/images/img_4.jpg'} alt='' />
+                  </div>
+                  <div className='navbar__item__link__dropdown__list'>
+                    <div className='navbar__item__link__dropdown__list__items'>
+                      <div className='navbar__item__link__dropdown__list__items__inner'>
+                        <h4>SHOP BY CATEGORY</h4>
+                        <ul>
+                          <li>All Watches</li>
+                          <li>New Arrivals</li>
+                          <li>Coming Soon</li>
+                          <li>Best Sellers</li>
+                          <li>Men's Watches</li>
+                          <li>Women's Watches</li>
+                          <li>Sale</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className='navbar__item__link__dropdown__list__items__pattern'></div>
+                    <div className='navbar__item__link__dropdown__list__items'>
+                      <div className='navbar__item__link__dropdown__list__items__inner'>
+                        <h4>FEATURED COLLECTIONS</h4>
+                        <ul>
+                          <li>Grail Watches</li>
+                          <li>Independent Watches</li>
+                          <li>Anything But Ordinary</li>
+                          <li>Daily Drivers</li>
+                          <li>The Holy Trinity</li>
+                          <li>View All Collections</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </li>
               <li className='navbar__item__link'>
                 <NavLink to='/watches/all-brands'>BRANDS</NavLink>
+                <div className='navbar__item__link__dropdown'>
+                  <div className='navbar__item__link__dropdown__list'>
+                    <div className='navbar__item__link__dropdown__list__items'>
+                      <div className='navbar__item__link__dropdown__list__items__inner'>
+                        <h4>FEATURED BRANDS</h4>
+                        <ul>
+                          <li>Rolex</li>
+                          <li>Audemars Piguet</li>
+                          <li>De Bethune</li>
+                          <li>Patek Philippe</li>
+                          <li>F.P. Journe</li>
+                          <li>H. Moser & Cie.</li>
+                          <li>A. Lange & Söhne</li>
+                          <li>Vacheron Constantin</li>
+                          <li>Tudor</li>
+                          <li>Breitling</li>
+                          <li>Omega</li>
+                          <li>Greubel Forsey</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className='navbar__item__link__dropdown__list__items__pattern'></div>
+                    <div className='navbar__item__link__dropdown__list__items'>
+                      <div className='navbar__item__link__dropdown__list__items__inner'>
+                        <h4>BRANDS A-Z</h4>
+                        <ul>
+                          <li>View All Brands</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='navbar__item__link__dropdown__img'>
+                    <img src={process.env.PUBLIC_URL + '/assets/images/img_9.jpg'} alt='' />
+                  </div>
+                </div>
               </li>
               <li className='navbar__item__link'>
                 <div className='navbar__search__container'>
@@ -105,9 +176,22 @@ const Navbar = () => {
             </ul>
           </nav>
         </div>
-
-        <div className='navbar__footer'></div>
-
+        <div className='navbar__footer'>
+          <div className='navbar__search__container'>
+            <form className='navbar__search__form'>
+              <div className='navbar__search__form__field'>
+                <input
+                type='text'
+                placeholder='Search'
+                ></input>
+                <label></label>
+              </div>
+              <button className='navbar__search__form__button'>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/search.svg'} alt='search button' />
+              </button>
+            </form>
+          </div>
+        </div>
         <div className='navbar__modal' ref={dropdownModalRef}>
           <div className='navbar__modal__inner' ref={dropdownModalInnerRef}>
 
