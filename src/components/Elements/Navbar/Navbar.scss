@@ -5,6 +5,10 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 999;
+  background-color: $seasalt;
+  transform: translateY(0);
+  transition: transform .5s ease-out;
 
   &__wrapper {
     display: flex;
@@ -156,6 +160,8 @@
       }
 
       a {
+        font-size: 1rem;
+        color: $jet;
         text-underline-offset: .5rem;
         text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
         transition: text-decoration-color .3s $cubic;
@@ -171,11 +177,6 @@
           opacity: 1;
         }
       }
-
-      a {
-        font-size: 1rem;
-        color: $jet;
-      }
     }
   }
 
@@ -187,6 +188,7 @@
 
       &__field {
         input {
+          font-family: $font;
           background-color: transparent;
           border: none;
           outline: none;
@@ -214,12 +216,17 @@
   }
 }
 
-.navbar__item__link:hover {}
+.nav-open {
+  transform: translateY(0);
+}
+
+.nav-close {
+  transform: translateY(-100%);
+}
 
 .tablet__only {
   display: none;
 }
-
 
 @media (max-width: 1200px) {
   .navbar {
@@ -247,7 +254,7 @@
       z-index: 1;
       opacity: 0;
       visibility: hidden;
-      transition: all .3s $cubic;
+      transition: all .2s ease;
 
       &.active {
         visibility: visible;
@@ -260,10 +267,11 @@
         right: 0;
         height: 100vh;
         width: 60%;
+        padding: 8rem 1rem 0 1rem;
         background-color: white;
         transform: translateX(100%);
         visibility: hidden;
-        transition: all .3s $cubic;
+        transition: all .4s ease;
 
         &.open {
           visibility: visible;
@@ -278,7 +286,7 @@
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 600px) {
   .navbar{
     &__wrapper {
       padding: 0 1rem;
@@ -297,6 +305,9 @@
     &__modal {
       &__inner {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
       }
     }
 
@@ -304,13 +315,19 @@
       display: block;
     }
 
-    &__search__form__field {
+    &__search__form {
+      &__field {
       width: 100%;
+      z-index: 2;
 
       input {
         width: 100%;
-        font-family: $font;
         padding-bottom: .5rem;
+      }
+      }
+
+      &__button {
+        z-index: 2;
       }
     }
   }

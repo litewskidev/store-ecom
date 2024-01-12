@@ -1,12 +1,43 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 
 const Navbar = () => {
+  const navbarRef = useRef(null);
   const dropdownBtnRefMobile = useRef(null);
   const dropdownBtnRefTablet = useRef(null);
   const dropdownModalRef = useRef(null);
   const dropdownModalInnerRef = useRef(null);
+  const [scrollDirection, setScrollDirection] = useState(null);
+
+  useEffect(() => {
+    const navbar = navbarRef.current;
+    let lastScrollY = window.scrollY;
+
+    const updateScrollDirection = () => {
+      const scrollY = window.scrollY;
+      const direction = scrollY > lastScrollY ? "down" : "up";
+      if (direction !== scrollDirection && (scrollY - lastScrollY > 6 || scrollY - lastScrollY < -6)) {
+        setScrollDirection(direction);
+      }
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+    };
+
+    window.addEventListener("scroll", updateScrollDirection);
+
+    if(scrollDirection === 'down') {
+      navbar.classList.remove('nav-open');
+      navbar.classList.toggle('nav-close');
+    }
+    if(scrollDirection === 'up') {
+      navbar.classList.remove('nav-close');
+      navbar.classList.add('nav-open');
+    }
+
+    return () => {
+      window.removeEventListener("scroll", updateScrollDirection);
+    }
+  }, [scrollDirection]);
 
   const toggleDropdown = () => {
     const dropdownBtnMobile = dropdownBtnRefMobile.current;
@@ -21,7 +52,7 @@ const Navbar = () => {
   };
 
   return(
-    <div className='navbar'>
+    <div className='navbar nav-open' ref={navbarRef}>
       <div className='navbar__wrapper'>
         <div className='navbar__body'>
           <nav className='navbar__body__left'>
@@ -44,7 +75,6 @@ const Navbar = () => {
             <ul className='navbar__items'>
               <li className='navbar__item__link'>
                 <NavLink to='/shop/new-arrivals'>NEW ARRIVALS</NavLink>
-
               </li>
               <li className='navbar__item__link'>
                 <NavLink to='/shop/all-watches'>ALL WATCHES</NavLink>
@@ -194,7 +224,26 @@ const Navbar = () => {
         </div>
         <div className='navbar__modal' ref={dropdownModalRef}>
           <div className='navbar__modal__inner' ref={dropdownModalInnerRef}>
-
+            <h3>MENU</h3>
+            <nav>
+              <ul>
+                <li>
+                  <div>
+                    <NavLink to='/shop/new-arrivals'>NEW ARRIVALS</NavLink>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <NavLink to='/shop/all-watches'>ALL WATCHES</NavLink>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <NavLink to='/watches/all-brands'>BRANDS</NavLink>
+                  </div>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
