@@ -2,7 +2,6 @@
 
 .home {
   &__wrapper {
-    margin-top: 6rem;
     overflow-x: hidden;
     height: auto;
     min-height: 500rem;
@@ -45,12 +44,8 @@
   }
 }
 
-@media (max-width: 1200px) {}
+@media (max-width: 1200px) {
+}
 
 @media (max-width: 600px) {
-  .home {
-    &__wrapper {
-      margin-top: 8rem;
-    }
-  }
 }

@@ -7,8 +7,9 @@
   left: 0;
   z-index: 999;
   background-color: $seasalt;
+  color: $jet;
   transform: translateY(0);
-  transition: transform .5s ease-out;
+  transition: all .4s ease-out;
 
   &__wrapper {
     display: flex;
@@ -28,7 +29,7 @@
       }
 
       &__logo {
-        color: $jet;
+        color: inherit;
         font-size: 1.5rem;
         font-weight: 900;
       }
@@ -101,7 +102,7 @@
         z-index: 15;
         opacity: 0;
         visibility: hidden;
-        transition: opacity .6s $cubic;
+        transition: opacity .4s ease-out;
 
         &__img {
           width: 33%;
@@ -161,7 +162,7 @@
 
       a {
         font-size: 1rem;
-        color: $jet;
+        color: inherit;
         text-underline-offset: .5rem;
         text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
         transition: text-decoration-color .3s $cubic;
@@ -188,6 +189,7 @@
 
       &__field {
         input {
+          color: $jet;
           font-family: $font;
           background-color: transparent;
           border: none;
@@ -213,6 +215,68 @@
 
   &__footer, &__modal {
     display: none;
+  }
+}
+
+.nav-top {
+  background-color: transparent;
+  color: $seasalt;
+
+  .navbar__search__form {
+    &__field {
+      input {
+        color: $seasalt;
+        border-bottom: solid 0.063rem $seasalt;
+      }
+    }
+
+    &__button {
+      img {
+        filter: invert(1);
+      }
+    }
+  }
+
+  .navbar__item__icon {
+    img {
+      filter: invert(1);
+    }
+  }
+
+  .navbar__item__menu__button {
+    &__up {
+      background-color: $seasalt;
+    }
+
+    &__down {
+      background-color: $seasalt;
+    }
+  }
+
+  &:hover {
+    background-color: $seasalt;
+    color: $jet;
+
+    .navbar__search__form {
+      &__field {
+        input {
+          color: $jet;
+          border-bottom: solid 0.063rem $jet;
+        }
+      }
+
+      &__button {
+        img {
+          filter: invert(0);
+        }
+      }
+    }
+
+    .navbar__item__icon {
+      img {
+        filter: invert(0);
+      }
+    }
   }
 }
 
@@ -276,6 +340,34 @@
         &.open {
           visibility: visible;
           transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  .nav-top {
+    &:hover {
+      background-color: transparent;
+      color: $seasalt;
+
+      .navbar__search__form {
+        &__field {
+          input {
+            color: $seasalt;
+            border-bottom: solid 0.063rem $seasalt;
+          }
+        }
+
+        &__button {
+          img {
+            filter: invert(1);
+          }
+        }
+      }
+
+      .navbar__item__icon {
+        img {
+          filter: invert(1);
         }
       }
     }

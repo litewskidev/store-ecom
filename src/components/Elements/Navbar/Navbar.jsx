@@ -17,29 +17,39 @@ const Navbar = () => {
     const updateScrollDirection = () => {
       const scrollY = window.scrollY;
       const direction = scrollY > lastScrollY ? "down" : "up";
-      if (direction !== scrollDirection && (scrollY - lastScrollY > 6 || scrollY - lastScrollY < -6)) {
+      if (direction !== scrollDirection && (scrollY - lastScrollY > 5 || scrollY - lastScrollY < -5)) {
         setScrollDirection(direction);
       }
       lastScrollY = scrollY > 0 ? scrollY : 0;
     };
 
-    window.addEventListener("scroll", updateScrollDirection);
+    const scrollHeader = () => {
+      if(window.scrollY < 50) {
+        navbar.classList.add('nav-top');
+      }
+      else {
+        navbar.classList.remove('nav-top');
+      }
+    };
+
+    window.addEventListener("scroll", updateScrollDirection, scrollHeader);
 
     if(scrollDirection === 'down') {
       navbar.classList.remove('nav-open');
-      navbar.classList.toggle('nav-close');
+      navbar.classList.add('nav-close');
     }
     if(scrollDirection === 'up') {
       navbar.classList.remove('nav-close');
-      navbar.classList.add('nav-open');
     }
 
     return () => {
       window.removeEventListener("scroll", updateScrollDirection);
+      window.addEventListener("scroll", scrollHeader);
     }
   }, [scrollDirection]);
 
   const toggleDropdown = () => {
+    const navbar = navbarRef.current;
     const dropdownBtnMobile = dropdownBtnRefMobile.current;
     const dropdownBtnTablet = dropdownBtnRefTablet.current;
     const dropdownModal = dropdownModalRef.current;
@@ -49,10 +59,13 @@ const Navbar = () => {
     dropdownBtnTablet.classList.toggle('active');
     dropdownModal.classList.toggle('active');
     dropdownModalInner.classList.toggle('open');
+    if(window.scrollY < 50) {
+      navbar.classList.toggle('nav-top');
+    }
   };
 
   return(
-    <div className='navbar nav-open' ref={navbarRef}>
+    <div className='navbar nav-top' ref={navbarRef}>
       <div className='navbar__wrapper'>
         <div className='navbar__body'>
           <nav className='navbar__body__left'>
