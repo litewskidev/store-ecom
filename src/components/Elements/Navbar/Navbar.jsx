@@ -263,6 +263,9 @@ const Navbar = () => {
                 </li>
               </ul>
             </nav>
+            <div className='navbar__modal__inner__image'>
+              <img src={process.env.PUBLIC_URL + '/assets/images/img_2.jpg'} alt='' />
+            </div>
           </div>
         </div>
       </div>
