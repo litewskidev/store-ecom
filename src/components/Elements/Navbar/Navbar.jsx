@@ -12,22 +12,26 @@ const Navbar = () => {
 
   useEffect(() => {
     const navbar = navbarRef.current;
+    const dropdownModal = dropdownModalRef.current;
     let lastScrollY = window.scrollY;
 
     const updateScrollDirection = () => {
       const scrollY = window.scrollY;
       const direction = scrollY > lastScrollY ? "down" : "up";
-      if (direction !== scrollDirection && (scrollY - lastScrollY > 5 || scrollY - lastScrollY < -5)) {
+      if(direction !== scrollDirection && (scrollY - lastScrollY > 5 || scrollY - lastScrollY < -5)) {
         setScrollDirection(direction);
       }
       lastScrollY = scrollY > 0 ? scrollY : 0;
     };
 
     const scrollHeader = () => {
-      if(window.scrollY < 50) {
+      if(window.scrollY < 60) {
         navbar.classList.add('nav-top');
       }
       else {
+        navbar.classList.remove('nav-top');
+      }
+      if(dropdownModal.classList.contains('active')) {
         navbar.classList.remove('nav-top');
       }
     };
@@ -35,10 +39,9 @@ const Navbar = () => {
     window.addEventListener("scroll", updateScrollDirection, scrollHeader);
 
     if(scrollDirection === 'down') {
-      navbar.classList.remove('nav-open');
       navbar.classList.add('nav-close');
     }
-    if(scrollDirection === 'up') {
+    else {
       navbar.classList.remove('nav-close');
     }
 
@@ -49,23 +52,26 @@ const Navbar = () => {
   }, [scrollDirection]);
 
   const toggleDropdown = () => {
-    const navbar = navbarRef.current;
     const dropdownBtnMobile = dropdownBtnRefMobile.current;
     const dropdownBtnTablet = dropdownBtnRefTablet.current;
     const dropdownModal = dropdownModalRef.current;
     const dropdownModalInner = dropdownModalInnerRef.current;
+    const navbar = navbarRef.current;
 
     dropdownBtnMobile.classList.toggle('active')
     dropdownBtnTablet.classList.toggle('active');
     dropdownModal.classList.toggle('active');
     dropdownModalInner.classList.toggle('open');
-    if(window.scrollY < 50) {
-      navbar.classList.toggle('nav-top');
+
+    if(dropdownModal.classList.contains('active')) {
+      navbar.classList.remove('nav-top');
+    } else {
+      navbar.classList.add('nav-top');
     }
   };
 
   return(
-    <div className='navbar nav-top' ref={navbarRef}>
+    <div id='navbar' className='navbar nav-top' ref={navbarRef}>
       <div className='navbar__wrapper'>
         <div className='navbar__body'>
           <nav className='navbar__body__left'>
@@ -235,23 +241,23 @@ const Navbar = () => {
             </form>
           </div>
         </div>
-        <div className='navbar__modal' ref={dropdownModalRef}>
+        <div id='navbar-modal' className='navbar__modal' ref={dropdownModalRef}>
           <div className='navbar__modal__inner' ref={dropdownModalInnerRef}>
-            <h3>MENU</h3>
-            <nav>
-              <ul>
-                <li>
-                  <div>
+            <h2>MENU</h2>
+            <nav className='navbar__modal__inner__nav'>
+              <ul className='navbar__modal__inner__links'>
+                <li className='navbar__modal__inner__links__item'>
+                  <div className='navbar__modal__inner__links__item__link'>
                     <NavLink to='/shop/new-arrivals'>NEW ARRIVALS</NavLink>
                   </div>
                 </li>
-                <li>
-                  <div>
+                <li className='navbar__modal__inner__links__item'>
+                  <div className='navbar__modal__inner__links__item__link'>
                     <NavLink to='/shop/all-watches'>ALL WATCHES</NavLink>
                   </div>
                 </li>
-                <li>
-                  <div>
+                <li className='navbar__modal__inner__links__item'>
+                  <div className='navbar__modal__inner__links__item__link'>
                     <NavLink to='/watches/all-brands'>BRANDS</NavLink>
                   </div>
                 </li>
