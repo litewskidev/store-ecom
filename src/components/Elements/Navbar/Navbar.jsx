@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { debounce } from 'lodash';
 import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
+import SocialLinks from '../SocialLinks/SocialLinks';
 
 const Navbar = () => {
   const navbarRef = useRef(null);
@@ -271,7 +272,7 @@ const Navbar = () => {
         <div id='navbar-modal' className='navbar__modal' ref={dropdownModalRef}>
           <div className='navbar__modal__inner' ref={dropdownModalInnerRef}>
             <div className='navbar__mobile__scroll'>
-              <h2>MENU</h2>
+              <h1>MENU</h1>
               <nav className='navbar__modal__inner__nav'>
                 <ul className='navbar__modal__inner__links'>
                   <li className='navbar__modal__inner__links__item'>
@@ -341,7 +342,13 @@ const Navbar = () => {
               <div className='navbar__modal__inner__image'>
                 <img src={process.env.PUBLIC_URL + '/assets/images/img_2.webp'} alt='' />
               </div>
-
+              <div className='navbar__modal__inner__footer'>
+                <NavLink>CONTACT US</NavLink>
+                <NavLink>ABOUT CULTURE</NavLink>
+                <NavLink>OUR STORES</NavLink>
+                <NavLink>FAQ</NavLink>
+              </div>
+              <SocialLinks />
             </div>
           </div>
         </div>
