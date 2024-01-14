@@ -9,7 +9,10 @@ const Navbar = () => {
   const dropdownModalRef = useRef(null);
   const dropdownModalInnerRef = useRef(null);
   const watchesListRef = useRef(null);
+  const watchesListBtnRef = useRef(null);
   const brandsListRef = useRef(null);
+  const brandsListBtnRef = useRef(null);
+
   const [scrollDirection, setScrollDirection] = useState(null);
 
   useEffect(() => {
@@ -79,11 +82,15 @@ const Navbar = () => {
 
   const toggleWatchesList = () => {
     const watchesList = watchesListRef.current;
+    const watchesListBtn = watchesListBtnRef.current;
+    watchesListBtn.classList.toggle('rotate');
     watchesList.classList.toggle('list-open');
   }
 
   const toggleBrandsList = () => {
     const brandsList = brandsListRef.current;
+    const brandsListBtn = brandsListBtnRef.current;
+    brandsListBtn.classList.toggle('rotate');
     brandsList.classList.toggle('list-open');
   }
 
@@ -266,12 +273,18 @@ const Navbar = () => {
                 <ul className='navbar__modal__inner__links'>
                   <li className='navbar__modal__inner__links__item'>
                     <div className='navbar__modal__inner__links__item__link'>
-                      <NavLink to='/shop/new-arrivals'>NEW ARRIVALS</NavLink>
+                      <NavLink to='/shop/new-arrivals' className='navbar__modal__inner__links__item__link__button'>
+                        <p>NEW ARRIVALS</p>
+                        <img src={process.env.PUBLIC_URL + '/assets/icons/arrow-right.svg'} alt='' />
+                      </NavLink>
                     </div>
                   </li>
                   <li className='navbar__modal__inner__links__item'>
                     <div className='navbar__modal__inner__links__item__link'>
-                      <p onClick={toggleWatchesList}>ALL WATCHES</p>
+                      <div className='navbar__modal__inner__links__item__link__button' onClick={toggleWatchesList}>
+                        <p>ALL WATCHES</p>
+                        <img src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' ref={watchesListBtnRef} />
+                      </div>
                       <div className='navbar__item__link__dropdown__list__items__inner' ref={watchesListRef}>
                         <ul>
                           <h4>SHOP BY CATEGORY</h4>
@@ -295,7 +308,10 @@ const Navbar = () => {
                   </li>
                   <li className='navbar__modal__inner__links__item'>
                     <div className='navbar__modal__inner__links__item__link'>
-                      <p onClick={toggleBrandsList}>BRANDS</p>
+                      <div className='navbar__modal__inner__links__item__link__button'  onClick={toggleBrandsList}>
+                        <p>BRANDS</p>
+                        <img src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' ref={brandsListBtnRef} />
+                      </div>
                       <div className='navbar__item__link__dropdown__list__items__inner' ref={brandsListRef}>
                         <ul>
                           <h4>FEATURED BRANDS</h4>

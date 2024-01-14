@@ -310,20 +310,6 @@
       }
     }
 
-    &__item__link__dropdown__list__items__inner {
-      transition: all .3s ease-out;
-      height: 0;
-      overflow: hidden;
-      visibility: hidden;
-
-      &.list-open {
-        transition: all .3s ease-out;
-        visibility: visible;
-        overflow: hidden;
-        height: 35rem;
-      }
-    }
-
     &__items {
       gap: 1.2rem;
     }
@@ -379,6 +365,24 @@
               a {
                 color: $jet;
               }
+
+              &__button {
+                width: 100%;
+                padding-right: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                img {
+                  width: 1rem;
+                  transform: rotate(0);
+                  transition: transform .3s ease-out;
+
+                  &.rotate {
+                    transform: rotate(180deg);
+                  }
+                }
+              }
             }
           }
         }
@@ -403,6 +407,20 @@
 
       &::-webkit-scrollbar {
         display: none;
+      }
+    }
+
+    &__item__link__dropdown__list__items__inner {
+      transition: all .3s ease-out;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+
+      &.list-open {
+        transition: all .3s ease-out;
+        visibility: visible;
+        overflow: hidden;
+        height: 35rem;
       }
     }
   }
