@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { debounce } from 'lodash';
 import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 
@@ -14,6 +15,10 @@ const Navbar = () => {
   const brandsListBtnRef = useRef(null);
 
   const [scrollDirection, setScrollDirection] = useState(null);
+  const [BodyOverflowHidden, setBodyOverflowHidden] = useState(false);
+
+  const scrollThreshold = 5;
+  const navbarThreshold = 60;
 
   useEffect(() => {
     const navbar = navbarRef.current;
@@ -22,77 +27,75 @@ const Navbar = () => {
 
     const updateScrollDirection = () => {
       const scrollY = window.scrollY;
-      const direction = scrollY > lastScrollY ? "down" : "up";
-      if(direction !== scrollDirection && (scrollY - lastScrollY > 5 || scrollY - lastScrollY < -5)) {
+      const direction = scrollY > lastScrollY ? 'down' : 'up';
+
+      if(Math.abs(scrollY - lastScrollY) > scrollThreshold && direction !== scrollDirection) {
         setScrollDirection(direction);
       }
-      lastScrollY = scrollY > 0 ? scrollY : 0;
+
+      lastScrollY = Math.max(0, scrollY);
     };
 
-    const scrollHeader = () => {
-      if(window.scrollY < 60) {
-        navbar.classList.add('nav-top');
-      }
-      else {
-        navbar.classList.remove('nav-top');
-      }
-      if(dropdownModal.classList.contains('active')) {
-        navbar.classList.remove('nav-top');
-      }
+    const updateScrollHeader = () => {
+      const isScrollBelow = window.scrollY >= navbarThreshold;
+      const isDropdownActive = dropdownModal.classList.contains('active');
+
+      navbar.classList.toggle('nav-top', !isScrollBelow && !isDropdownActive);
     };
 
-    window.addEventListener("scroll", updateScrollDirection, scrollHeader);
+    const handleScroll = debounce(() => {
+      updateScrollDirection();
+      updateScrollHeader();
+      navbar.classList.toggle('nav-close', scrollDirection === 'down');
+    }, scrollThreshold);
 
-    if(scrollDirection === 'down') {
-      navbar.classList.add('nav-close');
-    }
-    else {
-      navbar.classList.remove('nav-close');
-    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", updateScrollDirection);
-      window.addEventListener("scroll", scrollHeader);
-    }
+      window.removeEventListener('scroll', handleScroll);
+      handleScroll.cancel();
+    };
   }, [scrollDirection]);
 
   const toggleDropdown = () => {
-    const dropdownBtnMobile = dropdownBtnRefMobile.current;
-    const dropdownBtnTablet = dropdownBtnRefTablet.current;
     const dropdownModal = dropdownModalRef.current;
     const dropdownModalInner = dropdownModalInnerRef.current;
+    const dropdownBtnMobile = dropdownBtnRefMobile.current;
+    const dropdownBtnTablet = dropdownBtnRefTablet.current;
     const navbar = navbarRef.current;
 
-    dropdownBtnMobile.classList.toggle('active')
-    dropdownBtnTablet.classList.toggle('active');
-    dropdownModal.classList.toggle('active');
-    dropdownModalInner.classList.toggle('open');
+    const isDropdownActive = dropdownModal.classList.toggle('active');
+    const hideBodyOverflow = isDropdownActive;
 
-    if(dropdownModal.classList.contains('active')) {
-      document.body.style.overflow = "hidden";
-      navbar.classList.remove('nav-top');
-    }
-    else {
-      document.body.style.overflow = "scroll";
-      if(window.scrollY < 60) {
-        navbar.classList.add('nav-top');
-      }
+    setBodyOverflowHidden(hideBodyOverflow);
+    dropdownModalInner.classList.toggle('open', isDropdownActive);
+    dropdownBtnMobile.classList.toggle('active', isDropdownActive);
+    dropdownBtnTablet.classList.toggle('active', isDropdownActive);
+
+    if(isDropdownActive || window.scrollY < navbarThreshold) {
+      navbar.classList.toggle('nav-top', !isDropdownActive);
     }
   };
 
+  useEffect(() => {
+    document.body.style.overflow = BodyOverflowHidden ? 'hidden' : 'scroll';
+  }, [BodyOverflowHidden]);
+
+  const toggleList = (listRef, listBtnRef) => {
+    const list = listRef.current;
+    const listBtn = listBtnRef.current;
+
+    list.classList.toggle('list-open');
+    listBtn.classList.toggle('rotate');
+  };
+
   const toggleWatchesList = () => {
-    const watchesList = watchesListRef.current;
-    const watchesListBtn = watchesListBtnRef.current;
-    watchesListBtn.classList.toggle('rotate');
-    watchesList.classList.toggle('list-open');
-  }
+    toggleList(watchesListRef, watchesListBtnRef);
+  };
 
   const toggleBrandsList = () => {
-    const brandsList = brandsListRef.current;
-    const brandsListBtn = brandsListBtnRef.current;
-    brandsListBtn.classList.toggle('rotate');
-    brandsList.classList.toggle('list-open');
-  }
+    toggleList(brandsListRef, brandsListBtnRef);
+  };
 
   return(
     <div id='navbar' className='navbar nav-top' ref={navbarRef}>
@@ -338,6 +341,7 @@ const Navbar = () => {
               <div className='navbar__modal__inner__image'>
                 <img src={process.env.PUBLIC_URL + '/assets/images/img_2.jpg'} alt='' />
               </div>
+
             </div>
           </div>
         </div>

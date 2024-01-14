@@ -51,14 +51,7 @@
         gap: .5rem;
         cursor: pointer;
 
-        &__up {
-          background-color: $jet;
-          height: .1rem;
-          width: 1.5rem;
-          transition: transform 1s $cubic;
-        }
-
-        &__down {
+        &__up, &__down {
           background-color: $jet;
           height: .1rem;
           width: 1.5rem;
@@ -97,8 +90,8 @@
         left: 0;
         height: 60vh;
         background-color: $seasalt;
-        border-top: solid 0.063rem $timberwolf;
-        border-bottom: solid 0.063rem $timberwolf;
+        border-top: solid .063rem $timberwolf;
+        border-bottom: solid .063rem $timberwolf;
         z-index: 15;
         opacity: 0;
         visibility: hidden;
@@ -141,7 +134,7 @@
 
                 li {
                   text-underline-offset: .35rem;
-                  text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
+                  text-decoration: underline .063rem rgba(0, 0, 0, 0);
                   transition: text-decoration-color .3s $cubic;
                 }
 
@@ -153,26 +146,18 @@
 
             &__pattern {
               height: 100%;
-              width: 0.063rem;
+              width: .063rem;
               background-color: $timberwolf;
             }
           }
         }
       }
 
-      a {
+      a, p {
         font-size: 1rem;
         color: inherit;
         text-underline-offset: .5rem;
-        text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
-        transition: text-decoration-color .3s $cubic;
-      }
-
-      p {
-        font-size: 1rem;
-        color: inherit;
-        text-underline-offset: .5rem;
-        text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
+        text-decoration: underline .063rem rgba(0, 0, 0, 0);
         transition: text-decoration-color .3s $cubic;
       }
 
@@ -202,7 +187,7 @@
           background-color: transparent;
           border: none;
           outline: none;
-          border-bottom: solid 0.063rem $jet;
+          border-bottom: solid .063rem $jet;
           width: 7rem;
         }
       }
@@ -234,7 +219,7 @@
     &__field {
       input {
         color: $seasalt;
-        border-bottom: solid 0.063rem $seasalt;
+        border-bottom: solid .063rem $seasalt;
       }
     }
 
@@ -269,7 +254,7 @@
       &__field {
         input {
           color: $jet;
-          border-bottom: solid 0.063rem $jet;
+          border-bottom: solid .063rem $jet;
         }
       }
 
@@ -322,7 +307,7 @@
       height: 100vh;
       padding: 5rem 2rem 3rem;
       width: 100%;
-      background-color: rgb(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, .5);
       z-index: 1;
       opacity: 0;
       visibility: hidden;
@@ -338,13 +323,13 @@
         top: 0;
         right: 0;
         height: 100vh;
-        overflow: hidden;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
         width: 60%;
         padding: 8rem 1rem 0 1rem;
-        background-color: white;
+        background-color: $seasalt;
+        overflow: hidden;
         transform: translateX(100%);
         visibility: hidden;
         transition: all .4s ease-out;
@@ -355,7 +340,7 @@
 
           &__item {
             padding: 1rem 0;
-            border-top: solid 0.063rem $timberwolf;
+            border-top: solid .063rem $timberwolf;
 
             &__link {
               display: flex;
@@ -366,12 +351,16 @@
                 color: $jet;
               }
 
+              h4 {
+                margin-top: 1.2rem;
+              }
+
               &__button {
-                width: 100%;
-                padding-right: 1rem;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                width: 100%;
+                padding-right: 1rem;
 
                 img {
                   width: 1rem;
@@ -401,6 +390,9 @@
     }
 
     &__mobile__scroll {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
       overflow: scroll;
       -ms-overflow-style: none;
       scrollbar-width: none;
@@ -420,7 +412,7 @@
         transition: all .3s ease-out;
         visibility: visible;
         overflow: hidden;
-        height: 35rem;
+        height: 36rem;
       }
     }
   }
@@ -434,7 +426,7 @@
         &__field {
           input {
             color: $seasalt;
-            border-bottom: solid 0.063rem $seasalt;
+            border-bottom: solid .063rem $seasalt;
           }
         }
 
@@ -486,13 +478,13 @@
 
     &__search__form {
       &__field {
-      width: 100%;
-      z-index: 2;
-
-      input {
         width: 100%;
-        padding-bottom: .5rem;
-      }
+        z-index: 2;
+
+        input {
+          width: 100%;
+          padding-bottom: .5rem;
+        }
       }
 
       &__button {

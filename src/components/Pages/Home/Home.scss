@@ -15,7 +15,7 @@
       height: 80vh;
       object-fit: cover;
       z-index: -1;
-      filter: brightness(0.75);
+      filter: brightness(.75);
     }
 
     &__title {
@@ -37,7 +37,7 @@
         font-size: 1.5rem;
         color: $seasalt;
         padding: .5rem;
-        border: solid 0.063rem $seasalt;
+        border: solid .063rem $seasalt;
         background: transparent;
         cursor: pointer;
       }
