@@ -8,6 +8,8 @@ const Navbar = () => {
   const dropdownBtnRefTablet = useRef(null);
   const dropdownModalRef = useRef(null);
   const dropdownModalInnerRef = useRef(null);
+  const watchesListRef = useRef(null);
+  const brandsListRef = useRef(null);
   const [scrollDirection, setScrollDirection] = useState(null);
 
   useEffect(() => {
@@ -64,11 +66,26 @@ const Navbar = () => {
     dropdownModalInner.classList.toggle('open');
 
     if(dropdownModal.classList.contains('active')) {
+      document.body.style.overflow = "hidden";
       navbar.classList.remove('nav-top');
-    } else {
-      navbar.classList.add('nav-top');
+    }
+    else {
+      document.body.style.overflow = "scroll";
+      if(window.scrollY < 60) {
+        navbar.classList.add('nav-top');
+      }
     }
   };
+
+  const toggleWatchesList = () => {
+    const watchesList = watchesListRef.current;
+    watchesList.classList.toggle('list-open');
+  }
+
+  const toggleBrandsList = () => {
+    const brandsList = brandsListRef.current;
+    brandsList.classList.toggle('list-open');
+  }
 
   return(
     <div id='navbar' className='navbar nav-top' ref={navbarRef}>
@@ -243,28 +260,68 @@ const Navbar = () => {
         </div>
         <div id='navbar-modal' className='navbar__modal' ref={dropdownModalRef}>
           <div className='navbar__modal__inner' ref={dropdownModalInnerRef}>
-            <h2>MENU</h2>
-            <nav className='navbar__modal__inner__nav'>
-              <ul className='navbar__modal__inner__links'>
-                <li className='navbar__modal__inner__links__item'>
-                  <div className='navbar__modal__inner__links__item__link'>
-                    <NavLink to='/shop/new-arrivals'>NEW ARRIVALS</NavLink>
-                  </div>
-                </li>
-                <li className='navbar__modal__inner__links__item'>
-                  <div className='navbar__modal__inner__links__item__link'>
-                    <NavLink to='/shop/all-watches'>ALL WATCHES</NavLink>
-                  </div>
-                </li>
-                <li className='navbar__modal__inner__links__item'>
-                  <div className='navbar__modal__inner__links__item__link'>
-                    <NavLink to='/watches/all-brands'>BRANDS</NavLink>
-                  </div>
-                </li>
-              </ul>
-            </nav>
-            <div className='navbar__modal__inner__image'>
-              <img src={process.env.PUBLIC_URL + '/assets/images/img_2.jpg'} alt='' />
+            <div className='navbar__mobile__scroll'>
+              <h2>MENU</h2>
+              <nav className='navbar__modal__inner__nav'>
+                <ul className='navbar__modal__inner__links'>
+                  <li className='navbar__modal__inner__links__item'>
+                    <div className='navbar__modal__inner__links__item__link'>
+                      <NavLink to='/shop/new-arrivals'>NEW ARRIVALS</NavLink>
+                    </div>
+                  </li>
+                  <li className='navbar__modal__inner__links__item'>
+                    <div className='navbar__modal__inner__links__item__link'>
+                      <NavLink onClick={toggleWatchesList}>ALL WATCHES</NavLink>
+                      <div className='navbar__item__link__dropdown__list__items__inner' ref={watchesListRef}>
+                        <ul>
+                          <h4>SHOP BY CATEGORY</h4>
+                          <li>All Watches</li>
+                          <li>New Arrivals</li>
+                          <li>Coming Soon</li>
+                          <li>Best Sellers</li>
+                          <li>Men's Watches</li>
+                          <li>Women's Watches</li>
+                          <li>Sale</li>
+                          <h4>FEATURED COLLECTIONS</h4>
+                          <li>Grail Watches</li>
+                          <li>Independent Watches</li>
+                          <li>Anything But Ordinary</li>
+                          <li>Daily Drivers</li>
+                          <li>The Holy Trinity</li>
+                          <li>View All Collections</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li className='navbar__modal__inner__links__item'>
+                    <div className='navbar__modal__inner__links__item__link'>
+                      <NavLink onClick={toggleBrandsList}>BRANDS</NavLink>
+                      <div className='navbar__item__link__dropdown__list__items__inner' ref={brandsListRef}>
+                        <ul>
+                          <h4>FEATURED BRANDS</h4>
+                          <li>Rolex</li>
+                          <li>Audemars Piguet</li>
+                          <li>De Bethune</li>
+                          <li>Patek Philippe</li>
+                          <li>F.P. Journe</li>
+                          <li>H. Moser & Cie.</li>
+                          <li>A. Lange & Söhne</li>
+                          <li>Vacheron Constantin</li>
+                          <li>Tudor</li>
+                          <li>Breitling</li>
+                          <li>Omega</li>
+                          <li>Greubel Forsey</li>
+                          <h4>BRANDS A-Z</h4>
+                          <li>View All Brands</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+              <div className='navbar__modal__inner__image'>
+                <img src={process.env.PUBLIC_URL + '/assets/images/img_2.jpg'} alt='' />
+              </div>
             </div>
           </div>
         </div>
