@@ -168,6 +168,14 @@
         transition: text-decoration-color .3s $cubic;
       }
 
+      p {
+        font-size: 1rem;
+        color: inherit;
+        text-underline-offset: .5rem;
+        text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
+        transition: text-decoration-color .3s $cubic;
+      }
+
       &:hover {
         a {
           text-decoration-color: rgba(0, 0, 0, .5);
@@ -396,13 +404,6 @@
       &::-webkit-scrollbar {
         display: none;
       }
-    }
-
-    .close {
-      transition: all .3s ease-out;
-      height: 0;
-      overflow: hidden;
-      visibility: hidden;
     }
   }
 

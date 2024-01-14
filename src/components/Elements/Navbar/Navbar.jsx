@@ -271,7 +271,7 @@ const Navbar = () => {
                   </li>
                   <li className='navbar__modal__inner__links__item'>
                     <div className='navbar__modal__inner__links__item__link'>
-                      <NavLink onClick={toggleWatchesList}>ALL WATCHES</NavLink>
+                      <p onClick={toggleWatchesList}>ALL WATCHES</p>
                       <div className='navbar__item__link__dropdown__list__items__inner' ref={watchesListRef}>
                         <ul>
                           <h4>SHOP BY CATEGORY</h4>
@@ -295,7 +295,7 @@ const Navbar = () => {
                   </li>
                   <li className='navbar__modal__inner__links__item'>
                     <div className='navbar__modal__inner__links__item__link'>
-                      <NavLink onClick={toggleBrandsList}>BRANDS</NavLink>
+                      <p onClick={toggleBrandsList}>BRANDS</p>
                       <div className='navbar__item__link__dropdown__list__items__inner' ref={brandsListRef}>
                         <ul>
                           <h4>FEATURED BRANDS</h4>
