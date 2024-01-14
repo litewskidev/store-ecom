@@ -285,7 +285,7 @@
   display: none;
 }
 
-@media (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
   .navbar {
     &__body {
       height: 5rem;
@@ -450,7 +450,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .navbar{
     &__wrapper {
       padding: 0 1rem;

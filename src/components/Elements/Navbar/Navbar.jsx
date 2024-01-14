@@ -126,7 +126,7 @@ const Navbar = () => {
                 <NavLink to='/shop/all-watches'>ALL WATCHES</NavLink>
                 <div className='navbar__item__link__dropdown'>
                   <div className='navbar__item__link__dropdown__img'>
-                    <img src={process.env.PUBLIC_URL + '/assets/images/img_4.jpg'} alt='' />
+                    <img src={process.env.PUBLIC_URL + '/assets/images/img_4.webp'} alt='' />
                   </div>
                   <div className='navbar__item__link__dropdown__list'>
                     <div className='navbar__item__link__dropdown__list__items'>
@@ -194,7 +194,7 @@ const Navbar = () => {
                     </div>
                   </div>
                   <div className='navbar__item__link__dropdown__img'>
-                    <img src={process.env.PUBLIC_URL + '/assets/images/img_9.jpg'} alt='' />
+                    <img src={process.env.PUBLIC_URL + '/assets/images/img_9.webp'} alt='' />
                   </div>
                 </div>
               </li>
@@ -339,7 +339,7 @@ const Navbar = () => {
                 </ul>
               </nav>
               <div className='navbar__modal__inner__image'>
-                <img src={process.env.PUBLIC_URL + '/assets/images/img_2.jpg'} alt='' />
+                <img src={process.env.PUBLIC_URL + '/assets/images/img_2.webp'} alt='' />
               </div>
 
             </div>

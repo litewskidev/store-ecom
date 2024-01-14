@@ -45,10 +45,10 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .home {
     &__wrapper {
     }
