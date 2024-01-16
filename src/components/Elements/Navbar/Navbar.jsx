@@ -1,10 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { debounce } from 'lodash';
 import { NavLink } from 'react-router-dom';
+import SocialLinks from '../SocialLinks/SocialLinks.jsx';
 import './Navbar.scss';
-import SocialLinks from '../SocialLinks/SocialLinks';
+import Login from '../../Pages/Login/Login.jsx';
+import Register from '../../Pages/Register/Register.jsx';
 
 const Navbar = () => {
+
+  const user = false;
+  const cart = [];
+
   const navbarRef = useRef(null);
   const dropdownBtnRefMobile = useRef(null);
   const dropdownBtnRefTablet = useRef(null);
@@ -16,7 +22,7 @@ const Navbar = () => {
   const brandsListBtnRef = useRef(null);
 
   const [scrollDirection, setScrollDirection] = useState(null);
-  const [BodyOverflowHidden, setBodyOverflowHidden] = useState(false);
+  const [bodyOverflowHidden, setBodyOverflowHidden] = useState(false);
 
   const scrollThreshold = 5;
   const navbarThreshold = 60;
@@ -58,7 +64,11 @@ const Navbar = () => {
     };
   }, [scrollDirection]);
 
-  const toggleDropdown = () => {
+  useEffect(() => {
+    document.body.style.overflow = bodyOverflowHidden ? 'hidden' : 'scroll';
+  }, [bodyOverflowHidden]);
+
+  const toggleDropdown = useCallback( () => {
     const dropdownModal = dropdownModalRef.current;
     const dropdownModalInner = dropdownModalInnerRef.current;
     const dropdownBtnMobile = dropdownBtnRefMobile.current;
@@ -76,27 +86,23 @@ const Navbar = () => {
     if(isDropdownActive || window.scrollY < navbarThreshold) {
       navbar.classList.toggle('nav-top', !isDropdownActive);
     }
-  };
+  }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = BodyOverflowHidden ? 'hidden' : 'scroll';
-  }, [BodyOverflowHidden]);
-
-  const toggleList = (listRef, listBtnRef) => {
+  const toggleList = useCallback((listRef, listBtnRef) => {
     const list = listRef.current;
     const listBtn = listBtnRef.current;
 
     list.classList.toggle('list-open');
     listBtn.classList.toggle('rotate');
-  };
+  }, []);
 
-  const toggleWatchesList = () => {
+  const toggleWatchesList = useCallback(() => {
     toggleList(watchesListRef, watchesListBtnRef);
-  };
+  }, [toggleList]);
 
-  const toggleBrandsList = () => {
+  const toggleBrandsList = useCallback(() => {
     toggleList(brandsListRef, brandsListBtnRef);
-  };
+  }, [toggleList]);
 
   return(
     <div id='navbar' className='navbar nav-top' ref={navbarRef}>
@@ -343,14 +349,23 @@ const Navbar = () => {
                 <img src={process.env.PUBLIC_URL + '/assets/images/img_2.webp'} alt='' />
               </div>
               <div className='navbar__modal__inner__footer'>
-                <NavLink>CONTACT US</NavLink>
-                <NavLink>ABOUT CULTURE</NavLink>
-                <NavLink>OUR STORES</NavLink>
-                <NavLink>FAQ</NavLink>
+                <NavLink to='/contact'>CONTACT US</NavLink>
+                <NavLink to='/about'>ABOUT CULTURE</NavLink>
+                <NavLink to='/stores'>OUR STORES</NavLink>
+                <NavLink to='/faq'>FAQ</NavLink>
               </div>
               <SocialLinks />
             </div>
           </div>
+        </div>
+        <div className='navbar__login'>
+          <Login />
+        </div>
+        <div className='navbar__register'>
+          <Register />
+        </div>
+        <div className='navbar__cart'>
+
         </div>
       </div>
     </div>
