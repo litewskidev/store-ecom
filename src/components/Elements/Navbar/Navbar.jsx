@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { debounce } from 'lodash';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Navigate } from 'react-router-dom';
+import Login from '../Login/Login.jsx';
+import Register from '../Register/Register.jsx';
 import SocialLinks from '../SocialLinks/SocialLinks.jsx';
 import './Navbar.scss';
-import Login from '../../Pages/Login/Login.jsx';
-import Register from '../../Pages/Register/Register.jsx';
 
 const Navbar = () => {
 
@@ -270,7 +270,7 @@ const Navbar = () => {
                         <ul>
                           {navbarMenu.shopByCategory.links.map((item, index) => (
                             <li key={index}>
-                              <NavLink to={`/watches/${item.id}`}>{item.name}</NavLink>
+                              <NavLink to={`/categories/${item.id}`}>{item.name}</NavLink>
                             </li>
                           ))}
                         </ul>
@@ -422,7 +422,7 @@ const Navbar = () => {
                           <h4>{navbarMenu.shopByCategory.title}</h4>
                             {navbarMenu.shopByCategory.links.map((item, index) => (
                               <li key={index}>
-                                <NavLink to={`/watches/${item.id}`}>{item.name}</NavLink>
+                                <NavLink to={`/categories/${item.id}`}>{item.name}</NavLink>
                               </li>
                             ))}
                           <h4>{navbarMenu.featuredCollections.title}</h4>
@@ -475,10 +475,10 @@ const Navbar = () => {
           </div>
         </div>
         <div className='navbar__login'>
-          <Login />
+          { user ? <Navigate to='/profile' replace /> : <Login /> }
         </div>
         <div className='navbar__register'>
-          <Register />
+          { user ? <Navigate to='/profile' replace /> : <Register /> }
         </div>
         <div className='navbar__cart'>
 
