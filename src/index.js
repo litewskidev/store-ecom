@@ -26,11 +26,12 @@ const router = createBrowserRouter(
       <Route path='/login' element={ user ? <Navigate to='/' replace /> : <Login /> } />
       <Route path='/register' element={ user ? <Navigate to='/' replace /> : <Register /> } />
       <Route path='/profile' element={ user ? <UserProfile /> : <Navigate to='/login' replace /> } />
-      <Route path='/shop/all-watches' element={ <AllProducts /> } />
-      <Route path='/shop/new-arrivals' element={ <NewArrivals /> } />
-      <Route path='/shop/:id' element={ <ProductCard /> } />
-      <Route path='/watches/all-brands' element={ <AllBrands /> } />
-      <Route path='/watches/:brand' element={ <BrandList /> } />
+      <Route path='/watches/all-watches' element={ <AllWatches /> } />
+      <Route path='/watches/:id' element={ <CategoryList /> } />
+      <Route path='/brands/all-brands' element={ <AllBrands /> } />
+      <Route path='/brands/:id' element={ <BrandList /> } />
+      <Route path='/collections/all-collections' element={ <AllCollections /> } />
+      <Route path='/collections/:id' element={ <CollectionList /> } />
       <Route path='/cart' element={ <Cart /> } />
       <Route path='/success' element={ <Success /> } />
       <Route path='*' element={ <E404 /> } />

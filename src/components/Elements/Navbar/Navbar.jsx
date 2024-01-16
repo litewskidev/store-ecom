@@ -104,6 +104,134 @@ const Navbar = () => {
     toggleList(brandsListRef, brandsListBtnRef);
   }, [toggleList]);
 
+
+  const navbarMenu = {
+    shopByCategory: {
+      title: 'SHOP BY CATEGORY',
+      links: [
+        {
+          id: 'all-watches',
+          name: 'All Watches'
+        },
+        {
+          id: 'new-arrivals',
+          name: 'New Arrivals'
+        },
+        {
+          id: 'coming-soon',
+          name: 'Coming Soon'
+        },
+        {
+          id: 'best-sellers',
+          name: 'Best Sellers'
+        },
+        {
+          id: 'men-watches',
+          name: `Men's Watches`
+        },
+        {
+          id: 'women-watches',
+          name: `Women's Watches`
+        },
+        {
+          id: 'sale',
+          name: 'Sale'
+        }
+      ]
+    },
+    featuredCollections: {
+      title: 'FEATURED COLLECTIONS',
+      links: [
+        {
+          id: 'grail-watches',
+          name: 'Grail Watches',
+        },
+        {
+          id: 'independent-watches',
+          name: 'Independent Watches',
+        },
+        {
+          id: 'anything-but-ordinary',
+          name: 'Anything But Ordinary',
+        },
+        {
+          id: 'daily-drivers',
+          name: 'Daily Drivers',
+        },
+        {
+          id: 'holy-trinity',
+          name: 'The Holy Trinity',
+        },
+        {
+          id: 'all-collections',
+          name: 'View All Collections',
+        }
+      ]
+    },
+    featuredBrands: {
+      title: 'FEATURED BRANDS',
+      links: [
+        {
+          id: 'rolex',
+          name: 'Rolex'
+        },
+        {
+          id: 'audemars-piguet',
+          name: 'Audemars Piguet'
+        },
+        {
+          id: 'de-bethune',
+          name: 'De Bethune'
+        },
+        {
+          id: 'patek-philippe',
+          name: 'Patek Philippe'
+        },
+        {
+          id: 'journe',
+          name: 'F.P. Journe'
+        },
+        {
+          id: 'moser&cie',
+          name: 'H. Moser & Cie.'
+        },
+        {
+          id: 'lange&sohne',
+          name: 'A. Lange & Söhne'
+        },
+        {
+          id: 'vacheron-constantin',
+          name: 'Vacheron Constantin'
+        },
+        {
+          id: 'tudor',
+          name: 'Tudor'
+        },
+        {
+          id: 'breitling',
+          name: 'Breitling'
+        },
+        {
+          id: 'omega',
+          name: 'Omega'
+        },
+        {
+          id: 'greubel-forsey',
+          name: 'Greubel Forsey'
+        }
+      ]
+    },
+    allBrands: {
+      title: 'BRANDS A-Z',
+      links: [
+        {
+          id: 'all-brands',
+          name: 'View All Brands'
+        }
+      ]
+    }
+  };
+
   return(
     <div id='navbar' className='navbar nav-top' ref={navbarRef}>
       <div className='navbar__wrapper'>
@@ -138,29 +266,26 @@ const Navbar = () => {
                   <div className='navbar__item__link__dropdown__list'>
                     <div className='navbar__item__link__dropdown__list__items'>
                       <div className='navbar__item__link__dropdown__list__items__inner'>
-                        <h4>SHOP BY CATEGORY</h4>
+                        <h4>{navbarMenu.shopByCategory.title}</h4>
                         <ul>
-                          <li>All Watches</li>
-                          <li>New Arrivals</li>
-                          <li>Coming Soon</li>
-                          <li>Best Sellers</li>
-                          <li>Men's Watches</li>
-                          <li>Women's Watches</li>
-                          <li>Sale</li>
+                          {navbarMenu.shopByCategory.links.map((item, index) => (
+                            <li key={index}>
+                              <NavLink to={`/watches/${item.id}`}>{item.name}</NavLink>
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </div>
                     <div className='navbar__item__link__dropdown__list__items__pattern'></div>
                     <div className='navbar__item__link__dropdown__list__items'>
                       <div className='navbar__item__link__dropdown__list__items__inner'>
-                        <h4>FEATURED COLLECTIONS</h4>
+                        <h4>{navbarMenu.featuredCollections.title}</h4>
                         <ul>
-                          <li>Grail Watches</li>
-                          <li>Independent Watches</li>
-                          <li>Anything But Ordinary</li>
-                          <li>Daily Drivers</li>
-                          <li>The Holy Trinity</li>
-                          <li>View All Collections</li>
+                          {navbarMenu.featuredCollections.links.map((item, index) => (
+                            <li key={index}>
+                              <NavLink to={`/collections/${item.id}`}>{item.name}</NavLink>
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </div>
@@ -173,29 +298,26 @@ const Navbar = () => {
                   <div className='navbar__item__link__dropdown__list'>
                     <div className='navbar__item__link__dropdown__list__items'>
                       <div className='navbar__item__link__dropdown__list__items__inner'>
-                        <h4>FEATURED BRANDS</h4>
+                        <h4>{navbarMenu.featuredBrands.title}</h4>
                         <ul>
-                          <li>Rolex</li>
-                          <li>Audemars Piguet</li>
-                          <li>De Bethune</li>
-                          <li>Patek Philippe</li>
-                          <li>F.P. Journe</li>
-                          <li>H. Moser & Cie.</li>
-                          <li>A. Lange & Söhne</li>
-                          <li>Vacheron Constantin</li>
-                          <li>Tudor</li>
-                          <li>Breitling</li>
-                          <li>Omega</li>
-                          <li>Greubel Forsey</li>
+                          {navbarMenu.featuredBrands.links.map((item, index) => (
+                            <li key={index}>
+                              <NavLink to={`/brands/${item.id}`}>{item.name}</NavLink>
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </div>
                     <div className='navbar__item__link__dropdown__list__items__pattern'></div>
                     <div className='navbar__item__link__dropdown__list__items'>
                       <div className='navbar__item__link__dropdown__list__items__inner'>
-                        <h4>BRANDS A-Z</h4>
+                        <h4>{navbarMenu.allBrands.title}</h4>
                         <ul>
-                          <li>View All Brands</li>
+                          {navbarMenu.allBrands.links.map((item, index) => (
+                            <li key={index}>
+                              <NavLink to={`/brands/${item.id}`}>{item.name}</NavLink>
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </div>
@@ -297,21 +419,18 @@ const Navbar = () => {
                       </div>
                       <div className='navbar__item__link__dropdown__list__items__inner' ref={watchesListRef}>
                         <ul>
-                          <h4>SHOP BY CATEGORY</h4>
-                          <li>All Watches</li>
-                          <li>New Arrivals</li>
-                          <li>Coming Soon</li>
-                          <li>Best Sellers</li>
-                          <li>Men's Watches</li>
-                          <li>Women's Watches</li>
-                          <li>Sale</li>
-                          <h4>FEATURED COLLECTIONS</h4>
-                          <li>Grail Watches</li>
-                          <li>Independent Watches</li>
-                          <li>Anything But Ordinary</li>
-                          <li>Daily Drivers</li>
-                          <li>The Holy Trinity</li>
-                          <li>View All Collections</li>
+                          <h4>{navbarMenu.shopByCategory.title}</h4>
+                            {navbarMenu.shopByCategory.links.map((item, index) => (
+                              <li key={index}>
+                                <NavLink to={`/watches/${item.id}`}>{item.name}</NavLink>
+                              </li>
+                            ))}
+                          <h4>{navbarMenu.featuredCollections.title}</h4>
+                            {navbarMenu.featuredCollections.links.map((item, index) => (
+                              <li key={index}>
+                                <NavLink to={`/collections/${item.id}`}>{item.name}</NavLink>
+                              </li>
+                            ))}
                         </ul>
                       </div>
                     </div>
@@ -324,21 +443,18 @@ const Navbar = () => {
                       </div>
                       <div className='navbar__item__link__dropdown__list__items__inner' ref={brandsListRef}>
                         <ul>
-                          <h4>FEATURED BRANDS</h4>
-                          <li>Rolex</li>
-                          <li>Audemars Piguet</li>
-                          <li>De Bethune</li>
-                          <li>Patek Philippe</li>
-                          <li>F.P. Journe</li>
-                          <li>H. Moser & Cie.</li>
-                          <li>A. Lange & Söhne</li>
-                          <li>Vacheron Constantin</li>
-                          <li>Tudor</li>
-                          <li>Breitling</li>
-                          <li>Omega</li>
-                          <li>Greubel Forsey</li>
-                          <h4>BRANDS A-Z</h4>
-                          <li>View All Brands</li>
+                          <h4>{navbarMenu.featuredBrands.title}</h4>
+                            {navbarMenu.featuredBrands.links.map((item, index) => (
+                              <li key={index}>
+                                <NavLink to={`/brands/${item.id}`}>{item.name}</NavLink>
+                              </li>
+                            ))}
+                          <h4>{navbarMenu.allBrands.title}</h4>
+                            {navbarMenu.allBrands.links.map((item, index) => (
+                              <li key={index}>
+                                <NavLink to={`/brands/${item.id}`}>{item.name}</NavLink>
+                              </li>
+                            ))}
                         </ul>
                       </div>
                     </div>

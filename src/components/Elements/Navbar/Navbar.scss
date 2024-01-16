@@ -136,6 +136,11 @@
                   text-underline-offset: .35rem;
                   text-decoration: underline .063rem rgba(0, 0, 0, 0);
                   transition: text-decoration-color .3s $cubic;
+
+                  a {
+                    text-decoration: none;
+                    color: $jet;
+                  }
                 }
 
                 li:hover {
