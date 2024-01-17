@@ -6,7 +6,9 @@ const App = () => {
   return(
     <main id='main'>
       <Navbar />
-      <Outlet />
+      <div className='main__body'>
+        <Outlet />
+      </div>
     </main>
   );
 };

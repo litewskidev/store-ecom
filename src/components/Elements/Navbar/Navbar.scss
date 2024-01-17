@@ -5,11 +5,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999;
   background-color: $seasalt;
   color: $jet;
   transform: translateY(0);
   transition: all .4s ease-out;
+  z-index: 99;
 
   &__wrapper {
     display: flex;
@@ -73,6 +73,13 @@
       img {
         display: block;
         width: 1.5rem;
+      }
+
+      button {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
       }
     }
 
@@ -207,6 +214,35 @@
           width: 1.5rem;
           display: block;
         }
+      }
+    }
+  }
+
+  &__login, &__register {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s ease-out;
+    z-index: 20;
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &__inner {
+      transform: translateX(100%);
+      visibility: hidden;
+      transition: all .4s ease-out;
+
+      &.open {
+        visibility: visible;
+        transform: translateX(0);
       }
     }
   }

@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { debounce } from 'lodash';
-import { NavLink, Navigate } from 'react-router-dom';
+import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import Login from '../Login/Login.jsx';
 import Register from '../Register/Register.jsx';
 import SocialLinks from '../SocialLinks/SocialLinks.jsx';
 import './Navbar.scss';
 
 const Navbar = () => {
+  const navigate = useNavigate();
 
   const user = false;
   const cart = [];
@@ -20,6 +21,8 @@ const Navbar = () => {
   const watchesListBtnRef = useRef(null);
   const brandsListRef = useRef(null);
   const brandsListBtnRef = useRef(null);
+  const loginModalRef = useRef(null);
+  const loginModalInnerRef = useRef(null);
 
   const [scrollDirection, setScrollDirection] = useState(null);
   const [bodyOverflowHidden, setBodyOverflowHidden] = useState(false);
@@ -104,6 +107,26 @@ const Navbar = () => {
     toggleList(brandsListRef, brandsListBtnRef);
   }, [toggleList]);
 
+  const toggleProfile = useCallback(() => {
+    const loginModal = loginModalRef.current;
+    const loginModalInner = loginModalInnerRef.current;
+    const navbar = navbarRef.current;
+
+    if(user) {
+      navigate('/profile');
+    }
+    else {
+      const isModalActive = loginModal.classList.toggle('active');
+      const hideBodyOverflow = isModalActive;
+
+      setBodyOverflowHidden(hideBodyOverflow);
+      loginModalInner.classList.toggle('open', isModalActive);
+
+      if(isModalActive || window.scrollY < navbarThreshold) {
+        navbar.classList.toggle('nav-top', !isModalActive);
+      }
+    }
+  }, [user, navigate]);
 
   const navbarMenu = {
     shopByCategory: {
@@ -255,10 +278,10 @@ const Navbar = () => {
           <nav className='navbar__body__center'>
             <ul className='navbar__items'>
               <li className='navbar__item__link'>
-                <NavLink to='/shop/new-arrivals'>NEW ARRIVALS</NavLink>
+                <NavLink to='/categories/new-arrivals'>NEW ARRIVALS</NavLink>
               </li>
               <li className='navbar__item__link'>
-                <NavLink to='/shop/all-watches'>ALL WATCHES</NavLink>
+                <NavLink to='/categories/all-watches'>ALL WATCHES</NavLink>
                 <div className='navbar__item__link__dropdown'>
                   <div className='navbar__item__link__dropdown__img'>
                     <img src={process.env.PUBLIC_URL + '/assets/images/img_4.webp'} alt='' />
@@ -293,7 +316,7 @@ const Navbar = () => {
                 </div>
               </li>
               <li className='navbar__item__link'>
-                <NavLink to='/watches/all-brands'>BRANDS</NavLink>
+                <NavLink to='/brands/all-brands'>BRANDS</NavLink>
                 <div className='navbar__item__link__dropdown'>
                   <div className='navbar__item__link__dropdown__list'>
                     <div className='navbar__item__link__dropdown__list__items'>
@@ -363,9 +386,9 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className='navbar__item__icon'>
-                <NavLink to='/profile'>
+                <button to='/profile' onClick={toggleProfile}>
                   <img src={process.env.PUBLIC_URL + '/assets/icons/user.svg'} alt='account button' />
-                </NavLink>
+                </button>
               </li>
               <li className='navbar__item__icon'>
                 <NavLink to='/cart'>
@@ -405,7 +428,7 @@ const Navbar = () => {
                 <ul className='navbar__modal__inner__links'>
                   <li className='navbar__modal__inner__links__item'>
                     <div className='navbar__modal__inner__links__item__link'>
-                      <NavLink to='/shop/new-arrivals' className='navbar__modal__inner__links__item__link__button'>
+                      <NavLink to='/categories/new-arrivals' className='navbar__modal__inner__links__item__link__button'>
                         <p>NEW ARRIVALS</p>
                         <img src={process.env.PUBLIC_URL + '/assets/icons/arrow-right.svg'} alt='' />
                       </NavLink>
@@ -474,8 +497,10 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className='navbar__login'>
-          { user ? <Navigate to='/profile' replace /> : <Login /> }
+        <div className='navbar__login' ref={loginModalRef}>
+          <div className='navbar__login__inner' ref={loginModalInnerRef}>
+            <Login handleBtn={toggleProfile} />
+          </div>
         </div>
         <div className='navbar__register'>
           { user ? <Navigate to='/profile' replace /> : <Register /> }
