@@ -1,38 +1,32 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { debounce } from 'lodash';
-import { NavLink, Navigate, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Login from '../Login/Login.jsx';
 import Register from '../Register/Register.jsx';
 import SocialLinks from '../SocialLinks/SocialLinks.jsx';
 import './Navbar.scss';
 
 const Navbar = () => {
-  const navigate = useNavigate();
-
   const user = false;
-  const cart = [];
 
+  const navigate = useNavigate();
   const navbarRef = useRef(null);
-  const dropdownBtnRefMobile = useRef(null);
-  const dropdownBtnRefTablet = useRef(null);
-  const dropdownModalRef = useRef(null);
-  const dropdownModalInnerRef = useRef(null);
-  const watchesListRef = useRef(null);
-  const watchesListBtnRef = useRef(null);
-  const brandsListRef = useRef(null);
-  const brandsListBtnRef = useRef(null);
-  const loginModalRef = useRef(null);
-  const loginModalInnerRef = useRef(null);
-
-  const [scrollDirection, setScrollDirection] = useState(null);
   const [bodyOverflowHidden, setBodyOverflowHidden] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState(null);
+  const [isLoginActive, setIsLoginActive] = useState(false);
+  const [isDropdownActive, setIsDropdownActive] = useState(false);
+  const [isWatchesListActive, setIsWatchesListActive] = useState(false);
+  const [isBrandsListActive, setIsBrandsListActive] = useState(false);
 
   const scrollThreshold = 5;
   const navbarThreshold = 60;
 
   useEffect(() => {
+    document.body.style.overflow = bodyOverflowHidden ? 'hidden' : 'scroll';
+  }, [bodyOverflowHidden]);
+
+  useEffect(() => {
     const navbar = navbarRef.current;
-    const dropdownModal = dropdownModalRef.current;
     let lastScrollY = window.scrollY;
 
     const updateScrollDirection = () => {
@@ -48,9 +42,7 @@ const Navbar = () => {
 
     const updateScrollHeader = () => {
       const isScrollBelow = window.scrollY >= navbarThreshold;
-      const isDropdownActive = dropdownModal.classList.contains('active');
-
-      navbar.classList.toggle('nav-top', !isScrollBelow && !isDropdownActive);
+      navbar.classList.toggle('nav-top', !isScrollBelow);
     };
 
     const handleScroll = debounce(() => {
@@ -67,66 +59,33 @@ const Navbar = () => {
     };
   }, [scrollDirection]);
 
-  useEffect(() => {
-    document.body.style.overflow = bodyOverflowHidden ? 'hidden' : 'scroll';
-  }, [bodyOverflowHidden]);
-
-  const toggleDropdown = useCallback( () => {
-    const dropdownModal = dropdownModalRef.current;
-    const dropdownModalInner = dropdownModalInnerRef.current;
-    const dropdownBtnMobile = dropdownBtnRefMobile.current;
-    const dropdownBtnTablet = dropdownBtnRefTablet.current;
-    const navbar = navbarRef.current;
-
-    const isDropdownActive = dropdownModal.classList.toggle('active');
-    const hideBodyOverflow = isDropdownActive;
-
-    setBodyOverflowHidden(hideBodyOverflow);
-    dropdownModalInner.classList.toggle('open', isDropdownActive);
-    dropdownBtnMobile.classList.toggle('active', isDropdownActive);
-    dropdownBtnTablet.classList.toggle('active', isDropdownActive);
-
-    if(isDropdownActive || window.scrollY < navbarThreshold) {
-      navbar.classList.toggle('nav-top', !isDropdownActive);
-    }
-  }, []);
-
-  const toggleList = useCallback((listRef, listBtnRef) => {
-    const list = listRef.current;
-    const listBtn = listBtnRef.current;
-
-    list.classList.toggle('list-open');
-    listBtn.classList.toggle('rotate');
-  }, []);
-
-  const toggleWatchesList = useCallback(() => {
-    toggleList(watchesListRef, watchesListBtnRef);
-  }, [toggleList]);
-
-  const toggleBrandsList = useCallback(() => {
-    toggleList(brandsListRef, brandsListBtnRef);
-  }, [toggleList]);
-
-  const toggleProfile = useCallback(() => {
-    const loginModal = loginModalRef.current;
-    const loginModalInner = loginModalInnerRef.current;
-    const navbar = navbarRef.current;
-
+  const toggleLogin = useCallback(() => {
     if(user) {
       navigate('/profile');
     }
     else {
-      const isModalActive = loginModal.classList.toggle('active');
-      const hideBodyOverflow = isModalActive;
-
-      setBodyOverflowHidden(hideBodyOverflow);
-      loginModalInner.classList.toggle('open', isModalActive);
-
-      if(isModalActive || window.scrollY < navbarThreshold) {
-        navbar.classList.toggle('nav-top', !isModalActive);
-      }
+      setBodyOverflowHidden(prev => !prev);
+      setIsLoginActive(prev => !prev);
     }
   }, [user, navigate]);
+
+  const toggleDropdown = useCallback(() => {
+    const navbar = navbarRef.current;
+    setBodyOverflowHidden(prev => !prev);
+    setIsDropdownActive(prev => !prev);
+
+    if(window.scrollY < navbarThreshold) {
+      navbar.classList.toggle('nav-top');
+    }
+  }, [navbarThreshold]);
+
+  const toggleWatchesList = useCallback(() => {
+    setIsWatchesListActive(prev => !prev);
+  }, []);
+
+  const toggleBrandsList = useCallback(() => {
+    setIsBrandsListActive(prev => !prev);
+  }, []);
 
   const navbarMenu = {
     shopByCategory: {
@@ -262,7 +221,7 @@ const Navbar = () => {
           <nav className='navbar__body__left'>
             <ul className='navbar__items'>
               <li className='navbar__item__menu'>
-                <button className='navbar__item__menu__button' onClick={toggleDropdown} ref={dropdownBtnRefMobile}>
+                <button className={isDropdownActive ? 'navbar__item__menu__button active' : 'navbar__item__menu__button'} onClick={toggleDropdown}>
                   <div className='navbar__item__menu__button__up'></div>
                   <div className='navbar__item__menu__button__down'></div>
                 </button>
@@ -386,7 +345,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className='navbar__item__icon'>
-                <button to='/profile' onClick={toggleProfile}>
+                <button to='/profile' onClick={toggleLogin}>
                   <img src={process.env.PUBLIC_URL + '/assets/icons/user.svg'} alt='account button' />
                 </button>
               </li>
@@ -396,7 +355,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className='navbar__item__menu tablet__only'>
-                <button className='navbar__item__menu__button' onClick={toggleDropdown} ref={dropdownBtnRefTablet}>
+                <button className={isDropdownActive ? 'navbar__item__menu__button active' : 'navbar__item__menu__button'} onClick={toggleDropdown}>
                   <div className='navbar__item__menu__button__up'></div>
                   <div className='navbar__item__menu__button__down'></div>
                 </button>
@@ -420,8 +379,8 @@ const Navbar = () => {
             </form>
           </div>
         </div>
-        <div id='navbar-modal' className='navbar__modal' ref={dropdownModalRef}>
-          <div className='navbar__modal__inner' ref={dropdownModalInnerRef}>
+        <div id='navbar-modal' className={isDropdownActive ? 'navbar__modal active' : 'navbar__modal'}>
+          <div className={isDropdownActive ? 'navbar__modal__inner open' : 'navbar__modal__inner'}>
             <div className='navbar__mobile__scroll'>
               <h1>MENU</h1>
               <nav className='navbar__modal__inner__nav'>
@@ -438,9 +397,9 @@ const Navbar = () => {
                     <div className='navbar__modal__inner__links__item__link'>
                       <div className='navbar__modal__inner__links__item__link__button' onClick={toggleWatchesList}>
                         <p>ALL WATCHES</p>
-                        <img src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' ref={watchesListBtnRef} />
+                        <img className={isWatchesListActive ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' />
                       </div>
-                      <div className='navbar__item__link__dropdown__list__items__inner' ref={watchesListRef}>
+                      <div className={isWatchesListActive ? 'navbar__item__link__dropdown__list__items__inner list-open' : 'navbar__item__link__dropdown__list__items__inner'}>
                         <ul>
                           <h4>{navbarMenu.shopByCategory.title}</h4>
                             {navbarMenu.shopByCategory.links.map((item, index) => (
@@ -462,9 +421,9 @@ const Navbar = () => {
                     <div className='navbar__modal__inner__links__item__link'>
                       <div className='navbar__modal__inner__links__item__link__button'  onClick={toggleBrandsList}>
                         <p>BRANDS</p>
-                        <img src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' ref={brandsListBtnRef} />
+                        <img className={isBrandsListActive ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' />
                       </div>
-                      <div className='navbar__item__link__dropdown__list__items__inner' ref={brandsListRef}>
+                      <div className={isBrandsListActive ? 'navbar__item__link__dropdown__list__items__inner list-open' : 'navbar__item__link__dropdown__list__items__inner'}>
                         <ul>
                           <h4>{navbarMenu.featuredBrands.title}</h4>
                             {navbarMenu.featuredBrands.links.map((item, index) => (
@@ -497,13 +456,13 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className='navbar__login' ref={loginModalRef}>
-          <div className='navbar__login__inner' ref={loginModalInnerRef}>
-            <Login handleBtn={toggleProfile} />
+        <div className={isLoginActive ? 'navbar__login active' : 'navbar__login'}>
+          <div className={isLoginActive ? 'navbar__login__inner open' : 'navbar__login__inner'}>
+            <Login handleBtn={toggleLogin} />
           </div>
         </div>
         <div className='navbar__register'>
-          { user ? <Navigate to='/profile' replace /> : <Register /> }
+          <Register />
         </div>
         <div className='navbar__cart'>
 
