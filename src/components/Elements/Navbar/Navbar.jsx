@@ -7,8 +7,6 @@ import SocialLinks from '../SocialLinks/SocialLinks.jsx';
 import './Navbar.scss';
 
 const Navbar = () => {
-  const user = false;
-
   const navigate = useNavigate();
   const navbarRef = useRef(null);
   const [bodyOverflowHidden, setBodyOverflowHidden] = useState(false);
@@ -18,6 +16,7 @@ const Navbar = () => {
   const [isWatchesListActive, setIsWatchesListActive] = useState(false);
   const [isBrandsListActive, setIsBrandsListActive] = useState(false);
 
+  const user = false;
   const scrollThreshold = 5;
   const navbarThreshold = 60;
 
@@ -42,13 +41,19 @@ const Navbar = () => {
 
     const updateScrollHeader = () => {
       const isScrollBelow = window.scrollY >= navbarThreshold;
-      navbar.classList.toggle('nav-top', !isScrollBelow);
+
+      if(navbar) {
+        navbar.classList.toggle('nav-top', !isScrollBelow);
+      }
     };
 
     const handleScroll = debounce(() => {
       updateScrollDirection();
       updateScrollHeader();
-      navbar.classList.toggle('nav-close', scrollDirection === 'down');
+
+      if(navbar){
+        navbar.classList.toggle('nav-close', scrollDirection === 'down');
+      }
     }, scrollThreshold);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -71,13 +76,14 @@ const Navbar = () => {
 
   const toggleDropdown = useCallback(() => {
     const navbar = navbarRef.current;
+
     setBodyOverflowHidden(prev => !prev);
     setIsDropdownActive(prev => !prev);
 
     if(window.scrollY < navbarThreshold) {
       navbar.classList.toggle('nav-top');
     }
-  }, [navbarThreshold]);
+  }, []);
 
   const toggleWatchesList = useCallback(() => {
     setIsWatchesListActive(prev => !prev);
@@ -379,15 +385,15 @@ const Navbar = () => {
             </form>
           </div>
         </div>
-        <div id='navbar-modal' className={isDropdownActive ? 'navbar__modal active' : 'navbar__modal'}>
+        <div className={isDropdownActive ? 'navbar__modal active' : 'navbar__modal'}>
           <div className={isDropdownActive ? 'navbar__modal__inner open' : 'navbar__modal__inner'}>
             <div className='navbar__mobile__scroll'>
-              <h1>MENU</h1>
+              <h2>MENU</h2>
               <nav className='navbar__modal__inner__nav'>
                 <ul className='navbar__modal__inner__links'>
                   <li className='navbar__modal__inner__links__item'>
                     <div className='navbar__modal__inner__links__item__link'>
-                      <NavLink to='/categories/new-arrivals' className='navbar__modal__inner__links__item__link__button'>
+                      <NavLink to='/categories/new-arrivals' className='navbar__modal__inner__links__item__link__button' onClick={toggleDropdown}>
                         <p>NEW ARRIVALS</p>
                         <img src={process.env.PUBLIC_URL + '/assets/icons/arrow-right.svg'} alt='' />
                       </NavLink>
@@ -404,13 +410,13 @@ const Navbar = () => {
                           <h4>{navbarMenu.shopByCategory.title}</h4>
                             {navbarMenu.shopByCategory.links.map((item, index) => (
                               <li key={index}>
-                                <NavLink to={`/categories/${item.id}`}>{item.name}</NavLink>
+                                <NavLink to={`/categories/${item.id}`} onClick={toggleDropdown}>{item.name}</NavLink>
                               </li>
                             ))}
                           <h4>{navbarMenu.featuredCollections.title}</h4>
                             {navbarMenu.featuredCollections.links.map((item, index) => (
                               <li key={index}>
-                                <NavLink to={`/collections/${item.id}`}>{item.name}</NavLink>
+                                <NavLink to={`/collections/${item.id}`} onClick={toggleDropdown}>{item.name}</NavLink>
                               </li>
                             ))}
                         </ul>
@@ -419,7 +425,7 @@ const Navbar = () => {
                   </li>
                   <li className='navbar__modal__inner__links__item'>
                     <div className='navbar__modal__inner__links__item__link'>
-                      <div className='navbar__modal__inner__links__item__link__button'  onClick={toggleBrandsList}>
+                      <div className='navbar__modal__inner__links__item__link__button' onClick={toggleBrandsList}>
                         <p>BRANDS</p>
                         <img className={isBrandsListActive ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' />
                       </div>
@@ -428,13 +434,13 @@ const Navbar = () => {
                           <h4>{navbarMenu.featuredBrands.title}</h4>
                             {navbarMenu.featuredBrands.links.map((item, index) => (
                               <li key={index}>
-                                <NavLink to={`/brands/${item.id}`}>{item.name}</NavLink>
+                                <NavLink to={`/brands/${item.id}`} onClick={toggleDropdown}>{item.name}</NavLink>
                               </li>
                             ))}
                           <h4>{navbarMenu.allBrands.title}</h4>
                             {navbarMenu.allBrands.links.map((item, index) => (
                               <li key={index}>
-                                <NavLink to={`/brands/${item.id}`}>{item.name}</NavLink>
+                                <NavLink to={`/brands/${item.id}`} onClick={toggleDropdown}>{item.name}</NavLink>
                               </li>
                             ))}
                         </ul>
