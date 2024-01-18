@@ -1,15 +1,15 @@
 @import '../../../styles/settings.scss';
 
 .navbar {
-  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   background-color: $seasalt;
   color: $jet;
+  z-index: 99;
   transform: translateY(0);
   transition: all .4s ease-out;
-  z-index: 99;
 
   &__wrapper {
     display: flex;
@@ -18,21 +18,20 @@
   }
 
   &__body {
-    height: 6rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 2;
+    height: 5.75rem;
 
-      &__left {
-        display: none;
-      }
+    &__left {
+      display: none;
+    }
 
-      &__logo {
-        color: inherit;
-        font-size: 1.5rem;
-        font-weight: 900;
-      }
+    &__logo {
+      font-size: 1.82rem;
+      font-weight: 900;
+      color: inherit;
+    }
   }
 
   &__items {
@@ -42,33 +41,6 @@
   }
 
   &__item {
-    &__menu__button {
-        padding: 0;
-        background-color: transparent;
-        border: none;
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-        cursor: pointer;
-
-        &__up, &__down {
-          background-color: $jet;
-          height: .1rem;
-          width: 1.5rem;
-          transition: transform 1s $cubic;
-        }
-
-        &.active {
-          .navbar__item__menu__button__up {
-            transform: translateY(.2rem) rotate(45deg);
-          }
-
-          .navbar__item__menu__button__down {
-            transform: translateY(-.44rem) rotate(-45deg);
-          }
-        }
-      }
-
     &__icon {
       img {
         display: block;
@@ -84,31 +56,30 @@
     }
 
     &__link {
-      height: 6rem;
       display: flex;
       align-items: center;
+      height: 5.75rem;
       cursor: pointer;
 
       &__dropdown {
+        position: fixed;
+        top: 5.75rem;
+        left: 0;
         display: flex;
         width: 100%;
-        position: fixed;
-        top: 6rem;
-        left: 0;
         height: 60vh;
         background-color: $seasalt;
         border-top: solid .063rem $timberwolf;
         border-bottom: solid .063rem $timberwolf;
-        z-index: 15;
         opacity: 0;
         visibility: hidden;
         transition: opacity .4s ease-out;
 
         &__img {
+          position: relative;
           width: 33%;
           height: 100%;
           padding: 2rem;
-          position: relative;
 
           img {
             object-fit: cover;
@@ -118,14 +89,14 @@
         }
 
         &__list {
-          width: 67%;
           display: flex;
+          width: 67%;
 
           &__items {
-            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
             padding-top: 6rem;
             gap: 2rem;
 
@@ -148,10 +119,10 @@
                     text-decoration: none;
                     color: $jet;
                   }
-                }
 
-                li:hover {
-                  text-decoration-color: rgba(0, 0, 0, .5);
+                  &:hover {
+                    text-decoration-color: rgba(0, 0, 0, .5);
+                  }
                 }
               }
             }
@@ -174,13 +145,13 @@
       }
 
       &:hover {
-        a {
-          text-decoration-color: rgba(0, 0, 0, .5);
-        }
-
         .navbar__item__link__dropdown {
           visibility: visible;
           opacity: 1;
+        }
+
+        a {
+          text-decoration-color: rgba(0, 0, 0, .5);
         }
       }
     }
@@ -194,13 +165,13 @@
 
       &__field {
         input {
-          color: $jet;
+          width: 7rem;
           font-family: $font;
+          color: $jet;
           background-color: transparent;
           border: none;
-          outline: none;
           border-bottom: solid .063rem $jet;
-          width: 7rem;
+          outline: none;
         }
       }
 
@@ -218,17 +189,17 @@
     }
   }
 
-  &__login, &__register {
+  &__login {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, .5);
+    z-index: 299;
     opacity: 0;
     visibility: hidden;
     transition: all .4s ease-out;
-    z-index: 20;
 
     &.active {
       visibility: visible;
@@ -314,10 +285,6 @@
   }
 }
 
-.nav-open {
-  transform: translateY(0);
-}
-
 .nav-close {
   transform: translateY(-100%);
 }
@@ -329,7 +296,7 @@
 @media screen and (max-width: 1200px) {
   .navbar {
     &__body {
-      height: 5rem;
+      height: 4.25rem;
 
       &__center {
         display: none;
@@ -340,40 +307,82 @@
       gap: 1.2rem;
     }
 
+    &__item__menu__button {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+
+      &__up, &__down, &__up__modal__btn, &__down__modal__btn {
+        width: 1.5rem;
+        height: .1rem;
+        background-color: $jet;
+        transition: transform 1s $cubic;
+      }
+
+      &.active {
+        .navbar__item__menu__button__up, .navbar__item__menu__button__up__modal__btn {
+          transform: translateY(.2rem) rotate(45deg);
+        }
+
+        .navbar__item__menu__button__down, .navbar__item__menu__button__down__modal__btn {
+          transform: translateY(-.44rem) rotate(-45deg);
+        }
+      }
+    }
+
     &__modal {
-      display: block;
       position: fixed;
       top: 0;
       left: 0;
+      display: block;
+      width: 100vw;
       height: 100vh;
-      padding: 5rem 2rem 3rem;
-      width: 100%;
       background-color: rgba(0, 0, 0, .5);
-      z-index: 1;
+      z-index: 199;
       opacity: 0;
       visibility: hidden;
       transition: all .4s ease-out;
-
-      &.active {
-        visibility: visible;
-        opacity: 1;
-      }
 
       &__inner {
         position: fixed;
         top: 0;
         right: 0;
-        height: 100vh;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         gap: 1rem;
         width: 60%;
-        padding: 8rem 1rem 0 1rem;
+        height: 100vh;
+        padding: 1.4rem 2rem;
         background-color: $seasalt;
-        overflow: hidden;
         transform: translateX(100%);
         visibility: hidden;
         transition: all .4s ease-out;
+
+        &__scroll {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 1rem;
+          height: 90vh;
+          overflow: scroll;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+
+        &__header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
 
         &__links {
           display: flex;
@@ -386,11 +395,6 @@
             &__link {
               display: flex;
               flex-direction: column;
-              align-items: flex-start;
-
-              a {
-                color: $jet;
-              }
 
               h4 {
                 margin-top: 1.2rem;
@@ -419,6 +423,7 @@
 
         &__image {
           img {
+            display: block;
             width: 100%;
           }
         }
@@ -440,34 +445,21 @@
           transform: translateX(0);
         }
       }
-    }
 
-    &__mobile__scroll {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 2rem;
-      height: 100vh;
-      padding-bottom: 2rem;
-      overflow: scroll;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-
-      &::-webkit-scrollbar {
-        display: none;
+      &.active {
+        visibility: visible;
+        opacity: 1;
       }
     }
 
     &__item__link__dropdown__list__items__inner {
-      transition: all .3s ease-out;
       height: 0;
-      overflow: hidden;
       visibility: hidden;
+      overflow: hidden;
+      transition: all .3s ease-out;
 
       &.list-open {
-        transition: all .3s ease-out;
         visibility: visible;
-        overflow: hidden;
         height: 36rem;
       }
     }
@@ -516,6 +508,10 @@
       &__left {
         display: block;
       }
+
+      &__logo {
+        font-size: 1.6rem;
+      }
     }
 
     &__items {
@@ -525,6 +521,11 @@
     &__modal {
       &__inner {
         width: 100%;
+        padding: 1.4rem 1rem;
+
+        &__header {
+          flex-direction: row-reverse;
+        }
       }
     }
 
@@ -535,16 +536,11 @@
     &__search__form {
       &__field {
         width: 100%;
-        z-index: 2;
 
         input {
           width: 100%;
           padding-bottom: .5rem;
         }
-      }
-
-      &__button {
-        z-index: 2;
       }
     }
   }

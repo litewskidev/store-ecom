@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import './Login.scss';
 import { NavLink } from 'react-router-dom';
+import './Login.scss';
 
 const Login = ({ handleBtn }) => {
   const [registerPage, setRegisterPage] = useState(false);

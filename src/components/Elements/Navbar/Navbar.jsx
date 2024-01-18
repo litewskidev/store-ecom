@@ -75,14 +75,8 @@ const Navbar = () => {
   }, [user, navigate]);
 
   const toggleDropdown = useCallback(() => {
-    const navbar = navbarRef.current;
-
     setBodyOverflowHidden(prev => !prev);
     setIsDropdownActive(prev => !prev);
-
-    if(window.scrollY < navbarThreshold) {
-      navbar.classList.toggle('nav-top');
-    }
   }, []);
 
   const toggleWatchesList = useCallback(() => {
@@ -387,88 +381,89 @@ const Navbar = () => {
         </div>
         <div className={isDropdownActive ? 'navbar__modal active' : 'navbar__modal'}>
           <div className={isDropdownActive ? 'navbar__modal__inner open' : 'navbar__modal__inner'}>
-            <div className='navbar__mobile__scroll'>
+            <div className='navbar__modal__inner__header'>
               <h2>MENU</h2>
-              <nav className='navbar__modal__inner__nav'>
-                <ul className='navbar__modal__inner__links'>
-                  <li className='navbar__modal__inner__links__item'>
-                    <div className='navbar__modal__inner__links__item__link'>
-                      <NavLink to='/categories/new-arrivals' className='navbar__modal__inner__links__item__link__button' onClick={toggleDropdown}>
-                        <p>NEW ARRIVALS</p>
-                        <img src={process.env.PUBLIC_URL + '/assets/icons/arrow-right.svg'} alt='' />
-                      </NavLink>
+              <button className={isDropdownActive ? 'navbar__item__menu__button active' : 'navbar__item__menu__button'} onClick={toggleDropdown}>
+                <div className='navbar__item__menu__button__up__modal__btn'></div>
+                <div className='navbar__item__menu__button__down__modal__btn'></div>
+              </button>
+            </div>
+            <nav className='navbar__modal__inner__scroll'>
+              <ul className='navbar__modal__inner__links'>
+                <li className='navbar__modal__inner__links__item'>
+                  <div className='navbar__modal__inner__links__item__link'>
+                    <NavLink to='/categories/new-arrivals' className='navbar__modal__inner__links__item__link__button' onClick={toggleDropdown}>
+                      <p>NEW ARRIVALS</p>
+                      <img src={process.env.PUBLIC_URL + '/assets/icons/arrow-right.svg'} alt='' />
+                    </NavLink>
+                  </div>
+                </li>
+                <li className='navbar__modal__inner__links__item'>
+                  <div className='navbar__modal__inner__links__item__link'>
+                    <div className='navbar__modal__inner__links__item__link__button' onClick={toggleWatchesList}>
+                      <p>ALL WATCHES</p>
+                      <img className={isWatchesListActive ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' />
                     </div>
-                  </li>
-                  <li className='navbar__modal__inner__links__item'>
-                    <div className='navbar__modal__inner__links__item__link'>
-                      <div className='navbar__modal__inner__links__item__link__button' onClick={toggleWatchesList}>
-                        <p>ALL WATCHES</p>
-                        <img className={isWatchesListActive ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' />
-                      </div>
-                      <div className={isWatchesListActive ? 'navbar__item__link__dropdown__list__items__inner list-open' : 'navbar__item__link__dropdown__list__items__inner'}>
-                        <ul>
-                          <h4>{navbarMenu.shopByCategory.title}</h4>
-                            {navbarMenu.shopByCategory.links.map((item, index) => (
-                              <li key={index}>
-                                <NavLink to={`/categories/${item.id}`} onClick={toggleDropdown}>{item.name}</NavLink>
-                              </li>
-                            ))}
-                          <h4>{navbarMenu.featuredCollections.title}</h4>
-                            {navbarMenu.featuredCollections.links.map((item, index) => (
-                              <li key={index}>
-                                <NavLink to={`/collections/${item.id}`} onClick={toggleDropdown}>{item.name}</NavLink>
-                              </li>
-                            ))}
-                        </ul>
-                      </div>
+                    <div className={isWatchesListActive ? 'navbar__item__link__dropdown__list__items__inner list-open' : 'navbar__item__link__dropdown__list__items__inner'}>
+                      <ul>
+                        <h4>{navbarMenu.shopByCategory.title}</h4>
+                          {navbarMenu.shopByCategory.links.map((item, index) => (
+                            <li key={index}>
+                              <NavLink to={`/categories/${item.id}`} onClick={toggleDropdown}>{item.name}</NavLink>
+                            </li>
+                          ))}
+                        <h4>{navbarMenu.featuredCollections.title}</h4>
+                          {navbarMenu.featuredCollections.links.map((item, index) => (
+                            <li key={index}>
+                              <NavLink to={`/collections/${item.id}`} onClick={toggleDropdown}>{item.name}</NavLink>
+                            </li>
+                          ))}
+                      </ul>
                     </div>
-                  </li>
-                  <li className='navbar__modal__inner__links__item'>
-                    <div className='navbar__modal__inner__links__item__link'>
-                      <div className='navbar__modal__inner__links__item__link__button' onClick={toggleBrandsList}>
-                        <p>BRANDS</p>
-                        <img className={isBrandsListActive ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' />
-                      </div>
-                      <div className={isBrandsListActive ? 'navbar__item__link__dropdown__list__items__inner list-open' : 'navbar__item__link__dropdown__list__items__inner'}>
-                        <ul>
-                          <h4>{navbarMenu.featuredBrands.title}</h4>
-                            {navbarMenu.featuredBrands.links.map((item, index) => (
-                              <li key={index}>
-                                <NavLink to={`/brands/${item.id}`} onClick={toggleDropdown}>{item.name}</NavLink>
-                              </li>
-                            ))}
-                          <h4>{navbarMenu.allBrands.title}</h4>
-                            {navbarMenu.allBrands.links.map((item, index) => (
-                              <li key={index}>
-                                <NavLink to={`/brands/${item.id}`} onClick={toggleDropdown}>{item.name}</NavLink>
-                              </li>
-                            ))}
-                        </ul>
-                      </div>
+                  </div>
+                </li>
+                <li className='navbar__modal__inner__links__item'>
+                  <div className='navbar__modal__inner__links__item__link'>
+                    <div className='navbar__modal__inner__links__item__link__button' onClick={toggleBrandsList}>
+                      <p>BRANDS</p>
+                      <img className={isBrandsListActive ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' />
                     </div>
-                  </li>
-                </ul>
-              </nav>
+                    <div className={isBrandsListActive ? 'navbar__item__link__dropdown__list__items__inner list-open' : 'navbar__item__link__dropdown__list__items__inner'}>
+                      <ul>
+                        <h4>{navbarMenu.featuredBrands.title}</h4>
+                          {navbarMenu.featuredBrands.links.map((item, index) => (
+                            <li key={index}>
+                              <NavLink to={`/brands/${item.id}`} onClick={toggleDropdown}>{item.name}</NavLink>
+                            </li>
+                          ))}
+                        <h4>{navbarMenu.allBrands.title}</h4>
+                          {navbarMenu.allBrands.links.map((item, index) => (
+                            <li key={index}>
+                              <NavLink to={`/brands/${item.id}`} onClick={toggleDropdown}>{item.name}</NavLink>
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
               <div className='navbar__modal__inner__image'>
                 <img src={process.env.PUBLIC_URL + '/assets/images/img_2.webp'} alt='' />
               </div>
               <div className='navbar__modal__inner__footer'>
-                <NavLink to='/contact'>CONTACT US</NavLink>
-                <NavLink to='/about'>ABOUT CULTURE</NavLink>
-                <NavLink to='/stores'>OUR STORES</NavLink>
-                <NavLink to='/faq'>FAQ</NavLink>
+                <NavLink to='/contact' onClick={toggleDropdown}>CONTACT US</NavLink>
+                <NavLink to='/about' onClick={toggleDropdown}>ABOUT CULTURE</NavLink>
+                <NavLink to='/stores' onClick={toggleDropdown}>OUR STORES</NavLink>
+                <NavLink to='/faq' onClick={toggleDropdown}>FAQ</NavLink>
               </div>
               <SocialLinks />
-            </div>
+            </nav>
           </div>
         </div>
         <div className={isLoginActive ? 'navbar__login active' : 'navbar__login'}>
           <div className={isLoginActive ? 'navbar__login__inner open' : 'navbar__login__inner'}>
             <Login handleBtn={toggleLogin} />
           </div>
-        </div>
-        <div className='navbar__register'>
-          <Register />
         </div>
         <div className='navbar__cart'>
 
