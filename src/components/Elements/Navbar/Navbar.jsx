@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { debounce } from 'lodash';
 import { NavLink, useNavigate } from 'react-router-dom';
-import Login from '../Login/Login.jsx';
-import Register from '../Register/Register.jsx';
 import SocialLinks from '../SocialLinks/SocialLinks.jsx';
+import LoginModal from '../LoginModal/LoginModal.jsx';
 import './Navbar.scss';
 
 const Navbar = () => {
@@ -462,7 +461,7 @@ const Navbar = () => {
         </div>
         <div className={isLoginActive ? 'navbar__login active' : 'navbar__login'}>
           <div className={isLoginActive ? 'navbar__login__inner open' : 'navbar__login__inner'}>
-            <Login handleBtn={toggleLogin} />
+            <LoginModal handleBtn={toggleLogin} />
           </div>
         </div>
         <div className='navbar__cart'>

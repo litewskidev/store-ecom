@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import store from './redux/store.js';
 import App from './App.js';
 import Home from './components/Pages/Home/Home.jsx';
+import Login from './components/Pages/Login/Login.jsx';
+import Register from './components/Pages/Register/Register.jsx';
 import UserProfile from './components/Pages/UserProfile/UserProfile.jsx';
 import ProductCard from './components/Pages/ProductCard/ProductCard.jsx';
 import AllWatches from './components/Pages/AllWatches/AllWatches.jsx';
@@ -21,6 +23,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route exact path='/' element={ <App /> }>
       <Route index={true} element={ <Home /> } />
+      <Route path='/login' element={ <Login /> } />
+      <Route path='/register' element={ <Register /> } />
       <Route path='/profile' element={ <UserProfile /> } />
       <Route path='/watches/:id' element={ <ProductCard /> } />
       <Route path='/categories/all-watches' element={ <AllWatches /> } />
