@@ -3,12 +3,17 @@ import { debounce } from 'lodash';
 import { NavLink, useNavigate } from 'react-router-dom';
 import SocialLinks from '../SocialLinks/SocialLinks.jsx';
 import LoginModal from '../LoginModal/LoginModal.jsx';
-import './Navbar.scss';
 import CartModal from '../CartModal/CartModal.jsx';
+import './Navbar.scss';
 
 const Navbar = () => {
   const navigate = useNavigate();
+
+  //  REFS
   const navbarRef = useRef(null);
+
+  //  STATES
+  const [user, setUser] = useState(false);
   const [bodyOverflowHidden, setBodyOverflowHidden] = useState(false);
   const [scrollDirection, setScrollDirection] = useState(null);
   const [isLoginActive, setIsLoginActive] = useState(false);
@@ -17,14 +22,15 @@ const Navbar = () => {
   const [isWatchesListActive, setIsWatchesListActive] = useState(false);
   const [isBrandsListActive, setIsBrandsListActive] = useState(false);
 
-  const user = false;
   const scrollThreshold = 5;
   const navbarThreshold = 60;
 
+  //  BODY OVERFLOW
   useEffect(() => {
     document.body.style.overflow = bodyOverflowHidden ? 'hidden' : 'scroll';
   }, [bodyOverflowHidden]);
 
+  //  SCROLL
   useEffect(() => {
     const navbar = navbarRef.current;
     let lastScrollY = window.scrollY;
@@ -65,6 +71,7 @@ const Navbar = () => {
     };
   }, [scrollDirection]);
 
+  //  BUTTONS HANDLERS
   const toggleLogin = useCallback(() => {
     if(user) {
       navigate('/profile');
@@ -223,6 +230,7 @@ const Navbar = () => {
   return(
     <div id='navbar' className='navbar nav-top' ref={navbarRef}>
       <div className='navbar__wrapper'>
+        {/* MENU NAVBAR */}
         <div className='navbar__body'>
           <nav className='navbar__body__left'>
             <ul className='navbar__items'>
@@ -385,6 +393,7 @@ const Navbar = () => {
             </form>
           </div>
         </div>
+        {/* MENU DROPDOWN */}
         <div className={isDropdownActive ? 'navbar__modal active' : 'navbar__modal'}>
           <div className={isDropdownActive ? 'navbar__modal__inner open' : 'navbar__modal__inner'}>
             <div className='navbar__modal__inner__header'>
@@ -466,11 +475,13 @@ const Navbar = () => {
             </nav>
           </div>
         </div>
+        {/* LOGIN MODAL */}
         <div className={isLoginActive ? 'navbar__login active' : 'navbar__login'}>
           <div className={isLoginActive ? 'navbar__login__inner open' : 'navbar__login__inner'}>
             <LoginModal handleBtn={toggleLogin} />
           </div>
         </div>
+        {/* CART MODAL */}
         <div className={isCartActive ? 'navbar__cart active' : 'navbar__cart'}>
           <div className={isCartActive ? 'navbar__cart__inner open' : 'navbar__cart__inner'}>
             <CartModal handleBtn={toggleCart} />

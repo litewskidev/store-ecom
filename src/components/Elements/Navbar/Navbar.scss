@@ -410,7 +410,7 @@
                 img {
                   width: 1rem;
                   transform: rotate(0);
-                  transition: transform .3s ease-out;
+                  transition: transform .4s ease-out;
 
                   &.rotate {
                     transform: rotate(180deg);
@@ -456,7 +456,7 @@
       height: 0;
       visibility: hidden;
       overflow: hidden;
-      transition: all .3s ease-out;
+      transition: all .4s ease-out;
 
       &.list-open {
         visibility: visible;
