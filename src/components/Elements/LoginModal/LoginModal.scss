@@ -51,14 +51,14 @@
           width: 1.5rem;
           height: .1rem;
           background-color: $jet;
-          transform:  rotate(45deg);
+          transform: rotate(45deg);
         }
 
         &__down {
           width: 1.5rem;
           height: .1rem;
           background-color: $jet;
-          transform: translateY(-.12rem) rotate(-45deg);
+          transform: translateY(-.11rem) rotate(-45deg);
         }
       }
     }
@@ -143,7 +143,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .loginModal{
+  .loginModal {
     &__wrapper {
       width: 100%;
       padding: 1.3rem 1rem;
@@ -151,7 +151,9 @@
 
     &__nav {
       &__header {
-        flex-direction: row-reverse;
+        &__button__down {
+          transform: translateY(-.05rem) rotate(-45deg);
+        }
       }
     }
   }

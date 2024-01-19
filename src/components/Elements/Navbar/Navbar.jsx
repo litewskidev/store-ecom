@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import SocialLinks from '../SocialLinks/SocialLinks.jsx';
 import LoginModal from '../LoginModal/LoginModal.jsx';
 import './Navbar.scss';
+import CartModal from '../CartModal/CartModal.jsx';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const Navbar = () => {
   const [bodyOverflowHidden, setBodyOverflowHidden] = useState(false);
   const [scrollDirection, setScrollDirection] = useState(null);
   const [isLoginActive, setIsLoginActive] = useState(false);
+  const [isCartActive, setIsCartActive] = useState(false);
   const [isDropdownActive, setIsDropdownActive] = useState(false);
   const [isWatchesListActive, setIsWatchesListActive] = useState(false);
   const [isBrandsListActive, setIsBrandsListActive] = useState(false);
@@ -72,6 +74,11 @@ const Navbar = () => {
       setIsLoginActive(prev => !prev);
     }
   }, [user, navigate]);
+
+  const toggleCart = useCallback(() => {
+    setBodyOverflowHidden(prev => !prev);
+    setIsCartActive(prev => !prev);
+  }, []);
 
   const toggleDropdown = useCallback(() => {
     setBodyOverflowHidden(prev => !prev);
@@ -344,14 +351,14 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className='navbar__item__icon'>
-                <button to='/profile' onClick={toggleLogin}>
+                <button onClick={toggleLogin}>
                   <img src={process.env.PUBLIC_URL + '/assets/icons/user.svg'} alt='account button' />
                 </button>
               </li>
               <li className='navbar__item__icon'>
-                <NavLink to='/cart'>
+                <button onClick={toggleCart}>
                   <img src={process.env.PUBLIC_URL + '/assets/icons/cart.svg'} alt='cart button' />
-                </NavLink>
+                </button>
               </li>
               <li className='navbar__item__menu tablet__only'>
                 <button className={isDropdownActive ? 'navbar__item__menu__button active' : 'navbar__item__menu__button'} onClick={toggleDropdown}>
@@ -464,8 +471,10 @@ const Navbar = () => {
             <LoginModal handleBtn={toggleLogin} />
           </div>
         </div>
-        <div className='navbar__cart'>
-
+        <div className={isCartActive ? 'navbar__cart active' : 'navbar__cart'}>
+          <div className={isCartActive ? 'navbar__cart__inner open' : 'navbar__cart__inner'}>
+            <CartModal handleBtn={toggleCart} />
+          </div>
         </div>
       </div>
     </div>
