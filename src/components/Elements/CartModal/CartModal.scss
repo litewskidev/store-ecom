@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 31rem;
-    height: 100vh;
+    height: 100svh;
     padding: 1rem 2rem;
     background-color: $seasalt;
   }
@@ -41,6 +41,12 @@
         background-color: $jet;
         transform: translateY(-.11rem) rotate(-45deg);
       }
+    }
+
+    a {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $jet;
     }
   }
 

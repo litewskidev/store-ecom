@@ -8,7 +8,7 @@ const CartModal = ({ handleBtn }) => {
     <div id='cart-modal'>
       <div className='cartModal__wrapper'>
         <div className='cartModal__header'>
-          <h2>YOUR CART</h2>
+          <NavLink to='/cart' onClick={handleBtn}>YOUR CART</NavLink>
           <button className='cartModal__header__button' onClick={handleBtn}>
             <div className='cartModal__header__button__up'></div>
             <div className='cartModal__header__button__down'></div>

@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './LoginModal.scss';
 
 const LoginModal = ({ handleBtn }) => {
   const [registerPage, setRegisterPage] = useState(false);
+
+  const toggleRegisterPage = useCallback(() => {
+    setRegisterPage(prev => !prev);
+  }, []);
 
   return(
     <div id='login-modal'>
@@ -33,7 +37,7 @@ const LoginModal = ({ handleBtn }) => {
                   <p>&#8226; Receive 10% off when signed up to email</p>
                 </div>
                 <p>Already have an account? <NavLink to='/login' onClick={handleBtn}>Login here</NavLink></p>
-                <button onClick={() => setRegisterPage(false)}>LOGIN</button>
+                <button onClick={toggleRegisterPage}>LOGIN</button>
               </div>
             </div>
           </div>
@@ -46,19 +50,21 @@ const LoginModal = ({ handleBtn }) => {
                 <div className='loginModal__nav__header__button__down'></div>
               </button>
             </div>
-            <form className='loginModal__nav__form'>
-              <input type='email' placeholder='Email address*'></input>
-              <input type='password' placeholder='Password*'></input>
-              <button type='submit'>LOGIN</button>
-            </form>
-            <div className='loginModal__nav__footer'>
-              <p>Don't have an account yet? <NavLink to='/register' onClick={handleBtn}>Sign up</NavLink> and take advantage of these benefits:</p>
-              <div className='loginModal__nav__footer__list'>
-                <p>&#8226; Track your orders & order history</p>
-                <p>&#8226; Create & share multiple wishlist boards</p>
-                <p>&#8226; Receive 10% off when signed up to email</p>
+            <div className='loginModal__nav__scroll'>
+              <form className='loginModal__nav__form'>
+                <input type='email' placeholder='Email address*'></input>
+                <input type='password' placeholder='Password*'></input>
+                <button type='submit'>LOGIN</button>
+              </form>
+              <div className='loginModal__nav__footer'>
+                <p>Don't have an account yet? <NavLink to='/register' onClick={handleBtn}>Sign up</NavLink> and take advantage of these benefits:</p>
+                <div className='loginModal__nav__footer__list'>
+                  <p>&#8226; Track your orders & order history</p>
+                  <p>&#8226; Create & share multiple wishlist boards</p>
+                  <p>&#8226; Receive 10% off when signed up to email</p>
+                </div>
+                <button onClick={toggleRegisterPage}>CREATE AN ACCOUNT</button>
               </div>
-              <button onClick={() => setRegisterPage(true)}>CREATE AN ACCOUNT</button>
             </div>
           </div>
         )}

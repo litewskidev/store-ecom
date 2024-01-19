@@ -6,7 +6,7 @@ const SocialLinks = () => {
   return(
     <div className='social__wrapper'>
       {links.map((link, index) => (
-        <a href={`https://www.${link}.com`} target='_blank' rel='noreferrer'>
+        <a key={index} href={`https://www.${link}.com`} target='_blank' rel='noreferrer'>
           <img src={process.env.PUBLIC_URL + `/assets/icons/${link}.svg`} alt={link} />
         </a>
       ))}
