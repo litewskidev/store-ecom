@@ -9,6 +9,9 @@ const Footer = () => {
         <div className='footer__body__item'>
           <div className='footer__body__item__title'>
             <h2>COMPANY</h2>
+            <div className='footer__body__item__title__icon'>
+
+            </div>
           </div>
           <div className='footer__body__item__list'>
             <ul className='footer__body__item__list__inner'>
@@ -36,6 +39,9 @@ const Footer = () => {
         <div className='footer__body__item'>
           <div className='footer__body__item__title'>
             <h2>CUSTOMER CARE</h2>
+            <div className='footer__body__item__title__icon'>
+
+            </div>
           </div>
           <div className='footer__body__item__list'>
             <ul className='footer__body__item__list__inner'>
@@ -54,6 +60,9 @@ const Footer = () => {
         <div className='footer__body__item'>
           <div className='footer__body__item__title'>
             <h2>OUR STORES</h2>
+            <div className='footer__body__item__title__icon'>
+
+            </div>
           </div>
           <div className='footer__body__item__list'>
             <ul className='footer__body__item__list__inner'>
@@ -78,6 +87,9 @@ const Footer = () => {
         <div className='footer__body__item'>
           <div className='footer__body__item__title'>
             <h2>GET IN TOUCH</h2>
+            <div className='footer__body__item__title__icon'>
+              <img src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' />
+            </div>
           </div>
           <div className='footer__body__item__list'>
             <ul className='footer__body__item__list__inner'>

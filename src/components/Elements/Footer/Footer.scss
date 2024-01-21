@@ -13,6 +13,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    gap: 1rem;
     width: 100%;
 
     &__item {
@@ -21,15 +22,42 @@
       gap: 2rem;
       width: 20%;
 
+      &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        &__icon {
+          display: none;
+        }
+      }
+
       &__list {
         &__inner {
           display: flex;
           flex-direction: column;
           gap: 2rem;
+          pointer-events: none;
+
+          & > * {
+            pointer-events: auto;
+            transition: opacity .8s $cubic;
+          }
+
+          &:hover > * {
+            opacity: 0.4;
+          }
+
+          &:hover > *:hover {
+            opacity: 1;
+          }
 
           &__link {
+            width: fit-content;
 
             a {
+              font-size: .9rem;
               color: $jet;
             }
           }
@@ -41,10 +69,75 @@
   &__bottom {
     display: flex;
     justify-content: flex-end;
-    width: 100%;
 
     &__socials {
       width: 32%;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .footer {
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100vw;
+      padding: 3.75rem 2rem 1rem 2rem;
+    }
+
+    &__body {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 1rem;
+      width: 100%;
+
+      &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 20%;
+
+        &__title {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+
+          &__icon {
+            display: block;
+
+            img {
+              display: block;
+              width: 1rem;
+            }
+          }
+        }
+
+        &__list {
+          &__inner {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            &__link {
+              a {
+                color: $jet;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__bottom {
+      display: flex;
+      justify-content: flex-end;
+
+      &__socials {
+        width: 32%;
+      }
     }
   }
 }
