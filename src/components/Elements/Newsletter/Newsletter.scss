@@ -4,19 +4,16 @@
   &__wrapper {
     display: flex;
     align-items: flex-start;
-    gap: 5rem;
     width: 100vw;
-    padding: 2rem;
   }
 
   &__left {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    gap: 4rem;
+    gap: 5rem;
     width: 40%;
-    padding-top: 5rem;
+    padding: 5rem 2rem 0 2rem;
 
     &__header {
       display: flex;
@@ -24,18 +21,18 @@
       gap: 1.875rem;
 
       h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
       }
 
       p {
-        font-size: 1.125rem;
+        font-size: 1.1rem;
       }
     }
 
     &__footer {
       display: flex;
       flex-direction: column;
-      gap: 2.188rem;
+      gap: 2.1rem;
 
       &__title {
         display: flex;
@@ -77,6 +74,8 @@
 
   &__right {
     width: 60%;
+    max-height: 75vh;
+    overflow-y: hidden;
 
     img {
       display: block;
@@ -91,13 +90,12 @@
     &__wrapper {
       flex-direction: column-reverse;
       gap: 1rem;
-      padding: 0;
     }
 
     &__left {
       gap: 3.75rem;
       width: 100%;
-      padding: 1rem;
+      padding: 1rem 1rem 3rem 1rem;
 
       &__header {
         gap: 2rem;
@@ -117,20 +115,27 @@
             font-size: 1rem;
           }
         }
-
-        &__form {
-
-        }
       }
     }
 
     &__right {
       width: 100%;
+    }
+  }
+}
 
-      img {
-        display: block;
-        width: 100%;
-        object-fit: cover;
+@media screen and (max-width: 600px) {
+  .newsletter {
+    &__left {
+      gap: 3.5rem;
+      padding: 1rem 1rem 3rem 1rem;
+
+      &__header {
+        gap: 1rem;
+
+        h1 {
+          font-size: 1.75rem;
+        }
       }
     }
   }

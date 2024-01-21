@@ -1,0 +1,50 @@
+@import '../../../styles/settings.scss';
+
+.footer {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100vw;
+    padding: 3.75rem 2rem 1rem 2rem;
+  }
+
+  &__body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 20%;
+
+      &__list {
+        &__inner {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+
+          &__link {
+
+            a {
+              color: $jet;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    &__socials {
+      width: 32%;
+    }
+  }
+}
