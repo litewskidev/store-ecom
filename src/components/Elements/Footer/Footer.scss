@@ -79,31 +79,26 @@
 @media screen and (max-width: 1200px) {
   .footer {
     &__wrapper {
-      display: flex;
-      flex-direction: column;
       gap: 2rem;
       width: 100vw;
-      padding: 3.75rem 2rem 1rem 2rem;
+      padding: 3.75rem 1rem 1rem 1rem;
     }
 
     &__body {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 1rem;
+      flex-direction: column;
+      gap: 0;
       width: 100%;
 
       &__item {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        width: 20%;
+        gap: 1rem;
+        width: 100%;
 
         &__title {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          width: 100%;
+          padding-top: .5rem;
+
+          h2 {
+            font-size: 1.3rem;
+          }
 
           &__icon {
             display: block;
@@ -111,20 +106,49 @@
             img {
               display: block;
               width: 1rem;
+              transform: rotate(0);
+              transition: transform .4s ease-out;
+
+              &.rotate {
+                transform: rotate(180deg);
+              }
             }
           }
         }
 
         &__list {
-          &__inner {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+          &__one, &__two, &__three, &__four {
+            height: 0;
+            visibility: hidden;
+            overflow: hidden;
+            transition: all .4s ease-out;
+          }
 
-            &__link {
-              a {
-                color: $jet;
-              }
+          &__one {
+            &.open {
+              visibility: visible;
+              height: 20rem;
+            }
+          }
+
+          &__two {
+            &.open {
+              visibility: visible;
+              height: 10rem;
+            }
+          }
+
+          &__three {
+            &.open {
+              visibility: visible;
+              height: 16.5rem;
+            }
+          }
+
+          &__four {
+            &.open {
+              visibility: visible;
+              height: 6.5rem;
             }
           }
         }
@@ -132,11 +156,8 @@
     }
 
     &__bottom {
-      display: flex;
-      justify-content: flex-end;
-
       &__socials {
-        width: 32%;
+        width: 100%;
       }
     }
   }
