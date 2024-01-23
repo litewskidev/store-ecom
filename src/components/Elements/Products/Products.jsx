@@ -2,15 +2,16 @@ import { NavLink } from 'react-router-dom';
 import './Products.scss';
 
 const Products = ({ products }) => {
-  console.log(products);
-
   return(
     <div className='products__wrapper'>
-      <h1>PRODUCTS</h1>
-      {products?.map(product => (
-        <NavLink to={`/watches/${product._id}`} key={product._id}>
-          {product.model}
-        </NavLink>
+      {products?.map((product, index) => (
+        <div key={product._id}>
+          <NavLink to={`/watches/${product._id}`}>
+            <h1>{product.brand}</h1>
+            <h3>{product.model}</h3>
+            <p>{product.description}</p>
+          </NavLink>
+        </div>
       ))}
     </div>
   );

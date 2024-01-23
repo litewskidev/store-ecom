@@ -56,8 +56,8 @@ const getProduct = asyncHandler(async (req, res) => {
 //  access   Private
 const addProduct = asyncHandler(async (req, res) => {
   const { sku } = req.body;
-
   const productExists = await Product.findOne({ sku });
+
   if(productExists) {
     res.status(400);
     throw new Error('Product already exists.');
@@ -81,6 +81,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     },
     { new: true }
   );
+
   if(updatedProduct) {
   res.status(200).json( {message: 'Product updated successfully.'} );
   }
@@ -95,6 +96,7 @@ const updateProduct = asyncHandler(async (req, res) => {
 //  access   Private
 const deleteProduct = asyncHandler(async (req, res) => {
   const deletedProduct = await Product.findByIdAndDelete(req.body.id);
+
   if(deletedProduct) {
   res.status(200).json( {message: 'Product deleted successfully.'} );
   }
