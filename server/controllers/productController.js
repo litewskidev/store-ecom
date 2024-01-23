@@ -5,10 +5,50 @@ import Product from '../models/productModel.js';
 //  route    GET /api/products
 //  access   Public
 const getAllProducts = asyncHandler(async (req, res) => {
-  const products = await Product.find();
+  const queryNew = req.query.new;
+  const queryCategory = req.query.category;
+  const queryCollection = req.query.collection;
+  const queryBrand = req.query.brand;
+  let products;
+
+  if(queryNew) {
+    products = await Product.find().sort({createdAt: -1}).limit(10);
+  }
+  else if(queryCategory) {
+    products = await Product.find({
+      categories: {
+        $in: [queryCategory]
+      }
+    });
+  }
+  else if(queryCollection) {
+    products = await Product.find({
+      collections: {
+        $in: [queryCollection]
+      }
+    });
+  }
+  else if(queryBrand) {
+    products = await Product.find({
+      brand: queryBrand.toUpperCase(),
+    });
+  }
+  else {
+    products = await Product.find();
+  }
 
   if(products)
   res.status(200).json(products);
+});
+
+//  desc     Get product
+//  route    GET /api/products
+//  access   Public
+const getProduct = asyncHandler(async (req, res) => {
+  const product = await Product.findById(req.params.id);
+
+  if(product)
+  res.status(200).json(product);
 });
 
 //  desc     Add new product
@@ -64,4 +104,4 @@ const deleteProduct = asyncHandler(async (req, res) => {
   }
 });
 
-export { getAllProducts, addProduct, updateProduct, deleteProduct };
+export { getAllProducts, getProduct, addProduct, updateProduct, deleteProduct };

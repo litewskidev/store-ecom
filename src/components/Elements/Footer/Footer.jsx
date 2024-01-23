@@ -131,6 +131,9 @@ const Footer = () => {
           <SocialLinks />
         </div>
       </div>
+      <div className='footer__copyright'>
+        <p>© 2024 CULTURE. All Rights Reserved</p>
+      </div>
     </div>
   );
 };

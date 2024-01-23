@@ -194,7 +194,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100svh;
+    height: 100dvh;
     background-color: rgba(0, 0, 0, .5);
     z-index: 299;
     opacity: 0;
@@ -340,7 +340,7 @@
       left: 0;
       display: block;
       width: 100vw;
-      height: 100svh;
+      height: 100dvh;
       background-color: rgba(0, 0, 0, .5);
       z-index: 199;
       opacity: 0;
@@ -356,7 +356,7 @@
         justify-content: space-between;
         gap: 1rem;
         width: 60%;
-        height: 100svh;
+        height: 100dvh;
         padding: 1.4rem 2rem;
         background-color: $seasalt;
         transform: translateX(100%);
@@ -368,7 +368,7 @@
           flex-direction: column;
           justify-content: space-between;
           gap: 1rem;
-          height: 90svh;
+          height: 90dvh;
           overflow: scroll;
           -ms-overflow-style: none;
           scrollbar-width: none;

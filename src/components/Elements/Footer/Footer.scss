@@ -46,7 +46,7 @@
           }
 
           &:hover > * {
-            opacity: 0.4;
+            opacity: .4;
           }
 
           &:hover > *:hover {
@@ -72,6 +72,16 @@
 
     &__socials {
       width: 32%;
+    }
+  }
+
+  &__copyright {
+    width: 100%;
+    text-align: center;
+    opacity: .8;
+
+    p {
+      font-size: .75rem;
     }
   }
 }

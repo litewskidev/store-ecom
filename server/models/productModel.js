@@ -109,6 +109,12 @@ const productSchema = mongoose.Schema(
           type: String
         }
       }
+    },
+    categories: {
+      type: Array
+    },
+    collections: {
+      type: Array
     }
   },
   {
