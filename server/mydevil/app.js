@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const asyncHandler = require('express-async-handler');
 
-//  MONGO
+////  MONGO
 const connectDB = async() => {
   try {
     const connection = await mongoose.connect(process.env.MONGO_URI);
@@ -19,9 +19,11 @@ const connectDB = async() => {
     process.exit(1);
   }
 }
+////
 
-//  MODELS
-  //  user model
+
+////  MODELS
+  //  USER MODEL
   const userSchema = mongoose.Schema(
     {
       admin: {
@@ -38,7 +40,8 @@ const connectDB = async() => {
         required: true,
       },
       emailVerified: {
-        type: Boolean
+        type: Boolean,
+        default: false
       },
       name: {
         type: String
@@ -100,8 +103,7 @@ const connectDB = async() => {
     timestamps: true
     }
   );
-
-  //  hash password
+    //  user hash password
   userSchema.pre('save', async function(next) {
     if(!this.isModified('password')) {
       next();
@@ -109,23 +111,145 @@ const connectDB = async() => {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
   });
-
-  //  password match
+    //  user password match
   userSchema.methods.matchPassword = async function(enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
   };
-
   const User = mongoose.model('User', userSchema);
 
-  //  product model
+  //  PRODUCT MODEL
+  const productSchema = mongoose.Schema(
+    {
+      sku: {
+        type: String,
+        unique: true
+      },
+      reference: {
+        type: String
+      },
+      brand: {
+        type: String
+      },
+      model: {
+        type: String
+      },
+      inStock: {
+        type: Boolean,
+        default: true
+      },
+      price: {
+        base : {
+          type: Number
+        },
+        currency: {
+          type: String
+        },
+        discount: {
+          type: Number
+        }
+      },
+      certificates: {
+        box: {
+          type: Boolean
+        },
+        papers: {
+          type: Boolean
+        },
+        warranty: {
+          type: String
+        }
+      },
+      year: {
+        type: Number
+      },
+      images: {
+        type: String
+      },
+      description: {
+        type: String
+      },
+      features: {
+        details: {
+          origin: {
+            type: String
+          },
+          style: {
+            type: String
+          },
+          gender: {
+            type: String
+          }
+        },
+        case: {
+          size: {
+            type: String
+          },
+          material: {
+            type: String
+          },
+          back: {
+            type: String
+          },
+          shape: {
+            type: String
+          },
+          waterResistance: {
+            type: String
+          },
+        },
+        dial: {
+          color: {
+            type: String
+          },
+          hoursMarkers: {
+            type: String
+          }
+        },
+        function: {
+          movement: {
+            type: String
+          },
+          complications: {
+            type: String
+          }
+        },
+        strapBracelet: {
+          material: {
+            type: String
+          },
+          bandColor: {
+            type: String
+          },
+          buckleType: {
+            type: String
+          },
+          length: {
+            type: String
+          }
+        }
+      },
+      categories: {
+        type: Array
+      },
+      collections: {
+        type: Array
+      }
+    },
+    {
+      timestamps: true
+    }
+  );
+  const Product = mongoose.model('Product', productSchema);
 
   //  order model
 
   //  payment model
 
   //  cart model
+////
 
-//  TOKEN
+
+////  TOKEN
 const generateToken = (res, userId) => {
   const token = jwt.sign(
     { userId },
@@ -140,12 +264,14 @@ const generateToken = (res, userId) => {
     maxAge: 60 * 60 * 24
   });
 };
+////
 
-//  CONTROLLERS
-  //  user controller
-  //  desc     Authorize user / set token
-  //  route    POST /api/users/auth
-  //  access   Public
+
+////  CONTROLLERS
+  //  USER CONTROLLER
+    //  desc     Authorize user / set token
+    //  route    POST /api/users/auth
+    //  access   Public
   const authorizeUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 
@@ -162,9 +288,9 @@ const generateToken = (res, userId) => {
     res.status(200).json( {message: 'User logged in.'} )
   });
 
-  //  desc     Register a new user
-  //  route    POST /api/users
-  //  access   Public
+    //  desc     Register a new user
+    //  route    POST /api/users
+    //  access   Public
   const registerUser = asyncHandler(async (req, res) => {
     const {email, password} = req.body;
 
@@ -183,9 +309,9 @@ const generateToken = (res, userId) => {
     res.status(200).json( {message: 'User registered.'} )
   });
 
-  //  desc     Logout user
-  //  route    POST /api/user/logout
-  //  access   Public
+    //  desc     Logout user
+    //  route    POST /api/user/logout
+    //  access   Public
   const logoutUser = asyncHandler(async (req, res) => {
     res.cookie('token', '', {
       httpOnly: true,
@@ -195,9 +321,9 @@ const generateToken = (res, userId) => {
     res.status(200).json( {message: 'User logged out.'} );
   });
 
-  //  desc     Get user profile
-  //  route    GET /api/users/profile
-  //  access   Private
+    //  desc     Get user profile
+    //  route    GET /api/users/profile
+    //  access   Private
   const getUserProfile = asyncHandler(async (req, res) => {
     const user = {
       id: req.user._id,
@@ -229,9 +355,9 @@ const generateToken = (res, userId) => {
     res.status(200).json(user);
   });
 
-  //  desc     Update user profile
-  //  route    PUT /api/users/profile
-  //  access   Private
+    //  desc     Update user profile
+    //  route    PUT /api/users/profile
+    //  access   Private
   const updateUserProfile = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id);
 
@@ -294,15 +420,121 @@ const generateToken = (res, userId) => {
     res.status(200).json( {message: 'User profile updated.'} )
   });
 
-  //  product controller
+  //  PRODUCT CONTROLLER
+    //  desc     Get all products
+    //  route    GET /api/products
+    //  access   Public
+  const getAllProducts = asyncHandler(async (req, res) => {
+    const queryNew = req.query.new;
+    const queryCategory = req.query.category;
+    const queryCollection = req.query.collection;
+    const queryBrand = req.query.brand;
+    let products;
+
+    if(queryNew) {
+      products = await Product.find().sort({createdAt: -1}).limit(10);
+    }
+    else if(queryCategory) {
+      products = await Product.find({
+        categories: {
+          $in: [queryCategory]
+        }
+      });
+    }
+    else if(queryCollection) {
+      products = await Product.find({
+        collections: {
+          $in: [queryCollection]
+        }
+      });
+    }
+    else if(queryBrand) {
+      products = await Product.find({
+        brand: queryBrand.toUpperCase(),
+      });
+    }
+    else {
+      products = await Product.find();
+    }
+
+    if(products)
+    res.status(200).json(products);
+  });
+
+    //  desc     Get product
+    //  route    GET /api/products
+    //  access   Public
+  const getProduct = asyncHandler(async (req, res) => {
+    const product = await Product.findById(req.params.id);
+
+    if(product)
+    res.status(200).json(product);
+  });
+
+    //  desc     Add new product
+    //  route    POST /api/products/add
+    //  access   Private
+  const addProduct = asyncHandler(async (req, res) => {
+    const { sku } = req.body;
+    const productExists = await Product.findOne({ sku });
+
+    if(productExists) {
+      res.status(400);
+      throw new Error('Product already exists.');
+    }
+
+    const product = new Product(req.body);
+    const newProduct = product.save();
+
+    if(newProduct)
+    res.status(200).json( {message: 'Product added successfully.'} );
+  });
+
+    //  desc     Update product
+    //  route    PUT /api/products/update
+    //  access   Private
+  const updateProduct = asyncHandler(async (req, res) => {
+    const updatedProduct = await Product.findByIdAndUpdate(
+      req.body.id,
+      {
+        $set: req.body
+      },
+      { new: true }
+    );
+
+    if(updatedProduct) {
+    res.status(200).json( {message: 'Product updated successfully.'} );
+    }
+    else {
+      res.status(404);
+      throw new Error('Product not found.');
+    }
+  });
+
+    //  desc     Delete product
+    //  route    DELETE /api/products/delete
+    //  access   Private
+  const deleteProduct = asyncHandler(async (req, res) => {
+    const deletedProduct = await Product.findByIdAndDelete(req.body.id);
+
+    if(deletedProduct) {
+    res.status(200).json( {message: 'Product deleted successfully.'} );
+    }
+    else {
+      res.status(404);
+      throw new Error('Product not found.');
+    }
+  });
 
   //  order controller
 
   //  payment controller
 
   //  cart controller
+////
 
-//  PROTECT ROUTES
+
+////  PROTECT ROUTES
 const protect = asyncHandler(async (req, res, next) => {
 
   let token;
@@ -324,11 +556,12 @@ const protect = asyncHandler(async (req, res, next) => {
     throw new Error('Not authorized. Token not found.')
   }
 });
+////
 
-//  ROUTES
-  //  user routes
+
+////  ROUTES
+  //  USER ROUTES
   const userRouter = express.Router();
-
   userRouter.post('/', registerUser);
   userRouter.post('/auth', authorizeUser);
   userRouter.post('/logout', logoutUser);
@@ -336,21 +569,28 @@ const protect = asyncHandler(async (req, res, next) => {
   .get(protect, getUserProfile)
   .put(protect, updateUserProfile);
 
-  //  product routes
+  //  PRODUCT ROUTES
+  const productRouter = express.Router();
+  productRouter.get('/', getAllProducts);
+  productRouter.get('/:id', getProduct);
+  productRouter.post('/add', protect, addProduct);
+  productRouter.put('/update', protect, updateProduct);
+  productRouter.delete('/delete', protect, deleteProduct);
 
   //  order routes
 
   //  payment routes
 
   //  cart routes
+////
 
-//  ERROR HANDLERS
+
+////  ERROR HANDLERS
 const notFound = (req, res, next) => {
   const err = new Error(`Not found ${req.originalUrl}`);
   res.status(404);
   next(err);
 };
-
 const errorHandler = (err, req, res, next) => {
   let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   let message = err.message;
@@ -365,8 +605,10 @@ const errorHandler = (err, req, res, next) => {
     stack: process.env.NODE_ENV === 'production' ? null : err.stack
   });
 };
+////
 
-//  SERVER
+
+////  SERVER
 dotenv.config();
 connectDB();
 const app = express();
@@ -385,11 +627,12 @@ const app = express();
   //  api
   app.get('/api', (req, res) => {
     console.log(req);
-    res.send('Server works!')
+    res.send('Server is ready.')
   });
 
   //  routes
   app.use('/api/users', userRouter);
+  app.use('/api/products', productRouter);
 
   //  *
   app.get('*', (req, res) => {
@@ -405,3 +648,4 @@ const app = express();
   app.listen(PORT, () => {
     console.log(`Server listening on port: ${PORT}`);
   });
+////

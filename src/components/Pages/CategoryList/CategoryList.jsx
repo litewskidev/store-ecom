@@ -12,7 +12,7 @@ const CategoryList = () => {
 
   return(
     <section id='category-list'>
-      <div className='categorylist__wrapper'>
+      <div className='categoryList__wrapper'>
         <h1>{category.replace('-', ' ').toUpperCase()}</h1>
         {isLoading && <div><p>LOADING...</p></div>}
         <Products products={categoryProducts}/>

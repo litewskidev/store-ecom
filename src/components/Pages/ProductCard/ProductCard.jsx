@@ -12,7 +12,7 @@ const ProductCard = () => {
 
   return(
     <section id='product-card'>
-      <div className='product-card__wrapper'>
+      <div className='productCard__wrapper'>
         {isLoading && <div><p>LOADING...</p></div>}
         <Product product={product} />
       </div>

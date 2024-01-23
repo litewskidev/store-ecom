@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { useGetAllProductsQuery } from '../../../redux/slices/productsApiSlice.js';
 import './AllWatches.scss';
 
@@ -6,15 +7,15 @@ const AllWatches = () => {
 
   return(
     <section id='all-watches'>
-      <div className='allwatches__wrapper'>
+      <div className='allWatches__wrapper'>
         <h1>ALL WATCHES</h1>
         {isLoading && <div><p>LOADING...</p></div>}
         {allProducts?.map((product, index) => (
-          <div key={product._id}>
-            <h1>{product.brand}</h1>
+          <NavLink to={`/watches/${product._id}`} key={product._id}>
+            <h2>{product.brand}</h2>
             <h3>{product.model}</h3>
             <p>{product.description}</p>
-          </div>
+          </NavLink>
         ))}
       </div>
     </section>

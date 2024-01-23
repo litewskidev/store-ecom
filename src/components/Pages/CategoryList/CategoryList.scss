@@ -1,12 +1,15 @@
 @import '../../../styles/settings.scss';
 
-.categorylist {
+.categoryList {
   &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     padding: 8rem 1rem;
     min-height: 100vh;
     background-color: $jet;
 
-    h1, h3, p  {
+    h1, h2, h3, p  {
       color: $seasalt;
     }
   }
