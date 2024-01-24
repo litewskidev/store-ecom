@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
+import { memo } from 'react';
 import './Products.scss';
 
-const Products = ({ products }) => {
+const Products = memo(({ products }) => {
   return(
     <div className='products__wrapper'>
       {products?.map((product, index) => (
@@ -15,6 +16,6 @@ const Products = ({ products }) => {
       ))}
     </div>
   );
-};
+});
 
 export default Products;

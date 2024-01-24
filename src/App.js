@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
-import './styles/global.scss';
 import Navbar from './components/Elements/Navbar/Navbar.jsx';
-import Footer from './components/Elements/Footer/Footer.jsx';
 import Newsletter from './components/Elements/Newsletter/Newsletter.jsx';
+import Footer from './components/Elements/Footer/Footer.jsx';
+import './styles/global.scss';
 
 const App = () => {
   return(

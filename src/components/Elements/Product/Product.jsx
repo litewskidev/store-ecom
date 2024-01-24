@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import './Product.scss';
 
-const Product = ({ product }) => {
+const Product = memo(({ product }) => {
   return(
     <div className='product__wrapper'>
       <div>
@@ -10,6 +11,6 @@ const Product = ({ product }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Product;

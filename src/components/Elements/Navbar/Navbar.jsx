@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { debounce } from 'lodash';
 import { NavLink, useNavigate } from 'react-router-dom';
 import SocialLinks from '../SocialLinks/SocialLinks.jsx';
@@ -7,6 +8,7 @@ import CartModal from '../CartModal/CartModal.jsx';
 import './Navbar.scss';
 
 const Navbar = () => {
+  const location = useLocation();
   const navigate = useNavigate();
 
   //  REFS
@@ -14,6 +16,7 @@ const Navbar = () => {
 
   //  STATES
   const [user, setUser] = useState(false);
+  const [isHomePage, setIsHomePage] = useState(true);
   const [bodyOverflowHidden, setBodyOverflowHidden] = useState(false);
   const [scrollDirection, setScrollDirection] = useState(null);
   const [isLoginActive, setIsLoginActive] = useState(false);
@@ -25,12 +28,16 @@ const Navbar = () => {
   const scrollThreshold = 5;
   const navbarThreshold = 60;
 
-  //  BODY OVERFLOW
+  //  WINDOW LOCATION
   useEffect(() => {
-    document.body.style.overflow = bodyOverflowHidden ? 'hidden' : 'scroll';
-  }, [bodyOverflowHidden]);
+    if(location.pathname === '/') {
+      setIsHomePage(true);
+    } else {
+      setIsHomePage(false);
+    }
+  }, [location]);
 
-  //  SCROLL
+  //  SCROLL UPDATE
   useEffect(() => {
     const navbar = navbarRef.current;
     let lastScrollY = window.scrollY;
@@ -50,7 +57,7 @@ const Navbar = () => {
       const isScrollBelow = window.scrollY >= navbarThreshold;
 
       if(navbar) {
-        navbar.classList.toggle('nav-top', !isScrollBelow);
+        navbar.classList.toggle('nav-top', !isScrollBelow && isHomePage);
       }
     };
 
@@ -69,7 +76,12 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
       handleScroll.cancel();
     };
-  }, [scrollDirection]);
+  }, [scrollDirection, isHomePage]);
+
+  //  BODY OVERFLOW
+  useEffect(() => {
+    document.body.style.overflow = bodyOverflowHidden ? 'hidden' : 'scroll';
+  }, [bodyOverflowHidden]);
 
   //  BUTTONS HANDLERS
   const toggleLogin = useCallback(() => {
@@ -100,7 +112,8 @@ const Navbar = () => {
     setIsBrandsListActive(prev => !prev);
   }, []);
 
-  const navbarMenu = {
+  const navbarMenu = useMemo(() => (
+    {
     shopByCategory: {
       title: 'SHOP BY CATEGORY',
       links: [
@@ -225,10 +238,11 @@ const Navbar = () => {
         }
       ]
     }
-  };
+    }
+  ), []);
 
   return(
-    <div id='navbar' className='navbar nav-top' ref={navbarRef}>
+    <div id='navbar' className={isHomePage ? 'navbar nav-top' : 'navbar'} ref={navbarRef}>
       <div className='navbar__wrapper'>
         {/* MENU NAVBAR */}
         <div className='navbar__body'>
