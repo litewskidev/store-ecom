@@ -42,7 +42,7 @@
 
           & > * {
             pointer-events: auto;
-            transition: opacity .8s $cubic;
+            transition: opacity .8s $quart-out;
           }
 
           &:hover > * {
@@ -117,7 +117,7 @@
               display: block;
               width: 1rem;
               transform: rotate(0);
-              transition: transform .4s ease-out;
+              transition: transform .4s $quart-out;
 
               &.rotate {
                 transform: rotate(180deg);
@@ -131,7 +131,7 @@
             height: 0;
             visibility: hidden;
             overflow: hidden;
-            transition: all .4s ease-out;
+            transition: height .4s $quart-out, visibility .4s $sine-out;
           }
 
           &__one {

@@ -1,5 +1,7 @@
 //  TRANSITIONS
-$cubic: cubic-bezier(.15, .85, .45, 1);
+$quart-out: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+$sine-in: cubic-bezier(0.470, 0.000, 0.745, 0.715);
+$sine-out: cubic-bezier(0.390, 0.575, 0.565, 1.000);
 
 //  FONT
 $font: 'Inter', sans-serif;
