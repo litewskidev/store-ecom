@@ -10,6 +10,7 @@ body {
   cursor: default;
   background-color: $seasalt;
   font-family: $font;
+  scroll-behavior: smooth;
   -ms-overflow-style: none;
   scrollbar-width: none;
 

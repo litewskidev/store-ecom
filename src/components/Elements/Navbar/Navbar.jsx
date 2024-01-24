@@ -35,6 +35,7 @@ const Navbar = () => {
     } else {
       setIsHomePage(false);
     }
+    window.scrollTo(0, 0);
   }, [location]);
 
   //  SCROLL UPDATE
