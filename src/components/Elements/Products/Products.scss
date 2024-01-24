@@ -1,7 +1,10 @@
 .products {
   &__wrapper {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
     gap: 2rem;
   }
+
+  
 }

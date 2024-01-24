@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useGetProductsByIdQuery } from '../../../redux/slices/productsApiSlice';
 import Product from '../../Elements/Product/Product.jsx';
+import Loading from '../../Elements/Loading/Loading.jsx';
 import './ProductCard.scss';
 
 const ProductCard = () => {
@@ -13,7 +14,7 @@ const ProductCard = () => {
   return(
     <section id='product-card'>
       <div className='productCard__wrapper'>
-        {isLoading && <div><p>LOADING...</p></div>}
+        {isLoading && <Loading />}
         <Product product={product} />
       </div>
     </section>

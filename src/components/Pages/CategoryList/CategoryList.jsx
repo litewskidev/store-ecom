@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useGetProductsByCategoryQuery } from '../../../redux/slices/productsApiSlice.js';
 import Products from '../../Elements/Products/Products.jsx';
+import Loading from '../../Elements/Loading/Loading.jsx';
 import './CategoryList.scss';
 
 const CategoryList = () => {
@@ -14,7 +15,7 @@ const CategoryList = () => {
     <section id='category-list'>
       <div className='categoryList__wrapper'>
         <h1>{category.replace('-', ' ').toUpperCase()}</h1>
-        {isLoading && <div><p>LOADING...</p></div>}
+        {isLoading && <Loading />}
         <Products products={categoryProducts}/>
       </div>
     </section>

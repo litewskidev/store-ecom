@@ -2,12 +2,8 @@
 
 .productCard {
   &__wrapper {
-    padding: 8rem 1rem;
+    width: 100%;
     min-height: 100vh;
-    background-color: $jet;
-
-    h1, h3, p  {
-      color: $seasalt;
-    }
+    padding: 8rem 1rem;
   }
 }

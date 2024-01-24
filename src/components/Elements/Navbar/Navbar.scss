@@ -325,11 +325,11 @@
 
       &.active {
         .navbar__item__menu__button__up, .navbar__item__menu__button__up__modal__btn {
-          transform: translateY(.2rem) rotate(45deg);
+          transform: rotate(45deg);
         }
 
         .navbar__item__menu__button__down, .navbar__item__menu__button__down__modal__btn {
-          transform: translateY(-.44rem) rotate(-45deg);
+          transform: translateY(-.55rem) rotate(-45deg);
         }
       }
     }
