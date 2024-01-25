@@ -1,6 +1,5 @@
 import { useLocation } from 'react-router-dom';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { throttle } from 'lodash';
 import { NavLink, useNavigate } from 'react-router-dom';
 import SocialLinks from '../SocialLinks/SocialLinks.jsx';
 import LoginModal from '../LoginModal/LoginModal.jsx';
@@ -13,9 +12,9 @@ const Navbar = () => {
 
   //  STATES
   const [user, setUser] = useState(false);
-  const [isHomePage, setIsHomePage] = useState(null);
+  const [isHomePage, setIsHomePage] = useState(true);
   const [isScrollingDown, setIsScrollingDown] = useState(false);
-  const [isScrollBelowThreshold, setIsScrollBelowThreshold] = useState(null);
+  const [isScrollBelowThreshold, setIsScrollBelowThreshold] = useState(false);
   const [bodyOverflowHidden, setBodyOverflowHidden] = useState(false);
   const [isLoginActive, setIsLoginActive] = useState(false);
   const [isCartActive, setIsCartActive] = useState(false);
@@ -24,8 +23,7 @@ const Navbar = () => {
   const [isBrandsListActive, setIsBrandsListActive] = useState(false);
 
   const scrollThreshold = 5;
-  const navbarThreshold = 50;
-  const throttleThreshold = 50;
+  const navbarThreshold = 75;
 
   //  WINDOW LOCATION
   useEffect(() => {
@@ -37,6 +35,7 @@ const Navbar = () => {
   //  SCROLL UPDATE
   useEffect(() => {
     let lastScrollY = window.scrollY;
+    let ticking = false;
 
     const updateScrollDirection = () => {
       const scrollY = window.scrollY;
@@ -53,16 +52,22 @@ const Navbar = () => {
       setIsScrollBelowThreshold(window.scrollY >= navbarThreshold);
     };
 
-    const handleScroll = throttle(() => {
-      updateScrollDirection();
-      updateScrollHeader();
-    }, throttleThreshold);
+    const handleScroll = () => {
+      if(!ticking) {
+        requestAnimationFrame(() => {
+          updateScrollDirection();
+          updateScrollHeader();
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      handleScroll.cancel();
     };
   }, [isScrollingDown]);
 
@@ -77,28 +82,28 @@ const Navbar = () => {
       navigate('/profile');
     }
     else {
-      setBodyOverflowHidden(prev => !prev);
-      setIsLoginActive(prev => !prev);
+      setBodyOverflowHidden(!bodyOverflowHidden);
+      setIsLoginActive(!isLoginActive);
     }
-  }, [user, navigate]);
+  }, [user, navigate, isLoginActive, bodyOverflowHidden]);
 
   const toggleCart = useCallback(() => {
-    setBodyOverflowHidden(prev => !prev);
-    setIsCartActive(prev => !prev);
-  }, []);
+    setBodyOverflowHidden(!bodyOverflowHidden);
+    setIsCartActive(!isCartActive);
+  }, [isCartActive, bodyOverflowHidden]);
 
   const toggleDropdown = useCallback(() => {
-    setBodyOverflowHidden(prev => !prev);
-    setIsDropdownActive(prev => !prev);
-  }, []);
+    setBodyOverflowHidden(!bodyOverflowHidden);
+    setIsDropdownActive(!isDropdownActive);
+  }, [isDropdownActive, bodyOverflowHidden]);
 
   const toggleWatchesList = useCallback(() => {
-    setIsWatchesListActive(prev => !prev);
-  }, []);
+    setIsWatchesListActive(!isWatchesListActive);
+  }, [isWatchesListActive]);
 
   const toggleBrandsList = useCallback(() => {
-    setIsBrandsListActive(prev => !prev);
-  }, []);
+    setIsBrandsListActive(!isBrandsListActive);
+  }, [isBrandsListActive]);
 
   const navbarMenu = useMemo(() => (
     {
@@ -230,7 +235,7 @@ const Navbar = () => {
   ), []);
 
   return(
-    <div id='navbar' className={isScrollingDown ? 'navbar nav-close' : 'navbar'}>
+    <div id='navbar' className={!isScrollingDown || !isScrollBelowThreshold ? 'navbar nav-open' : 'navbar'}>
       <div className={isHomePage && !isScrollBelowThreshold ? 'navbar__wrapper nav-top' : 'navbar__wrapper'}>
         {/* MENU NAVBAR */}
         <div className='navbar__body'>
