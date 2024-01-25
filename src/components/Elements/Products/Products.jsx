@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
 import { memo } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Products.scss';
 
 const Products = memo(({ products }) => {

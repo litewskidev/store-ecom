@@ -5,7 +5,7 @@ const Newsletter = () => {
     <div className='newsletter__wrapper'>
       <div className='newsletter__left'>
         <div className='newsletter__left__header'>
-          <h1>Join the CULTURE</h1>
+          <h1>JOIN THE CULTURE</h1>
           <p>Immerse yourself in a captivating world of horological charm and magic.</p>
         </div>
         <div className='newsletter__left__footer'>

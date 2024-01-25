@@ -6,7 +6,7 @@
     flex-direction: column;
     gap: 2rem;
     width: 100vw;
-    padding: 3.75rem 2rem 1rem 2rem;
+    padding: 3.75rem 0 1rem 0;
   }
 
   &__body {
@@ -81,7 +81,7 @@
     opacity: .8;
 
     p {
-      font-size: .75rem;
+      font-size: .7rem;
     }
   }
 }
@@ -91,13 +91,14 @@
     &__wrapper {
       gap: 2rem;
       width: 100vw;
-      padding: 3.75rem 1rem 1rem 1rem;
+      //padding: 3.75rem 1rem 1rem 1rem;
     }
 
     &__body {
       flex-direction: column;
       gap: 0;
       width: 100%;
+      padding: 0 1rem;
 
       &__item {
         gap: 1rem;
