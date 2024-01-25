@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { debounce } from 'lodash';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { throttle } from 'lodash';
 import { NavLink, useNavigate } from 'react-router-dom';
 import SocialLinks from '../SocialLinks/SocialLinks.jsx';
 import LoginModal from '../LoginModal/LoginModal.jsx';
@@ -11,14 +11,12 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  //  REFS
-  const navbarRef = useRef(null);
-
   //  STATES
   const [user, setUser] = useState(false);
-  const [isHomePage, setIsHomePage] = useState(true);
+  const [isHomePage, setIsHomePage] = useState(null);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const [isScrollBelowThreshold, setIsScrollBelowThreshold] = useState(null);
   const [bodyOverflowHidden, setBodyOverflowHidden] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState(null);
   const [isLoginActive, setIsLoginActive] = useState(false);
   const [isCartActive, setIsCartActive] = useState(false);
   const [isDropdownActive, setIsDropdownActive] = useState(false);
@@ -26,50 +24,39 @@ const Navbar = () => {
   const [isBrandsListActive, setIsBrandsListActive] = useState(false);
 
   const scrollThreshold = 5;
-  const navbarThreshold = 60;
+  const navbarThreshold = 50;
+  const throttleThreshold = 50;
 
   //  WINDOW LOCATION
   useEffect(() => {
-    if(location.pathname === '/') {
-      setIsHomePage(true);
-    } else {
-      setIsHomePage(false);
-    }
+    setIsHomePage(location.pathname === '/');
+
     window.scrollTo(0, 0);
   }, [location]);
 
   //  SCROLL UPDATE
   useEffect(() => {
-    const navbar = navbarRef.current;
     let lastScrollY = window.scrollY;
 
     const updateScrollDirection = () => {
       const scrollY = window.scrollY;
-      const direction = scrollY > lastScrollY ? 'down' : 'up';
+      const direction = scrollY > lastScrollY;
 
-      if(Math.abs(scrollY - lastScrollY) > scrollThreshold && direction !== scrollDirection) {
-        setScrollDirection(direction);
+      if(direction !== isScrollingDown && Math.abs(scrollY - lastScrollY) > scrollThreshold) {
+        setIsScrollingDown(direction);
       }
 
       lastScrollY = Math.max(0, scrollY);
     };
 
     const updateScrollHeader = () => {
-      const isScrollBelow = window.scrollY >= navbarThreshold;
-
-      if(navbar) {
-        navbar.classList.toggle('nav-top', !isScrollBelow && isHomePage);
-      }
+      setIsScrollBelowThreshold(window.scrollY >= navbarThreshold);
     };
 
-    const handleScroll = debounce(() => {
+    const handleScroll = throttle(() => {
       updateScrollDirection();
       updateScrollHeader();
-
-      if(navbar){
-        navbar.classList.toggle('nav-close', scrollDirection === 'down');
-      }
-    }, scrollThreshold);
+    }, throttleThreshold);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -77,7 +64,7 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
       handleScroll.cancel();
     };
-  }, [scrollDirection, isHomePage]);
+  }, [isScrollingDown]);
 
   //  BODY OVERFLOW
   useEffect(() => {
@@ -243,8 +230,8 @@ const Navbar = () => {
   ), []);
 
   return(
-    <div id='navbar' className={isHomePage ? 'navbar nav-top' : 'navbar'} ref={navbarRef}>
-      <div className='navbar__wrapper'>
+    <div id='navbar' className={isScrollingDown ? 'navbar nav-close' : 'navbar'}>
+      <div className={isHomePage && !isScrollBelowThreshold ? 'navbar__wrapper nav-top' : 'navbar__wrapper'}>
         {/* MENU NAVBAR */}
         <div className='navbar__body'>
           <nav className='navbar__body__left'>

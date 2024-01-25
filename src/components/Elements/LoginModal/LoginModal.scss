@@ -92,7 +92,7 @@
         background-color: transparent;
         border: solid .063rem $jet;
         cursor: pointer;
-        transition: background-color .4s $quart-out, color .4s $quart-out;
+        transition: background-color .4s ease-out, color .4s ease-out;
 
         &:hover {
           color: $seasalt;
@@ -132,7 +132,7 @@
         background-color: $jet;
         border: solid .063rem $jet;
         cursor: pointer;
-        transition: background-color .4s $quart-out, color .4s $quart-out;
+        transition: background-color .4s ease-out, color .4s ease-out;
 
         &:hover {
           color: $jet;

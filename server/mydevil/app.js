@@ -128,14 +128,15 @@ const connectDB = async() => {
         type: String
       },
       brand: {
-        type: String
+        name: {
+          type: String
+        },
+        href: {
+          type: String
+        }
       },
       model: {
         type: String
-      },
-      inStock: {
-        type: Boolean,
-        default: true
       },
       price: {
         base : {
@@ -148,22 +149,8 @@ const connectDB = async() => {
           type: Number
         }
       },
-      certificates: {
-        box: {
-          type: Boolean
-        },
-        papers: {
-          type: Boolean
-        },
-        warranty: {
-          type: String
-        }
-      },
       year: {
         type: Number
-      },
-      images: {
-        type: String
       },
       description: {
         type: String
@@ -174,7 +161,7 @@ const connectDB = async() => {
             type: String
           },
           style: {
-            type: String
+            type: Array
           },
           gender: {
             type: String
@@ -210,7 +197,7 @@ const connectDB = async() => {
             type: String
           },
           complications: {
-            type: String
+            type: Array
           }
         },
         strapBracelet: {
@@ -233,7 +220,17 @@ const connectDB = async() => {
       },
       collections: {
         type: Array
-      }
+      },
+      images: {
+        type: Array
+      },
+      warranty: {
+        type: String
+      },
+      inStock: {
+        type: Boolean,
+        default: true
+      },
     },
     {
       timestamps: true

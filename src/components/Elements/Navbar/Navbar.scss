@@ -4,17 +4,18 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  background-color: $seasalt;
-  color: $jet;
+  width: 100vw;
   z-index: 99;
   transform: translateY(0);
-  transition: transform .4s $sine-out, opacity .4s $sine-out, background-color .4s $sine-out, color .4s $sine-out;
+  transition: transform .4s ease-out;
 
   &__wrapper {
     display: flex;
     flex-direction: column;
     padding: 0 2rem;
+    background-color: $seasalt;
+    color: $jet;
+    transition: background-color .4s ease-out, color .4s ease-out;
   }
 
   &__body {
@@ -73,7 +74,7 @@
         border-bottom: solid .063rem $timberwolf;
         opacity: 0;
         visibility: hidden;
-        transition: opacity .4s $sine-out;
+        transition: opacity .4s ease-out;
 
         &__img {
           position: relative;
@@ -113,7 +114,7 @@
                 li {
                   text-underline-offset: .35rem;
                   text-decoration: underline .063rem rgba(0, 0, 0, 0);
-                  transition: text-decoration-color .3s $quart-out;
+                  transition: text-decoration-color .3s ease-out;
 
                   a {
                     text-decoration: none;
@@ -141,7 +142,7 @@
         color: inherit;
         text-underline-offset: .5rem;
         text-decoration: underline .063rem rgba(0, 0, 0, 0);
-        transition: text-decoration-color .3s $quart-out;
+        transition: text-decoration-color .3s ease-out;
       }
 
       &:hover {
@@ -199,7 +200,7 @@
     z-index: 299;
     opacity: 0;
     visibility: hidden;
-    transition: opacity .4s $sine-out, visibility .4s $sine-out;
+    transition: opacity .4s ease-out, visibility .4s ease-out;
 
     &.active {
       visibility: visible;
@@ -209,7 +210,7 @@
     &__inner {
       transform: translateX(100%);
       visibility: hidden;
-      transition: transform .4s $sine-out, visibility .4s $sine-out;
+      transition: transform .4s ease-out, visibility .4s ease-out;
 
       &.open {
         visibility: visible;
@@ -320,7 +321,7 @@
         width: 1.5rem;
         height: .1rem;
         background-color: $jet;
-        transition: transform .8s $quart-out;
+        transition: transform .8s ease-out;
       }
 
       &.active {
@@ -345,7 +346,7 @@
       z-index: 199;
       opacity: 0;
       visibility: hidden;
-      transition: opacity .4s $sine-out, visibility .4s $sine-out;
+      transition: opacity .4s ease-out, visibility .4s ease-out;
 
       &__inner {
         position: fixed;
@@ -361,7 +362,7 @@
         background-color: $seasalt;
         transform: translateX(100%);
         visibility: hidden;
-        transition: transform .4s $sine-out, visibility .4s $sine-out;
+        transition: transform .4s ease-out, visibility .4s ease-out;
 
         &__scroll {
           display: flex;
@@ -410,7 +411,7 @@
                 img {
                   width: 1rem;
                   transform: rotate(0);
-                  transition: transform .4s $quart-out;
+                  transition: transform .4s ease-out;
 
                   &.rotate {
                     transform: rotate(180deg);
@@ -456,7 +457,7 @@
       height: 0;
       visibility: hidden;
       overflow: hidden;
-      transition: height .4s $quart-out, visibility .4s $quart-out;
+      transition: height .4s ease-out, visibility .4s ease-out;
 
       &.list-open {
         visibility: visible;

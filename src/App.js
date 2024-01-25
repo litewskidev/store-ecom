@@ -8,7 +8,7 @@ const App = () => {
   return(
     <main id='main'>
       <Navbar />
-      <div className='main__body'>
+      <div>
         <Outlet />
       </div>
       <Newsletter />
