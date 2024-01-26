@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import './CartModal.scss';
 
-const CartModal = ({ handleBtn }) => {
+const CartModal = memo(({ handleBtn }) => {
   const cart = [];
 
   return(
@@ -63,6 +64,6 @@ const CartModal = ({ handleBtn }) => {
       </div>
     </div>
   );
-};
+});
 
 export default CartModal;
