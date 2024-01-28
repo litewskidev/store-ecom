@@ -25,7 +25,8 @@ const productSchema = mongoose.Schema(
         type: Number
       },
       currency: {
-        type: String
+        type: String,
+        default: '$'
       },
       discount: {
         type: Number

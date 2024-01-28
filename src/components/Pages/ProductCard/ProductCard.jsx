@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { useGetProductsByIdQuery } from '../../../redux/slices/productsApiSlice';
-import Product from '../../Elements/Product/Product.jsx';
+import { useGetProductsByIdQuery } from '../../../redux/slices/productsApiSlice.js';
 import Loading from '../../Elements/Loading/Loading.jsx';
+import Product from '../../Elements/Product/Product.jsx';
 import './ProductCard.scss';
 
 const ProductCard = () => {

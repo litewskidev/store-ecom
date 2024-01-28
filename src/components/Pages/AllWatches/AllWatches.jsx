@@ -12,10 +12,16 @@ const AllWatches = () => {
         <h1>ALL WATCHES</h1>
         {isLoading && <Loading />}
         {allProducts?.map((product, index) => (
-          <NavLink to={`/watches/${product._id}`} key={product._id}>
-            <h2>{product.brand}</h2>
+          <NavLink to={`/watches/${product._id}`} key={index}>
+            <h2>{product.brand.name}</h2>
             <h3>{product.model}</h3>
-            <p>{product.description}</p>
+            {product.images.slice(0, 1).map((image, index) => (
+              <div className='product__images' key={index}>
+                <img src={process.env.PUBLIC_URL + `/assets/images/watches/${product?.sku}/${image}.webp`} alt='' />
+              </div>
+            ))}
+            <p>{product.price.currency}{(product?.price.base - (product.price.base / product?.price.discount)).toFixed(3)}</p>
+            <p>{product.year}</p>
           </NavLink>
         ))}
       </div>

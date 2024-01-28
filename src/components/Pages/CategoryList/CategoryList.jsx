@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useGetProductsByCategoryQuery } from '../../../redux/slices/productsApiSlice.js';
-import Products from '../../Elements/Products/Products.jsx';
 import Loading from '../../Elements/Loading/Loading.jsx';
+import Products from '../../Elements/Products/Products.jsx';
 import './CategoryList.scss';
 
 const CategoryList = () => {
