@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Products.scss';
 
 const Products = memo(({ products }) => {
@@ -23,5 +24,24 @@ const Products = memo(({ products }) => {
     </div>
   );
 });
+
+Products.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      brand: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+      }).isRequired,
+      model: PropTypes.string.isRequired,
+      images: PropTypes.arrayOf(PropTypes.string).isRequired,
+      price: PropTypes.shape({
+        currency: PropTypes.string.isRequired,
+        base: PropTypes.number.isRequired,
+        discount: PropTypes.number.isRequired,
+      }).isRequired,
+      year: PropTypes.number.isRequired,
+    })
+  ),
+};
 
 export default Products;

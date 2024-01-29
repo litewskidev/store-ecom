@@ -2,6 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useGetProductsByCategoryQuery } from '../../../redux/slices/productsApiSlice.js';
 import Loading from '../../Elements/Loading/Loading.jsx';
 import Products from '../../Elements/Products/Products.jsx';
+import PropTypes from 'prop-types';
 import './CategoryList.scss';
 
 const CategoryList = () => {
@@ -23,6 +24,12 @@ const CategoryList = () => {
       </div>
     </section>
   );
+};
+
+CategoryList.propTypes = {
+  categoryProducts: PropTypes.arrayOf(PropTypes.object),
+  isLoading: PropTypes.bool,
+  isError: PropTypes.bool,
 };
 
 export default CategoryList;

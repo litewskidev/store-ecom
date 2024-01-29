@@ -2,6 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useGetProductsByIdQuery } from '../../../redux/slices/productsApiSlice.js';
 import Loading from '../../Elements/Loading/Loading.jsx';
 import Product from '../../Elements/Product/Product.jsx';
+import PropTypes from 'prop-types';
 import './ProductCard.scss';
 
 const ProductCard = () => {
@@ -20,6 +21,12 @@ const ProductCard = () => {
       </div>
     </section>
   );
+};
+
+ProductCard.propTypes = {
+  product: PropTypes.object,
+  isLoading: PropTypes.bool,
+  isError: PropTypes.bool,
 };
 
 export default ProductCard;

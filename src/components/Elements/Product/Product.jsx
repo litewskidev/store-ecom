@@ -1,5 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import ImageSlider from '../ImageSlider/ImageSlider.jsx';
+import PropTypes from 'prop-types';
 import './Product.scss';
 
 const Product = memo(({ product }) => {
@@ -165,5 +166,53 @@ const Product = memo(({ product }) => {
     </div>
   );
 });
+
+Product.propTypes = {
+  product: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    brand: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+    model: PropTypes.string.isRequired,
+    reference: PropTypes.string.isRequired,
+    sku: PropTypes.string.isRequired,
+    price: PropTypes.shape({
+      currency: PropTypes.string.isRequired,
+      base: PropTypes.number.isRequired,
+      discount: PropTypes.number.isRequired,
+    }).isRequired,
+    description: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+    features: PropTypes.shape({
+      details: PropTypes.shape({
+        origin: PropTypes.string.isRequired,
+        style: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+        gender: PropTypes.string.isRequired,
+      }).isRequired,
+      function: PropTypes.shape({
+        movement: PropTypes.string.isRequired,
+        complications: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+      }).isRequired,
+      case: PropTypes.shape({
+        size: PropTypes.string.isRequired,
+        material: PropTypes.string.isRequired,
+        back: PropTypes.string.isRequired,
+        shape: PropTypes.string.isRequired,
+        waterResistance: PropTypes.string.isRequired,
+      }).isRequired,
+      dial: PropTypes.shape({
+        color: PropTypes.string.isRequired,
+        hoursMarkers: PropTypes.string.isRequired,
+      }).isRequired,
+      strapBracelet: PropTypes.shape({
+        material: PropTypes.string.isRequired,
+        bandColor: PropTypes.string.isRequired,
+        buckleType: PropTypes.string.isRequired,
+        length: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+    images: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  }).isRequired,
+};
 
 export default Product;

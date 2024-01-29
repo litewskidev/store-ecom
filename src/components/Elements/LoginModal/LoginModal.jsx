@@ -1,5 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './LoginModal.scss';
 
 const LoginModal = memo(({ handleBtn }) => {
@@ -78,5 +79,9 @@ const LoginModal = memo(({ handleBtn }) => {
     </div>
   );
 });
+
+LoginModal.propTypes = {
+  handleBtn: PropTypes.func.isRequired,
+};
 
 export default LoginModal;

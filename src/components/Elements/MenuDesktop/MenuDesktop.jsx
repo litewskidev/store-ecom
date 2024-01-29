@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './MenuDesktop.scss';
 
 const MenuDesktop = memo(({ isDropdownActive, toggleDropdown, toggleLogin, toggleCart, navbarMenu }) => {
@@ -170,5 +171,50 @@ const MenuDesktop = memo(({ isDropdownActive, toggleDropdown, toggleLogin, toggl
     </>
   );
 });
+
+MenuDesktop.propTypes = {
+  isDropdownActive: PropTypes.bool.isRequired,
+  toggleDropdown: PropTypes.func.isRequired,
+  toggleLogin: PropTypes.func.isRequired,
+  toggleCart: PropTypes.func.isRequired,
+  navbarMenu: PropTypes.shape({
+    shopByCategory: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      links: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    }).isRequired,
+    featuredCollections: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      links: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    }).isRequired,
+    featuredBrands: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      links: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    }).isRequired,
+    allBrands: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      links: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default MenuDesktop;
