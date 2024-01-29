@@ -17,6 +17,9 @@ const Product = memo(({ product }) => {
 
   return(
     <div className='product__wrapper'>
+      <div className='product__images__container'>
+        <ImageSlider product={product} />
+      </div>
       <div className='product__info__container'>
         <div className='product__info'>
           <div className='product__info__header'>
@@ -60,7 +63,7 @@ const Product = memo(({ product }) => {
               <img className={isFeaturesOpen ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='down arrow' />
             </div>
             <div className='product__info__features__info'>
-              <div className='product__info__features__info__left'>
+              <div>
                 <div className='product__info__features__details'>
                   <h3>WATCH DETAILS</h3>
                   <div className='product__info__features__details__box'>
@@ -90,21 +93,8 @@ const Product = memo(({ product }) => {
                     <p>{product?.features.details.gender}</p>
                   </div>
                 </div>
-                <div className='product__info__features__function'>
-                  <h3>FUNCTION</h3>
-                  <div className='product__info__features__function__box'>
-                    <h4>Movement:</h4>
-                    <p>{product?.features.function.movement}</p>
-                  </div>
-                  <div className='product__info__features__function__box'>
-                    <h4>Complications:</h4>
-                    {product?.features.function.complications.map((complication, index) => (
-                      <p key={index}>{complication}</p>
-                    ))}
-                  </div>
-                </div>
               </div>
-              <div className='product__info__features__info__right'>
+              <div>
                 <div className='product__info__features__case'>
                   <h3>CASE & DIAL</h3>
                   <div className='product__info__features__case__box'>
@@ -136,6 +126,8 @@ const Product = memo(({ product }) => {
                     <p>{product?.features.case.waterResistance}</p>
                   </div>
                 </div>
+              </div>
+              <div>
                 <div className='product__info__features__strap'>
                   <h3>STRAP / BRACELET</h3>
                   <div className='product__info__features__strap__box'>
@@ -156,12 +148,24 @@ const Product = memo(({ product }) => {
                   </div>
                 </div>
               </div>
+              <div>
+                <div className='product__info__features__function'>
+                  <h3>FUNCTION</h3>
+                  <div className='product__info__features__function__box'>
+                    <h4>Movement:</h4>
+                    <p>{product?.features.function.movement}</p>
+                  </div>
+                  <div className='product__info__features__function__box'>
+                    <h4>Complications:</h4>
+                    {product?.features.function.complications.map((complication, index) => (
+                      <p key={index}>{complication}</p>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className='product__images__container'>
-        <ImageSlider product={product} />
       </div>
     </div>
   );

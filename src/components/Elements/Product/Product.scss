@@ -3,23 +3,41 @@
 .product {
   &__wrapper {
     display: flex;
-    flex-direction: row-reverse;
-    gap: 3rem;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+
+  &__images {
+    &__container {
+      position: relative;
+      width: 55%;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 3.8rem;
+        right: 0;
+        width: 20%;
+        height: 0.063rem;
+        background-color: $jet;
+        z-index: 1;
+      }
+    }
+
+    img {
+      width: 100%;
+      max-height: 65svh;
+      object-fit: contain;
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__info {
     &__container {
-      display: flex;
-      justify-content: flex-start;
       width: 40%;
-      max-height: 75svh;
-      overflow-y: scroll;
-      -ms-overflow-style: none;
-      scrollbar-width: 0;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
     }
 
     display: flex;
@@ -36,7 +54,7 @@
         position: relative;
 
         p {
-          font-size: 2.5rem;
+          font-size: 2rem;
         }
       }
 
@@ -60,25 +78,23 @@
     }
 
     &__actions {
-      margin: 1rem 0;
       display: flex;
-      align-items: center;
       justify-content: space-between;
       width: 100%;
 
       &__cart {
-        display: flex;
-        justify-content: center;
         width: 80%;
         border: solid .063rem $jet;
-        cursor: pointer;
+        text-align: center;
 
         button {
+          width: 100%;
           font-family: $font;
-          font-size: 1rem;
+          font-size: .9rem;
           background-color: transparent;
           border: none;
-          padding: .5rem 0;
+          padding: .6rem 0;
+          cursor: pointer;
         }
       }
 
@@ -86,14 +102,12 @@
         display: flex;
         justify-content: center;
         width: 15%;
-        height: 100%;
         background-color: $jet;
         border: solid .063rem $jet;
         cursor: pointer;
 
         img {
-          display: block;
-          width: 1.7rem;
+          width: 1.75rem;
           filter: invert(1);
         }
       }
@@ -111,6 +125,10 @@
           display: none;
         }
       }
+
+      p {
+        font-size: .9rem;
+      }
     }
 
     &__features {
@@ -119,18 +137,11 @@
       gap: 1rem;
 
       &__info {
-        display: flex;
-        justify-content: space-between;
-
-        &__left, &__right {
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-        }
-
-        &__left {
-          gap: 3.35rem;
-        }
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 60% 40%;
+        column-gap: 2rem;
+        row-gap: 1rem;
       }
 
       &__button {
@@ -142,15 +153,15 @@
       }
 
       h3 {
-        font-size: .875rem;
+        font-size: .9rem;
+        font-weight: 400;
         text-decoration: underline;
-        text-underline-offset: .25rem;
-        opacity: .9;
+        text-underline-offset: .3rem;
         margin-bottom: 1rem;
       }
 
       h4, p {
-        font-size: 1rem;
+        font-size: .875rem;
       }
     }
 
@@ -158,45 +169,28 @@
       font-size: 1.2rem;
     }
   }
-
-  &__images {
-    &__container {
-      position: relative;
-      width: 55%;
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 3.8rem;
-        right: 0;
-        width: 20%;
-        height: 0.063rem;
-        background-color: $jet;
-        z-index: 1;
-      }
-    }
-
-    img {
-      width: 100%;
-      max-height: 75svh;
-      object-fit: contain;
-    }
-
-    &:focus {
-      outline: none;
-    }
-  }
 }
 
 @media screen and (max-width: 1200px) {
   .product {
     &__wrapper {
-      gap: 2rem;
+      gap: 3rem;
+    }
+
+    &__images {
+      &__container {
+        width: 47%;
+
+        &::before {
+          top: 3.4rem;
+          right: -1rem;
+        }
+      }
     }
 
     &__info {
       &__container {
-        width: 50%;
+        width: 46%;
       }
 
       width: 100%;
@@ -204,37 +198,8 @@
       &__header {
         &__title {
           p {
-            font-size: 2rem;
+            font-size: 1.5rem;
           }
-        }
-      }
-
-      &__desc {
-        p {
-          font-size: .9rem;
-        }
-      }
-
-      &__features {
-        &__info {
-          &__left {
-            gap: 3.25rem;
-          }
-        }
-
-        h4, p {
-          font-size: .9rem;
-        }
-      }
-    }
-
-    &__images {
-      &__container {
-        width: 45%;
-
-        &::before {
-          top: 3.4rem;
-          right: -1rem;
         }
       }
     }
@@ -244,30 +209,31 @@
 @media screen and (max-width: 600px) {
   .product {
     &__wrapper {
-      flex-direction: column-reverse;
+      flex-direction: column;
       gap: 4rem;
+    }
+
+    &__images {
+      &__container {
+        width: 100%;
+
+        &::before {
+          top: 101.5%;
+          right: 78.5%;
+          width: 4.5rem;
+          transform: rotate(90deg);
+        }
+      }
     }
 
     &__info {
       &__container {
         width: 100%;
-        max-height: none;
-        overflow-y: visible;
-      }
-
-      width: 100%;
-
-      &__header {
-        &__title {
-          p {
-            font-size: 1.7rem;
-          }
-        }
       }
 
       &__desc {
         overflow: hidden;
-        height: 1.7rem;
+        height: 1.5rem;
         transition: height .4s ease-out;
 
         &__button {
@@ -288,20 +254,14 @@
         }
 
         &.open {
-          height: 15rem;
+          height: 12rem;
         }
       }
 
       &__features {
         overflow: hidden;
-        height: 2.5rem;
+        height: 1.5rem;
         transition: height .6s ease-out;
-
-        &__info {
-          &__left {
-            gap: 3.2rem;
-          }
-        }
 
         &__button {
           display: flex;
@@ -321,20 +281,7 @@
         }
 
         &.open {
-          height: 42rem;
-        }
-      }
-    }
-
-    &__images {
-      &__container {
-        width: 100%;
-
-        &::before {
-          top: 101.5%;
-          right: 78.5%;
-          width: 4.5rem;
-          transform: rotate(90deg);
+          height: 38rem;
         }
       }
     }

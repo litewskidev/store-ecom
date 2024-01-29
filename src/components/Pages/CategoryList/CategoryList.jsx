@@ -1,16 +1,15 @@
+import { useLayoutEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useGetProductsByCategoryQuery } from '../../../redux/slices/productsApiSlice.js';
+import gsap from 'gsap';
 import Loading from '../../Elements/Loading/Loading.jsx';
 import Products from '../../Elements/Products/Products.jsx';
-import PropTypes from 'prop-types';
 import './CategoryList.scss';
-import { useLayoutEffect, useRef } from 'react';
-import gsap from 'gsap';
 
 const CategoryList = () => {
-  const navigate = useNavigate();
-  const params = useParams();
   const categoryListRef = useRef(null);
+  const params = useParams();
+  const navigate = useNavigate();
 
   useLayoutEffect(() => {
     const categoryList = categoryListRef.current;
@@ -32,12 +31,6 @@ const CategoryList = () => {
       </div>
     </section>
   );
-};
-
-CategoryList.propTypes = {
-  categoryProducts: PropTypes.arrayOf(PropTypes.object),
-  isLoading: PropTypes.bool,
-  isError: PropTypes.bool,
 };
 
 export default CategoryList;
