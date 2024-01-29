@@ -28,8 +28,14 @@ const Product = memo(({ product }) => {
               <p>SKU#{product?.sku}</p>
             </div>
             <div className='product__info__header__price'>
-              <h2>{product?.price.currency}{(product?.price.base - (product?.price.base / product?.price.discount)).toFixed(3)}</h2>
-              <p>-{product?.price.discount}%</p>
+              {(product?.price.discount !== 0) ? (
+                <>
+                  <h2>{product?.price.currency}{(product?.price.base - (product?.price.base / product?.price.discount)).toFixed(3)}</h2>
+                  <p>-{product?.price.discount}%</p>
+                </>
+              ) : (
+                <h2>{product?.price.currency}{(product?.price.base).toFixed(3)}</h2>
+              )}
             </div>
           </div>
           <div className='product__info__actions'>

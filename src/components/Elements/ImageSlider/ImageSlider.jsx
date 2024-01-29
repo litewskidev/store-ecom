@@ -1,46 +1,49 @@
+import { memo, useCallback, useMemo } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './ImageSlider.scss';
 
-const ImageSlider = ({ product }) => {
+const ImageSlider = memo(({ product }) => {
 
-  const CustomPrevArrow = ({ onClick }) => (
+  const CustomPrevArrow = useCallback(({ onClick }) => (
     <div
       className="slick-arrow arrow-prev"
       onClick={onClick}
     >
     </div>
-  );
+  ), []);
 
-  const CustomNextArrow = ({ onClick }) => (
+  const CustomNextArrow = useCallback(({ onClick }) => (
     <div
       className="slick-arrow arrow-next"
       onClick={onClick}
     >
     </div>
-  );
+  ), []);
 
-  const settings = {
-    key: product?._id,
-    speed: 800,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: false,
-    arrows: true,
-    prevArrow: <CustomPrevArrow />,
-    nextArrow: <CustomNextArrow />,
-    responsive: [
-      {
-        breakpoint: 600,
-        settings: {
-          arrows: false,
-          dots: true,
-        }
-      },
-    ],
-  };
+  const settings = useMemo(() => (
+    {
+      key: product?._id,
+      speed: 800,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: false,
+      arrows: true,
+      prevArrow: <CustomPrevArrow />,
+      nextArrow: <CustomNextArrow />,
+      responsive: [
+        {
+          breakpoint: 600,
+          settings: {
+            arrows: false,
+            dots: true,
+          }
+        },
+      ],
+    }
+  ), [product?._id]);
 
   return(
     <Slider {...settings}>
@@ -51,6 +54,6 @@ const ImageSlider = ({ product }) => {
       ))}
     </Slider>
   );
-};
+});
 
 export default ImageSlider;
