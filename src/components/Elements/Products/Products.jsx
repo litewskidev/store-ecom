@@ -1,11 +1,21 @@
 import { memo } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+import gsap from 'gsap';
 import PropTypes from 'prop-types';
 import './Products.scss';
 
 const Products = memo(({ products }) => {
+
+  //  GSAP
+  const productsListRef = useRef(null);
+  useLayoutEffect(() => {
+    const productsList = productsListRef.current;
+    gsap.fromTo(productsList, {opacity: 0, x: '-2%'}, {opacity: 1, x: 0, duration: .5, ease: 'sine.out'});
+  }, []);
+
   return(
-    <div className='products__wrapper'>
+    <div className='products__wrapper' ref={productsListRef}>
       {products?.map((product, index) => (
         <div className='products__item' key={index}>
           <NavLink to={`/watches/${product._id}`}>

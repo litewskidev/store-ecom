@@ -7,11 +7,12 @@ import Footer from './components/Elements/Footer/Footer.jsx';
 import './styles/global.scss';
 
 const App = () => {
-  const mainRef = useRef(null);
   
+  //  GSAP
+  const mainRef = useRef(null);
   useLayoutEffect(() => {
     const main = mainRef.current;
-    gsap.fromTo(main, {opacity: 0}, {opacity: 1, duration: 1, ease: 'sine.out'});
+    gsap.fromTo(main, {opacity: 0}, {opacity: 1, duration: .5, ease: 'sine.out'});
   }, []);
 
   return(

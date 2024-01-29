@@ -1,12 +1,28 @@
 import { memo, useCallback, useState } from 'react';
+import { useLayoutEffect, useRef } from 'react';
+import gsap from 'gsap';
 import ImageSlider from '../ImageSlider/ImageSlider.jsx';
 import PropTypes from 'prop-types';
 import './Product.scss';
 
 const Product = memo(({ product }) => {
+
+  //  GSAP
+  const productInfoRef = useRef(null);
+  const productImageRef = useRef(null);
+  useLayoutEffect(() => {
+    const tl = gsap.timeline();
+    const productInfo = productInfoRef.current;
+    const productImage = productImageRef.current;
+    tl.fromTo(productInfo, {opacity: 0, x: '2%'}, {opacity: 1, x: 0, duration: .5, ease: 'sine.out'})
+      .fromTo(productImage, {opacity: 0, x: '-2%'}, {opacity: 1, x: 0, duration: .5, ease: 'sine.out'}, '<');
+  }, []);
+
+  //  STATES
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const [isFeaturesOpen, setIsFeaturesOpen] = useState(false);
 
+  //  BUTTONS HANDLERS
   const toggleDescription = useCallback(() => {
     setIsDescriptionOpen(!isDescriptionOpen);
   }, [isDescriptionOpen]);
@@ -17,10 +33,10 @@ const Product = memo(({ product }) => {
 
   return(
     <div className='product__wrapper'>
-      <div className='product__images__container'>
+      <div className='product__images__container' ref={productImageRef}>
         <ImageSlider product={product} />
       </div>
-      <div className='product__info__container'>
+      <div className='product__info__container' ref={productInfoRef}>
         <div className='product__info'>
           <div className='product__info__header'>
             <div className='product__info__header__title'>

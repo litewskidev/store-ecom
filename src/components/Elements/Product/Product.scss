@@ -9,7 +9,8 @@
 
   &__images {
     &__container {
-      position: relative;
+      position: sticky;
+      top: 2rem;
       width: 55%;
 
       &::before {
@@ -180,6 +181,7 @@
     &__images {
       &__container {
         width: 47%;
+        margin-bottom: 2rem;
 
         &::before {
           top: 3.4rem;
@@ -215,7 +217,10 @@
 
     &__images {
       &__container {
+        position: relative;
+        top: 0;
         width: 100%;
+        margin-bottom: 0;
 
         &::before {
           top: 101.5%;
