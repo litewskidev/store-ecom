@@ -1,72 +1,340 @@
+@import '../../../styles/settings.scss';
+
 .product {
   &__wrapper {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
+    flex-direction: row-reverse;
+    gap: 3rem;
   }
 
   &__info {
     &__container {
       display: flex;
-      justify-content: center;
-      width: 50%;
+      justify-content: flex-start;
+      width: 40%;
+      max-height: 75svh;
+      overflow-y: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: 0;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     display: flex;
     flex-direction: column;
-    width: 50%;
+    gap: 2rem;
+    width: 70%;
 
-    
+    &__header {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      &__title {
+        position: relative;
+
+        p {
+          font-size: 2.5rem;
+        }
+      }
+
+      &__ref {
+        opacity: .9;
+
+        p {
+          font-size: .875rem;
+        }
+      }
+
+      &__price {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        p {
+          color: red;
+        }
+      }
+    }
+
+    &__actions {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: solid .063rem $jet;
+      width: 100%;
+      cursor: pointer;
+
+      &__cart {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+
+        button {
+          font-family: $font;
+          font-size: 1rem;
+          background-color: transparent;
+          border: none;
+          padding: .5rem 0;
+        }
+      }
+
+      &__wishlist {
+        display: flex;
+        justify-content: center;
+        width: 20%;
+        height: 100%;
+        background-color: $jet;
+
+        img {
+          display: block;
+          width: 2rem;
+          filter: invert(1);
+        }
+      }
+    }
+
+    &__desc {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      &__button {
+        pointer-events: none;
+
+        img {
+          display: none;
+        }
+      }
+    }
+
+    &__features {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      &__info {
+        display: flex;
+        justify-content: space-between;
+
+        &__left, &__right {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        &__left {
+          gap: 3.35rem;
+        }
+      }
+
+      &__button {
+        pointer-events: none;
+
+        img {
+          display: none;
+        }
+      }
+
+      h3 {
+        font-size: .875rem;
+        text-decoration: underline;
+        text-underline-offset: .25rem;
+        opacity: .9;
+        margin-bottom: 1rem;
+      }
+
+      h4, p {
+        font-size: 1rem;
+      }
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
   }
 
   &__images {
     &__container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      width: 50%;
-    }
+      position: relative;
+      width: 60%;
 
-    width: 25%;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 3.8rem;
+        right: 0;
+        width: 20%;
+        height: 0.063rem;
+        background-color: $jet;
+        z-index: 1;
+      }
+    }
 
     img {
       width: 100%;
-      display: block;
-      object-fit: cover;
+      max-height: 75svh;
+      object-fit: contain;
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 }
 
 @media screen and (max-width: 1200px) {
+  .product {
+    &__wrapper {
+      gap: 2rem;
+    }
 
+    &__info {
+      &__container {
+        width: 50%;
+      }
+
+      width: 100%;
+
+      &__header {
+        &__title {
+          p {
+            font-size: 2rem;
+          }
+        }
+      }
+
+      &__desc {
+        p {
+          font-size: .9rem;
+        }
+      }
+
+      &__features {
+        &__info {
+          &__left {
+            gap: 3.25rem;
+          }
+        }
+
+        h4, p {
+          font-size: .9rem;
+        }
+      }
+    }
+
+    &__images {
+      &__container {
+        width: 50%;
+
+        &::before {
+          top: 3.4rem;
+          right: -1rem;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
   .product {
     &__wrapper {
       flex-direction: column-reverse;
-      gap: 1rem;
+      gap: 4rem;
     }
 
     &__info {
       &__container {
         width: 100%;
+        max-height: none;
+        overflow-y: visible;
       }
 
       width: 100%;
+
+      &__header {
+        &__title {
+          p {
+            font-size: 1.7rem;
+          }
+        }
+      }
+
+      &__desc {
+        overflow: hidden;
+        height: 1.7rem;
+        transition: height .4s ease-out;
+
+        &__button {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          pointer-events: all;
+
+          img {
+            display: block;
+            width: 1.2rem;
+            transition: transform .4s ease-out;
+
+            &.rotate {
+              transform: rotate(180deg);
+            }
+          }
+        }
+
+        &.open {
+          height: 15rem;
+        }
+      }
+
+      &__features {
+        overflow: hidden;
+        height: 2.5rem;
+        transition: height .6s ease-out;
+
+        &__info {
+          &__left {
+            gap: 3.2rem;
+          }
+        }
+
+        &__button {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          pointer-events: all;
+
+          img {
+            display: block;
+            width: 1.2rem;
+            transition: transform .4s ease-out;
+
+            &.rotate {
+              transform: rotate(180deg);
+            }
+          }
+        }
+
+        &.open {
+          height: 42rem;
+        }
+      }
     }
 
     &__images {
       &__container {
-        flex-direction: row;
-        gap: .5rem;
         width: 100%;
-      }
 
-      width: 25%;
+        &::before {
+          top: 101.5%;
+          right: 78.5%;
+          width: 4.5rem;
+          transform: rotate(90deg);
+        }
+      }
     }
   }
 }

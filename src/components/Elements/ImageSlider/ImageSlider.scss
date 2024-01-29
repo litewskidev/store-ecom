@@ -1,0 +1,33 @@
+@import '../../../styles/settings.scss';
+
+.arrow-prev:before {
+  content: '←';
+}
+
+.arrow-next:before {
+  content: '→';
+}
+
+.arrow-prev, .arrow-next {
+  position: absolute;
+  left: 50%;
+  bottom: -2.5rem;
+  z-index: 99;
+  cursor: pointer;
+
+  &::before {
+    font-family: $font;
+    font-size: 1.4rem;
+    background-color: $jet;
+    color: $seasalt;
+    padding: .15rem 1.5rem .35rem 1.5rem;
+  }
+}
+
+.arrow-prev {
+  transform: translateX(-101%);
+}
+
+.arrow-next {
+  transform: translateX(1%);
+}
