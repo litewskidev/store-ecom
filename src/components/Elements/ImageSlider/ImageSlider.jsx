@@ -47,9 +47,9 @@ const ImageSlider = memo(({ product }) => {
   ), [product?._id]);
 
   return(
-    <Slider {...settings}>
+    <Slider {...settings} className='slider__wrapper'>
       {product?.images.map((image, index) => (
-        <div id={`image_${index}`} className='product__images' key={index}>
+        <div className='product__images' key={index}>
           <img src={process.env.PUBLIC_URL + `/assets/images/watches/${product?.sku}/${image}.webp`} alt='' />
         </div>
       ))}

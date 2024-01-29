@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './CartModal.scss';
 
 const CartModal = memo(({ handleBtn }) => {
@@ -65,5 +66,9 @@ const CartModal = memo(({ handleBtn }) => {
     </div>
   );
 });
+
+CartModal.propTypes = {
+  handleBtn: PropTypes.func.isRequired,
+};
 
 export default CartModal;
