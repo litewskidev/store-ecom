@@ -12,7 +12,7 @@ const Products = memo(({ products }) => {
   useLayoutEffect(() => {
     gsap.fromTo(".products__box", { opacity: 0, x: '-2%'}, { opacity: 1, x: 0, duration: .5, ease: "sine.out",
       stagger: {
-        each: .25
+        each: .25,
       },
       force3D: true,
     });

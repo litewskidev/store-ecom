@@ -1,0 +1,17 @@
+.loader {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100svh;
+  }
+
+  &__title {
+    display: flex;
+    p {
+      font-size: 3rem;
+      font-weight: 900;
+    }
+  }
+}

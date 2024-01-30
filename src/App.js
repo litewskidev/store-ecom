@@ -1,29 +1,33 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import gsap from 'gsap';
+import Loader from './components/Elements/Loader/Loader.jsx';
 import Navbar from './components/Elements/Navbar/Navbar.jsx';
 import Newsletter from './components/Elements/Newsletter/Newsletter.jsx';
 import Footer from './components/Elements/Footer/Footer.jsx';
 import './styles/global.scss';
 
 const App = () => {
-  
-  //  GSAP
-  const mainRef = useRef(null);
-  useLayoutEffect(() => {
-    const main = mainRef.current;
-    gsap.fromTo(main, {opacity: 0}, {opacity: 1, duration: .5, ease: 'sine.out'});
-  }, []);
+  const [isLoading, setIsLoading] = useState(true);
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, [1500]);
 
   return(
-    <main id='main' ref={mainRef}>
-      <Navbar />
-      <div>
-        <Outlet />
-      </div>
-      <Newsletter />
-      <Footer />
-    </main>
+    <>
+      {isLoading ? (
+        <Loader/>
+      ) : (
+        <main id='main'>
+          <Navbar />
+          <div>
+            <Outlet />
+          </div>
+          <Newsletter />
+          <Footer />
+        </main>
+      )}
+    </>
   )
 };
 

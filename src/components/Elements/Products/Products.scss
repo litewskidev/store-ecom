@@ -4,6 +4,7 @@
   &__wrapper {
     display: grid;
     grid-template-columns: 21% 21% 21% 21%;
+    row-gap: 3rem;
     justify-content: space-between;
     width: 100%;
     padding: 3rem 10rem;
@@ -79,7 +80,7 @@
     &__wrapper {
       display: flex;
       flex-direction: column;
-      gap: 3rem;
+      gap: 4rem;
       padding: 1rem 2.5rem;
     }
 
@@ -96,6 +97,7 @@
         &__title {
           top: 1.5rem;
           left: -1.7rem;
+          width: 25%;
 
           h1 {
             font-size: 1.2rem;
