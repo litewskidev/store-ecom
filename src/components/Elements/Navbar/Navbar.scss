@@ -368,7 +368,7 @@
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          gap: 1rem;
+          gap: 2rem;
           height: 90dvh;
           overflow: scroll;
           -ms-overflow-style: none;
@@ -392,6 +392,10 @@
           &__item {
             padding: 1rem 0;
             border-top: solid .063rem $timberwolf;
+
+            &:last-of-type {
+              border-bottom: solid 0.063rem $timberwolf;
+            }
 
             &__link {
               display: flex;
@@ -420,6 +424,12 @@
               }
             }
           }
+        }
+
+        &__bottom {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
         }
 
         &__image {
@@ -454,6 +464,7 @@
     }
 
     &__item__link__dropdown__list__items__inner {
+      padding-left: 1rem;
       height: 0;
       visibility: hidden;
       overflow: hidden;

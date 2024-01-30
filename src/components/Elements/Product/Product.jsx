@@ -14,8 +14,8 @@ const Product = memo(({ product }) => {
     const tl = gsap.timeline();
     const productInfo = productInfoRef.current;
     const productImage = productImageRef.current;
-    tl.fromTo(productInfo, {opacity: 0, x: '2%'}, {opacity: 1, x: 0, duration: .5, ease: 'sine.out'})
-      .fromTo(productImage, {opacity: 0, x: '-2%'}, {opacity: 1, x: 0, duration: .5, ease: 'sine.out'}, '<');
+    tl.fromTo(productInfo, {opacity: 0, x: '2%'}, {opacity: 1, x: 0, duration: .5, ease: 'sine.out', force3D: true})
+      .fromTo(productImage, {opacity: 0, x: '-2%'}, {opacity: 1, x: 0, duration: .5, ease: 'sine.out', force3D: true}, '<');
   }, []);
 
   //  STATES

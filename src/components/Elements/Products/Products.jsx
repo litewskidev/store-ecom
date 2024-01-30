@@ -10,24 +10,42 @@ const Products = memo(({ products }) => {
   //  GSAP
   const productsListRef = useRef(null);
   useLayoutEffect(() => {
-    const productsList = productsListRef.current;
-    gsap.fromTo(productsList, {opacity: 0, x: '-2%'}, {opacity: 1, x: 0, duration: .5, ease: 'sine.out'});
+    gsap.fromTo(".products__box", { opacity: 0, x: '-2%'}, { opacity: 1, x: 0, duration: .5, ease: "sine.out",
+      stagger: {
+        each: .25
+      },
+      force3D: true,
+    });
   }, []);
 
   return(
     <div className='products__wrapper' ref={productsListRef}>
       {products?.map((product, index) => (
-        <div className='products__item' key={index}>
-          <NavLink to={`/watches/${product._id}`}>
-            <h2>{product.brand.name}</h2>
-            <h3>{product.model}</h3>
-            {product.images.slice(0, 1).map((image, index) => (
-              <div className='product__images' key={index}>
-                <img src={process.env.PUBLIC_URL + `/assets/images/watches/${product?.sku}/${image}.webp`} alt='' />
-              </div>
-            ))}
-            <p>{product.price.currency}{(product?.price.base - (product.price.base / product?.price.discount)).toFixed(3)}</p>
-            <p>{product.year}</p>
+        <div className='products__box' key={index}>
+          <NavLink to={`/watches/${product._id}`} className='products__box__inner'>
+            <div className='products__box__inner__image'>
+              {product.images.slice(0, 1).map((image, index) => (
+                <div className='product__images' key={index}>
+                  <img src={process.env.PUBLIC_URL + `/assets/images/watches/${product?.sku}/${image}.webp`} alt='' />
+                </div>
+              ))}
+            </div>
+            <div className='products__box__inner__info'>
+              {(product?.price.discount !== 0) ? (
+                <div>
+                  <p>{product?.price.currency}{(product?.price.base - (product?.price.base / product?.price.discount)).toFixed(3)}</p>
+                </div>
+              ) : (
+                <div>
+                  <p>{product?.price.currency}{(product?.price.base).toFixed(3)}</p>
+                </div>
+              )}
+              <p>{product.year}</p>
+            </div>
+            <div className='products__box__inner__title'>
+              <h1>{product?.brand.name}</h1>
+              <h2>{product.model}</h2>
+            </div>
           </NavLink>
         </div>
       ))}

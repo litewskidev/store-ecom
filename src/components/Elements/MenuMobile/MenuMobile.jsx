@@ -85,16 +85,18 @@ const MenuMobile = memo(({ isDropdownActive, toggleDropdown, navbarMenu }) => {
             </div>
           </li>
         </ul>
-        <div className='navbar__modal__inner__image'>
-          <img src={process.env.PUBLIC_URL + '/assets/images/img_2.webp'} alt='watch' />
+        <div className='navbar__modal__inner__bottom'>
+          <div className='navbar__modal__inner__image'>
+            <img src={process.env.PUBLIC_URL + '/assets/images/img_2.webp'} alt='watch' />
+          </div>
+          <div className='navbar__modal__inner__footer'>
+            <NavLink to='/contact' onClick={toggleDropdown}>CONTACT US</NavLink>
+            <NavLink to='/about' onClick={toggleDropdown}>ABOUT CULTURE</NavLink>
+            <NavLink to='/stores' onClick={toggleDropdown}>OUR STORES</NavLink>
+            <NavLink to='/faq' onClick={toggleDropdown}>FAQ</NavLink>
+          </div>
+          <SocialLinks />
         </div>
-        <div className='navbar__modal__inner__footer'>
-          <NavLink to='/contact' onClick={toggleDropdown}>CONTACT US</NavLink>
-          <NavLink to='/about' onClick={toggleDropdown}>ABOUT CULTURE</NavLink>
-          <NavLink to='/stores' onClick={toggleDropdown}>OUR STORES</NavLink>
-          <NavLink to='/faq' onClick={toggleDropdown}>FAQ</NavLink>
-        </div>
-        <SocialLinks />
       </nav>
     </>
   );
