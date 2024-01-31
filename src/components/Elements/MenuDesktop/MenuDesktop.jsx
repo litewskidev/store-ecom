@@ -29,7 +29,7 @@ const MenuDesktop = memo(({ isDropdownActive, toggleDropdown, toggleLogin, toggl
               <NavLink to='/categories/new-arrivals'>NEW ARRIVALS</NavLink>
             </li>
             <li className='navbar__item__link'>
-              <NavLink to='/categories/all-watches'>ALL WATCHES</NavLink>
+              <NavLink to='/watches/all-watches'>ALL WATCHES</NavLink>
               <div className='navbar__item__link__dropdown'>
                 <div className='navbar__item__link__dropdown__img'>
                   <img src={process.env.PUBLIC_URL + '/assets/images/img_4.webp'} alt='watch collection' />

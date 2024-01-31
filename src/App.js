@@ -14,21 +14,16 @@ const App = () => {
   }, [1500]);
 
   return(
-    <>
-      {isLoading ? (
-        <Loader/>
-      ) : (
-        <main id='main'>
-          <Navbar />
-          <div>
-            <Outlet />
-          </div>
-          <Newsletter />
-          <Footer />
-        </main>
-      )}
-    </>
-  )
+    <main id='main'>
+      <Loader loading={isLoading}/>
+      <Navbar />
+      <div>
+        <Outlet />
+      </div>
+      <Newsletter />
+      <Footer />
+    </main>
+  );
 };
 
 export default App;

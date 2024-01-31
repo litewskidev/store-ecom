@@ -49,7 +49,9 @@ export const productsApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useGetAllProductsQuery,
+  useGetNewProductsQuery,
   useGetProductsByCategoryQuery,
   useGetProductsByCollectionQuery,
+  useGetProductsByBrandQuery,
   useGetProductsByIdQuery,
 } = productsApiSlice;

@@ -8,18 +8,13 @@ import './Products.scss';
 const Products = memo(({ products }) => {
 
   //  GSAP
-  const productsListRef = useRef(null);
+  const productsRef = useRef(null);
   useLayoutEffect(() => {
-    gsap.fromTo(".products__box", { opacity: 0, x: '-2%'}, { opacity: 1, x: 0, duration: .5, ease: "sine.out",
-      stagger: {
-        each: .25,
-      },
-      force3D: true,
-    });
+    gsap.fromTo(productsRef.current, { opacity: 0, x: '-2%' }, { opacity: 1, x: 0, force3D: true });
   }, []);
 
   return(
-    <div className='products__wrapper' ref={productsListRef}>
+    <div className='products__wrapper' ref={productsRef}>
       {products?.map((product, index) => (
         <div className='products__box' key={index}>
           <NavLink to={`/watches/${product._id}`} className='products__box__inner'>

@@ -11,13 +11,12 @@ import UserProfile from './components/Pages/UserProfile/UserProfile.jsx';
 import Cart from './components/Pages/Cart/Cart.jsx';
 import Checkout from './components/Pages/Checkout/Checkout.jsx';
 import ProductCard from './components/Pages/ProductCard/ProductCard.jsx';
-import AllWatches from './components/Pages/AllWatches/AllWatches.jsx';
-import CategoryList from './components/Pages/CategoryList/CategoryList.jsx';
+import AllProducts from './components/Pages/AllProducts/AllProducts.jsx';
+import SingleCategory from './components/Pages/SingleCategory/SingleCategory.jsx';
 import AllBrands from './components/Pages/AllBrands/AllBrands.jsx';
-import BrandList from './components/Pages/BrandList/BrandList.jsx';
+import SingleBrand from './components/Pages/SingleBrand/SingleBrand.jsx';
 import AllCollections from './components/Pages/AllCollections/AllCollections.jsx';
-import CollectionList from './components/Pages/CollectionList/CollectionList.jsx';
-import Success from './components/Pages/Success/Success.jsx';
+import SingleCollection from './components/Pages/SingleCollection/SingleCollection.jsx';
 import E404 from './components/Pages/E404/E404.jsx';
 
 const router = createBrowserRouter(
@@ -30,13 +29,12 @@ const router = createBrowserRouter(
       <Route path='/cart' element={ <Cart /> } />
       <Route path='/checkout' element={ <Checkout /> } />
       <Route path='/watches/:id' element={ <ProductCard /> } />
-      <Route path='/categories/all-watches' element={ <AllWatches /> } />
-      <Route path='/categories/:id' element={ <CategoryList /> } />
+      <Route path='/watches/all-watches' element={ <AllProducts /> } />
+      <Route path='/categories/:id' element={ <SingleCategory /> } />
       <Route path='/brands/all-brands' element={ <AllBrands /> } />
-      <Route path='/brands/:id' element={ <BrandList /> } />
+      <Route path='/brands/:id' element={ <SingleBrand /> } />
       <Route path='/collections/all-collections' element={ <AllCollections /> } />
-      <Route path='/collections/:id' element={ <CollectionList /> } />
-      <Route path='/success' element={ <Success /> } />
+      <Route path='/collections/:id' element={ <SingleCollection /> } />
       <Route path='*' element={ <E404 /> } />
     </Route>
   )

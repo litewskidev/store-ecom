@@ -30,7 +30,7 @@ const getAllProducts = asyncHandler(async (req, res) => {
   }
   else if(queryBrand) {
     products = await Product.find({
-      brand: queryBrand.toUpperCase(),
+      "brand.href": queryBrand
     });
   }
   else {

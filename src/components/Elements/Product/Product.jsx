@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ImageSlider from '../ImageSlider/ImageSlider.jsx';
@@ -12,10 +12,8 @@ const Product = memo(({ product }) => {
   const productImageRef = useRef(null);
   useLayoutEffect(() => {
     const tl = gsap.timeline();
-    const productInfo = productInfoRef.current;
-    const productImage = productImageRef.current;
-    tl.fromTo(productInfo, { opacity: 0, x: '2%' }, { opacity: 1, x: 0, duration: .5, ease: 'sine.out', force3D: true })
-      .fromTo(productImage, { opacity: 0, x: '-2%' }, { opacity: 1, x: 0, duration: .5, ease: 'sine.out', force3D: true }, '<');
+    tl.fromTo(productInfoRef.current, { opacity: 0, x: '2%' }, { opacity: 1, x: 0, duration: .5, ease: 'sine.out', force3D: true })
+      .fromTo(productImageRef.current, { opacity: 0, x: '-2%' }, { opacity: 1, x: 0, duration: .5, ease: 'sine.out', force3D: true }, '<');
   }, []);
 
   //  STATES
@@ -31,6 +29,55 @@ const Product = memo(({ product }) => {
     setIsFeaturesOpen(!isFeaturesOpen);
   }, [isFeaturesOpen]);
 
+  const productMenu = useMemo(() => (
+    {
+      reference: {
+        ref: 'REF',
+        sku: 'SKU#'
+      },
+      cart: {
+        button: 'ADD TO CART'
+      },
+      desc: {
+        title: 'DESCRIPTION'
+      },
+      features: {
+        title: 'FEATURES',
+        first: {
+          title: 'WATCH DETAILS',
+          option_1: 'SKU',
+          option_2: 'Reference Number',
+          option_3: 'Year',
+          option_4: 'Origin',
+          option_5: 'Style',
+          option_6: 'Gender'
+        },
+        second: {
+          title: 'CASE & DIAL',
+          option_1: 'Case Size',
+          option_2: 'Case Material',
+          option_3: 'Caseback',
+          option_4: 'Case Shape',
+          option_5: 'Dial Color',
+          option_6: 'Hours Markers',
+          option_7: 'Water Resistance'
+        },
+        third: {
+          title: 'STRAP / BRACELET',
+          option_1: 'Strap/Bracelet Material',
+          option_2: 'Band Color',
+          option_3: 'Buckle Type',
+          option_4: 'Bracelet Length'
+        },
+        fourth: {
+          title: 'FUNCTION',
+          option_1: 'Movement',
+          option_2: 'Complications'
+        }
+      }
+    }
+  ), []);
+
   return(
     <div className='product__wrapper'>
       <div className='product__images__container' ref={productImageRef}>
@@ -44,8 +91,8 @@ const Product = memo(({ product }) => {
               <p>{product?.model}</p>
             </div>
             <div className='product__info__header__ref'>
-              <p>REF {product?.reference}</p>
-              <p>SKU#{product?.sku}</p>
+              <p>{productMenu.reference.ref} {product?.reference}</p>
+              <p>{productMenu.reference.sku}{product?.sku}</p>
             </div>
             <div className='product__info__header__price'>
               {(product?.price.discount !== 0) ? (
@@ -60,7 +107,7 @@ const Product = memo(({ product }) => {
           </div>
           <div className='product__info__actions'>
             <div className='product__info__actions__cart'>
-              <button>ADD TO CART</button>
+              <button>{productMenu.cart.button}</button>
             </div>
             <div className='product__info__actions__wishlist'>
               <img src={process.env.PUBLIC_URL + '/assets/icons/clock.svg'} alt='wishlist button' />
@@ -68,111 +115,111 @@ const Product = memo(({ product }) => {
           </div>
           <div className={`product__info__desc ${isDescriptionOpen ? 'open' : ''}`}>
             <div className='product__info__desc__button' onClick={toggleDescription}>
-              <h2>DESCRIPTION</h2>
+              <h2>{productMenu.desc.title}</h2>
               <img className={isDescriptionOpen ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='down arrow' />
             </div>
             <p>{product?.description}</p>
           </div>
           <div className={`product__info__features ${isFeaturesOpen ? 'open' : ''}`}>
             <div className='product__info__features__button' onClick={toggleFeatures}>
-              <h2>FEATURES</h2>
+              <h2>{productMenu.features.title}</h2>
               <img className={isFeaturesOpen ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='down arrow' />
             </div>
             <div className='product__info__features__info'>
               <div>
                 <div className='product__info__features__details'>
-                  <h3>WATCH DETAILS</h3>
+                  <h3>{productMenu.features.first.title}</h3>
                   <div className='product__info__features__details__box'>
-                    <h4>SKU:</h4>
+                    <h4>{productMenu.features.first.option_1}:</h4>
                     <p>{product?.sku}</p>
                   </div>
                   <div className='product__info__features__details__box'>
-                    <h4>Reference Number:</h4>
+                    <h4>{productMenu.features.first.option_2}:</h4>
                     <p>{product?.reference}</p>
                   </div>
                   <div className='product__info__features__details__box'>
-                    <h4>Year:</h4>
+                    <h4>{productMenu.features.first.option_3}:</h4>
                     <p>{product?.year}</p>
                   </div>
                   <div className='product__info__features__details__box'>
-                    <h4>Origin:</h4>
+                    <h4>{productMenu.features.first.option_4}:</h4>
                     <p>{product?.features.details.origin}</p>
                   </div>
                   <div className='product__info__features__details__box'>
-                    <h4>Style:</h4>
+                    <h4>{productMenu.features.first.option_5}:</h4>
                     {product?.features.details.style.map((style, index) => (
                       <p key={index}>{style}</p>
                     ))}
                   </div>
                   <div className='product__info__features__details__box'>
-                    <h4>Gender:</h4>
+                    <h4>{productMenu.features.first.option_6}:</h4>
                     <p>{product?.features.details.gender}</p>
                   </div>
                 </div>
               </div>
               <div>
                 <div className='product__info__features__case'>
-                  <h3>CASE & DIAL</h3>
+                  <h3>{productMenu.features.second.title}</h3>
                   <div className='product__info__features__case__box'>
-                    <h4>Case Size:</h4>
+                    <h4>{productMenu.features.second.option_1}:</h4>
                     <p>{product?.features.case.size}</p>
                   </div>
                   <div className='product__info__features__case__box'>
-                    <h4>Case Material:</h4>
+                    <h4>{productMenu.features.second.option_2}:</h4>
                     <p>{product?.features.case.material}</p>
                   </div>
                   <div className='product__info__features__case__box'>
-                    <h4>Caseback:</h4>
+                    <h4>{productMenu.features.second.option_3}:</h4>
                     <p>{product?.features.case.back}</p>
                   </div>
                   <div className='product__info__features__case__box'>
-                    <h4>Case Shape:</h4>
+                    <h4>{productMenu.features.second.option_4}:</h4>
                     <p>{product?.features.case.shape}</p>
                   </div>
                   <div className='product__info__features__case__box'>
-                    <h4>Dial Color:</h4>
+                    <h4>{productMenu.features.second.option_5}:</h4>
                     <p>{product?.features.dial.color}</p>
                   </div>
                   <div className='product__info__features__case__box'>
-                    <h4>Hours Markers:</h4>
+                    <h4>{productMenu.features.second.option_6}:</h4>
                     <p>{product?.features.dial.hoursMarkers}</p>
                   </div>
                   <div className='product__info__features__case__box'>
-                    <h4>Water Resistance:</h4>
+                    <h4>{productMenu.features.second.option_7}:</h4>
                     <p>{product?.features.case.waterResistance}</p>
                   </div>
                 </div>
               </div>
               <div>
                 <div className='product__info__features__strap'>
-                  <h3>STRAP / BRACELET</h3>
+                  <h3>{productMenu.features.third.title}</h3>
                   <div className='product__info__features__strap__box'>
-                    <h4>Strap/Bracelet Material:</h4>
+                    <h4>{productMenu.features.third.option_1}:</h4>
                     <p>{product?.features.strapBracelet.material}</p>
                   </div>
                   <div className='product__info__features__strap__box'>
-                    <h4>Band Color:</h4>
+                    <h4>{productMenu.features.third.option_2}:</h4>
                     <p>{product?.features.strapBracelet.bandColor}</p>
                   </div>
                   <div className='product__info__features__strap__box'>
-                    <h4>Buckle Type:</h4>
+                    <h4>{productMenu.features.third.option_3}:</h4>
                     <p>{product?.features.strapBracelet.buckleType}</p>
                   </div>
                   <div className='product__info__features__strap__box'>
-                    <h4>Bracelet Length:</h4>
+                    <h4>{productMenu.features.third.option_4}:</h4>
                     <p>{product?.features.strapBracelet.length}</p>
                   </div>
                 </div>
               </div>
               <div>
                 <div className='product__info__features__function'>
-                  <h3>FUNCTION</h3>
+                  <h3>{productMenu.features.fourth.title}</h3>
                   <div className='product__info__features__function__box'>
-                    <h4>Movement:</h4>
+                    <h4>{productMenu.features.fourth.option_1}:</h4>
                     <p>{product?.features.function.movement}</p>
                   </div>
                   <div className='product__info__features__function__box'>
-                    <h4>Complications:</h4>
+                    <h4>{productMenu.features.fourth.option_2}:</h4>
                     {product?.features.function.complications.map((complication, index) => (
                       <p key={index}>{complication}</p>
                     ))}
