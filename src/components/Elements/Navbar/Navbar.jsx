@@ -1,5 +1,5 @@
-import { useLocation, useNavigate } from 'react-router-dom';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import MenuDesktop from '../MenuDesktop/MenuDesktop.jsx';
 import MenuMobile from '../MenuMobile/MenuMobile.jsx';
 import LoginModal from '../LoginModal/LoginModal.jsx';
@@ -98,130 +98,143 @@ const Navbar = () => {
 
   const navbarMenu = useMemo(() => (
     {
-    shopByCategory: {
-      title: 'SHOP BY CATEGORY',
-      links: [
-        {
-          id: 'all-watches',
-          name: 'All Watches'
-        },
-        {
-          id: 'new-arrivals',
-          name: 'New Arrivals'
-        },
-        {
-          id: 'coming-soon',
-          name: 'Coming Soon'
-        },
-        {
-          id: 'best-sellers',
-          name: 'Best Sellers'
-        },
-        {
-          id: 'men-watches',
-          name: `Men's Watches`
-        },
-        {
-          id: 'women-watches',
-          name: `Women's Watches`
-        },
-        {
-          id: 'sale',
-          name: 'Sale'
-        }
-      ]
-    },
-    featuredCollections: {
-      title: 'FEATURED COLLECTIONS',
-      links: [
-        {
-          id: 'grail-watches',
-          name: 'Grail Watches',
-        },
-        {
-          id: 'independent-watches',
-          name: 'Independent Watches',
-        },
-        {
-          id: 'anything-but-ordinary',
-          name: 'Anything But Ordinary',
-        },
-        {
-          id: 'daily-drivers',
-          name: 'Daily Drivers',
-        },
-        {
-          id: 'holy-trinity',
-          name: 'The Holy Trinity',
-        },
-        {
-          id: 'all-collections',
-          name: 'View All Collections',
-        }
-      ]
-    },
-    featuredBrands: {
-      title: 'FEATURED BRANDS',
-      links: [
-        {
-          id: 'rolex',
-          name: 'Rolex'
-        },
-        {
-          id: 'audemars-piguet',
-          name: 'Audemars Piguet'
-        },
-        {
-          id: 'de-bethune',
-          name: 'De Bethune'
-        },
-        {
-          id: 'patek-philippe',
-          name: 'Patek Philippe'
-        },
-        {
-          id: 'journe',
-          name: 'F.P. Journe'
-        },
-        {
-          id: 'moser&cie',
-          name: 'H. Moser & Cie.'
-        },
-        {
-          id: 'lange&sohne',
-          name: 'A. Lange & Söhne'
-        },
-        {
-          id: 'vacheron-constantin',
-          name: 'Vacheron Constantin'
-        },
-        {
-          id: 'tudor',
-          name: 'Tudor'
-        },
-        {
-          id: 'breitling',
-          name: 'Breitling'
-        },
-        {
-          id: 'omega',
-          name: 'Omega'
-        },
-        {
-          id: 'greubel-forsey',
-          name: 'Greubel Forsey'
-        }
-      ]
-    },
-    allBrands: {
-      title: 'BRANDS A-Z',
-      links: [
-        {
-          id: 'all-brands',
-          name: 'View All Brands'
-        }
-      ]
-    }
+      title: 'MENU',
+      company: 'CULTURE',
+      categories: {
+        all: 'ALL WATCHES',
+        new: 'NEW ARRIVALS',
+        brands: 'BRANDS'
+      },
+      shopByCategory: {
+        title: 'SHOP BY CATEGORY',
+        links: [
+          {
+            id: 'all-watches',
+            name: 'All Watches'
+          },
+          {
+            id: 'new-arrivals',
+            name: 'New Arrivals'
+          },
+          {
+            id: 'coming-soon',
+            name: 'Coming Soon'
+          },
+          {
+            id: 'best-sellers',
+            name: 'Best Sellers'
+          },
+          {
+            id: 'men-watches',
+            name: `Men's Watches`
+          },
+          {
+            id: 'women-watches',
+            name: `Women's Watches`
+          },
+          {
+            id: 'sale',
+            name: 'Sale'
+          }
+        ]
+      },
+      featuredCollections: {
+        title: 'FEATURED COLLECTIONS',
+        links: [
+          {
+            id: 'grail-watches',
+            name: 'Grail Watches',
+          },
+          {
+            id: 'independent-watches',
+            name: 'Independent Watches',
+          },
+          {
+            id: 'anything-but-ordinary',
+            name: 'Anything But Ordinary',
+          },
+          {
+            id: 'daily-drivers',
+            name: 'Daily Drivers',
+          },
+          {
+            id: 'holy-trinity',
+            name: 'The Holy Trinity',
+          },
+          {
+            id: 'all-collections',
+            name: 'View All Collections',
+          }
+        ]
+      },
+      featuredBrands: {
+        title: 'FEATURED BRANDS',
+        links: [
+          {
+            id: 'rolex',
+            name: 'Rolex'
+          },
+          {
+            id: 'audemars-piguet',
+            name: 'Audemars Piguet'
+          },
+          {
+            id: 'de-bethune',
+            name: 'De Bethune'
+          },
+          {
+            id: 'patek-philippe',
+            name: 'Patek Philippe'
+          },
+          {
+            id: 'journe',
+            name: 'F.P. Journe'
+          },
+          {
+            id: 'moser&cie',
+            name: 'H. Moser & Cie.'
+          },
+          {
+            id: 'lange&sohne',
+            name: 'A. Lange & Söhne'
+          },
+          {
+            id: 'vacheron-constantin',
+            name: 'Vacheron Constantin'
+          },
+          {
+            id: 'tudor',
+            name: 'Tudor'
+          },
+          {
+            id: 'breitling',
+            name: 'Breitling'
+          },
+          {
+            id: 'omega',
+            name: 'Omega'
+          },
+          {
+            id: 'greubel-forsey',
+            name: 'Greubel Forsey'
+          }
+        ]
+      },
+      allBrands: {
+        title: 'BRANDS A-Z',
+        links: [
+          {
+            id: 'all-brands',
+            name: 'View All Brands'
+          }
+        ]
+      },
+      footer: {
+        contact: 'CONTACT US',
+        about: 'ABOUT CULTURE',
+        stores: 'OUR STORES',
+        faq: 'FAQ'
+      }
     }
   ), []);
 

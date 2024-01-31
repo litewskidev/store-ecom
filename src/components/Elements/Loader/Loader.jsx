@@ -6,7 +6,7 @@ const Loader = ({ loading }) => {
 
   //  GSAP
   useLayoutEffect(() => {
-    gsap.fromTo(".loader__title__letter", { opacity: 0, y: '15%'}, { opacity: 1, y: 0, stagger: {each: .1, ease: 'none'}, force3D: true });
+    gsap.fromTo(".loader__title__letter", { opacity: 0, y: '50%'}, { opacity: 1, y: 0, stagger: {each: .1, ease: 'none'}, force3D: true });
   }, []);
 
   return(

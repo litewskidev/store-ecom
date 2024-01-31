@@ -6,9 +6,11 @@ import './MenuMobile.scss';
 
 const MenuMobile = memo(({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 
+  //  STATES
   const [isWatchesListActive, setIsWatchesListActive] = useState(false);
   const [isBrandsListActive, setIsBrandsListActive] = useState(false);
 
+  //  BUTTONS HANDLERS
   const toggleWatchesList = useCallback(() => {
     setIsWatchesListActive(!isWatchesListActive);
   }, [isWatchesListActive]);
@@ -20,7 +22,7 @@ const MenuMobile = memo(({ isDropdownActive, toggleDropdown, navbarMenu }) => {
   return(
     <>
       <div className='navbar__modal__inner__header'>
-        <h2>MENU</h2>
+        <h2>{navbarMenu.title}</h2>
         <button className={`navbar__item__menu__button ${isDropdownActive ? 'active' : ''}`} onClick={toggleDropdown}>
           <div className='navbar__item__menu__button__up__modal__btn'></div>
           <div className='navbar__item__menu__button__down__modal__btn'></div>
@@ -31,7 +33,7 @@ const MenuMobile = memo(({ isDropdownActive, toggleDropdown, navbarMenu }) => {
           <li className='navbar__modal__inner__links__item'>
             <div className='navbar__modal__inner__links__item__link'>
               <NavLink to='/categories/new-arrivals' className='navbar__modal__inner__links__item__link__button' onClick={toggleDropdown}>
-                <p>NEW ARRIVALS</p>
+                <p>{navbarMenu.categories.new}</p>
                 <img src={process.env.PUBLIC_URL + '/assets/icons/arrow-right.svg'} alt='right arrow' />
               </NavLink>
             </div>
@@ -39,7 +41,7 @@ const MenuMobile = memo(({ isDropdownActive, toggleDropdown, navbarMenu }) => {
           <li className='navbar__modal__inner__links__item'>
             <div className='navbar__modal__inner__links__item__link'>
               <div className='navbar__modal__inner__links__item__link__button' onClick={toggleWatchesList}>
-                <p>ALL WATCHES</p>
+                <p>{navbarMenu.categories.all}</p>
                 <img className={isWatchesListActive ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='down arrow' />
               </div>
               <div className={`navbar__item__link__dropdown__list__items__inner ${isWatchesListActive ? 'list-open' : ''}`}>
@@ -63,7 +65,7 @@ const MenuMobile = memo(({ isDropdownActive, toggleDropdown, navbarMenu }) => {
           <li className='navbar__modal__inner__links__item'>
             <div className='navbar__modal__inner__links__item__link'>
               <div className='navbar__modal__inner__links__item__link__button' onClick={toggleBrandsList}>
-                <p>BRANDS</p>
+                <p>{navbarMenu.categories.brands}</p>
                 <img className={isBrandsListActive ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='down arrow' />
               </div>
               <div className={`navbar__item__link__dropdown__list__items__inner ${isBrandsListActive ? 'list-open' : ''}`}>
@@ -90,10 +92,10 @@ const MenuMobile = memo(({ isDropdownActive, toggleDropdown, navbarMenu }) => {
             <img src={process.env.PUBLIC_URL + '/assets/images/img_2.webp'} alt='watch' />
           </div>
           <div className='navbar__modal__inner__footer'>
-            <NavLink to='/contact' onClick={toggleDropdown}>CONTACT US</NavLink>
-            <NavLink to='/about' onClick={toggleDropdown}>ABOUT CULTURE</NavLink>
-            <NavLink to='/stores' onClick={toggleDropdown}>OUR STORES</NavLink>
-            <NavLink to='/faq' onClick={toggleDropdown}>FAQ</NavLink>
+            <NavLink to='/contact' onClick={toggleDropdown}>{navbarMenu.footer.contact}</NavLink>
+            <NavLink to='/about' onClick={toggleDropdown}>{navbarMenu.footer.about}</NavLink>
+            <NavLink to='/stores' onClick={toggleDropdown}>{navbarMenu.footer.stores}</NavLink>
+            <NavLink to='/faq' onClick={toggleDropdown}>{navbarMenu.footer.faq}</NavLink>
           </div>
           <SocialLinks />
         </div>

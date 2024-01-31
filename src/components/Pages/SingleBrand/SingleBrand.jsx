@@ -10,7 +10,7 @@ const SingleBrand = () => {
   const { data: brandProducts, isLoading, isError } =  useGetProductsByBrandQuery(brand);
 
   return(
-    <section id='brand'>
+    <section id='single-brand'>
       <ProductsList title={brand} products={brandProducts} loading={isLoading} error={isError} />
     </section>
   );

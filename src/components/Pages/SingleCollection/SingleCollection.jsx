@@ -10,7 +10,7 @@ const Collection = () => {
   const { data: collectionProducts, isLoading, isError } = useGetProductsByCollectionQuery(collection);
 
   return(
-    <section id='collection'>
+    <section id='single-collection'>
       <ProductsList title={collection} products={collectionProducts} loading={isLoading} error={isError} />
     </section>
   );

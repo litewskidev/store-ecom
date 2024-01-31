@@ -1,11 +1,12 @@
-import { memo, useCallback, useMemo, useState } from 'react';
-import { useLayoutEffect, useRef } from 'react';
+import { memo, useCallback, useMemo, useState, useLayoutEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import ImageSlider from '../ImageSlider/ImageSlider.jsx';
 import PropTypes from 'prop-types';
 import './Product.scss';
 
 const Product = memo(({ product }) => {
+  const location = useLocation();
 
   //  GSAP
   const productInfoRef = useRef(null);
@@ -14,7 +15,7 @@ const Product = memo(({ product }) => {
     const tl = gsap.timeline();
     tl.fromTo(productInfoRef.current, { opacity: 0, x: '2%' }, { opacity: 1, x: 0, duration: .5, ease: 'sine.out', force3D: true })
       .fromTo(productImageRef.current, { opacity: 0, x: '-2%' }, { opacity: 1, x: 0, duration: .5, ease: 'sine.out', force3D: true }, '<');
-  }, []);
+  }, [location]);
 
   //  STATES
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(true);

@@ -10,7 +10,7 @@ import Register from './components/Pages/Register/Register.jsx';
 import UserProfile from './components/Pages/UserProfile/UserProfile.jsx';
 import Cart from './components/Pages/Cart/Cart.jsx';
 import Checkout from './components/Pages/Checkout/Checkout.jsx';
-import ProductCard from './components/Pages/ProductCard/ProductCard.jsx';
+import SingleProduct from './components/Pages/SingleProduct/SingleProduct.jsx';
 import AllProducts from './components/Pages/AllProducts/AllProducts.jsx';
 import SingleCategory from './components/Pages/SingleCategory/SingleCategory.jsx';
 import AllBrands from './components/Pages/AllBrands/AllBrands.jsx';
@@ -28,8 +28,8 @@ const router = createBrowserRouter(
       <Route path='/profile' element={ <UserProfile /> } />
       <Route path='/cart' element={ <Cart /> } />
       <Route path='/checkout' element={ <Checkout /> } />
-      <Route path='/watches/:id' element={ <ProductCard /> } />
-      <Route path='/watches/all-watches' element={ <AllProducts /> } />
+      <Route path='/watches/:id' element={ <SingleProduct /> } />
+      <Route path='/categories/all-watches' element={ <AllProducts /> } />
       <Route path='/categories/:id' element={ <SingleCategory /> } />
       <Route path='/brands/all-brands' element={ <AllBrands /> } />
       <Route path='/brands/:id' element={ <SingleBrand /> } />
@@ -42,9 +42,9 @@ const router = createBrowserRouter(
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  //<React.StrictMode>
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
-  </React.StrictMode>
+  //</React.StrictMode>
 );

@@ -22,14 +22,14 @@ const MenuDesktop = memo(({ isDropdownActive, toggleDropdown, toggleLogin, toggl
             </li>
           </ul>
         </nav>
-        <NavLink to='/' className='navbar__body__logo'>CULTURE</NavLink>
+        <NavLink to='/' className='navbar__body__logo'>{navbarMenu.company}</NavLink>
         <nav className='navbar__body__center'>
           <ul className='navbar__items'>
             <li className='navbar__item__link'>
-              <NavLink to='/categories/new-arrivals'>NEW ARRIVALS</NavLink>
+              <NavLink to='/categories/new-arrivals'>{navbarMenu.categories.new}</NavLink>
             </li>
             <li className='navbar__item__link'>
-              <NavLink to='/watches/all-watches'>ALL WATCHES</NavLink>
+              <NavLink to='/watches/all-watches'>{navbarMenu.categories.all}</NavLink>
               <div className='navbar__item__link__dropdown'>
                 <div className='navbar__item__link__dropdown__img'>
                   <img src={process.env.PUBLIC_URL + '/assets/images/img_4.webp'} alt='watch collection' />
@@ -64,7 +64,7 @@ const MenuDesktop = memo(({ isDropdownActive, toggleDropdown, toggleLogin, toggl
               </div>
             </li>
             <li className='navbar__item__link'>
-              <NavLink to='/brands/all-brands'>BRANDS</NavLink>
+              <NavLink to='/brands/all-brands'>{navbarMenu.categories.brands}</NavLink>
               <div className='navbar__item__link__dropdown'>
                 <div className='navbar__item__link__dropdown__list'>
                   <div className='navbar__item__link__dropdown__list__items'>

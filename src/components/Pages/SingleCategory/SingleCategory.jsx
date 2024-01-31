@@ -10,7 +10,7 @@ const Category = () => {
   const { data: categoryProducts, isLoading, isError } = useGetProductsByCategoryQuery(category);
 
   return(
-    <section id='category'>
+    <section id='single-category'>
       <ProductsList title={category} products={categoryProducts} loading={isLoading} error={isError} />
     </section>
   );
