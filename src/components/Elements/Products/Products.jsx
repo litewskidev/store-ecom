@@ -1,6 +1,7 @@
 import { memo, useLayoutEffect, useRef } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import gsap from 'gsap';
+import ProductCard from '../ProductCard/ProductCard.jsx';
 import PropTypes from 'prop-types';
 import './Products.scss';
 
@@ -16,33 +17,7 @@ const Products = memo(({ products }) => {
   return(
     <div className='products__wrapper' ref={productsRef}>
       {products?.map((product, index) => (
-        <div className='products__box' key={index}>
-          <NavLink to={`/watches/${product._id}`} className='products__box__inner'>
-            <div className='products__box__inner__image'>
-              {product.images.slice(0, 1).map((image, index) => (
-                <div className='product__images' key={index}>
-                  <img src={process.env.PUBLIC_URL + `/assets/images/watches/${product?.sku}/${image}.webp`} alt='' />
-                </div>
-              ))}
-            </div>
-            <div className='products__box__inner__info'>
-              {(product?.price.discount !== 0) ? (
-                <div>
-                  <p>{product?.price.currency}{(product?.price.base - (product?.price.base / product?.price.discount)).toFixed(3)}</p>
-                </div>
-              ) : (
-                <div>
-                  <p>{product?.price.currency}{(product?.price.base).toFixed(3)}</p>
-                </div>
-              )}
-              <p>{product.year}</p>
-            </div>
-            <div className='products__box__inner__title'>
-              <h1>{product?.brand.name}</h1>
-              <h2>{product.model}</h2>
-            </div>
-          </NavLink>
-        </div>
+        <ProductCard product={product} key={index}/>
       ))}
     </div>
   );

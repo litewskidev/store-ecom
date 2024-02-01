@@ -1,17 +1,15 @@
-@import '../../../styles/settings.scss';
-
 .loader {
   &__wrapper {
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     width: 100vw;
-    height: 100svh;
+    height: 90svh;
     z-index: 999;
-    background-color: $seasalt;
+    background-color: rgb(250, 250, 250);
     opacity: 0;
     visibility: hidden;
     transition: opacity .1s ease-out, visibility .1s ease-out;
@@ -24,10 +22,11 @@
 
   &__title {
     display: flex;
+
     p {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 900;
-      color: $jet;
+      color: rgb(51, 51, 51);
     }
   }
 }

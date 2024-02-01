@@ -3,47 +3,10 @@
 .products {
   &__wrapper {
     display: grid;
-    grid-template-columns: 21% 21% 21% 21%;
-    row-gap: 3rem;
+    grid-template-columns: 25% 25% 25% 25%;
     justify-content: space-between;
     width: 100%;
-    padding: 3rem 10rem;
-  }
-
-  &__box {
-    width: 100%;
-    cursor: pointer;
-
-    &__inner {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: .75rem;
-
-      &__info {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 .5rem;
-      }
-
-      &__title {
-        position: absolute;
-        top: 2rem;
-        left: -2rem;
-        width: 25%;
-
-        h1 {
-          font-size: 1.2rem;
-          color: $timberwolf;
-        }
-
-        h2 {
-          font-size: .8rem;
-        }
-      }
-    }
+    padding: 0 8rem;
   }
 }
 
@@ -51,8 +14,8 @@
   .products {
     &__wrapper {
       display: grid;
-      grid-template-columns: 26% 26% 26%;
-      padding: 3rem 7.5rem;
+      grid-template-columns: 33% 33% 33%;
+      padding: 0 4rem;
     }
   }
 }
@@ -60,17 +23,8 @@
 @media screen and (max-width: 1200px) {
   .products {
     &__wrapper {
-      grid-template-columns: 40% 40%;
-      padding: 2rem 5rem;
-    }
-
-    &__box {
-      &__inner {
-        &__title {
-          left: -2.5rem;
-          width: 30%;
-        }
-      }
+      grid-template-columns: 50% 50%;
+      padding: 0 2rem;
     }
   }
 }
@@ -80,34 +34,7 @@
     &__wrapper {
       display: flex;
       flex-direction: column;
-      gap: 4rem;
-      padding: 1rem 2.5rem;
-    }
-
-    &__box {
-      &__inner {
-        gap: .5rem;
-
-        &__info {
-          p {
-            font-size: .9rem;
-          }
-        }
-
-        &__title {
-          top: 1.5rem;
-          left: -1.7rem;
-          width: 25%;
-
-          h1 {
-            font-size: 1.2rem;
-          }
-
-          h2 {
-            font-size: .75rem;
-          }
-        }
-      }
+      padding: 0;;
     }
   }
 }

@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="hero__hero__title">
           <h1>YOUR TIME HAS COME.</h1>
           <p>Our curated selection of timepieces seamlessly amalgamates diverse inspirations, embodying the discerning character, soul, and spirit of those who choose CULTURE.</p>
-          <NavLink to='/categories/new-arrivals'>SHOP NEW ARRIVALS</NavLink>
+          <NavLink to='/categories/all-watches'>DISCOVER NOW</NavLink>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ const App = () => {
     };
 
     if(document.readyState === 'complete') {
-      setIsLoading(false);
+      handleLoad();
     } else {
       window.addEventListener('load', handleLoad);
     }

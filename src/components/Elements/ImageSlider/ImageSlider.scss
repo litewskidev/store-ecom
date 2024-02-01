@@ -11,7 +11,7 @@
 .arrow-prev, .arrow-next {
   position: absolute;
   left: 50%;
-  bottom: -2.5rem;
+  bottom: -3rem;
   z-index: 99;
   cursor: pointer;
 
@@ -26,8 +26,18 @@
 
 .arrow-prev {
   transform: translateX(-101%);
+  transition: transform .3s ease-out;
+
+  &:hover {
+    transform: translateX(-111%);
+  }
 }
 
 .arrow-next {
   transform: translateX(1%);
+  transition: transform .3s ease-out;
+
+  &:hover {
+    transform: translateX(11%);
+  }
 }

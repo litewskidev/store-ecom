@@ -1,0 +1,32 @@
+.newArrivals{
+  &__wrapper {
+    padding: 5rem 1rem 10rem 1rem;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    p {
+      opacity: .6;
+      text-decoration: underline;
+      text-underline-offset: .35rem;
+      text-decoration-color: rgba(51, 51, 51, 0);
+      transition: text-decoration-color .3s ease-out;
+
+      &:hover {
+        text-decoration-color: rgba(51, 51, 51, .6);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .newArrivals{
+    &__wrapper {
+      padding: 4rem 0;
+    }
+  }
+}

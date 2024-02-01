@@ -1,7 +1,7 @@
 @import '../../../styles/settings.scss';
 
 .register__wrapper {
-  height: 100svh;
+  min-height: 100svh;
   width: 31rem;
   background-color: $seasalt;
   position: fixed;
