@@ -546,13 +546,22 @@
     }
 
     &__search__form {
+      position: relative;
+
       &__field {
         width: 100%;
 
         input {
           width: 100%;
+          padding-right: 2rem;
           padding-bottom: .5rem;
         }
+      }
+
+      &__button {
+        position: absolute;
+        right: 0;
+        top: 0;
       }
     }
   }

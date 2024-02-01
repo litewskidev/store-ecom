@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Loader from './components/Elements/Loader/Loader.jsx';
 import Navbar from './components/Elements/Navbar/Navbar.jsx';
@@ -9,9 +9,21 @@ import './styles/global.scss';
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  setTimeout(() => {
-    setIsLoading(false);
-  }, [1500]);
+  useLayoutEffect(() => {
+    const handleLoad = () => {
+      setIsLoading(false);
+    };
+
+    if(document.readyState === 'complete') {
+      setIsLoading(false);
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
 
   return(
     <main id='main'>

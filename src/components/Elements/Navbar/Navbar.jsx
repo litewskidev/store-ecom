@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import MenuDesktop from '../MenuDesktop/MenuDesktop.jsx';
 import MenuMobile from '../MenuMobile/MenuMobile.jsx';
@@ -16,9 +16,9 @@ const Navbar = () => {
   const [isScrollingDown, setIsScrollingDown] = useState(false);
   const [isScrollBelowThreshold, setIsScrollBelowThreshold] = useState(false);
   const [bodyOverflowHidden, setBodyOverflowHidden] = useState(false);
+  const [isDropdownActive, setIsDropdownActive] = useState(false);
   const [isLoginActive, setIsLoginActive] = useState(false);
   const [isCartActive, setIsCartActive] = useState(false);
-  const [isDropdownActive, setIsDropdownActive] = useState(false);
 
   //  CONSTANTS
   const scrollThreshold = 5;
@@ -32,7 +32,7 @@ const Navbar = () => {
   }, [location]);
 
   //  SCROLL UPDATE
-  useEffect(() => {
+  useLayoutEffect(() => {
     let lastScrollY = window.scrollY;
     let ticking = false;
 
@@ -71,7 +71,7 @@ const Navbar = () => {
   }, [isScrollingDown]);
 
   //  BODY OVERFLOW
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.body.style.overflow = bodyOverflowHidden ? 'hidden' : 'scroll';
   }, [bodyOverflowHidden]);
 

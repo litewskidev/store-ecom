@@ -9,9 +9,12 @@ const SingleBrand = () => {
   //  FETCH DATA
   const { data: brandProducts, isLoading, isError } =  useGetProductsByBrandQuery(brand);
 
+  //  BRAND NAME
+  const brandName = (brandProducts?.slice(0, 1).map(product => product.brand.name).toString());
+
   return(
     <section id='single-brand'>
-      <ProductsList title={brand} products={brandProducts} loading={isLoading} error={isError} />
+      <ProductsList title={brandName} products={brandProducts} loading={isLoading} error={isError} />
     </section>
   );
 };

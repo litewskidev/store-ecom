@@ -10,7 +10,7 @@ const ProductsList = memo(({ title, products, loading, error }) => {
 
   return(
     <div className='productsList__wrapper'>
-      <h1>{title.replace('-', ' ')}</h1>
+      <h1>{title?.replace('-', ' ')}</h1>
       {loading && <Loading />}
       {error && navigate('*')}
       {!loading && !error && <Products products={products} />}
@@ -21,7 +21,6 @@ const ProductsList = memo(({ title, products, loading, error }) => {
 export default ProductsList;
 
 ProductsList.propTypes = {
-  title: PropTypes.string.isRequired,
   products: PropTypes.arrayOf(
     PropTypes.shape({
       _id: PropTypes.string.isRequired,

@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './MenuDesktop.scss';
 
 const MenuDesktop = memo(({ isDropdownActive, toggleDropdown, toggleLogin, toggleCart, navbarMenu }) => {
   return(
@@ -29,7 +28,7 @@ const MenuDesktop = memo(({ isDropdownActive, toggleDropdown, toggleLogin, toggl
               <NavLink to='/categories/new-arrivals'>{navbarMenu.categories.new}</NavLink>
             </li>
             <li className='navbar__item__link'>
-              <NavLink to='/watches/all-watches'>{navbarMenu.categories.all}</NavLink>
+              <NavLink to='/categories/all-watches'>{navbarMenu.categories.all}</NavLink>
               <div className='navbar__item__link__dropdown'>
                 <div className='navbar__item__link__dropdown__img'>
                   <img src={process.env.PUBLIC_URL + '/assets/images/img_4.webp'} alt='watch collection' />
@@ -158,7 +157,6 @@ const MenuDesktop = memo(({ isDropdownActive, toggleDropdown, toggleLogin, toggl
             <div className='navbar__search__form__field'>
               <input
               type='text'
-              placeholder='Search'
               ></input>
               <label></label>
             </div>

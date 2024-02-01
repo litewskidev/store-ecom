@@ -60,6 +60,12 @@
           border: none;
           border-bottom: solid .063rem $jet;
           background-color: transparent;
+          outline: none;
+          font-family: $font;
+
+          &::placeholder {
+            opacity: .6;
+          }
         }
 
         button {
