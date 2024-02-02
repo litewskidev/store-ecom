@@ -1,22 +1,12 @@
-import { useCallback, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import useToggle from '../../../hooks/useToggle.js';
 import SocialLinks from '../SocialLinks/SocialLinks.jsx';
 import PropTypes from 'prop-types';
 
 const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
-
-  //  STATES
-  const [isWatchesListActive, setIsWatchesListActive] = useState(false);
-  const [isBrandsListActive, setIsBrandsListActive] = useState(false);
-
   //  BUTTONS HANDLERS
-  const toggleWatchesList = useCallback(() => {
-    setIsWatchesListActive(!isWatchesListActive);
-  }, [isWatchesListActive]);
-
-  const toggleBrandsList = useCallback(() => {
-    setIsBrandsListActive(!isBrandsListActive);
-  }, [isBrandsListActive]);
+  const [isWatchesListActive, toggleWatchesList] = useToggle(false);
+  const [isBrandsListActive, toggleBrandsList] = useToggle(false);
 
   return(
     <>

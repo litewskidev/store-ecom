@@ -1,6 +1,7 @@
-import { useCallback, useMemo, useState, useLayoutEffect, useRef } from 'react';
+import { useMemo, useLayoutEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import gsap from 'gsap';
+import useToggle from '../../../hooks/useToggle.js';
 import ImageSlider from '../ImageSlider/ImageSlider.jsx';
 import PropTypes from 'prop-types';
 import './Product.scss';
@@ -17,18 +18,9 @@ const Product = ({ product }) => {
       .fromTo(productImageRef.current, { opacity: 0, x: '-2%' }, { opacity: 1, x: 0, duration: .5, ease: 'sine.out', force3D: true }, '<');
   }, [location]);
 
-  //  STATES
-  const [isDescriptionOpen, setIsDescriptionOpen] = useState(true);
-  const [isFeaturesOpen, setIsFeaturesOpen] = useState(true);
-
   //  BUTTONS HANDLERS
-  const toggleDescription = useCallback(() => {
-    setIsDescriptionOpen(!isDescriptionOpen);
-  }, [isDescriptionOpen]);
-
-  const toggleFeatures = useCallback(() => {
-    setIsFeaturesOpen(!isFeaturesOpen);
-  }, [isFeaturesOpen]);
+  const [isDescriptionOpen, toggleDescription] = useToggle(true);
+  const [isFeaturesOpen, toggleFeatures] = useToggle(true);
 
   const productMenu = useMemo(() => (
     {

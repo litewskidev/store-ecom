@@ -1,14 +1,11 @@
-import { useCallback, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import useToggle from '../../../hooks/useToggle.js';
 import PropTypes from 'prop-types';
 import './LoginModal.scss';
 
 const LoginModal = ({ handleBtn }) => {
-  const [registerPage, setRegisterPage] = useState(false);
-
-  const toggleRegisterPage = useCallback(() => {
-    setRegisterPage(!registerPage);
-  }, [registerPage]);
+  //  BUTTONS HANDLERS
+  const [registerPage, toggleRegisterPage] = useToggle(false);
 
   return(
     <div id='login-modal'>

@@ -1,30 +1,14 @@
-import { useCallback, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import SocialLinks from '../SocialLinks/SocialLinks';
+import useToggle from '../../../hooks/useToggle.js'
+import SocialLinks from '../SocialLinks/SocialLinks.jsx';
 import './Footer.scss';
 
 const Footer = () => {
-
-  const [isCompanyListActive, setIsCompanyListActive] = useState(false);
-  const [isCustomerListActive, setIsCustomerListActive] = useState(false);
-  const [isStoresListActive, setIsStoresListActive] = useState(false);
-  const [isContactListActive, setIsContactListActive] = useState(false);
-
-  const toggleCompanyList = useCallback(() => {
-    setIsCompanyListActive(prev => !prev);
-  }, []);
-
-  const toggleCustomerList = useCallback(() => {
-    setIsCustomerListActive(prev => !prev);
-  }, []);
-
-  const toggleStoresList = useCallback(() => {
-    setIsStoresListActive(prev => !prev);
-  }, []);
-
-  const toggleContactList = useCallback(() => {
-    setIsContactListActive(prev => !prev);
-  }, []);
+  //  BUTTONS HANDLERS
+  const [isCompanyListActive, toggleCompanyList] = useToggle(false);
+  const [isCustomerListActive, toggleCustomerList] = useToggle(false);
+  const [isStoresListActive, toggleStoresList] = useToggle(false);
+  const [isContactListActive, toggleContactList] = useToggle(false);
 
   return(
     <div className='footer__wrapper'>
