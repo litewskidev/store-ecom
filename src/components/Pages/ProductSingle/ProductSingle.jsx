@@ -2,9 +2,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useGetProductsByIdQuery } from '../../../redux/slices/productsApiSlice.js';
 import Loading from '../../Elements/Loading/Loading.jsx';
 import Product from '../../Elements/Product/Product.jsx';
-import './SingleProduct.scss';
+import './ProductSingle.scss';
 
-const SingleProduct = () => {
+const ProductSingle = () => {
   const params = useParams();
   const navigate = useNavigate();
 
@@ -12,8 +12,8 @@ const SingleProduct = () => {
   const { data: product, isLoading, isError } = useGetProductsByIdQuery(id);
 
   return(
-    <section id='single-product'>
-      <div className='singleProduct__wrapper'>
+    <section id='product-single'>
+      <div className='productSingle__wrapper'>
         {isLoading && <Loading />}
         {isError && navigate('*')}
         {!isLoading && !isError && <Product product={product} />}
@@ -22,4 +22,4 @@ const SingleProduct = () => {
   );
 };
 
-export default SingleProduct;
+export default ProductSingle;

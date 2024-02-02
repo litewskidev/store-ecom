@@ -7,16 +7,16 @@ import App from './App.js';
 import Home from './components/Pages/Home/Home.jsx';
 import Login from './components/Pages/Login/Login.jsx';
 import Register from './components/Pages/Register/Register.jsx';
-import UserProfile from './components/Pages/UserProfile/UserProfile.jsx';
+import Profile from './components/Pages/Profile/Profile.jsx';
 import Cart from './components/Pages/Cart/Cart.jsx';
 import Checkout from './components/Pages/Checkout/Checkout.jsx';
-import SingleProduct from './components/Pages/SingleProduct/SingleProduct.jsx';
-import AllProducts from './components/Pages/AllProducts/AllProducts.jsx';
-import SingleCategory from './components/Pages/SingleCategory/SingleCategory.jsx';
-import AllBrands from './components/Pages/AllBrands/AllBrands.jsx';
-import SingleBrand from './components/Pages/SingleBrand/SingleBrand.jsx';
-import AllCollections from './components/Pages/AllCollections/AllCollections.jsx';
-import SingleCollection from './components/Pages/SingleCollection/SingleCollection.jsx';
+import ProductSingle from './components/Pages/ProductSingle/ProductSingle.jsx';
+import ProductAll from './components/Pages/ProductAll/ProductAll.jsx';
+import Category from './components/Pages/Category/Category.jsx';
+import BrandAll from './components/Pages/BrandAll/BrandAll.jsx';
+import BrandSingle from './components/Pages/BrandSingle/BrandSingle.jsx';
+import CollectionAll from './components/Pages/CollectionAll/CollectionAll.jsx';
+import CollectionSingle from './components/Pages/CollectionSingle/CollectionSingle.jsx';
 import E404 from './components/Pages/E404/E404.jsx';
 
 const router = createBrowserRouter(
@@ -25,16 +25,16 @@ const router = createBrowserRouter(
       <Route index={true} element={ <Home /> } />
       <Route path='/login' element={ <Login /> } />
       <Route path='/register' element={ <Register /> } />
-      <Route path='/profile' element={ <UserProfile /> } />
+      <Route path='/profile' element={ <Profile /> } />
       <Route path='/cart' element={ <Cart /> } />
       <Route path='/checkout' element={ <Checkout /> } />
-      <Route path='/watches/:id' element={ <SingleProduct /> } />
-      <Route path='/categories/all-watches' element={ <AllProducts /> } />
-      <Route path='/categories/:id' element={ <SingleCategory /> } />
-      <Route path='/brands/all-brands' element={ <AllBrands /> } />
-      <Route path='/brands/:id' element={ <SingleBrand /> } />
-      <Route path='/collections/all-collections' element={ <AllCollections /> } />
-      <Route path='/collections/:id' element={ <SingleCollection /> } />
+      <Route path='/watches/:id' element={ <ProductSingle /> } />
+      <Route path='/categories/all-watches' element={ <ProductAll /> } />
+      <Route path='/categories/:id' element={ <Category /> } />
+      <Route path='/brands/all-brands' element={ <BrandAll /> } />
+      <Route path='/brands/:id' element={ <BrandSingle /> } />
+      <Route path='/collections/all-collections' element={ <CollectionAll /> } />
+      <Route path='/collections/:id' element={ <CollectionSingle /> } />
       <Route path='*' element={ <E404 /> } />
     </Route>
   )

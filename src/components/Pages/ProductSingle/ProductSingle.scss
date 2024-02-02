@@ -1,6 +1,6 @@
 @import '../../../styles/settings.scss';
 
-.singleProduct {
+.productSingle {
   &__wrapper {
     min-height: 100svh;
     padding: 8rem 2rem 2rem 2rem;
@@ -8,7 +8,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .singleProduct {
+  .productSingle {
     &__wrapper {
       padding: 8rem 1rem 2rem 1rem;
     }

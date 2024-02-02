@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useGetAllProductsQuery } from '../../../redux/slices/productsApiSlice.js';
 import ProductsList from '../../Elements/ProductsList/ProductsList.jsx';
 
-const AllProducts = () => {
+const ProductAll = () => {
 
   //  FETCH DATA
   const { data: allProducts, isLoading, isError } = useGetAllProductsQuery();
@@ -16,10 +16,10 @@ const AllProducts = () => {
   ), []);
 
   return(
-    <section id='all-products'>
+    <section id='product-all'>
       <ProductsList title={pageMenu.allProducts.title} products={allProducts} loading={isLoading} error={isError} />
     </section>
   );
 };
 
-export default AllProducts;
+export default ProductAll;
