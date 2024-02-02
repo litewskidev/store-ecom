@@ -1,11 +1,11 @@
-import { memo, useCallback, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import Slider from "react-slick";
 import ProductCard from "../ProductCard/ProductCard.jsx";
 import PropTypes from 'prop-types';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const ProductsSlider = memo(({ products }) => {
+const ProductsSlider = ({ products }) => {
 
   const CustomPrevArrow = useCallback(({ onClick }) => (
     <div
@@ -66,7 +66,7 @@ const ProductsSlider = memo(({ products }) => {
       </Slider>
     </div>
   );
-});
+};
 
 export default ProductsSlider
 

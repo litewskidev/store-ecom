@@ -1,8 +1,7 @@
-import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const MenuDesktop = memo(({ isDropdownActive, toggleDropdown, toggleLogin, toggleCart, navbarMenu }) => {
+const MenuDesktop = ({ isDropdownActive, toggleDropdown, toggleLogin, toggleCart, navbarMenu }) => {
   return(
     <>
       <div className='navbar__body'>
@@ -168,7 +167,7 @@ const MenuDesktop = memo(({ isDropdownActive, toggleDropdown, toggleLogin, toggl
       </div>
     </>
   );
-});
+};
 
 MenuDesktop.propTypes = {
   isDropdownActive: PropTypes.bool.isRequired,

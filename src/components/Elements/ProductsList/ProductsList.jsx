@@ -1,11 +1,10 @@
-import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading.jsx';
 import Products from '../Products/Products.jsx';
 import PropTypes from 'prop-types';
 import './ProductsList.scss';
 
-const ProductsList = memo(({ title, products, loading, error }) => {
+const ProductsList = ({ title, products, loading, error }) => {
   const navigate = useNavigate();
 
   return(
@@ -16,7 +15,7 @@ const ProductsList = memo(({ title, products, loading, error }) => {
       {!loading && !error && <Products products={products} />}
     </div>
   );
-});
+};
 
 export default ProductsList;
 

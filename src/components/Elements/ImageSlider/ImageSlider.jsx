@@ -1,11 +1,11 @@
-import { memo, useCallback, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import Slider from "react-slick";
 import PropTypes from 'prop-types';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './ImageSlider.scss';
 
-const ImageSlider = memo(({ product }) => {
+const ImageSlider = ({ product }) => {
 
   const CustomPrevArrow = useCallback(({ onClick }) => (
     <div
@@ -55,7 +55,7 @@ const ImageSlider = memo(({ product }) => {
       ))}
     </Slider>
   );
-});
+};
 
 ImageSlider.propTypes = {
   product: PropTypes.shape({

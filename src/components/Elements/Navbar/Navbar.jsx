@@ -1,5 +1,8 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useWindowLocation from '../../../hooks/useWindowLocation.js';
+import useScrollUpdate from '../../../hooks/useScrollUpdate.js';
+import useBodyOverflow from '../../../hooks/useBodyOverflow.js';
 import MenuDesktop from '../MenuDesktop/MenuDesktop.jsx';
 import MenuMobile from '../MenuMobile/MenuMobile.jsx';
 import LoginModal from '../LoginModal/LoginModal.jsx';
@@ -25,55 +28,13 @@ const Navbar = () => {
   const navbarThreshold = 75;
 
   //  WINDOW LOCATION
-  useEffect(() => {
-    setIsHomePage(location.pathname === '/');
-
-    window.scrollTo(0, 0);
-  }, [location]);
+  useWindowLocation(location, setIsHomePage);
 
   //  SCROLL UPDATE
-  useLayoutEffect(() => {
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
-    const updateScrollDirection = () => {
-      const scrollY = window.scrollY;
-      const direction = scrollY > lastScrollY;
-
-      if(direction !== isScrollingDown && Math.abs(scrollY - lastScrollY) > scrollThreshold) {
-        setIsScrollingDown(direction);
-      }
-
-      lastScrollY = Math.max(0, scrollY);
-    };
-
-    const updateScrollHeader = () => {
-      setIsScrollBelowThreshold(window.scrollY >= navbarThreshold);
-    };
-
-    const handleScroll = () => {
-      if(!ticking) {
-        requestAnimationFrame(() => {
-          updateScrollDirection();
-          updateScrollHeader();
-          ticking = false;
-        });
-
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [isScrollingDown]);
+  useScrollUpdate(isScrollingDown, setIsScrollingDown, setIsScrollBelowThreshold, scrollThreshold, navbarThreshold);
 
   //  BODY OVERFLOW
-  useLayoutEffect(() => {
-    document.body.style.overflow = bodyOverflowHidden ? 'hidden' : 'scroll';
-  }, [bodyOverflowHidden]);
+  useBodyOverflow(bodyOverflowHidden);
 
   //  BUTTONS HANDLERS
   const toggleDropdown = useCallback(() => {

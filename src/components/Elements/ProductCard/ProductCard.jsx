@@ -1,9 +1,8 @@
-import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './ProductCard.scss';
 
-const ProductCard = memo(({ product }) => {
+const ProductCard = ({ product }) => {
   return(
     <div className='productCard__box'>
       <NavLink to={`/watches/${product?._id}`} className='productCard__box__inner'>
@@ -33,7 +32,7 @@ const ProductCard = memo(({ product }) => {
       </NavLink>
     </div>
   );
-});
+};
 
 export default ProductCard;
 

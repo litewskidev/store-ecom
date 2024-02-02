@@ -1,11 +1,11 @@
-import { memo, useCallback, useMemo, useState, useLayoutEffect, useRef } from 'react';
+import { useCallback, useMemo, useState, useLayoutEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import ImageSlider from '../ImageSlider/ImageSlider.jsx';
 import PropTypes from 'prop-types';
 import './Product.scss';
 
-const Product = memo(({ product }) => {
+const Product = ({ product }) => {
   const location = useLocation();
 
   //  GSAP
@@ -233,7 +233,7 @@ const Product = memo(({ product }) => {
       </div>
     </div>
   );
-});
+};
 
 Product.propTypes = {
   product: PropTypes.shape({

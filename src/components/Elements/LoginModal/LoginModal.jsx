@@ -1,9 +1,9 @@
-import { memo, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './LoginModal.scss';
 
-const LoginModal = memo(({ handleBtn }) => {
+const LoginModal = ({ handleBtn }) => {
   const [registerPage, setRegisterPage] = useState(false);
 
   const toggleRegisterPage = useCallback(() => {
@@ -78,7 +78,7 @@ const LoginModal = memo(({ handleBtn }) => {
       </div>
     </div>
   );
-});
+};
 
 LoginModal.propTypes = {
   handleBtn: PropTypes.func.isRequired,

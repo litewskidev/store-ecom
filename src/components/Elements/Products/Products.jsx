@@ -1,11 +1,11 @@
-import { memo, useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import ProductCard from '../ProductCard/ProductCard.jsx';
 import PropTypes from 'prop-types';
 import './Products.scss';
 
-const Products = memo(({ products }) => {
+const Products = ({ products }) => {
   const location = useLocation();
 
   //  GSAP
@@ -21,7 +21,7 @@ const Products = memo(({ products }) => {
       ))}
     </div>
   );
-});
+};
 
 Products.propTypes = {
   products: PropTypes.arrayOf(

@@ -1,9 +1,9 @@
-import { memo, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import SocialLinks from '../SocialLinks/SocialLinks.jsx';
 import PropTypes from 'prop-types';
 
-const MenuMobile = memo(({ isDropdownActive, toggleDropdown, navbarMenu }) => {
+const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 
   //  STATES
   const [isWatchesListActive, setIsWatchesListActive] = useState(false);
@@ -101,7 +101,7 @@ const MenuMobile = memo(({ isDropdownActive, toggleDropdown, navbarMenu }) => {
       </nav>
     </>
   );
-});
+};
 
 MenuMobile.propTypes = {
   isDropdownActive: PropTypes.bool.isRequired,
