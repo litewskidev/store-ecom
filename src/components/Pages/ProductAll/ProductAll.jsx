@@ -3,7 +3,6 @@ import { useGetAllProductsQuery } from '../../../redux/slices/productsApiSlice.j
 import ProductsList from '../../Elements/ProductsList/ProductsList.jsx';
 
 const ProductAll = () => {
-
   //  FETCH DATA
   const { data: allProducts, isLoading, isError } = useGetAllProductsQuery();
 

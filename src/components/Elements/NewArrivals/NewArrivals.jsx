@@ -1,12 +1,11 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useGetNewProductsQuery } from '../../../redux/slices/productsApiSlice.js';
 import Loading from '../Loading/Loading.jsx';
+import Error from '../Error/Error.jsx';
 import ProductsSlider from '../ProductsSlider/ProductsSlider.jsx';
 import './NewArrivals.scss';
 
 const NewArrivals = () => {
-  const navigate = useNavigate();
-
   //  FETCH DATA
   const { data: newProducts, isLoading, isError } = useGetNewProductsQuery();
 
@@ -19,7 +18,11 @@ const NewArrivals = () => {
         </NavLink>
       </div>
       {isLoading && <Loading />}
-      {isError && navigate('*')}
+      {isError &&
+      <Error>{isError.name && isError.name === 'NetworkError'
+        ? 'Network error. Please check your internet connection and try again.'
+        : 'An unexpected error occurred. Please try again later.'}
+      </Error>}
       {!isLoading && !isError && <ProductsSlider products={newProducts} />}
     </div>
   );

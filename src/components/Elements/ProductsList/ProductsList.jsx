@@ -1,17 +1,19 @@
-import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading.jsx';
 import Products from '../Products/Products.jsx';
 import PropTypes from 'prop-types';
 import './ProductsList.scss';
+import Error from '../Error/Error.jsx';
 
 const ProductsList = ({ title, products, loading, error }) => {
-  const navigate = useNavigate();
-
   return(
     <div className='productsList__wrapper'>
       <h1>{title?.replace('-', ' ')}</h1>
       {loading && <Loading />}
-      {error && navigate('*')}
+      {error &&
+      <Error>{error.name && error.name === 'NetworkError'
+        ? 'Network error. Please check your internet connection and try again.'
+        : 'An unexpected error occurred. Please try again later.'}
+      </Error>}
       {!loading && !error && <Products products={products} />}
     </div>
   );
