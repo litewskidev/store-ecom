@@ -1,0 +1,30 @@
+@import '../../../styles/settings.scss';
+
+.scrollButton{
+  &__frame {
+    position: relative;
+    width: 1rem;
+    height: 2rem;
+    border: solid 0.063rem $jet;
+    border-radius: 1rem;
+    background-color: transparent;
+  }
+
+  &__icon {
+    position: absolute;
+    top: .1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    background-color: $jet;
+    animation: scroll 1.5s linear infinite;
+  }
+
+  @keyframes scroll {
+    100% {
+      transform: translateX(-50%) translateY(1rem);
+    }
+  }
+}

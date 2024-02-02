@@ -12,10 +12,10 @@
     &__video {
       display: block;
       width: 100%;
-      min-height: 100svh;
+      height: 100svh;
       object-fit: cover;
       z-index: -1;
-      filter: brightness(.75);
+      filter: brightness(.7);
     }
 
     &__title {

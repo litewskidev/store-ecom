@@ -1,9 +1,11 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useGetNewProductsQuery } from '../../../redux/slices/productsApiSlice.js';
+import Loading from '../Loading/Loading.jsx';
 import ProductsSlider from '../ProductsSlider/ProductsSlider.jsx';
 import './NewArrivals.scss';
 
 const NewArrivals = () => {
+  const navigate = useNavigate();
 
   //  FETCH DATA
   const { data: newProducts, isLoading, isError } = useGetNewProductsQuery();
@@ -16,9 +18,9 @@ const NewArrivals = () => {
           <p>View All</p>
         </NavLink>
       </div>
-      {isLoading && <p>Loading...</p>}
-      {isError && <p>Error!</p>}
-      <ProductsSlider products={newProducts} />
+      {isLoading && <Loading />}
+      {isError && navigate('*')}
+      {!isLoading && !isError && <ProductsSlider products={newProducts} />}
     </div>
   );
 };
