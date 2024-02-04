@@ -27,7 +27,7 @@
     &__icon {
       position: absolute;
       top: 50%;
-      left: .1rem;
+      right: .1rem;
       width: .5rem;
       height: .5rem;
       border-radius: 50%;
@@ -44,7 +44,7 @@
         opacity: .8;
       }
       100% {
-        transform: translateY(-50%) translateX(1.6rem);
+        transform: translateY(-50%) translateX(-1.6rem);
         opacity: 0;
       }
     }

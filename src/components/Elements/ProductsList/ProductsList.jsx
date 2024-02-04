@@ -1,8 +1,8 @@
 import Loading from '../Loading/Loading.jsx';
+import Error from '../Error/Error.jsx';
 import Products from '../Products/Products.jsx';
 import PropTypes from 'prop-types';
 import './ProductsList.scss';
-import Error from '../Error/Error.jsx';
 
 const ProductsList = ({ title, products, loading, error }) => {
   return(

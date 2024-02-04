@@ -1,0 +1,100 @@
+@import '../../../styles/settings.scss';
+
+.featured {
+  &__wrapper {
+    height: 100svh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 48% 48%;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  &__tile {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    img {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .3s ease-out;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .3);
+      z-index: 1;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.025);
+      }
+
+      .featured__tile__info {
+        p:last-of-type {
+          text-decoration-color: $seasalt;
+        }
+      }
+    }
+
+    &__info {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: .2rem;
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+
+      p, h2, h4 {
+        color: $seasalt;
+      }
+
+      p:last-of-type {
+        text-underline-offset: .5rem;
+        text-decoration: underline .063rem rgba(0, 0, 0, 0);
+        transition: text-decoration-color .3s ease-out;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .featured {
+    &__wrapper {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 31% 31% 31%;
+      gap: 1rem;
+      padding: 2rem 1rem;
+    }
+
+    &__tile {
+      &__info {
+        gap: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .featured {
+    &__wrapper {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
