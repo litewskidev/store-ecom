@@ -6,11 +6,10 @@
     align-items: center;
     justify-content: center;
     z-index: 999;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    background-color: $seasalt;
     border-radius: 50%;
     width: 3rem;
     height: 3rem;
@@ -26,24 +25,6 @@
     border: solid .1rem $jet;
     border-radius: 50%;
     z-index: 1;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: .15rem;
-      height: 100%;
-      background-color: $jet;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      height: .15rem;
-      background-color: $jet;
-    }
   }
 
   &__clock {
@@ -54,7 +35,6 @@
     width: 90%;
     height: 90%;
     border-radius: 50%;
-    background-color: $seasalt;
     z-index: 2;
 
     &__longhand {

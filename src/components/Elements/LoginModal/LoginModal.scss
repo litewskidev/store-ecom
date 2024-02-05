@@ -71,7 +71,7 @@
       input {
         width: 100%;
         font-family: $font;
-        font-size: .9rem;
+        font-size: .875rem;
         padding: 1rem 0;
         background-color: transparent;
         border: none;
@@ -85,14 +85,14 @@
 
       button {
         font-family: $font;
-        font-size: .9rem;
+        font-size: .875rem;
         color: $jet;
         padding: 1rem;
         margin-top: 2.5rem;
         background-color: transparent;
         border: solid .063rem $jet;
         cursor: pointer;
-        transition: background-color .4s ease-out, color .4s ease-out;
+        transition: background-color .3s ease-out, color .3s ease-out;
 
         &:hover {
           color: $seasalt;
@@ -113,11 +113,11 @@
       }
 
       p {
-        font-size: .9rem;
+        font-size: .875rem;
       }
 
       a {
-        font-size: .9rem;
+        font-size: .875rem;
         color: $jet;
         text-decoration: underline;
         text-underline-offset: .3rem;
@@ -125,14 +125,14 @@
 
       button {
         font-family: $font;
-        font-size: .9rem;
+        font-size: .875rem;
         color: $seasalt;
         padding: 1rem;
         margin-top: 2.5rem;
         background-color: $jet;
         border: solid .063rem $jet;
         cursor: pointer;
-        transition: background-color .4s ease-out, color .4s ease-out;
+        transition: background-color .3s ease-out, color .3s ease-out;
 
         &:hover {
           color: $jet;

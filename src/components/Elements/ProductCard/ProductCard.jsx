@@ -14,20 +14,18 @@ const ProductCard = ({ product }) => {
           ))}
         </div>
         <div className='productCard__box__inner__info'>
+          <div className='productCard__box__inner__info__title'>
+            <p>{product?.brand.name}, {product?.model}</p>
+          </div>
           {(product?.price.discount !== 0) ? (
-            <div>
+            <div className='productCard__box__inner__info__price'>
               <p>{product?.price.currency}{(product?.price.base - (product?.price.base / product?.price.discount)).toFixed(3)}</p>
             </div>
           ) : (
-            <div>
+            <div className='productCard__box__inner__info__price'>
               <p>{product?.price.currency}{(product?.price.base).toFixed(3)}</p>
             </div>
           )}
-          <p>{product?.year}</p>
-        </div>
-        <div className='productCard__box__inner__title'>
-          <h1>{product?.brand.name}</h1>
-          <h2>{product?.model}</h2>
         </div>
       </NavLink>
     </div>

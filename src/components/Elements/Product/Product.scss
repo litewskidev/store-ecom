@@ -87,12 +87,11 @@
       &__cart {
         width: 80%;
         border: solid .063rem $jet;
-        text-align: center;
 
         button {
           width: 100%;
           font-family: $font;
-          font-size: .9rem;
+          font-size: .875rem;
           background-color: transparent;
           border: none;
           padding: .6rem 0;
@@ -129,7 +128,7 @@
       }
 
       p {
-        font-size: .9rem;
+        font-size: .875rem;
       }
     }
 
@@ -155,7 +154,7 @@
       }
 
       h3 {
-        font-size: .9rem;
+        font-size: .875rem;
         font-weight: 400;
         text-decoration: underline;
         text-underline-offset: .3rem;
@@ -168,7 +167,7 @@
     }
 
     h2 {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
   }
 }
@@ -240,7 +239,7 @@
       &__desc {
         overflow: hidden;
         height: 1.5rem;
-        transition: height .4s ease-out;
+        transition: height .3s ease-out;
 
         &__button {
           display: flex;
@@ -251,7 +250,7 @@
           img {
             display: block;
             width: 1.2rem;
-            transition: transform .4s ease-out;
+            transition: transform .3s ease-out;
 
             &.rotate {
               transform: rotate(180deg);
@@ -278,7 +277,7 @@
           img {
             display: block;
             width: 1.2rem;
-            transition: transform .4s ease-out;
+            transition: transform .3s ease-out;
 
             &.rotate {
               transform: rotate(180deg);

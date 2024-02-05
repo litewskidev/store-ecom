@@ -2,87 +2,35 @@
 
 .productCard {
   &__box {
-    width: 100%;
-    cursor: pointer;
-    transition: transform .3s ease-out;
-
     &__inner {
-      margin: 3rem;
-      position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: .75rem;
+      gap: 1rem;
+      padding: 1rem;
+      margin: 1rem;
+      background-color: $white;
+      cursor: pointer;
+      transition: transform .3s ease-out;
 
       &__info {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 .5rem;
-      }
+        flex-direction: column;
+        gap: .5rem;
 
-      &__title {
-        position: absolute;
-        top: 2rem;
-        left: -2rem;
-        width: 25%;
-
-        h1 {
-          font-size: 1.2rem;
-          color: $timberwolf;
-        }
-
-        h2 {
-          font-size: .8rem;
+        p {
+          font-size: .8125rem;
         }
       }
-    }
 
-    &:hover {
-      transform: scale(1.05);
+      &:hover {
+        transform: scale(1.03);
+      }
     }
   }
 }
 
 @media screen and (max-width: 1200px) {
-  .productCard {
-    &__box {
-      &__inner {
-        &__title {
-          left: -2.5rem;
-          width: 30%;
-        }
-      }
-    }
-  }
 }
 
 @media screen and (max-width: 600px) {
-  .productCard {
-    &__box {
-      &__inner {
-        gap: .5rem;
-
-        &__info {
-          p {
-            font-size: .9rem;
-          }
-        }
-
-        &__title {
-          top: 1.5rem;
-          left: -1.7rem;
-          width: 25%;
-
-          h1 {
-            font-size: 1.2rem;
-          }
-
-          h2 {
-            font-size: .75rem;
-          }
-        }
-      }
-    }
-  }
 }

@@ -15,7 +15,7 @@
     padding: 0 2rem;
     background-color: $seasalt;
     color: $jet;
-    transition: background-color .4s ease-out, color .4s ease-out;
+    transition: background-color .3s ease-out, color .3s ease-out;
   }
 
   &__body {
@@ -74,7 +74,7 @@
         border-bottom: solid .063rem $timberwolf;
         opacity: 0;
         visibility: hidden;
-        transition: opacity .4s ease-out;
+        transition: opacity .3s ease-out;
 
         &__img {
           position: relative;
@@ -138,7 +138,7 @@
       }
 
       a, p {
-        font-size: 1rem;
+        font-size: .875rem;
         color: inherit;
         text-underline-offset: .5rem;
         text-decoration: underline .063rem rgba(0, 0, 0, 0);
@@ -200,7 +200,7 @@
     z-index: 299;
     opacity: 0;
     visibility: hidden;
-    transition: opacity .4s ease-out, visibility .4s ease-out;
+    transition: opacity .3s ease-out, visibility .3s ease-out;
 
     &.active {
       visibility: visible;
@@ -210,7 +210,7 @@
     &__inner {
       transform: translateX(100%);
       visibility: hidden;
-      transition: transform .4s ease-out, visibility .4s ease-out;
+      transition: transform .3s ease-out, visibility .3s ease-out;
 
       &.open {
         visibility: visible;
@@ -321,7 +321,7 @@
         width: 1.5rem;
         height: .1rem;
         background-color: $jet;
-        transition: transform .4s ease-out;
+        transition: transform .3s ease-out;
       }
 
       &.active {
@@ -346,7 +346,7 @@
       z-index: 199;
       opacity: 0;
       visibility: hidden;
-      transition: opacity .4s ease-out, visibility .4s ease-out;
+      transition: opacity .3s ease-out, visibility .3s ease-out;
 
       &__inner {
         position: fixed;
@@ -362,7 +362,7 @@
         background-color: $seasalt;
         transform: translateX(100%);
         visibility: hidden;
-        transition: transform .4s ease-out, visibility .4s ease-out;
+        transition: transform .3s ease-out, visibility .3s ease-out;
 
         &__scroll {
           display: flex;
@@ -415,7 +415,7 @@
                 img {
                   width: 1rem;
                   transform: rotate(0);
-                  transition: transform .4s ease-out;
+                  transition: transform .3s ease-out;
 
                   &.rotate {
                     transform: rotate(180deg);
@@ -445,7 +445,6 @@
           gap: 1.4rem;
 
           a {
-            font-size: .9rem;
             color: $jet;
             opacity: .6;
           }
@@ -468,7 +467,7 @@
       height: 0;
       visibility: hidden;
       overflow: hidden;
-      transition: height .4s ease-out, visibility .4s ease-out;
+      transition: height .3s ease-out, visibility .3s ease-out;
 
       &.list-open {
         visibility: visible;
@@ -522,7 +521,7 @@
       }
 
       &__logo {
-        font-size: 1.6rem;
+        font-size: 1.45rem;
       }
     }
 

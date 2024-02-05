@@ -33,17 +33,15 @@
       }
 
       p {
-        font-size: .9rem;
-        font-weight: 300;
+        font-size: .875rem;
         color: $seasalt;
         margin-bottom: 1rem;
-        line-height: 1.6;
       }
 
       a {
         text-align: center;
         font-family: $font;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         color: $seasalt;
         padding: .5rem;
         border: solid .063rem $seasalt;
@@ -73,7 +71,7 @@
         width: 27rem;
 
         h1 {
-          font-size: 1.7rem;
+          font-size: 2rem;
         }
       }
     }
@@ -84,18 +82,12 @@
   .hero {
     &__hero {
       &__title {
-        padding: 1rem;
-        width: 100%;
         left: 0;
-        bottom: 4rem;
+        width: 100%;
+        padding: 1rem;
 
         h1 {
           font-size: 1.5rem;
-        }
-
-        a {
-          font-size: 1rem;
-          padding: .75rem;
         }
       }
     }

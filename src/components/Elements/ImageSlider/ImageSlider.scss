@@ -16,8 +16,6 @@
   cursor: pointer;
 
   &::before {
-    font-family: $font;
-    font-size: 1.4rem;
     background-color: $jet;
     color: $seasalt;
     padding: .15rem 1.5rem .35rem 1.5rem;

@@ -11,7 +11,7 @@ const Products = ({ products }) => {
   //  GSAP
   const productsRef = useRef(null);
   useLayoutEffect(() => {
-    gsap.fromTo(productsRef.current, { opacity: 0, x: '-2%' }, { opacity: 1, x: 0, force3D: true });
+    gsap.fromTo(productsRef.current, { opacity: 0, x: '-2%' }, { opacity: 1, x: 0, duration: .5, force3D: true });
   }, [location]);
 
   return(

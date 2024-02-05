@@ -13,8 +13,9 @@ const NewArrivals = () => {
     <div className='newArrivals__wrapper'>
       <div className='newArrivals__title'>
         <h1>NEW ARRIVALS</h1>
+        <p>&middot;</p>
         <NavLink to='/categories/new-arrivals'>
-          <p>View All</p>
+          <p>VIEW ALL</p>
         </NavLink>
       </div>
       {isLoading && <Loading />}

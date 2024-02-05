@@ -6,14 +6,14 @@
     flex-direction: column;
     gap: 2rem;
     width: 100%;
-    padding: 3.75rem 0 1rem 0;
+    padding: 10rem 0 1rem 0;
   }
 
   &__body {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
     width: 100%;
 
     &__item {
@@ -57,7 +57,7 @@
             width: fit-content;
 
             a {
-              font-size: .9rem;
+              font-size: .875rem;
               color: $jet;
             }
           }
@@ -91,14 +91,13 @@
     &__wrapper {
       gap: 2rem;
       width: 100%;
-      //padding: 3.75rem 1rem 1rem 1rem;
+      padding: 3rem 2rem 1rem 2rem;
     }
 
     &__body {
       flex-direction: column;
       gap: 0;
       width: 100%;
-      padding: 0 1rem;
 
       &__item {
         gap: 1rem;
@@ -108,7 +107,7 @@
           padding-top: .5rem;
 
           h2 {
-            font-size: 1.3rem;
+            font-size: 1.125rem;
           }
 
           &__icon {
@@ -118,7 +117,7 @@
               display: block;
               width: 1rem;
               transform: rotate(0);
-              transition: transform .4s ease-out;
+              transition: transform .3s ease-out;
 
               &.rotate {
                 transform: rotate(180deg);
@@ -132,7 +131,7 @@
             height: 0;
             visibility: hidden;
             overflow: hidden;
-            transition: height .4s ease-out, visibility .4s ease-out;
+            transition: height .3s ease-out, visibility .3s ease-out;
           }
 
           &__one {
@@ -170,6 +169,14 @@
       &__socials {
         width: 100%;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    &__wrapper {
+      padding: 3rem 1rem 1rem 1rem;
     }
   }
 }
