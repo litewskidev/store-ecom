@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import './Featured.scss';
 import { NavLink } from 'react-router-dom';
+import './Featured.scss';
 
 const Featured = () => {
 

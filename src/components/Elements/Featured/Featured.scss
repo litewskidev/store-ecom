@@ -7,7 +7,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 48% 48%;
     gap: 2rem;
-    padding: 2rem;
+    padding: 2rem 4rem;
   }
 
   &__tile {
@@ -37,7 +37,7 @@
 
     &:hover {
       img {
-        transform: scale(1.025);
+        transform: scale(1.05);
       }
 
       .featured__tile__info {
@@ -78,7 +78,6 @@
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 31% 31% 31%;
       gap: 1rem;
-      padding: 2rem 1rem;
     }
 
     &__tile {
@@ -95,6 +94,7 @@
       height: auto;
       display: flex;
       flex-direction: column;
+      padding: 3rem 1rem;
     }
   }
 }
