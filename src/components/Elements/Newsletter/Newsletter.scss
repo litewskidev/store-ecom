@@ -3,6 +3,9 @@
 .newsletter {
   &__wrapper {
     display: flex;
+    z-index: 3;
+    background-color: $seasalt;
+    margin-top: -50svh;
   }
 
   &__left {
@@ -10,9 +13,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 50%;
     height: 30vh;
-    padding: 5rem 2rem 0 2rem;
+    padding: 5rem 0 0 2rem;
 
     &__header {
       display: flex;
@@ -21,7 +24,7 @@
 
       h1 {
         font-size: 2.5rem;
-        font-weight: 300;
+        font-weight: 900;
       }
 
       p {
@@ -80,7 +83,7 @@
   }
 
   &__right {
-    width: 100%;
+    width: 50%;
     max-height: 70svh;
 
     img {
@@ -96,7 +99,7 @@
     &__wrapper {
       flex-direction: column-reverse;
       gap: 2rem;
-      padding: 3rem 0;
+      padding: 0 0 3rem 0;
     }
 
     &__left {
@@ -132,7 +135,7 @@
 @media screen and (max-width: 600px) {
   .newsletter {
     &__wrapper {
-      padding: 3rem 0;
+      margin-top: 0;
     }
 
     &__left {

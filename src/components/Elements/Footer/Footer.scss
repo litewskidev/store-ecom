@@ -7,6 +7,8 @@
     gap: 2rem;
     width: 100%;
     padding: 10rem 0 1rem 0;
+    z-index: 3;
+    background-color: $seasalt;
   }
 
   &__body {
@@ -27,6 +29,10 @@
         align-items: center;
         justify-content: space-between;
         width: 100%;
+
+        h2 {
+          font-size: 1.25rem;
+        }
 
         &__icon {
           display: none;
