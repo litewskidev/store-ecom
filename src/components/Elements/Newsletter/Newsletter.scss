@@ -5,7 +5,6 @@
     display: flex;
     z-index: 3;
     background-color: $seasalt;
-    margin-top: -50svh;
   }
 
   &__left {
@@ -14,7 +13,7 @@
     align-items: center;
     justify-content: space-between;
     width: 50%;
-    height: 30vh;
+    height: 25vh;
     padding: 5rem 0 0 2rem;
 
     &__header {

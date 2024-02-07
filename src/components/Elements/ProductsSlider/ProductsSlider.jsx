@@ -28,7 +28,7 @@ const ProductsSlider = ({ products }) => {
     {
       speed: 800,
       infinite: true,
-      slidesToShow: 4,
+      slidesToShow: 5,
       slidesToScroll: 1,
       dots: false,
       arrows: true,
@@ -38,7 +38,7 @@ const ProductsSlider = ({ products }) => {
         {
           breakpoint: 1800,
           settings: {
-            slidesToShow: 3,
+            slidesToShow: 4,
           }
         },
         {

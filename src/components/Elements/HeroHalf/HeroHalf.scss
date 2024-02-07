@@ -1,0 +1,70 @@
+@import '../../../styles/settings.scss';
+
+.heroHalf {
+  &__wrapper {
+    display: flex;
+    margin-top: -50svh;
+  }
+
+  &__tile {
+    width: 100%;
+    position: relative;
+
+    &__info {
+      position: absolute;
+      bottom: 3rem;
+      left: 3rem;
+      z-index: 2;
+
+      h3 {
+        color: $seasalt;
+      }
+
+      p {
+        font-size: .875rem;
+        color: $seasalt;
+        text-decoration: underline;
+        text-underline-offset: .35rem;
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .25);
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .heroHalf {
+    &__wrapper {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .heroHalf {
+    &__wrapper {
+      margin-top: 0;
+    }
+
+    &__tile {
+      &__info {
+        bottom: 1rem;
+        left: 1rem;
+      }
+    }
+  }
+}
