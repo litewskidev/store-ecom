@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { NavLink } from 'react-router-dom';
-import './Featured.scss';
+import './HomeTiles.scss';
 
-const Featured = () => {
+const HomeTiles = () => {
 
   const featuredMenu = useMemo(() => (
     [
@@ -64,4 +64,4 @@ const Featured = () => {
   );
 };
 
-export default Featured;
+export default HomeTiles;

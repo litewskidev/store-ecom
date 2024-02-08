@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { NavLink } from 'react-router-dom';
-import './HeroHalf.scss';
+import './HomeHalf.scss';
 
-const HeroHalf = () => {
+const HomeHalf = () => {
 
   const heroHalfMenu = useMemo(() => (
     [
@@ -36,4 +36,4 @@ const HeroHalf = () => {
   );
 };
 
-export default HeroHalf;
+export default HomeHalf;

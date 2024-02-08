@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import './HeroAbout.scss';
+import './HomeAbout.scss';
 
-const HeroAbout = () => {
+const HomeAbout = () => {
   return(
     <div className='heroAbout__wrapper'>
       <NavLink to='/about'>
@@ -25,4 +25,4 @@ const HeroAbout = () => {
   );
 };
 
-export default HeroAbout;
+export default HomeAbout;

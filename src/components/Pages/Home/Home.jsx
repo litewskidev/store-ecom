@@ -1,20 +1,21 @@
-import Featured from "../../Elements/Featured/Featured.jsx";
-import Hero from "../../Elements/Hero/Hero.jsx";
-import HeroAbout from "../../Elements/HeroAbout/HeroAbout.jsx";
-import HeroHalf from "../../Elements/HeroHalf/HeroHalf.jsx";
-import NewArrivals from "../../Elements/NewArrivals/NewArrivals.jsx";
-import StickyHalf from "../../Elements/StickyHalf/StickyHalf.jsx";
-import './Home.scss';
+import HomeHero from "../../Elements/HomeHero/HomeHero.jsx";
+import HomeNew from "../../Elements/HomeNew/HomeNew.jsx";
+import HomeTiles from "../../Elements/HomeTiles/HomeTiles.jsx";
+import HomeAbout from "../../Elements/HomeAbout/HomeAbout.jsx";
+import HomeGrid from "../../Elements/HomeGrid/HomeGrid.jsx";
+import HomeHalf from "../../Elements/HomeHalf/HomeHalf.jsx";
+import HomeBrands from "../../Elements/HomeBrands/HomeBrands.jsx";
 
 const Home = () => {
   return(
     <section id="home">
-      <Hero />
-      <NewArrivals />
-      <Featured />
-      <HeroAbout />
-      <StickyHalf />
-      <HeroHalf />
+      <HomeHero />
+      <HomeNew />
+      <HomeTiles />
+      <HomeAbout />
+      <HomeGrid />
+      <HomeHalf />
+      <HomeBrands />
     </section>
   );
 };

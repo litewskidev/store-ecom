@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import './StickyHalf.scss'
+import './HomeGrid.scss'
 
-const StickyHalf = () => {
+const HomeGrid = () => {
   return(
     <div className='stickyHalf__wrapper'>
       <div className='stickyHalf__container'>
@@ -32,4 +32,4 @@ const StickyHalf = () => {
   );
 };
 
-export default StickyHalf;
+export default HomeGrid;

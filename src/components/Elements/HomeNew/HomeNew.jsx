@@ -3,9 +3,9 @@ import { useGetNewProductsQuery } from '../../../redux/slices/productsApiSlice.j
 import Loading from '../Loading/Loading.jsx';
 import Error from '../Error/Error.jsx';
 import ProductsSlider from '../ProductsSlider/ProductsSlider.jsx';
-import './NewArrivals.scss';
+import './HomeNew.scss';
 
-const NewArrivals = () => {
+const HomeNew = () => {
   //  FETCH DATA
   const { data: newProducts, isLoading, isError } = useGetNewProductsQuery();
 
@@ -29,4 +29,4 @@ const NewArrivals = () => {
   );
 };
 
-export default NewArrivals;
+export default HomeNew;

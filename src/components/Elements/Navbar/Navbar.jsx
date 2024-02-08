@@ -152,11 +152,11 @@ const Navbar = () => {
             name: 'F.P. Journe'
           },
           {
-            id: 'moser&cie',
+            id: 'moser-cie',
             name: 'H. Moser & Cie.'
           },
           {
-            id: 'lange&sohne',
+            id: 'lange-sohne',
             name: 'A. Lange & Söhne'
           },
           {

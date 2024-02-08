@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import './Hero.scss';
+import './HomeHero.scss';
 
-const Hero = () => {
+const HomeHero = () => {
   return(
     <div className="hero__wrapper">
       <div className="hero__hero">
@@ -17,4 +17,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HomeHero;
