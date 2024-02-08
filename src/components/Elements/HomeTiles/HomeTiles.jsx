@@ -9,37 +9,37 @@ const HomeTiles = () => {
       {
         category: '',
         title: 'BEST SELLERS',
-        action: 'SHOP',
+        action: 'SHOP NOW',
         href: '/categories/best-sellers'
       },
       {
         category: '',
         title: 'SALE',
-        action: 'SHOP',
+        action: 'SHOP NOW',
         href: '/categories/sale'
       },
       {
         category: '',
         title: 'COMING SOON',
-        action: 'SHOP',
+        action: 'SHOP NOW',
         href: '/categories/coming-soon'
       },
       {
         category: 'COLLECTION',
         title: 'DAILY DRIVERS',
-        action: 'SHOP',
+        action: 'SHOP NOW',
         href: '/collections/daily-drivers'
       },
       {
         category: 'COLLECTION',
         title: 'THE HOLY TRINITY',
-        action: 'SHOP',
+        action: 'SHOP NOW',
         href: '/collections/the-holy-trinity'
       },
       {
         category: 'COLLECTION',
         title: 'STAFF PICKS',
-        action: 'SHOP',
+        action: 'SHOP NOW',
         href: '/collections/staff-picks'
       }
     ]
@@ -53,7 +53,7 @@ const HomeTiles = () => {
             <img src={process.env.PUBLIC_URL + `/assets/images/tiles/tile_${index + 1}.webp`} alt=''/>
             <div className='featured__tile__info'>
               <p>{tile?.category}</p>
-              <h2>{tile.title}</h2>
+              <h3>{tile.title}</h3>
               <p>&middot;</p>
               <p>{tile.action}</p>
             </div>

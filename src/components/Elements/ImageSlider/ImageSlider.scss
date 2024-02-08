@@ -1,41 +1,53 @@
 @import '../../../styles/settings.scss';
 
 .arrow-prev:before {
-  content: '←';
+  content: '\27F5';
 }
 
 .arrow-next:before {
-  content: '→';
+  content: '\27F6';
 }
 
 .arrow-prev, .arrow-next {
+  opacity: 0;
+  visibility: hidden;
   position: absolute;
-  left: 50%;
-  bottom: -3rem;
+  top: 50%;
   z-index: 99;
   cursor: pointer;
 
   &::before {
-    background-color: $jet;
-    color: $seasalt;
-    padding: .15rem 1.5rem .35rem 1.5rem;
+    color: $jet;
+    padding: 0 1.5rem .25rem 1.5rem;
+    font-size: 1.5rem;
+    border: solid .063rem $jet;
   }
 }
 
 .arrow-prev {
-  transform: translateX(-101%);
-  transition: transform .3s ease-out;
+  left: 0;
+  transform: translateY(-50%);
 
   &:hover {
-    transform: translateX(-111%);
+    transform: translateX(-5%) translateY(-50%);
   }
 }
 
 .arrow-next {
-  transform: translateX(1%);
-  transition: transform .3s ease-out;
+  right: 0;
+  transform: translateY(-50%);
 
   &:hover {
-    transform: translateX(11%);
+    transform: translateX(5%) translateY(-50%);
+  }
+}
+
+.slick-slider {
+  &:hover {
+    .arrow-prev, .arrow-next {
+      transition: opacity .3s ease-out, visibility .3s ease-out, transform .3s ease-out;
+      visibility: visible;
+      opacity: 1;
+    }
   }
 }

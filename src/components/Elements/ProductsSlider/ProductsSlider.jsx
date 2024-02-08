@@ -26,6 +26,7 @@ const ProductsSlider = ({ products }) => {
 
   const settings = useMemo(() => (
     {
+      lazyLoad: true,
       speed: 800,
       infinite: true,
       slidesToShow: 5,
@@ -45,13 +46,13 @@ const ProductsSlider = ({ products }) => {
           breakpoint: 1200,
           settings: {
             slidesToShow: 2,
+            arrows: false,
           }
         },
         {
           breakpoint: 600,
           settings: {
             slidesToShow: 1,
-            arrows: false,
           }
         },
       ],

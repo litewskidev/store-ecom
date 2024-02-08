@@ -28,6 +28,7 @@ const HomeHalf = () => {
           <img src={process.env.PUBLIC_URL + `/assets/images/${tile.image}.webp`} alt={tile.title} />
           <div className='heroHalf__tile__info'>
             <h3>{tile.title}</h3>
+            <p>&middot;</p>
             <p>{tile.action}</p>
           </div>
         </NavLink>

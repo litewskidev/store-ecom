@@ -30,8 +30,21 @@
       a {
         font-size: .875rem;
         color: $jet;
-        text-decoration: underline;
-        text-underline-offset: .35rem;
+        text-underline-offset: .5rem;
+        text-decoration: underline .063rem rgba(0, 0, 0, 0);
+        transition: text-decoration-color .3s ease-out;
+      }
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.025);
+      }
+
+      .stickyHalf__info__inner {
+        a {
+          text-decoration-color: $jet;
+        }
       }
     }
   }
@@ -40,6 +53,7 @@
     width: 50%;
     height: 100%;
     z-index: -1;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 
     img {
       display: block;
@@ -54,6 +68,18 @@
 
 .half__bottom {
   margin-top: -50svh;
+}
+
+@media screen and (max-width: 1200px) {
+  .stickyHalf {
+    &__info {
+      &__inner {
+        a {
+          text-decoration-color: $jet;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {

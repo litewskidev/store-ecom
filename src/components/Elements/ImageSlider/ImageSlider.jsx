@@ -25,6 +25,7 @@ const ImageSlider = ({ product }) => {
 
   const settings = useMemo(() => (
     {
+      lazyLoad: true,
       key: product?._id,
       speed: 800,
       infinite: true,
