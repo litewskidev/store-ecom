@@ -1,6 +1,6 @@
 .newArrivals{
   &__wrapper {
-    padding: 5rem 1rem;
+    padding: 6rem 1rem 7rem 1rem;
   }
 
   &__title {
@@ -14,7 +14,7 @@
     }
 
     p {
-      font-size: 1rem;
+      font-size: .875rem;
       font-weight: 300;
       opacity: .6;
       text-decoration: underline;
@@ -32,7 +32,7 @@
 @media screen and (max-width: 600px) {
   .newArrivals{
     &__wrapper {
-      padding: 2rem 0;
+      padding: 5rem 0;
     }
   }
 }

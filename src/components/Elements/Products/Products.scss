@@ -3,7 +3,7 @@
 .products {
   &__wrapper {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 20% 20% 20% 20% 20%;
     justify-content: space-between;
     width: 100%;
     padding: 0 8rem;
@@ -11,11 +11,11 @@
   }
 }
 
-@media screen and (max-width: 1700px) {
+@media screen and (max-width: 1800px) {
   .products {
     &__wrapper {
       display: grid;
-      grid-template-columns: 33% 33% 33%;
+      grid-template-columns: 25% 25% 25% 25%;
       padding: 0 4rem;
     }
   }

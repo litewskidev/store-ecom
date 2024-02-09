@@ -118,8 +118,8 @@ const HomeBrands = () => {
     <div className='homeBrands__wrapper'>
       <Slider {...settings}>
         {homeBrandsMenu.list.map(brand => (
-          <div className='homeBrands__brand'>
-            <NavLink to={`/brands/${brand.id}`} key={brand.id}>
+          <div className='homeBrands__brand' key={brand.id}>
+            <NavLink to={`/brands/${brand.id}`}>
               <img src={process.env.PUBLIC_URL + `/assets/icons/brands/${brand.id}.svg`} alt={`${brand.name} logo`} />
             </NavLink>
           </div>

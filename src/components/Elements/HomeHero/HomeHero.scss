@@ -4,8 +4,7 @@
   &__wrapper {
     overflow-x: hidden;
     z-index: 1;
-    margin-bottom: 3rem;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    box-shadow: $shadow-medium;
   }
 
   &__hero {
@@ -29,6 +28,8 @@
       gap: 1rem;
       width: 30rem;
       z-index: 2;
+      text-align: justify;
+      text-justify: inter-character;
 
       h1 {
         font-size: 1.5rem;
@@ -77,6 +78,10 @@
 
         h1 {
           font-size: 1.15rem;
+        }
+
+        p {
+
         }
 
         a {

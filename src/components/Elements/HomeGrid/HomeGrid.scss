@@ -3,7 +3,7 @@
 .stickyHalf {
   &__container {
     display: flex;
-    height: 100svh;
+    height: 150svh;
     width: 100%;
   }
 
@@ -22,14 +22,15 @@
       flex-direction: column;
       gap: .5rem;
       width: 50%;
+      text-align: justify;
+      text-justify: inter-character;
 
       p {
         font-size: .875rem;
       }
 
-      a {
-        font-size: .875rem;
-        color: $jet;
+      p:last-of-type {
+        margin-top: .5rem;
         text-underline-offset: .5rem;
         text-decoration: underline .063rem rgba(0, 0, 0, 0);
         transition: text-decoration-color .3s ease-out;
@@ -37,12 +38,8 @@
     }
 
     &:hover {
-      img {
-        transform: scale(1.025);
-      }
-
       .stickyHalf__info__inner {
-        a {
+        p:last-of-type {
           text-decoration-color: $jet;
         }
       }
@@ -53,7 +50,6 @@
     width: 50%;
     height: 100%;
     z-index: -1;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 
     img {
       display: block;
@@ -67,14 +63,14 @@
 }
 
 .half__bottom {
-  margin-top: -50svh;
+  margin-top: -75svh;
 }
 
 @media screen and (max-width: 1200px) {
   .stickyHalf {
     &__info {
       &__inner {
-        a {
+        p:last-of-type {
           text-decoration-color: $jet;
         }
       }
@@ -84,10 +80,6 @@
 
 @media screen and (max-width: 600px) {
   .stickyHalf {
-    &__wrapper {
-      padding-top: 3rem;
-    }
-
     &__container {
       flex-direction: column-reverse;
       position: relative;

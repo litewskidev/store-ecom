@@ -1,7 +1,6 @@
 import { useCallback, useMemo } from "react";
 import Slider from "react-slick";
 import ProductCard from "../ProductCard/ProductCard.jsx";
-import ScrollButton from '../../Elements/ScrollButton/ScrollButton.jsx';
 import PropTypes from 'prop-types';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -53,6 +52,7 @@ const ProductsSlider = ({ products }) => {
           breakpoint: 600,
           settings: {
             slidesToShow: 1,
+            dots: true,
           }
         },
       ],
@@ -66,7 +66,6 @@ const ProductsSlider = ({ products }) => {
           <ProductCard product={product} key={index}/>
         ))}
       </Slider>
-      <ScrollButton />
     </div>
   );
 };

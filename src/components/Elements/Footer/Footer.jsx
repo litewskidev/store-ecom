@@ -44,27 +44,6 @@ const Footer = () => {
           </div>
         </div>
         <div className='footer__body__item'>
-          <div className='footer__body__item__title' onClick={toggleCustomerList}>
-            <h2>CUSTOMER CARE</h2>
-            <div className='footer__body__item__title__icon'>
-              <img className={isCustomerListActive ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' />
-            </div>
-          </div>
-          <div className={isCustomerListActive ? 'footer__body__item__list__two open' : 'footer__body__item__list__two'}>
-            <ul className='footer__body__item__list__inner'>
-              <li className='footer__body__item__list__inner__link'>
-                <NavLink>DELIVERY</NavLink>
-              </li>
-              <li className='footer__body__item__list__inner__link'>
-                <NavLink>RETURNS & REFUNDS</NavLink>
-              </li>
-              <li className='footer__body__item__list__inner__link'>
-                <NavLink>FAQ</NavLink>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className='footer__body__item'>
           <div className='footer__body__item__title' onClick={toggleStoresList}>
             <h2>OUR STORES</h2>
             <div className='footer__body__item__title__icon'>
@@ -87,6 +66,27 @@ const Footer = () => {
               </li>
               <li className='footer__body__item__list__inner__link'>
                 <NavLink>TOKYO</NavLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className='footer__body__item'>
+          <div className='footer__body__item__title' onClick={toggleCustomerList}>
+            <h2>CUSTOMER CARE</h2>
+            <div className='footer__body__item__title__icon'>
+              <img className={isCustomerListActive ? 'rotate' : ''} src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'} alt='' />
+            </div>
+          </div>
+          <div className={isCustomerListActive ? 'footer__body__item__list__two open' : 'footer__body__item__list__two'}>
+            <ul className='footer__body__item__list__inner'>
+              <li className='footer__body__item__list__inner__link'>
+                <NavLink>DELIVERY</NavLink>
+              </li>
+              <li className='footer__body__item__list__inner__link'>
+                <NavLink>RETURNS & REFUNDS</NavLink>
+              </li>
+              <li className='footer__body__item__list__inner__link'>
+                <NavLink>FAQ</NavLink>
               </li>
             </ul>
           </div>
