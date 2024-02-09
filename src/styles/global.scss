@@ -1,44 +1,51 @@
 @import './settings.scss';
 
-*, *::before, *::after {
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  cursor: default;
-  background-color: $seasalt;
-  font-family: $font;
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  scrollbar-width: 0;
+	margin: 0;
+	padding: 0;
+	cursor: default;
+	background-color: $seasalt;
+	font-family: $font;
+	scroll-behavior: smooth;
+	-ms-overflow-style: none;
+	scrollbar-width: 0;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-  color: $jet;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $jet;
+	line-height: 1.6;
+	margin: 0;
+	padding: 0;
 }
 
 a {
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
 }
 
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 //  HELPERS
 @mixin scale {
-
 }

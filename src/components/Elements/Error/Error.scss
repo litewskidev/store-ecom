@@ -1,13 +1,13 @@
 @import '../../../styles/settings.scss';
 
-.error{
-  &__wrapper {
-    text-align: center;
-    width: 80%;
-    padding: 2rem;
+.error {
+	&__wrapper {
+		text-align: center;
+		width: 80%;
+		padding: 2rem;
 
-    p {
-      color: $cardinal;
-    }
-  }
+		p {
+			color: $cardinal;
+		}
+	}
 }

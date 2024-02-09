@@ -1,188 +1,193 @@
 @import '../../../styles/settings.scss';
 
 .footer {
-  &__wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    width: 100%;
-    padding: 10rem 0 1rem 0;
-    z-index: 3;
-    background-color: $white;
-  }
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		width: 100%;
+		padding: 10rem 0 1rem 0;
+		z-index: 3;
+		background-color: $white;
+	}
 
-  &__body {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    gap: 2rem;
-    width: 100%;
+	&__body {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-evenly;
+		gap: 2rem;
+		width: 100%;
 
-    &__item {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      width: 15%;
+		&__item {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			width: 15%;
 
-      &__title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
+			&__title {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 100%;
 
-        h2 {
-          font-size: 1.25rem;
-        }
+				h2 {
+					font-size: 1.25rem;
+				}
 
-        &__icon {
-          display: none;
-        }
-      }
+				&__icon {
+					display: none;
+				}
+			}
 
-      &__list {
-        &__inner {
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-          pointer-events: none;
+			&__list {
+				&__inner {
+					display: flex;
+					flex-direction: column;
+					gap: 2rem;
+					pointer-events: none;
 
-          & > * {
-            pointer-events: auto;
-            transition: opacity .6s ease-out;
-          }
+					& > * {
+						pointer-events: auto;
+						transition: opacity 0.6s ease-out;
+					}
 
-          &:hover > * {
-            opacity: .4;
-          }
+					&:hover > * {
+						opacity: 0.4;
+					}
 
-          &:hover > *:hover {
-            opacity: 1;
-          }
+					&:hover > *:hover {
+						opacity: 1;
+					}
 
-          &__link {
-            width: fit-content;
+					&__link {
+						width: fit-content;
 
-            a {
-              font-size: .875rem;
-              color: $jet;
-            }
-          }
-        }
-      }
-    }
-  }
+						a {
+							font-size: 0.875rem;
+							color: $jet;
+						}
+					}
+				}
+			}
+		}
+	}
 
-  &__bottom {
-    display: flex;
-    justify-content: flex-end;
+	&__bottom {
+		display: flex;
+		justify-content: flex-end;
 
-    &__socials {
-      width: 32%;
-    }
-  }
+		&__socials {
+			width: 32%;
+		}
+	}
 
-  &__copyright {
-    width: 100%;
-    text-align: center;
-    opacity: .8;
+	&__copyright {
+		width: 100%;
+		text-align: center;
+		opacity: 0.8;
 
-    p {
-      font-size: .7rem;
-    }
-  }
+		p {
+			font-size: 0.7rem;
+		}
+	}
 }
 
 @media screen and (max-width: 1200px) {
-  .footer {
-    &__wrapper {
-      gap: 2rem;
-      width: 100%;
-      padding: 3rem 2rem 1rem 2rem;
-    }
+	.footer {
+		&__wrapper {
+			gap: 2rem;
+			width: 100%;
+			padding: 3rem 2rem 1rem 2rem;
+		}
 
-    &__body {
-      flex-direction: column;
-      gap: 0;
-      width: 100%;
+		&__body {
+			flex-direction: column;
+			gap: 0;
+			width: 100%;
 
-      &__item {
-        gap: 1rem;
-        width: 100%;
+			&__item {
+				gap: 1rem;
+				width: 100%;
 
-        &__title {
-          padding-top: .5rem;
+				&__title {
+					padding-top: 0.5rem;
 
-          h2 {
-            font-size: 1.125rem;
-          }
+					h2 {
+						font-size: 1.125rem;
+					}
 
-          &__icon {
-            display: block;
+					&__icon {
+						display: block;
 
-            img {
-              display: block;
-              width: 1rem;
-              transform: rotate(0);
-              transition: transform .3s ease-out;
+						img {
+							display: block;
+							width: 1rem;
+							transform: rotate(0);
+							transition: transform 0.3s ease-out;
 
-              &.rotate {
-                transform: rotate(180deg);
-              }
-            }
-          }
-        }
+							&.rotate {
+								transform: rotate(180deg);
+							}
+						}
+					}
+				}
 
-        &__list {
-          &__one, &__two, &__three, &__four {
-            height: 0;
-            visibility: hidden;
-            overflow: hidden;
-            transition: height .3s ease-out, visibility .3s ease-out;
-          }
+				&__list {
+					&__one,
+					&__two,
+					&__three,
+					&__four {
+						height: 0;
+						visibility: hidden;
+						overflow: hidden;
+						transition:
+							height 0.3s ease-out,
+							visibility 0.3s ease-out;
+					}
 
-          &__one {
-            &.open {
-              visibility: visible;
-              height: 20rem;
-            }
-          }
+					&__one {
+						&.open {
+							visibility: visible;
+							height: 20rem;
+						}
+					}
 
-          &__two {
-            &.open {
-              visibility: visible;
-              height: 10rem;
-            }
-          }
+					&__two {
+						&.open {
+							visibility: visible;
+							height: 10rem;
+						}
+					}
 
-          &__three {
-            &.open {
-              visibility: visible;
-              height: 16.5rem;
-            }
-          }
+					&__three {
+						&.open {
+							visibility: visible;
+							height: 16.5rem;
+						}
+					}
 
-          &__four {
-            &.open {
-              visibility: visible;
-              height: 6.5rem;
-            }
-          }
-        }
-      }
-    }
+					&__four {
+						&.open {
+							visibility: visible;
+							height: 6.5rem;
+						}
+					}
+				}
+			}
+		}
 
-    &__bottom {
-      &__socials {
-        width: 100%;
-      }
-    }
-  }
+		&__bottom {
+			&__socials {
+				width: 100%;
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {
-  .footer {
-    &__wrapper {
-      padding: 3rem 1rem 1rem 1rem;
-    }
-  }
+	.footer {
+		&__wrapper {
+			padding: 3rem 1rem 1rem 1rem;
+		}
+	}
 }

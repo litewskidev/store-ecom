@@ -1,299 +1,300 @@
 @import '../../../styles/settings.scss';
 
 .product {
-  &__wrapper {
-    display: flex;
-    align-items: flex-start;
-    gap: 4rem;
-    min-height: 100svh;
-  }
+	&__wrapper {
+		display: flex;
+		align-items: flex-start;
+		gap: 4rem;
+		min-height: 100svh;
+	}
 
-  &__images {
-    &__container {
-      position: sticky;
-      top: 2rem;
-      width: 55%;
+	&__images {
+		&__container {
+			position: sticky;
+			top: 2rem;
+			width: 55%;
 
-      &::before {
-        content: '';
-        position: absolute;
-        top: 3.8rem;
-        right: 0;
-        width: 20%;
-        height: 0.063rem;
-        background-color: $jet;
-        z-index: 1;
-      }
-    }
+			&::before {
+				content: '';
+				position: absolute;
+				top: 3.8rem;
+				right: 0;
+				width: 20%;
+				height: 0.063rem;
+				background-color: $jet;
+				z-index: 1;
+			}
+		}
 
-    img {
-      width: 100%;
-      max-height: 65svh;
-      object-fit: contain;
-    }
+		img {
+			width: 100%;
+			max-height: 65svh;
+			object-fit: contain;
+		}
 
-    &:focus {
-      outline: none;
-    }
-  }
+		&:focus {
+			outline: none;
+		}
+	}
 
-  &__info {
-    &__container {
-      width: 40%;
-    }
+	&__info {
+		&__container {
+			width: 40%;
+		}
 
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    width: 70%;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		width: 70%;
 
-    &__header {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+		&__header {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
 
-      &__title {
-        position: relative;
+			&__title {
+				position: relative;
 
-        p {
-          font-size: 2rem;
-        }
-      }
+				p {
+					font-size: 2rem;
+				}
+			}
 
-      &__ref {
-        opacity: .9;
+			&__ref {
+				opacity: 0.9;
 
-        p {
-          font-size: .875rem;
-        }
-      }
+				p {
+					font-size: 0.875rem;
+				}
+			}
 
-      &__price {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
+			&__price {
+				display: flex;
+				align-items: center;
+				gap: 2rem;
 
-        p {
-          color: $cardinal;
-        }
-      }
-    }
+				p {
+					color: $cardinal;
+				}
+			}
+		}
 
-    &__actions {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
+		&__actions {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
 
-      &__cart {
-        width: 80%;
-        border: solid .063rem $jet;
+			&__cart {
+				width: 80%;
+				border: solid 0.063rem $jet;
 
-        button {
-          width: 100%;
-          font-family: $font;
-          font-size: .875rem;
-          font-weight: 900;
-          background-color: transparent;
-          border: none;
-          padding: .6rem 0;
-          cursor: pointer;
-          box-shadow: $shadow-medium;
-        }
-      }
+				button {
+					width: 100%;
+					font-family: $font;
+					font-size: 0.875rem;
+					font-weight: 900;
+					background-color: transparent;
+					border: none;
+					padding: 0.6rem 0;
+					cursor: pointer;
+					box-shadow: $shadow-medium;
+				}
+			}
 
-      &__wishlist {
-        display: flex;
-        justify-content: center;
-        width: 15%;
-        background-color: $jet;
-        border: solid .063rem $jet;
-        cursor: pointer;
-        box-shadow: $shadow-medium;
+			&__wishlist {
+				display: flex;
+				justify-content: center;
+				width: 15%;
+				background-color: $jet;
+				border: solid 0.063rem $jet;
+				cursor: pointer;
+				box-shadow: $shadow-medium;
 
-        img {
-          width: 1.75rem;
-          filter: invert(1);
-        }
-      }
-    }
+				img {
+					width: 1.75rem;
+					filter: invert(1);
+				}
+			}
+		}
 
-    &__desc {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      text-align: justify;
-      text-justify: inter-character;
+		&__desc {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			text-align: justify;
+			text-justify: inter-character;
 
-      &__button {
-        pointer-events: none;
+			&__button {
+				pointer-events: none;
 
-        img {
-          display: none;
-        }
-      }
+				img {
+					display: none;
+				}
+			}
 
-      p {
-        font-size: .875rem;
-      }
-    }
+			p {
+				font-size: 0.875rem;
+			}
+		}
 
-    &__features {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+		&__features {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
 
-      &__info {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 60% 40%;
-        column-gap: 2rem;
-        row-gap: 1rem;
-      }
+			&__info {
+				display: grid;
+				grid-template-columns: 50% 50%;
+				grid-template-rows: 60% 40%;
+				column-gap: 2rem;
+				row-gap: 1rem;
+			}
 
-      &__button {
-        pointer-events: none;
+			&__button {
+				pointer-events: none;
 
-        img {
-          display: none;
-        }
-      }
+				img {
+					display: none;
+				}
+			}
 
-      h3 {
-        font-size: .875rem;
-        font-weight: 400;
-        text-decoration: underline;
-        text-underline-offset: .3rem;
-        margin-bottom: 1rem;
-      }
+			h3 {
+				font-size: 0.875rem;
+				font-weight: 400;
+				text-decoration: underline;
+				text-underline-offset: 0.3rem;
+				margin-bottom: 1rem;
+			}
 
-      h4, p {
-        font-size: .875rem;
-      }
-    }
+			h4,
+			p {
+				font-size: 0.875rem;
+			}
+		}
 
-    h2 {
-      font-size: 1rem;
-    }
-  }
+		h2 {
+			font-size: 1rem;
+		}
+	}
 }
 
 @media screen and (max-width: 1200px) {
-  .product {
-    &__wrapper {
-      gap: 3rem;
-    }
+	.product {
+		&__wrapper {
+			gap: 3rem;
+		}
 
-    &__images {
-      &__container {
-        width: 47%;
-        margin-bottom: 2rem;
+		&__images {
+			&__container {
+				width: 47%;
+				margin-bottom: 2rem;
 
-        &::before {
-          top: 3.4rem;
-          right: -1rem;
-        }
-      }
-    }
+				&::before {
+					top: 3.4rem;
+					right: -1rem;
+				}
+			}
+		}
 
-    &__info {
-      &__container {
-        width: 46%;
-      }
+		&__info {
+			&__container {
+				width: 46%;
+			}
 
-      width: 100%;
+			width: 100%;
 
-      &__header {
-        &__title {
-          p {
-            font-size: 1.5rem;
-          }
-        }
-      }
-    }
-  }
+			&__header {
+				&__title {
+					p {
+						font-size: 1.5rem;
+					}
+				}
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {
-  .product {
-    &__wrapper {
-      flex-direction: column;
-      gap: 4rem;
-    }
+	.product {
+		&__wrapper {
+			flex-direction: column;
+			gap: 4rem;
+		}
 
-    &__images {
-      &__container {
-        position: relative;
-        top: 0;
-        width: 100%;
-        margin-bottom: 0;
+		&__images {
+			&__container {
+				position: relative;
+				top: 0;
+				width: 100%;
+				margin-bottom: 0;
 
-        &::before {
-          top: 101.5%;
-          right: 78.5%;
-          width: 4.5rem;
-          transform: rotate(90deg);
-        }
-      }
-    }
+				&::before {
+					top: 101.5%;
+					right: 78.5%;
+					width: 4.5rem;
+					transform: rotate(90deg);
+				}
+			}
+		}
 
-    &__info {
-      &__container {
-        width: 100%;
-      }
+		&__info {
+			&__container {
+				width: 100%;
+			}
 
-      &__desc {
-        overflow: hidden;
-        height: 1.5rem;
-        transition: height .3s ease-out;
+			&__desc {
+				overflow: hidden;
+				height: 1.5rem;
+				transition: height 0.3s ease-out;
 
-        &__button {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          pointer-events: all;
+				&__button {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					pointer-events: all;
 
-          img {
-            display: block;
-            width: 1.2rem;
-            transition: transform .3s ease-out;
+					img {
+						display: block;
+						width: 1.2rem;
+						transition: transform 0.3s ease-out;
 
-            &.rotate {
-              transform: rotate(180deg);
-            }
-          }
-        }
+						&.rotate {
+							transform: rotate(180deg);
+						}
+					}
+				}
 
-        &.open {
-          height: 14rem;
-        }
-      }
+				&.open {
+					height: 14rem;
+				}
+			}
 
-      &__features {
-        overflow: hidden;
-        height: 1.5rem;
-        transition: height .6s ease-out;
+			&__features {
+				overflow: hidden;
+				height: 1.5rem;
+				transition: height 0.6s ease-out;
 
-        &__button {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          pointer-events: all;
+				&__button {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					pointer-events: all;
 
-          img {
-            display: block;
-            width: 1.2rem;
-            transition: transform .3s ease-out;
+					img {
+						display: block;
+						width: 1.2rem;
+						transition: transform 0.3s ease-out;
 
-            &.rotate {
-              transform: rotate(180deg);
-            }
-          }
-        }
+						&.rotate {
+							transform: rotate(180deg);
+						}
+					}
+				}
 
-        &.open {
-          height: 38rem;
-        }
-      }
-    }
-  }
+				&.open {
+					height: 38rem;
+				}
+			}
+		}
+	}
 }

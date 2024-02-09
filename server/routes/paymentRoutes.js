@@ -1,8 +1,8 @@
-import express from 'express';
-import { newPayment } from '../controllers/paymentController.js';
+import express from 'express'
+import { newPayment } from '../controllers/paymentController.js'
 
-const paymentRouter = express.Router();
+const paymentRouter = express.Router()
 
-paymentRouter.post('/', newPayment);
+paymentRouter.post('/', newPayment)
 
-export default paymentRouter;
+export default paymentRouter

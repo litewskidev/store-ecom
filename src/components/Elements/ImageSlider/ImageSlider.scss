@@ -1,53 +1,58 @@
 @import '../../../styles/settings.scss';
 
 .arrow-prev:before {
-  content: '\27F5';
+	content: '\27F5';
 }
 
 .arrow-next:before {
-  content: '\27F6';
+	content: '\27F6';
 }
 
-.arrow-prev, .arrow-next {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: 50%;
-  z-index: 99;
-  cursor: pointer;
+.arrow-prev,
+.arrow-next {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 50%;
+	z-index: 99;
+	cursor: pointer;
 
-  &::before {
-    color: $jet;
-    padding: 0 1.5rem .25rem 1.5rem;
-    font-size: 1.5rem;
-    border: solid .063rem $jet;
-  }
+	&::before {
+		color: $jet;
+		padding: 0 1.5rem 0.25rem 1.5rem;
+		font-size: 1.5rem;
+		border: solid 0.063rem $jet;
+	}
 }
 
 .arrow-prev {
-  left: 0;
-  transform: translateY(-50%);
+	left: 0;
+	transform: translateY(-50%);
 
-  &:hover {
-    transform: translateX(-5%) translateY(-50%);
-  }
+	&:hover {
+		transform: translateX(-5%) translateY(-50%);
+	}
 }
 
 .arrow-next {
-  right: 0;
-  transform: translateY(-50%);
+	right: 0;
+	transform: translateY(-50%);
 
-  &:hover {
-    transform: translateX(5%) translateY(-50%);
-  }
+	&:hover {
+		transform: translateX(5%) translateY(-50%);
+	}
 }
 
 .slick-slider {
-  &:hover {
-    .arrow-prev, .arrow-next {
-      transition: opacity .3s ease-out, visibility .3s ease-out, transform .3s ease-out;
-      visibility: visible;
-      opacity: 1;
-    }
-  }
+	&:hover {
+		.arrow-prev,
+		.arrow-next {
+			transition:
+				opacity 0.3s ease-out,
+				visibility 0.3s ease-out,
+				transform 0.3s ease-out;
+			visibility: visible;
+			opacity: 1;
+		}
+	}
 }

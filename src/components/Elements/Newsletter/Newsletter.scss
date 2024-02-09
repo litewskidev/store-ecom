@@ -1,161 +1,161 @@
 @import '../../../styles/settings.scss';
 
 .newsletter {
-  &__wrapper {
-    display: flex;
-    z-index: 3;
-    background-color: $seasalt;
-  }
+	&__wrapper {
+		display: flex;
+		z-index: 3;
+		background-color: $seasalt;
+	}
 
-  &__left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 50%;
-    height: 25vh;
-    padding: 5rem 0 0 2rem;
+	&__left {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		width: 50%;
+		height: 25vh;
+		padding: 5rem 0 0 2rem;
 
-    &__header {
-      display: flex;
-      flex-direction: column;
-      width: 80%;
-      text-align: justify;
-      text-justify: inter-character;
+		&__header {
+			display: flex;
+			flex-direction: column;
+			width: 80%;
+			text-align: justify;
+			text-justify: inter-character;
 
-      h1 {
-        font-size: 2.5rem;
-        font-weight: 900;
-      }
+			h1 {
+				font-size: 2.5rem;
+				font-weight: 900;
+			}
 
-      p {
-        font-size: .875rem;
-      }
-    }
+			p {
+				font-size: 0.875rem;
+			}
+		}
 
-    &__footer {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      width: 80%;
+		&__footer {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			width: 80%;
 
-      &__title {
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-        text-align: justify;
-        text-justify: inter-character;
+			&__title {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+				text-align: justify;
+				text-justify: inter-character;
 
-        h3 {
-          font-size: 1.125rem;
-        }
+				h3 {
+					font-size: 1.125rem;
+				}
 
-        p {
-          font-size: .875rem;
-        }
-      }
+				p {
+					font-size: 0.875rem;
+				}
+			}
 
-      &__form {
-        position: relative;
+			&__form {
+				position: relative;
 
-        input {
-          width: 100%;
-          padding: .75rem 0;
-          border: none;
-          border-bottom: solid .063rem $jet;
-          background-color: transparent;
-          outline: none;
-          font-family: $font;
+				input {
+					width: 100%;
+					padding: 0.75rem 0;
+					border: none;
+					border-bottom: solid 0.063rem $jet;
+					background-color: transparent;
+					outline: none;
+					font-family: $font;
 
-          &::placeholder {
-            opacity: .6;
-          }
-        }
+					&::placeholder {
+						opacity: 0.6;
+					}
+				}
 
-        button {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          right: 0;
-          border: none;
-          background-color: transparent;
-          font-family: $font;
-        }
-      }
-    }
-  }
+				button {
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					right: 0;
+					border: none;
+					background-color: transparent;
+					font-family: $font;
+				}
+			}
+		}
+	}
 
-  &__right {
-    width: 50%;
-    max-height: 70svh;
+	&__right {
+		width: 50%;
+		max-height: 70svh;
 
-    img {
-      display: block;
-      width: 100%;
-      object-fit: cover;
-    }
-  }
+		img {
+			display: block;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
 }
 
 @media screen and (max-width: 1200px) {
-  .newsletter {
-    &__wrapper {
-      flex-direction: column-reverse;
-      gap: 2rem;
-      padding: 0 0 3rem 0;
-    }
+	.newsletter {
+		&__wrapper {
+			flex-direction: column-reverse;
+			gap: 2rem;
+			padding: 0 0 3rem 0;
+		}
 
-    &__left {
-      align-items: flex-start;
-      gap: 3.75rem;
-      width: 100%;
-      height: auto;
-      padding: 0 2rem;
+		&__left {
+			align-items: flex-start;
+			gap: 3.75rem;
+			width: 100%;
+			height: auto;
+			padding: 0 2rem;
 
-      &__header {
-        h1 {
-          font-size: 2rem;
-        }
-      }
+			&__header {
+				h1 {
+					font-size: 2rem;
+				}
+			}
 
-      &__footer {
-        width: 100%;
-        &__title {
-          h3 {
-            font-size: 1rem;
-          }
-        }
-      }
-    }
+			&__footer {
+				width: 100%;
+				&__title {
+					h3 {
+						font-size: 1rem;
+					}
+				}
+			}
+		}
 
-    &__right {
-      width: 100%;
-      max-height: none;
-    }
-  }
+		&__right {
+			width: 100%;
+			max-height: none;
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {
-  .newsletter {
-    &__wrapper {
-      margin-top: 0;
-    }
+	.newsletter {
+		&__wrapper {
+			margin-top: 0;
+		}
 
-    &__left {
-      gap: 3rem;
-      padding: 0 1rem;
+		&__left {
+			gap: 3rem;
+			padding: 0 1rem;
 
-      &__header {
-        width: 100%;
+			&__header {
+				width: 100%;
 
-        h1 {
-          font-size: 1.5rem;
-        }
-      }
+				h1 {
+					font-size: 1.5rem;
+				}
+			}
 
-      &__footer {
-        width: 100%;
-      }
-    }
-  }
+			&__footer {
+				width: 100%;
+			}
+		}
+	}
 }

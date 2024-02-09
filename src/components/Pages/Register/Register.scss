@@ -1,16 +1,16 @@
 @import '../../../styles/settings.scss';
 
 .register__wrapper {
-  min-height: 100svh;
-  width: 31rem;
-  background-color: $seasalt;
-  position: fixed;
-  top: 0;
-  right: 0;
+	min-height: 100svh;
+	width: 31rem;
+	background-color: $seasalt;
+	position: fixed;
+	top: 0;
+	right: 0;
 }
 
 @media screen and (max-width: 600px) {
-  .register__wrapper {
-    width: 100%;
-  }
+	.register__wrapper {
+		width: 100%;
+	}
 }

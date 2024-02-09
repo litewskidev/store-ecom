@@ -1,42 +1,42 @@
 @import '../../../styles/settings.scss';
 
 .homeBrands {
-  &__wrapper {
-    background-color: $white;
-    padding: 3rem 0;
-  }
+	&__wrapper {
+		background-color: $white;
+		padding: 3rem 0;
+	}
 
-  &__brand {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
+	&__brand {
+		display: flex !important;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem;
 
-    img {
-      display: block;
-      width: 10rem;
-      height: 10rem;
-      object-fit: contain;
-      transition: transform .3s ease-out;
+		img {
+			display: block;
+			width: 10rem;
+			height: 10rem;
+			object-fit: contain;
+			transition: transform 0.3s ease-out;
 
-      &:hover {
-        transform: scale(1.035);
-      }
-    }
-  }
+			&:hover {
+				transform: scale(1.035);
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {
-  .homeBrands {
-    &__wrapper {
-      background-color: $white;
-      padding: 1.5rem 0;
-    }
+	.homeBrands {
+		&__wrapper {
+			background-color: $white;
+			padding: 1.5rem 0;
+		}
 
-    &__brand {
-      img {
-        width: 5rem;
-      }
-    }
-  }
+		&__brand {
+			img {
+				width: 5rem;
+			}
+		}
+	}
 }

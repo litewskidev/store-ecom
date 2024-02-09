@@ -1,161 +1,165 @@
 @import '../../../styles/settings.scss';
 
 .loginModal {
-  &__wrapper {
-    position: fixed;
-    top: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 31rem;
-    height: 100dvh;
-    padding: 1rem 2rem;
-    background-color: $seasalt;
-  }
+	&__wrapper {
+		position: fixed;
+		top: 0;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 31rem;
+		height: 100dvh;
+		padding: 1rem 2rem;
+		background-color: $seasalt;
+	}
 
-  &__nav {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 3rem;
-    height: 90dvh;
+	&__nav {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 3rem;
+		height: 90dvh;
 
-    &__scroll {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 3rem;
-      overflow-y: scroll;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+		&__scroll {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 3rem;
+			overflow-y: scroll;
+			-ms-overflow-style: none;
+			scrollbar-width: none;
 
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
 
-    &__header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
+		&__header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
 
-      &__button {
-        padding: 0;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
+			&__button {
+				padding: 0;
+				background-color: transparent;
+				border: none;
+				cursor: pointer;
 
-        &__up {
-          width: 1.5rem;
-          height: .1rem;
-          background-color: $jet;
-          transform: rotate(45deg);
-        }
+				&__up {
+					width: 1.5rem;
+					height: 0.1rem;
+					background-color: $jet;
+					transform: rotate(45deg);
+				}
 
-        &__down {
-          width: 1.5rem;
-          height: .1rem;
-          background-color: $jet;
-          transform: translateY(-.11rem) rotate(-45deg);
-        }
-      }
-    }
+				&__down {
+					width: 1.5rem;
+					height: 0.1rem;
+					background-color: $jet;
+					transform: translateY(-0.11rem) rotate(-45deg);
+				}
+			}
+		}
 
-    &__form {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
+		&__form {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
 
-      input {
-        width: 100%;
-        font-family: $font;
-        font-size: .875rem;
-        padding: 1rem 0;
-        background-color: transparent;
-        border: none;
-        border-bottom: solid .063rem $jet;
-        outline: none;
+			input {
+				width: 100%;
+				font-family: $font;
+				font-size: 0.875rem;
+				padding: 1rem 0;
+				background-color: transparent;
+				border: none;
+				border-bottom: solid 0.063rem $jet;
+				outline: none;
 
-        &::placeholder {
-          opacity: .6;
-        }
-      }
+				&::placeholder {
+					opacity: 0.6;
+				}
+			}
 
-      button {
-        font-family: $font;
-        font-size: .875rem;
-        color: $jet;
-        padding: 1rem;
-        margin-top: 2.5rem;
-        background-color: transparent;
-        border: solid .063rem $jet;
-        cursor: pointer;
-        transition: background-color .3s ease-out, color .3s ease-out;
+			button {
+				font-family: $font;
+				font-size: 0.875rem;
+				color: $jet;
+				padding: 1rem;
+				margin-top: 2.5rem;
+				background-color: transparent;
+				border: solid 0.063rem $jet;
+				cursor: pointer;
+				transition:
+					background-color 0.3s ease-out,
+					color 0.3s ease-out;
 
-        &:hover {
-          color: $seasalt;
-          background-color: $jet;
-        }
-      }
-    }
+				&:hover {
+					color: $seasalt;
+					background-color: $jet;
+				}
+			}
+		}
 
-    &__footer {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+		&__footer {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
 
-      &__list {
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-      }
+			&__list {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+			}
 
-      p {
-        font-size: .875rem;
-      }
+			p {
+				font-size: 0.875rem;
+			}
 
-      a {
-        font-size: .875rem;
-        color: $jet;
-        text-decoration: underline;
-        text-underline-offset: .3rem;
-      }
+			a {
+				font-size: 0.875rem;
+				color: $jet;
+				text-decoration: underline;
+				text-underline-offset: 0.3rem;
+			}
 
-      button {
-        font-family: $font;
-        font-size: .875rem;
-        color: $seasalt;
-        padding: 1rem;
-        margin-top: 2.5rem;
-        background-color: $jet;
-        border: solid .063rem $jet;
-        cursor: pointer;
-        transition: background-color .3s ease-out, color .3s ease-out;
+			button {
+				font-family: $font;
+				font-size: 0.875rem;
+				color: $seasalt;
+				padding: 1rem;
+				margin-top: 2.5rem;
+				background-color: $jet;
+				border: solid 0.063rem $jet;
+				cursor: pointer;
+				transition:
+					background-color 0.3s ease-out,
+					color 0.3s ease-out;
 
-        &:hover {
-          color: $jet;
-          background-color: transparent;
-        }
-      }
-    }
-  }
+				&:hover {
+					color: $jet;
+					background-color: transparent;
+				}
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {
-  .loginModal {
-    &__wrapper {
-      width: 100%;
-      padding: 1.3rem 1rem;
-    }
+	.loginModal {
+		&__wrapper {
+			width: 100%;
+			padding: 1.3rem 1rem;
+		}
 
-    &__nav {
-      &__header {
-        &__button__down {
-          transform: translateY(-.05rem) rotate(-45deg);
-        }
-      }
-    }
-  }
+		&__nav {
+			&__header {
+				&__button__down {
+					transform: translateY(-0.05rem) rotate(-45deg);
+				}
+			}
+		}
+	}
 }

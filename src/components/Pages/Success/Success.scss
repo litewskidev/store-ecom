@@ -1,38 +1,38 @@
 .success__wrapper {
-  height: 80vh;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  text-align: center;
+	height: 80vh;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	text-align: center;
 }
 
 .success__title {
-  border-radius: .5rem;
-  background-color: aqua;
-  padding: 1rem 3rem;
+	border-radius: 0.5rem;
+	background-color: aqua;
+	padding: 1rem 3rem;
 
-  h1 {
-    font-size: 3rem;
-  }
+	h1 {
+		font-size: 3rem;
+	}
 }
 
 .success__desc {
-  p {
-    font-size: 1.5rem;
-  }
+	p {
+		font-size: 1.5rem;
+	}
 }
 
 .success__backBtn {
-  background-color: black;
-  border-radius: .5rem;
-  padding: .5rem 1.5rem;
-  cursor: pointer;
+	background-color: black;
+	border-radius: 0.5rem;
+	padding: 0.5rem 1.5rem;
+	cursor: pointer;
 
-  p {
-    font-size: 1.2rem;
-    color: white;
-  }
+	p {
+		font-size: 1.2rem;
+		color: white;
+	}
 }

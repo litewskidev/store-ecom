@@ -1,106 +1,107 @@
 @import '../../../styles/settings.scss';
 
 .featured {
-  &__wrapper {
-    height: 100svh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 48% 48%;
-    gap: 2rem;
-    padding: 0 2rem;
-  }
+	&__wrapper {
+		height: 100svh;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 48% 48%;
+		gap: 2rem;
+		padding: 0 2rem;
+	}
 
-  &__tile {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    box-shadow: $shadow-medium;
+	&__tile {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		box-shadow: $shadow-medium;
 
-    img {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .3s ease-out;
-    }
+		img {
+			display: flex;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.3s ease-out;
+		}
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, .3);
-      z-index: 1;
-    }
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.3);
+			z-index: 1;
+		}
 
-    &:hover {
-      img {
-        transform: scale(1.025);
-      }
+		&:hover {
+			img {
+				transform: scale(1.025);
+			}
 
-      .featured__tile__info {
-        p:last-of-type {
-          text-decoration-color: $seasalt;
-        }
-      }
-    }
+			.featured__tile__info {
+				p:last-of-type {
+					text-decoration-color: $seasalt;
+				}
+			}
+		}
 
-    &__info {
-      position: absolute;
-      bottom: 3rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      text-align: center;
-      z-index: 2;
+		&__info {
+			position: absolute;
+			bottom: 3rem;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 100%;
+			text-align: center;
+			z-index: 2;
 
-      p, h3 {
-        color: $seasalt;
-      }
+			p,
+			h3 {
+				color: $seasalt;
+			}
 
-      p {
-        font-size: .875rem;
-      }
+			p {
+				font-size: 0.875rem;
+			}
 
-      p:last-of-type {
-        text-underline-offset: .5rem;
-        text-decoration: underline .063rem rgba(0, 0, 0, 0);
-        transition: text-decoration-color .3s ease-out;
-      }
-    }
-  }
+			p:last-of-type {
+				text-underline-offset: 0.5rem;
+				text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
+				transition: text-decoration-color 0.3s ease-out;
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 1200px) {
-  .featured {
-    &__wrapper {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 31% 31% 31%;
-      gap: 1rem;
-    }
+	.featured {
+		&__wrapper {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 31% 31% 31%;
+			gap: 1rem;
+		}
 
-    &__tile {
-      &__info {
-        gap: 0;
+		&__tile {
+			&__info {
+				gap: 0;
 
-        p:last-of-type {
-          text-decoration: underline .063rem $seasalt;
-        }
-      }
-    }
-  }
+				p:last-of-type {
+					text-decoration: underline 0.063rem $seasalt;
+				}
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {
-  .featured {
-    &__wrapper {
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
-    }
-  }
+	.featured {
+		&__wrapper {
+			height: auto;
+			display: flex;
+			flex-direction: column;
+			padding: 1rem;
+		}
+	}
 }

@@ -1,95 +1,95 @@
 @import '../../../styles/settings.scss';
 
 .loading {
-  &__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-  }
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 999;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		border-radius: 50%;
+		width: 3rem;
+		height: 3rem;
+	}
 
-  &__frame {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    border: solid .1rem $jet;
-    border-radius: 50%;
-    z-index: 1;
-  }
+	&__frame {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		border: solid 0.1rem $jet;
+		border-radius: 50%;
+		z-index: 1;
+	}
 
-  &__clock {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    height: 90%;
-    border-radius: 50%;
-    z-index: 2;
+	&__clock {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 90%;
+		height: 90%;
+		border-radius: 50%;
+		z-index: 2;
 
-    &__longhand {
-      position: absolute;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 90%;
-      height: 90%;
-      animation: clockwise .5s linear infinite;
+		&__longhand {
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 90%;
+			height: 90%;
+			animation: clockwise 0.5s linear infinite;
 
-      &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        width: .1rem;
-        height: 50%;
-        background-color: $jet;
-      }
-    }
+			&::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				width: 0.1rem;
+				height: 50%;
+				background-color: $jet;
+			}
+		}
 
-    &__shorthand {
-      position: absolute;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 65%;
-      height: 65%;
-      animation: clockwise 6s linear infinite;
+		&__shorthand {
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 65%;
+			height: 65%;
+			animation: clockwise 6s linear infinite;
 
-      &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        width: .1rem;
-        height: 50%;
-        background-color: $jet;
-      }
+			&::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				width: 0.1rem;
+				height: 50%;
+				background-color: $jet;
+			}
 
-      &::after {
-        content: '';
-        width: .2rem;
-        height: .2rem;
-        background-color: $jet;
-        border-radius: 50%;
-      }
-    }
+			&::after {
+				content: '';
+				width: 0.2rem;
+				height: 0.2rem;
+				background-color: $jet;
+				border-radius: 50%;
+			}
+		}
 
-    @keyframes clockwise {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-  }
+		@keyframes clockwise {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+	}
 }

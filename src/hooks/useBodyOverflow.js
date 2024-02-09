@@ -1,9 +1,9 @@
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react'
 
-const useBodyOverflow = (bodyOverflowHidden) => {
-  useLayoutEffect(() => {
-    document.body.style.overflow = bodyOverflowHidden ? 'hidden' : 'scroll';
-  }, [bodyOverflowHidden]);
-};
+const useBodyOverflow = bodyOverflowHidden => {
+	useLayoutEffect(() => {
+		document.body.style.overflow = bodyOverflowHidden ? 'hidden' : 'scroll'
+	}, [bodyOverflowHidden])
+}
 
-export default useBodyOverflow;
+export default useBodyOverflow
