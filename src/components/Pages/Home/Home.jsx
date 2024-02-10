@@ -6,6 +6,7 @@ import HomeGrid from '../../Elements/HomeGrid/HomeGrid.jsx';
 import HomeHalf from '../../Elements/HomeHalf/HomeHalf.jsx';
 import HomeBrands from '../../Elements/HomeBrands/HomeBrands.jsx';
 import HomeBenefit from '../../Elements/HomeBenefit/HomeBenefit.jsx';
+import HomeSocial from '../../Elements/HomeSocial/HomeSocial.jsx';
 
 const Home = () => {
 	return (
@@ -17,6 +18,7 @@ const Home = () => {
 			<HomeGrid />
 			<HomeHalf />
 			<HomeBrands />
+      <HomeSocial />
       <HomeBenefit />
 		</section>
 	);
