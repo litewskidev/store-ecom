@@ -7,7 +7,7 @@ const SocialModal = ({ social, close }) => {
 				<img
 					src={
 						process.env.PUBLIC_URL +
-						`/assets/images/instagram/${social?.image}.jpg`
+						`/assets/images/instagram/${social?.image}.webp`
 					}
 					alt=''
 				/>
@@ -15,12 +15,12 @@ const SocialModal = ({ social, close }) => {
 			<div className='socialModal__right'>
 				<div className='socialModal__right__header'>
 					<div className='socialModal__right__header__link'>
-            <div className='socialModal__right__header__link__icon'>
-              <img
-                src={process.env.PUBLIC_URL + '/assets/icons/instagram.svg'}
-                alt='instagram icon'
-              />
-            </div>
+						<div className='socialModal__right__header__link__icon'>
+							<img
+								src={process.env.PUBLIC_URL + '/assets/icons/instagram.svg'}
+								alt='instagram icon'
+							/>
+						</div>
 						<a>culture</a>
 					</div>
 					<div onClick={close}>X</div>

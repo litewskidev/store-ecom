@@ -18,8 +18,8 @@ const Home = () => {
 			<HomeGrid />
 			<HomeHalf />
 			<HomeBrands />
-      <HomeSocial />
-      <HomeBenefit />
+			<HomeSocial />
+			<HomeBenefit />
 		</section>
 	);
 };

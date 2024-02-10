@@ -42,7 +42,7 @@ const HomeSocial = () => {
 				desc: '',
 			},
 			{
-				image: 'instagram_5',
+				image: 'instagram_6',
 				href: 'https://www.instagram.com',
 				desc: '',
 			},
@@ -70,7 +70,7 @@ const HomeSocial = () => {
 							<img
 								src={
 									process.env.PUBLIC_URL +
-									`/assets/images/instagram/${social.image}.jpg`
+									`/assets/images/instagram/${social.image}.webp`
 								}
 								alt=''
 								onClick={() => toggleSocialModal(social)}
