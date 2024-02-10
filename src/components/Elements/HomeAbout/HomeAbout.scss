@@ -2,7 +2,7 @@
 
 .heroAbout {
 	&__wrapper {
-		height: 100svh;
+		height: 100vh;
 		padding: 10rem;
 		overflow-x: hidden;
 		background-color: $white;
@@ -21,9 +21,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
+		text-align: left;
 		z-index: 2;
-		text-align: justify;
-		text-justify: inter-character;
 
 		h1 {
 			font-size: 7vw;
@@ -31,7 +30,6 @@
 		}
 
 		p {
-			font-size: 0.875rem;
 			width: 75%;
 		}
 	}
@@ -64,7 +62,7 @@
 @media screen and (max-width: 1200px) {
 	.heroAbout {
 		&__wrapper {
-			height: 70svh;
+			height: 70vh;
 			padding: 3.5rem 0;
 		}
 

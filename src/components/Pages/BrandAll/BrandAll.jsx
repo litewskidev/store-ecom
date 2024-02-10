@@ -1,4 +1,4 @@
-import './BrandAll.scss'
+import './BrandAll.scss';
 
 const BrandAll = () => {
 	return (
@@ -7,7 +7,7 @@ const BrandAll = () => {
 				<h1>ALL BRANDS</h1>
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default BrandAll
+export default BrandAll;

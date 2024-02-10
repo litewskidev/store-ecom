@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom'
-import './HomeGrid.scss'
+import { NavLink } from 'react-router-dom';
+import './HomeGrid.scss';
 
 const HomeGrid = () => {
 	return (
@@ -42,7 +42,7 @@ const HomeGrid = () => {
 				</NavLink>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default HomeGrid
+export default HomeGrid;

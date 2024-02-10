@@ -1,11 +1,11 @@
-import { NavLink } from 'react-router-dom'
-import useToggle from '../../../hooks/useToggle.js'
-import PropTypes from 'prop-types'
-import './LoginModal.scss'
+import { NavLink } from 'react-router-dom';
+import useToggle from '../../../hooks/useToggle.js';
+import PropTypes from 'prop-types';
+import './LoginModal.scss';
 
 const LoginModal = ({ handleBtn }) => {
 	//  BUTTONS HANDLERS
-	const [registerPage, toggleRegisterPage] = useToggle(false)
+	const [registerPage, toggleRegisterPage] = useToggle(false);
 
 	return (
 		<div id='login-modal'>
@@ -96,11 +96,11 @@ const LoginModal = ({ handleBtn }) => {
 				)}
 			</div>
 		</div>
-	)
-}
+	);
+};
 
 LoginModal.propTypes = {
 	handleBtn: PropTypes.func.isRequired,
-}
+};
 
-export default LoginModal
+export default LoginModal;

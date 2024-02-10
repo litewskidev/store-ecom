@@ -1,4 +1,4 @@
-import './Checkout.scss'
+import './Checkout.scss';
 
 const Checkout = () => {
 	return (
@@ -7,7 +7,7 @@ const Checkout = () => {
 				<h1>CHECKOUT</h1>
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default Checkout
+export default Checkout;

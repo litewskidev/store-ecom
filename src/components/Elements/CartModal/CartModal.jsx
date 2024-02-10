@@ -1,9 +1,9 @@
-import { NavLink } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import './CartModal.scss'
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import './CartModal.scss';
 
 const CartModal = ({ handleBtn }) => {
-	const cart = []
+	const cart = [];
 
 	return (
 		<div id='cart-modal'>
@@ -75,11 +75,11 @@ const CartModal = ({ handleBtn }) => {
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
 CartModal.propTypes = {
 	handleBtn: PropTypes.func.isRequired,
-}
+};
 
-export default CartModal
+export default CartModal;

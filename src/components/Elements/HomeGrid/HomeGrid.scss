@@ -3,7 +3,7 @@
 .stickyHalf {
 	&__container {
 		display: flex;
-		height: 150svh;
+		height: 150vh;
 		width: 100%;
 	}
 
@@ -22,12 +22,6 @@
 			flex-direction: column;
 			gap: 0.5rem;
 			width: 50%;
-			text-align: justify;
-			text-justify: inter-character;
-
-			p {
-				font-size: 0.875rem;
-			}
 
 			p:last-of-type {
 				margin-top: 0.5rem;
@@ -63,7 +57,7 @@
 }
 
 .half__bottom {
-	margin-top: -75svh;
+	margin-top: -75vh;
 }
 
 @media screen and (max-width: 1200px) {

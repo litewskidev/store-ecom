@@ -1,9 +1,9 @@
-import { useCallback, useMemo } from 'react'
-import Slider from 'react-slick'
-import PropTypes from 'prop-types'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import './ImageSlider.scss'
+import { useCallback, useMemo } from 'react';
+import Slider from 'react-slick';
+import PropTypes from 'prop-types';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './ImageSlider.scss';
 
 const ImageSlider = ({ product }) => {
 	const CustomPrevArrow = useCallback(
@@ -11,14 +11,14 @@ const ImageSlider = ({ product }) => {
 			<div className='slick-arrow arrow-prev' onClick={onClick}></div>
 		),
 		[],
-	)
+	);
 
 	const CustomNextArrow = useCallback(
 		({ onClick }) => (
 			<div className='slick-arrow arrow-next' onClick={onClick}></div>
 		),
 		[],
-	)
+	);
 
 	const settings = useMemo(
 		() => ({
@@ -43,7 +43,7 @@ const ImageSlider = ({ product }) => {
 			],
 		}),
 		[product?._id],
-	)
+	);
 
 	return (
 		<Slider {...settings} className='slider__wrapper'>
@@ -59,8 +59,8 @@ const ImageSlider = ({ product }) => {
 				</div>
 			))}
 		</Slider>
-	)
-}
+	);
+};
 
 ImageSlider.propTypes = {
 	product: PropTypes.shape({
@@ -68,6 +68,6 @@ ImageSlider.propTypes = {
 		images: PropTypes.arrayOf(PropTypes.string),
 		sku: PropTypes.string,
 	}).isRequired,
-}
+};
 
-export default ImageSlider
+export default ImageSlider;

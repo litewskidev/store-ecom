@@ -114,7 +114,7 @@
 								gap: 1rem;
 
 								li {
-									text-underline-offset: 0.35rem;
+									text-underline-offset: 0.5rem;
 									text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
 									transition: text-decoration-color 0.3s ease-out;
 
@@ -141,7 +141,6 @@
 
 			a,
 			p {
-				font-size: 0.875rem;
 				color: inherit;
 				text-underline-offset: 0.5rem;
 				text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
@@ -545,7 +544,7 @@
 			}
 
 			&__logo {
-				font-size: 1.45rem;
+				font-size: 1.5rem;
 			}
 		}
 

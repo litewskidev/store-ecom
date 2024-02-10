@@ -1,10 +1,10 @@
-import { useMemo } from 'react'
-import { useGetAllProductsQuery } from '../../../redux/slices/productsApiSlice.js'
-import ProductsList from '../../Elements/ProductsList/ProductsList.jsx'
+import { useMemo } from 'react';
+import { useGetAllProductsQuery } from '../../../redux/slices/productsApiSlice.js';
+import ProductsList from '../../Elements/ProductsList/ProductsList.jsx';
 
 const ProductAll = () => {
 	//  FETCH DATA
-	const { data: allProducts, isLoading, isError } = useGetAllProductsQuery()
+	const { data: allProducts, isLoading, isError } = useGetAllProductsQuery();
 
 	const pageMenu = useMemo(
 		() => ({
@@ -13,7 +13,7 @@ const ProductAll = () => {
 			},
 		}),
 		[],
-	)
+	);
 
 	return (
 		<section id='product-all'>
@@ -24,7 +24,7 @@ const ProductAll = () => {
 				error={isError}
 			/>
 		</section>
-	)
-}
+	);
+};
 
-export default ProductAll
+export default ProductAll;

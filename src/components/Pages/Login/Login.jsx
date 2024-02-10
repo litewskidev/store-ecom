@@ -1,4 +1,4 @@
-import './Login.scss'
+import './Login.scss';
 
 const Login = () => {
 	return (
@@ -7,7 +7,7 @@ const Login = () => {
 				<h1>LOGIN</h1>
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default Login
+export default Login;

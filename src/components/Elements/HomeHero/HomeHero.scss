@@ -13,10 +13,10 @@
 		&__video {
 			display: block;
 			width: 100%;
-			height: 100svh;
+			height: 100vh;
 			object-fit: cover;
 			z-index: -1;
-			filter: brightness(0.65);
+			filter: brightness(0.6);
 		}
 
 		&__title {
@@ -28,27 +28,23 @@
 			gap: 1rem;
 			width: 30rem;
 			z-index: 2;
-			text-align: justify;
-			text-justify: inter-character;
 
 			h1 {
-				font-size: 1.5rem;
+				font-size: 2rem;
+				font-weight: 100;
 				color: $seasalt;
 			}
 
 			p {
-				font-size: 0.875rem;
 				color: $seasalt;
 				margin-bottom: 1rem;
 			}
 
 			a {
-				text-align: center;
 				font-family: $font;
-				font-size: 1.5rem;
+				font-size: 2rem;
+				font-weight: 900;
 				color: $seasalt;
-				padding: 0.5rem;
-				border: solid 0.063rem $seasalt;
 				background: transparent;
 				cursor: pointer;
 			}
@@ -62,6 +58,10 @@
 			&__title {
 				left: 5rem;
 				width: 27rem;
+
+				h1 {
+					font-size: 2rem;
+				}
 			}
 		}
 	}
@@ -71,20 +71,23 @@
 	.hero {
 		&__hero {
 			&__title {
+				bottom: 7.5%;
 				left: 0;
-				gap: 0.5rem;
+				gap: 0.25rem;
 				width: 100%;
 				padding: 1rem;
+				text-align: center;
 
 				h1 {
 					font-size: 1.15rem;
 				}
 
 				p {
+					font-size: 0.813rem;
 				}
 
 				a {
-					font-size: 1.25rem;
+					font-size: 1.15rem;
 				}
 			}
 		}

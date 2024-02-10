@@ -1,4 +1,4 @@
-import './CollectionAll.scss'
+import './CollectionAll.scss';
 
 const CollectionAll = () => {
 	return (
@@ -7,7 +7,7 @@ const CollectionAll = () => {
 				<h1>ALL COLLECTIONS</h1>
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default CollectionAll
+export default CollectionAll;

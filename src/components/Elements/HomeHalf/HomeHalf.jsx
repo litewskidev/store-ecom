@@ -1,6 +1,6 @@
-import { useMemo } from 'react'
-import { NavLink } from 'react-router-dom'
-import './HomeHalf.scss'
+import { useMemo } from 'react';
+import { NavLink } from 'react-router-dom';
+import './HomeHalf.scss';
 
 const HomeHalf = () => {
 	const heroHalfMenu = useMemo(
@@ -19,7 +19,7 @@ const HomeHalf = () => {
 			},
 		],
 		[],
-	)
+	);
 
 	return (
 		<div className='heroHalf__wrapper'>
@@ -31,13 +31,13 @@ const HomeHalf = () => {
 					/>
 					<div className='heroHalf__tile__info'>
 						<h3>{tile.title}</h3>
-						<p>&middot;</p>
+						<p>&#8231;</p>
 						<p>{tile.action}</p>
 					</div>
 				</NavLink>
 			))}
 		</div>
-	)
-}
+	);
+};
 
-export default HomeHalf
+export default HomeHalf;

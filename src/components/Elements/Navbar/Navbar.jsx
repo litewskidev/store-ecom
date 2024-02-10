@@ -1,35 +1,35 @@
-import { useCallback, useMemo, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import useWindowLocation from '../../../hooks/useWindowLocation.js'
-import useScrollUpdate from '../../../hooks/useScrollUpdate.js'
-import useBodyOverflow from '../../../hooks/useBodyOverflow.js'
-import MenuDesktop from '../MenuDesktop/MenuDesktop.jsx'
-import MenuMobile from '../MenuMobile/MenuMobile.jsx'
-import LoginModal from '../LoginModal/LoginModal.jsx'
-import CartModal from '../CartModal/CartModal.jsx'
-import './Navbar.scss'
+import { useCallback, useMemo, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import useWindowLocation from '../../../hooks/useWindowLocation.js';
+import useScrollUpdate from '../../../hooks/useScrollUpdate.js';
+import useBodyOverflow from '../../../hooks/useBodyOverflow.js';
+import MenuDesktop from '../MenuDesktop/MenuDesktop.jsx';
+import MenuMobile from '../MenuMobile/MenuMobile.jsx';
+import LoginModal from '../LoginModal/LoginModal.jsx';
+import CartModal from '../CartModal/CartModal.jsx';
+import './Navbar.scss';
 
 const Navbar = () => {
-	const location = useLocation()
-	const navigate = useNavigate()
+	const location = useLocation();
+	const navigate = useNavigate();
 
 	//  STATES
-	const [user, setUser] = useState(false)
-	const [isHomePage, setIsHomePage] = useState(true)
-	const [isProductPage, setIsProductPage] = useState(false)
-	const [isScrollingDown, setIsScrollingDown] = useState(false)
-	const [isScrollBelowThreshold, setIsScrollBelowThreshold] = useState(false)
-	const [bodyOverflowHidden, setBodyOverflowHidden] = useState(false)
-	const [isDropdownActive, setIsDropdownActive] = useState(false)
-	const [isLoginActive, setIsLoginActive] = useState(false)
-	const [isCartActive, setIsCartActive] = useState(false)
+	const [user, setUser] = useState(false);
+	const [isHomePage, setIsHomePage] = useState(true);
+	const [isProductPage, setIsProductPage] = useState(false);
+	const [isScrollingDown, setIsScrollingDown] = useState(false);
+	const [isScrollBelowThreshold, setIsScrollBelowThreshold] = useState(false);
+	const [bodyOverflowHidden, setBodyOverflowHidden] = useState(false);
+	const [isDropdownActive, setIsDropdownActive] = useState(false);
+	const [isLoginActive, setIsLoginActive] = useState(false);
+	const [isCartActive, setIsCartActive] = useState(false);
 
 	//  CONSTANTS
-	const scrollThreshold = 5
-	const navbarThreshold = 75
+	const scrollThreshold = 5;
+	const navbarThreshold = 75;
 
 	//  WINDOW LOCATION
-	useWindowLocation(location, setIsHomePage, setIsProductPage)
+	useWindowLocation(location, setIsHomePage, setIsProductPage);
 
 	//  SCROLL UPDATE
 	useScrollUpdate(
@@ -38,30 +38,30 @@ const Navbar = () => {
 		setIsScrollBelowThreshold,
 		scrollThreshold,
 		navbarThreshold,
-	)
+	);
 
 	//  BODY OVERFLOW
-	useBodyOverflow(bodyOverflowHidden)
+	useBodyOverflow(bodyOverflowHidden);
 
 	//  BUTTONS HANDLERS
 	const toggleDropdown = useCallback(() => {
-		setBodyOverflowHidden(!bodyOverflowHidden)
-		setIsDropdownActive(!isDropdownActive)
-	}, [isDropdownActive, bodyOverflowHidden])
+		setBodyOverflowHidden(!bodyOverflowHidden);
+		setIsDropdownActive(!isDropdownActive);
+	}, [isDropdownActive, bodyOverflowHidden]);
 
 	const toggleLogin = useCallback(() => {
 		if (user) {
-			navigate('/profile')
+			navigate('/profile');
 		} else {
-			setBodyOverflowHidden(!bodyOverflowHidden)
-			setIsLoginActive(!isLoginActive)
+			setBodyOverflowHidden(!bodyOverflowHidden);
+			setIsLoginActive(!isLoginActive);
 		}
-	}, [user, navigate, isLoginActive, bodyOverflowHidden])
+	}, [user, navigate, isLoginActive, bodyOverflowHidden]);
 
 	const toggleCart = useCallback(() => {
-		setBodyOverflowHidden(!bodyOverflowHidden)
-		setIsCartActive(!isCartActive)
-	}, [isCartActive, bodyOverflowHidden])
+		setBodyOverflowHidden(!bodyOverflowHidden);
+		setIsCartActive(!isCartActive);
+	}, [isCartActive, bodyOverflowHidden]);
 
 	const navbarMenu = useMemo(
 		() => ({
@@ -204,14 +204,14 @@ const Navbar = () => {
 			},
 		}),
 		[],
-	)
+	);
 
 	return (
-		<div
+		<header
 			id='navbar'
 			className={`navbar ${isScrollingDown && isScrollBelowThreshold ? '' : 'nav-open'}`}
 		>
-			<div
+			<nav
 				className={`navbar__wrapper${isHomePage && !isScrollBelowThreshold ? ' nav-top' : ''}${isProductPage ? ' nav-product' : ''}`}
 			>
 				{/* MENU DESKTOP */}
@@ -248,9 +248,9 @@ const Navbar = () => {
 						<CartModal handleBtn={toggleCart} />
 					</div>
 				</div>
-			</div>
-		</div>
-	)
-}
+			</nav>
+		</header>
+	);
+};
 
-export default Navbar
+export default Navbar;

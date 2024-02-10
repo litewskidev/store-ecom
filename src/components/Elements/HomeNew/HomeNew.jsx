@@ -1,19 +1,19 @@
-import { NavLink } from 'react-router-dom'
-import { useGetNewProductsQuery } from '../../../redux/slices/productsApiSlice.js'
-import Loading from '../Loading/Loading.jsx'
-import Error from '../Error/Error.jsx'
-import ProductsSlider from '../ProductsSlider/ProductsSlider.jsx'
-import './HomeNew.scss'
+import { NavLink } from 'react-router-dom';
+import { useGetNewProductsQuery } from '../../../redux/slices/productsApiSlice.js';
+import Loading from '../Loading/Loading.jsx';
+import Error from '../Error/Error.jsx';
+import ProductsSlider from '../ProductsSlider/ProductsSlider.jsx';
+import './HomeNew.scss';
 
 const HomeNew = () => {
 	//  FETCH DATA
-	const { data: newProducts, isLoading, isError } = useGetNewProductsQuery()
+	const { data: newProducts, isLoading, isError } = useGetNewProductsQuery();
 
 	return (
 		<div className='newArrivals__wrapper'>
 			<div className='newArrivals__title'>
 				<h3>NEW ARRIVALS</h3>
-				<p>&middot;</p>
+				<p>&#8231;</p>
 				<NavLink to='/categories/new-arrivals'>
 					<p>VIEW ALL</p>
 				</NavLink>
@@ -28,7 +28,7 @@ const HomeNew = () => {
 			)}
 			{!isLoading && !isError && <ProductsSlider products={newProducts} />}
 		</div>
-	)
-}
+	);
+};
 
-export default HomeNew
+export default HomeNew;

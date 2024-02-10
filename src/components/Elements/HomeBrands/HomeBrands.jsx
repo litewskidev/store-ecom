@@ -1,7 +1,7 @@
-import { useCallback, useMemo } from 'react'
-import { NavLink } from 'react-router-dom'
-import Slider from 'react-slick'
-import './HomeBrands.scss'
+import { useCallback, useMemo } from 'react';
+import { NavLink } from 'react-router-dom';
+import Slider from 'react-slick';
+import './HomeBrands.scss';
 
 const HomeBrands = () => {
 	const CustomPrevArrow = useCallback(
@@ -9,14 +9,14 @@ const HomeBrands = () => {
 			<div className='slick-arrow arrow-prev' onClick={onClick}></div>
 		),
 		[],
-	)
+	);
 
 	const CustomNextArrow = useCallback(
 		({ onClick }) => (
 			<div className='slick-arrow arrow-next' onClick={onClick}></div>
 		),
 		[],
-	)
+	);
 
 	const settings = useMemo(
 		() => ({
@@ -53,7 +53,7 @@ const HomeBrands = () => {
 			],
 		}),
 		[],
-	)
+	);
 
 	const homeBrandsMenu = useMemo(
 		() => ({
@@ -111,7 +111,7 @@ const HomeBrands = () => {
 			],
 		}),
 		[],
-	)
+	);
 
 	return (
 		<div className='homeBrands__wrapper'>
@@ -131,7 +131,7 @@ const HomeBrands = () => {
 				))}
 			</Slider>
 		</div>
-	)
-}
+	);
+};
 
-export default HomeBrands
+export default HomeBrands;

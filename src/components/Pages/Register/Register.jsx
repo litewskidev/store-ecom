@@ -1,4 +1,4 @@
-import './Register.scss'
+import './Register.scss';
 
 const Register = () => {
 	return (
@@ -7,7 +7,7 @@ const Register = () => {
 				<h1>REGISTER</h1>
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default Register
+export default Register;

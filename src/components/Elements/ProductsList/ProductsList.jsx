@@ -1,8 +1,8 @@
-import Loading from '../Loading/Loading.jsx'
-import Error from '../Error/Error.jsx'
-import Products from '../Products/Products.jsx'
-import PropTypes from 'prop-types'
-import './ProductsList.scss'
+import Loading from '../Loading/Loading.jsx';
+import Error from '../Error/Error.jsx';
+import Products from '../Products/Products.jsx';
+import PropTypes from 'prop-types';
+import './ProductsList.scss';
 
 const ProductsList = ({ title, products, loading, error }) => {
 	return (
@@ -18,10 +18,10 @@ const ProductsList = ({ title, products, loading, error }) => {
 			)}
 			{!loading && !error && <Products products={products} />}
 		</div>
-	)
-}
+	);
+};
 
-export default ProductsList
+export default ProductsList;
 
 ProductsList.propTypes = {
 	products: PropTypes.arrayOf(
@@ -42,4 +42,4 @@ ProductsList.propTypes = {
 	),
 	loading: PropTypes.bool.isRequired,
 	error: PropTypes.bool.isRequired,
-}
+};

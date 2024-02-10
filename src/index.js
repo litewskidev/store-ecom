@@ -1,28 +1,28 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {
 	Route,
 	RouterProvider,
 	createBrowserRouter,
 	createRoutesFromElements,
-} from 'react-router-dom'
-import { Provider } from 'react-redux'
-import store from './redux/store.js'
-import App from './App.js'
-import Home from './components/Pages/Home/Home.jsx'
-import Login from './components/Pages/Login/Login.jsx'
-import Register from './components/Pages/Register/Register.jsx'
-import Profile from './components/Pages/Profile/Profile.jsx'
-import Cart from './components/Pages/Cart/Cart.jsx'
-import Checkout from './components/Pages/Checkout/Checkout.jsx'
-import ProductSingle from './components/Pages/ProductSingle/ProductSingle.jsx'
-import ProductAll from './components/Pages/ProductAll/ProductAll.jsx'
-import Category from './components/Pages/Category/Category.jsx'
-import BrandAll from './components/Pages/BrandAll/BrandAll.jsx'
-import BrandSingle from './components/Pages/BrandSingle/BrandSingle.jsx'
-import CollectionAll from './components/Pages/CollectionAll/CollectionAll.jsx'
-import CollectionSingle from './components/Pages/CollectionSingle/CollectionSingle.jsx'
-import E404 from './components/Pages/E404/E404.jsx'
+} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './redux/store.js';
+import App from './App.js';
+import Home from './components/Pages/Home/Home.jsx';
+import Login from './components/Pages/Login/Login.jsx';
+import Register from './components/Pages/Register/Register.jsx';
+import Profile from './components/Pages/Profile/Profile.jsx';
+import Cart from './components/Pages/Cart/Cart.jsx';
+import Checkout from './components/Pages/Checkout/Checkout.jsx';
+import ProductSingle from './components/Pages/ProductSingle/ProductSingle.jsx';
+import ProductAll from './components/Pages/ProductAll/ProductAll.jsx';
+import Category from './components/Pages/Category/Category.jsx';
+import BrandAll from './components/Pages/BrandAll/BrandAll.jsx';
+import BrandSingle from './components/Pages/BrandSingle/BrandSingle.jsx';
+import CollectionAll from './components/Pages/CollectionAll/CollectionAll.jsx';
+import CollectionSingle from './components/Pages/CollectionSingle/CollectionSingle.jsx';
+import E404 from './components/Pages/E404/E404.jsx';
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -43,13 +43,13 @@ const router = createBrowserRouter(
 			<Route path='*' element={<E404 />} />
 		</Route>,
 	),
-)
+);
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	//<React.StrictMode>
 	<Provider store={store}>
 		<RouterProvider router={router} />
 	</Provider>,
 	//</React.StrictMode>
-)
+);

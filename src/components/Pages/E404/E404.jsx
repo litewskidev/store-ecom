@@ -1,4 +1,4 @@
-import './E404.scss'
+import './E404.scss';
 
 const E404 = () => {
 	return (
@@ -7,7 +7,7 @@ const E404 = () => {
 				<h1>E404</h1>
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default E404
+export default E404;

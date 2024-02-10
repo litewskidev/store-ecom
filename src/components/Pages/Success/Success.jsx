@@ -1,8 +1,8 @@
-import { useNavigate } from 'react-router-dom'
-import './Success.scss'
+import { useNavigate } from 'react-router-dom';
+import './Success.scss';
 
 const Success = () => {
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	return (
 		<section id='success'>
@@ -18,7 +18,7 @@ const Success = () => {
 				</div>
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default Success
+export default Success;

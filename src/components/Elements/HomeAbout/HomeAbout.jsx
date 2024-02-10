@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom'
-import './HomeAbout.scss'
+import { NavLink } from 'react-router-dom';
+import './HomeAbout.scss';
 
 const HomeAbout = () => {
 	return (
@@ -25,13 +25,13 @@ const HomeAbout = () => {
 					</div>
 					<div className='heroAbout__action'>
 						<p>EXPLORE</p>
-						<p>&middot;</p>
+						<p>&#8231;</p>
 						<p>ABOUT US</p>
 					</div>
 				</div>
 			</NavLink>
 		</div>
-	)
-}
+	);
+};
 
-export default HomeAbout
+export default HomeAbout;

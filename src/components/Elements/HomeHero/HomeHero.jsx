@@ -1,5 +1,6 @@
-import { NavLink } from 'react-router-dom'
-import './HomeHero.scss'
+import { NavLink } from 'react-router-dom';
+import ScrollButton from '../ScrollButton/ScrollButton.jsx';
+import './HomeHero.scss';
 
 const HomeHero = () => {
 	return (
@@ -22,10 +23,11 @@ const HomeHero = () => {
 						of those who choose CULTURE.
 					</p>
 					<NavLink to='/categories/all-watches'>DISCOVER NOW</NavLink>
+					<ScrollButton />
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default HomeHero
+export default HomeHero;

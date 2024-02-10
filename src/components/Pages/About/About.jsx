@@ -1,4 +1,4 @@
-import './About.scss'
+import './About.scss';
 
 const About = () => {
 	return (
@@ -7,7 +7,7 @@ const About = () => {
 				<h1>ABOUT</h1>
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default About
+export default About;

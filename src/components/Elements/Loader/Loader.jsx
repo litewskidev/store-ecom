@@ -1,12 +1,15 @@
-import Loading from '../Loading/Loading.jsx'
-import './Loader.scss'
+import Loading from '../Loading/Loading.jsx';
+import './Loader.scss';
 
 const Loader = ({ loading }) => {
 	return (
-		<div className={`loader__wrapper ${loading ? 'loading' : ''}`}>
+		<aside
+			id='loader'
+			className={`loader__wrapper ${loading ? 'loading' : ''}`}
+		>
 			<Loading />
-		</div>
-	)
-}
+		</aside>
+	);
+};
 
-export default Loader
+export default Loader;

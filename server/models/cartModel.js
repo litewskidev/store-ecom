@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const cartSchema = mongoose.Schema({
 	userId: {
@@ -13,8 +13,8 @@ const cartSchema = mongoose.Schema({
 			default: 1,
 		},
 	},
-})
+});
 
-const Cart = mongoose.model('Cart', cartSchema)
+const Cart = mongoose.model('Cart', cartSchema);
 
-export default Cart
+export default Cart;

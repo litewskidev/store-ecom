@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import StripeCheckout from 'react-stripe-checkout'
-import './PaymentButton.scss'
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import StripeCheckout from 'react-stripe-checkout';
+import './PaymentButton.scss';
 
 const PaymentButton = () => {
-	const navigate = useNavigate()
-	const [stripeToken, setStripeToken] = useState(null)
+	const navigate = useNavigate();
+	const [stripeToken, setStripeToken] = useState(null);
 
 	const onToken = token => {
-		setStripeToken(token)
-	}
+		setStripeToken(token);
+	};
 
 	useEffect(() => {
 		const paymentRequest = async () => {
@@ -18,14 +18,14 @@ const PaymentButton = () => {
 				await axios.post('http://localhost:8888/api/payments', {
 					tokenId: stripeToken.id,
 					amount: 2000,
-				})
-				navigate('/success')
+				});
+				navigate('/success');
 			} catch (err) {
-				console.log(err)
+				console.log(err);
 			}
-		}
-		stripeToken && paymentRequest()
-	}, [stripeToken, navigate])
+		};
+		stripeToken && paymentRequest();
+	}, [stripeToken, navigate]);
 
 	return (
 		<div className='payment__wrapper'>
@@ -43,7 +43,7 @@ const PaymentButton = () => {
 				</button>
 			</StripeCheckout>
 		</div>
-	)
-}
+	);
+};
 
-export default PaymentButton
+export default PaymentButton;

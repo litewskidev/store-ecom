@@ -1,17 +1,17 @@
-import { NavLink } from 'react-router-dom'
-import useToggle from '../../../hooks/useToggle.js'
-import SocialLinks from '../SocialLinks/SocialLinks.jsx'
-import './Footer.scss'
+import { NavLink } from 'react-router-dom';
+import useToggle from '../../../hooks/useToggle.js';
+import SocialLinks from '../SocialLinks/SocialLinks.jsx';
+import './Footer.scss';
 
 const Footer = () => {
 	//  BUTTONS HANDLERS
-	const [isCompanyListActive, toggleCompanyList] = useToggle(false)
-	const [isCustomerListActive, toggleCustomerList] = useToggle(false)
-	const [isStoresListActive, toggleStoresList] = useToggle(false)
-	const [isContactListActive, toggleContactList] = useToggle(false)
+	const [isCompanyListActive, toggleCompanyList] = useToggle(false);
+	const [isCustomerListActive, toggleCustomerList] = useToggle(false);
+	const [isStoresListActive, toggleStoresList] = useToggle(false);
+	const [isContactListActive, toggleContactList] = useToggle(false);
 
 	return (
-		<div className='footer__wrapper'>
+		<footer id='footer' className='footer__wrapper'>
 			<nav className='footer__body'>
 				<div className='footer__body__item'>
 					<div
@@ -167,8 +167,8 @@ const Footer = () => {
 			<div className='footer__copyright'>
 				<p>© 2024 CULTURE. All Rights Reserved</p>
 			</div>
-		</div>
-	)
-}
+		</footer>
+	);
+};
 
-export default Footer
+export default Footer;

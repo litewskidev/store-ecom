@@ -1,19 +1,19 @@
-import { useMemo, useLayoutEffect, useRef } from 'react'
-import { useLocation } from 'react-router-dom'
-import gsap from 'gsap'
-import useToggle from '../../../hooks/useToggle.js'
-import ImageSlider from '../ImageSlider/ImageSlider.jsx'
-import PropTypes from 'prop-types'
-import './Product.scss'
+import { useMemo, useLayoutEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import gsap from 'gsap';
+import useToggle from '../../../hooks/useToggle.js';
+import ImageSlider from '../ImageSlider/ImageSlider.jsx';
+import PropTypes from 'prop-types';
+import './Product.scss';
 
 const Product = ({ product }) => {
-	const location = useLocation()
+	const location = useLocation();
 
 	//  GSAP
-	const productInfoRef = useRef(null)
-	const productImageRef = useRef(null)
+	const productInfoRef = useRef(null);
+	const productImageRef = useRef(null);
 	useLayoutEffect(() => {
-		const tl = gsap.timeline()
+		const tl = gsap.timeline();
 		tl.fromTo(
 			productInfoRef.current,
 			{ opacity: 0, x: '2%' },
@@ -23,12 +23,12 @@ const Product = ({ product }) => {
 			{ opacity: 0, x: '-2%' },
 			{ opacity: 1, x: 0, duration: 0.5, ease: 'sine.out', force3D: true },
 			'<',
-		)
-	}, [location])
+		);
+	}, [location]);
 
 	//  BUTTONS HANDLERS
-	const [isDescriptionOpen, toggleDescription] = useToggle(true)
-	const [isFeaturesOpen, toggleFeatures] = useToggle(true)
+	const [isDescriptionOpen, toggleDescription] = useToggle(true);
+	const [isFeaturesOpen, toggleFeatures] = useToggle(true);
 
 	const productMenu = useMemo(
 		() => ({
@@ -78,7 +78,7 @@ const Product = ({ product }) => {
 			},
 		}),
 		[],
-	)
+	);
 
 	return (
 		<div className='product__wrapper'>
@@ -270,8 +270,8 @@ const Product = ({ product }) => {
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
 Product.propTypes = {
 	product: PropTypes.shape({
@@ -320,6 +320,6 @@ Product.propTypes = {
 		}).isRequired,
 		images: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 	}).isRequired,
-}
+};
 
-export default Product
+export default Product;

@@ -1,4 +1,4 @@
-import './SocialLinks.scss'
+import './SocialLinks.scss';
 
 const SocialLinks = () => {
 	const links = [
@@ -9,7 +9,7 @@ const SocialLinks = () => {
 		'twitter',
 		'linkedin',
 		'whatsapp',
-	]
+	];
 
 	return (
 		<div className='social__wrapper'>
@@ -27,7 +27,7 @@ const SocialLinks = () => {
 				</a>
 			))}
 		</div>
-	)
-}
+	);
+};
 
-export default SocialLinks
+export default SocialLinks;

@@ -1,23 +1,23 @@
-const express = require('express')
-const cookieParser = require('cookie-parser')
-const cors = require('cors')
-const dotenv = require('dotenv')
-const path = require('path')
-const mongoose = require('mongoose')
-const jwt = require('jsonwebtoken')
-const bcrypt = require('bcryptjs')
-const asyncHandler = require('express-async-handler')
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const path = require('path');
+const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const asyncHandler = require('express-async-handler');
 
 ////  MONGO
 const connectDB = async () => {
 	try {
-		const connection = await mongoose.connect(process.env.MONGO_URI)
-		console.log(`MongoDB connected: ${connection.connection.host}`)
+		const connection = await mongoose.connect(process.env.MONGO_URI);
+		console.log(`MongoDB connected: ${connection.connection.host}`);
 	} catch (err) {
-		console.error(`Error ${err.message}`)
-		process.exit(1)
+		console.error(`Error ${err.message}`);
+		process.exit(1);
 	}
-}
+};
 ////
 
 ////  MODELS
@@ -100,20 +100,20 @@ const userSchema = mongoose.Schema(
 	{
 		timestamps: true,
 	},
-)
+);
 //  user hash password
 userSchema.pre('save', async function (next) {
 	if (!this.isModified('password')) {
-		next()
+		next();
 	}
-	const salt = await bcrypt.genSalt(10)
-	this.password = await bcrypt.hash(this.password, salt)
-})
+	const salt = await bcrypt.genSalt(10);
+	this.password = await bcrypt.hash(this.password, salt);
+});
 //  user password match
 userSchema.methods.matchPassword = async function (enteredPassword) {
-	return await bcrypt.compare(enteredPassword, this.password)
-}
-const User = mongoose.model('User', userSchema)
+	return await bcrypt.compare(enteredPassword, this.password);
+};
+const User = mongoose.model('User', userSchema);
 
 //  PRODUCT MODEL
 const productSchema = mongoose.Schema(
@@ -233,8 +233,8 @@ const productSchema = mongoose.Schema(
 	{
 		timestamps: true,
 	},
-)
-const Product = mongoose.model('Product', productSchema)
+);
+const Product = mongoose.model('Product', productSchema);
 
 //  order model
 
@@ -247,15 +247,15 @@ const Product = mongoose.model('Product', productSchema)
 const generateToken = (res, userId) => {
 	const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
 		expiresIn: '60d',
-	})
+	});
 
 	res.cookie('token', token, {
 		httpOnly: true,
 		secure: true,
 		sameSite: 'strict',
 		maxAge: 60 * 60 * 24,
-	})
-}
+	});
+};
 ////
 
 ////  CONTROLLERS
@@ -264,39 +264,39 @@ const generateToken = (res, userId) => {
 //  route    POST /api/users/auth
 //  access   Public
 const authorizeUser = asyncHandler(async (req, res) => {
-	const { email, password } = req.body
+	const { email, password } = req.body;
 
-	const user = await User.findOne({ email })
+	const user = await User.findOne({ email });
 
 	if (user && (await user.matchPassword(password))) {
-		generateToken(res, user._id)
-		res.status(201)
+		generateToken(res, user._id);
+		res.status(201);
 	} else {
-		throw new Error('Invalid email or password.')
+		throw new Error('Invalid email or password.');
 	}
 
-	res.status(200).json({ message: 'User logged in.' })
-})
+	res.status(200).json({ message: 'User logged in.' });
+});
 
 //  desc     Register a new user
 //  route    POST /api/users
 //  access   Public
 const registerUser = asyncHandler(async (req, res) => {
-	const { email, password } = req.body
+	const { email, password } = req.body;
 
-	const userExists = await User.findOne({ email })
+	const userExists = await User.findOne({ email });
 	if (userExists) {
-		res.status(400)
-		throw new Error('User already exists.')
+		res.status(400);
+		throw new Error('User already exists.');
 	}
 
 	const user = await User.create({
 		email,
 		password,
-	})
+	});
 
-	if (user) res.status(200).json({ message: 'User registered.' })
-})
+	if (user) res.status(200).json({ message: 'User registered.' });
+});
 
 //  desc     Logout user
 //  route    POST /api/user/logout
@@ -305,10 +305,10 @@ const logoutUser = asyncHandler(async (req, res) => {
 	res.cookie('token', '', {
 		httpOnly: true,
 		expires: new Date(0),
-	})
+	});
 
-	res.status(200).json({ message: 'User logged out.' })
-})
+	res.status(200).json({ message: 'User logged out.' });
+});
 
 //  desc     Get user profile
 //  route    GET /api/users/profile
@@ -339,45 +339,45 @@ const getUserProfile = asyncHandler(async (req, res) => {
 		image: req.user.image,
 		history: req.user.history,
 		wishlist: req.user.wishlist,
-	}
+	};
 
-	res.status(200).json(user)
-})
+	res.status(200).json(user);
+});
 
 //  desc     Update user profile
 //  route    PUT /api/users/profile
 //  access   Private
 const updateUserProfile = asyncHandler(async (req, res) => {
-	const user = await User.findById(req.user._id)
+	const user = await User.findById(req.user._id);
 
 	if (user) {
-		user.name = req.body.name || user.name
-		user.surname = req.body.surname || user.surname
-		user.address.country = req.body.country || user.address.country
-		user.address.street1 = req.body.street1 || user.address.street1
-		user.address.street2 = req.body.street2 || user.address.street2
-		user.address.city = req.body.city || user.address.city
-		user.address.state = req.body.state || user.address.state
-		user.address.zip = req.body.zip || user.address.zip
+		user.name = req.body.name || user.name;
+		user.surname = req.body.surname || user.surname;
+		user.address.country = req.body.country || user.address.country;
+		user.address.street1 = req.body.street1 || user.address.street1;
+		user.address.street2 = req.body.street2 || user.address.street2;
+		user.address.city = req.body.city || user.address.city;
+		user.address.state = req.body.state || user.address.state;
+		user.address.zip = req.body.zip || user.address.zip;
 		user.addressShipping.country =
-			req.body.shippingCountry || user.addressShipping.country
+			req.body.shippingCountry || user.addressShipping.country;
 		user.addressShipping.street1 =
-			req.body.shippingStreet1 || user.addressShipping.street1
+			req.body.shippingStreet1 || user.addressShipping.street1;
 		user.addressShipping.street2 =
-			req.body.shippingStreet2 || user.addressShipping.street2
+			req.body.shippingStreet2 || user.addressShipping.street2;
 		user.addressShipping.city =
-			req.body.shippingCity || user.addressShipping.city
+			req.body.shippingCity || user.addressShipping.city;
 		user.addressShipping.state =
-			req.body.shippingState || user.addressShipping.state
-		user.addressShipping.zip = req.body.shippingZip || user.addressShipping.zip
-		user.history = req.body.history || user.history
-		user.wishlist = req.body.wishlist || user.wishlist
+			req.body.shippingState || user.addressShipping.state;
+		user.addressShipping.zip = req.body.shippingZip || user.addressShipping.zip;
+		user.history = req.body.history || user.history;
+		user.wishlist = req.body.wishlist || user.wishlist;
 
 		if (req.file) {
-			user.image = req.file.filename || user.image
+			user.image = req.file.filename || user.image;
 		}
 
-		const updatedUser = await user.save()
+		const updatedUser = await user.save();
 
 		res.status(200).json({
 			id: user._id,
@@ -404,78 +404,78 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 			image: updatedUser.image,
 			history: updatedUser.history,
 			wishlist: updatedUser.wishlist,
-		})
+		});
 	} else {
-		res.status(404)
-		throw new Error('User not found.')
+		res.status(404);
+		throw new Error('User not found.');
 	}
 
-	res.status(200).json({ message: 'User profile updated.' })
-})
+	res.status(200).json({ message: 'User profile updated.' });
+});
 
 //  PRODUCT CONTROLLER
 //  desc     Get all products
 //  route    GET /api/products
 //  access   Public
 const getAllProducts = asyncHandler(async (req, res) => {
-	const queryNew = req.query.new
-	const queryCategory = req.query.category
-	const queryCollection = req.query.collection
-	const queryBrand = req.query.brand
-	let products
+	const queryNew = req.query.new;
+	const queryCategory = req.query.category;
+	const queryCollection = req.query.collection;
+	const queryBrand = req.query.brand;
+	let products;
 
 	if (queryNew) {
-		products = await Product.find().sort({ createdAt: -1 }).limit(10)
+		products = await Product.find().sort({ createdAt: -1 }).limit(10);
 	} else if (queryCategory) {
 		products = await Product.find({
 			categories: {
 				$in: [queryCategory],
 			},
-		})
+		});
 	} else if (queryCollection) {
 		products = await Product.find({
 			collections: {
 				$in: [queryCollection],
 			},
-		})
+		});
 	} else if (queryBrand) {
 		products = await Product.find({
 			'brand.href': queryBrand,
-		})
+		});
 	} else {
-		products = await Product.find()
+		products = await Product.find();
 	}
 
-	if (products) res.status(200).json(products)
-})
+	if (products) res.status(200).json(products);
+});
 
 //  desc     Get product
 //  route    GET /api/products
 //  access   Public
 const getProduct = asyncHandler(async (req, res) => {
-	const product = await Product.findById(req.params.id)
+	const product = await Product.findById(req.params.id);
 
-	if (product) res.status(200).json(product)
-})
+	if (product) res.status(200).json(product);
+});
 
 //  desc     Add new product
 //  route    POST /api/products/add
 //  access   Private
 const addProduct = asyncHandler(async (req, res) => {
-	const { sku } = req.body
-	const productExists = await Product.findOne({ sku })
+	const { sku } = req.body;
+	const productExists = await Product.findOne({ sku });
 
 	if (productExists) {
-		res.status(400)
-		throw new Error('Product already exists.')
+		res.status(400);
+		throw new Error('Product already exists.');
 	}
 
-	const product = new Product(req.body)
-	const newProduct = product.save()
+	const product = new Product(req.body);
+	const newProduct = product.save();
 
 	if (newProduct)
-		res.status(200).json({ message: 'Product added successfully.' })
-})
+		res.status(200).json({ message: 'Product added successfully.' });
+});
 
 //  desc     Update product
 //  route    PUT /api/products/update
@@ -487,29 +487,29 @@ const updateProduct = asyncHandler(async (req, res) => {
 			$set: req.body,
 		},
 		{ new: true },
-	)
+	);
 
 	if (updatedProduct) {
-		res.status(200).json({ message: 'Product updated successfully.' })
+		res.status(200).json({ message: 'Product updated successfully.' });
 	} else {
-		res.status(404)
-		throw new Error('Product not found.')
+		res.status(404);
+		throw new Error('Product not found.');
 	}
-})
+});
 
 //  desc     Delete product
 //  route    DELETE /api/products/delete
 //  access   Private
 const deleteProduct = asyncHandler(async (req, res) => {
-	const deletedProduct = await Product.findByIdAndDelete(req.body.id)
+	const deletedProduct = await Product.findByIdAndDelete(req.body.id);
 
 	if (deletedProduct) {
-		res.status(200).json({ message: 'Product deleted successfully.' })
+		res.status(200).json({ message: 'Product deleted successfully.' });
 	} else {
-		res.status(404)
-		throw new Error('Product not found.')
+		res.status(404);
+		throw new Error('Product not found.');
 	}
-})
+});
 
 //  order controller
 
@@ -520,44 +520,44 @@ const deleteProduct = asyncHandler(async (req, res) => {
 
 ////  PROTECT ROUTES
 const protect = asyncHandler(async (req, res, next) => {
-	let token
-	token = req.cookies.token
+	let token;
+	token = req.cookies.token;
 
 	if (token) {
 		try {
-			const verified = jwt.verify(token, process.env.JWT_SECRET)
+			const verified = jwt.verify(token, process.env.JWT_SECRET);
 
-			req.user = await User.findById(verified.userId).select('-password')
-			next()
+			req.user = await User.findById(verified.userId).select('-password');
+			next();
 		} catch (err) {
-			res.status(403)
-			throw new Error('Not authorized. Invalid token.')
+			res.status(403);
+			throw new Error('Not authorized. Invalid token.');
 		}
 	} else {
-		res.status(401)
-		throw new Error('Not authorized. Token not found.')
+		res.status(401);
+		throw new Error('Not authorized. Token not found.');
 	}
-})
+});
 ////
 
 ////  ROUTES
 //  USER ROUTES
-const userRouter = express.Router()
-userRouter.post('/', registerUser)
-userRouter.post('/auth', authorizeUser)
-userRouter.post('/logout', logoutUser)
+const userRouter = express.Router();
+userRouter.post('/', registerUser);
+userRouter.post('/auth', authorizeUser);
+userRouter.post('/logout', logoutUser);
 userRouter
 	.route('/profile')
 	.get(protect, getUserProfile)
-	.put(protect, updateUserProfile)
+	.put(protect, updateUserProfile);
 
 //  PRODUCT ROUTES
-const productRouter = express.Router()
-productRouter.get('/', getAllProducts)
-productRouter.get('/:id', getProduct)
-productRouter.post('/add', protect, addProduct)
-productRouter.put('/update', protect, updateProduct)
-productRouter.delete('/delete', protect, deleteProduct)
+const productRouter = express.Router();
+productRouter.get('/', getAllProducts);
+productRouter.get('/:id', getProduct);
+productRouter.post('/add', protect, addProduct);
+productRouter.put('/update', protect, updateProduct);
+productRouter.delete('/delete', protect, deleteProduct);
 
 //  order routes
 
@@ -568,66 +568,66 @@ productRouter.delete('/delete', protect, deleteProduct)
 
 ////  ERROR HANDLERS
 const notFound = (req, res, next) => {
-	const err = new Error(`Not found ${req.originalUrl}`)
-	res.status(404)
-	next(err)
-}
+	const err = new Error(`Not found ${req.originalUrl}`);
+	res.status(404);
+	next(err);
+};
 const errorHandler = (err, req, res, next) => {
-	let statusCode = res.statusCode === 200 ? 500 : res.statusCode
-	let message = err.message
+	let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+	let message = err.message;
 
 	if (err.name === 'CastError' && err.kind === 'ObjectId') {
-		statusCode = 404
-		message = 'Resource not found'
+		statusCode = 404;
+		message = 'Resource not found';
 	}
 
 	res.status(statusCode).json({
 		message,
 		stack: process.env.NODE_ENV === 'production' ? null : err.stack,
-	})
-}
+	});
+};
 ////
 
 ////  SERVER
-dotenv.config()
-connectDB()
-const app = express()
+dotenv.config();
+connectDB();
+const app = express();
 
 //  cors
 app.use(
 	cors({ origin: 'https://culture.litewskidev.usermd.net', credentials: true }),
-)
+);
 
 //  parsing
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(cookieParser())
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 //  static
-app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static(path.join(__dirname, 'build')));
 
 //  api
 app.get('/api', (req, res) => {
-	console.log(req)
-	res.send('Server is ready.')
-})
+	console.log(req);
+	res.send('Server is ready.');
+});
 
 //  routes
-app.use('/api/users', userRouter)
-app.use('/api/products', productRouter)
+app.use('/api/users', userRouter);
+app.use('/api/products', productRouter);
 
 //  *
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, 'public/index.html'))
-})
+	res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 //  error handlers
-app.use(notFound)
-app.use(errorHandler)
+app.use(notFound);
+app.use(errorHandler);
 
 //  port
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-	console.log(`Server listening on port: ${PORT}`)
-})
+	console.log(`Server listening on port: ${PORT}`);
+});
 ////

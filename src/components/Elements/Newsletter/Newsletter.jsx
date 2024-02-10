@@ -1,8 +1,8 @@
-import './Newsletter.scss'
+import './Newsletter.scss';
 
 const Newsletter = () => {
 	return (
-		<div className='newsletter__wrapper'>
+		<section id='newsletter' className='newsletter__wrapper'>
 			<div className='newsletter__left'>
 				<div className='newsletter__left__header'>
 					<h1>JOIN THE CULTURE</h1>
@@ -31,8 +31,8 @@ const Newsletter = () => {
 					alt=''
 				/>
 			</div>
-		</div>
-	)
-}
+		</section>
+	);
+};
 
-export default Newsletter
+export default Newsletter;

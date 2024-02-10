@@ -1,6 +1,6 @@
-import { NavLink } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import './ProductCard.scss'
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import './ProductCard.scss';
 
 const ProductCard = ({ product }) => {
 	return (
@@ -49,10 +49,10 @@ const ProductCard = ({ product }) => {
 				</div>
 			</NavLink>
 		</div>
-	)
-}
+	);
+};
 
-export default ProductCard
+export default ProductCard;
 
 ProductCard.propTypes = {
 	product: PropTypes.shape({
@@ -70,4 +70,4 @@ ProductCard.propTypes = {
 		}).isRequired,
 		model: PropTypes.string.isRequired,
 	}).isRequired,
-}
+};

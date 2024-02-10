@@ -1,16 +1,16 @@
-import asyncHandler from 'express-async-handler'
-import Cart from '../models/cartModel.js'
+import asyncHandler from 'express-async-handler';
+import Cart from '../models/cartModel.js';
 
 //  desc     Create Cart
 //  route    POST /api/carts
 //  access   Public
 const createCart = asyncHandler(async (req, res) => {
-	const newCart = new Cart(req.body)
+	const newCart = new Cart(req.body);
 
-	const savedCart = await newCart.save()
+	const savedCart = await newCart.save();
 
-	if (savedCart) res.status(200).json(savedCart)
-})
+	if (savedCart) res.status(200).json(savedCart);
+});
 
 //  desc     Update Cart
 //  route    PUT /api/carts/update
@@ -22,49 +22,49 @@ const updateCart = asyncHandler(async (req, res) => {
 			$set: req.body,
 		},
 		{ new: true },
-	)
+	);
 	if (updatedCart) {
-		res.status(200).json(updatedCart)
+		res.status(200).json(updatedCart);
 	} else {
-		res.status(404)
-		throw new Error('Cart not found.')
+		res.status(404);
+		throw new Error('Cart not found.');
 	}
-})
+});
 
 //  desc     Delete Cart
 //  route    DELETE /api/carts/delete
 //  access   Public
 const deleteCart = asyncHandler(async (req, res) => {
-	const deletedCart = await Cart.findByIdAndDelete(req.body.id)
+	const deletedCart = await Cart.findByIdAndDelete(req.body.id);
 	if (deletedCart) {
-		res.status(200).json({ message: 'Cart deleted successfully.' })
+		res.status(200).json({ message: 'Cart deleted successfully.' });
 	} else {
-		res.status(404)
-		throw new Error('Cart not found.')
+		res.status(404);
+		throw new Error('Cart not found.');
 	}
-})
+});
 
 //  desc     Get User Cart
 //  route    GET /api/carts/user
 //  access   Private
 const getUserCart = asyncHandler(async (req, res) => {
-	const userCart = await Cart.findOne({ userId: req.body.id })
+	const userCart = await Cart.findOne({ userId: req.body.id });
 
 	if (userCart) {
-		res.status(200).json(userCart)
+		res.status(200).json(userCart);
 	} else {
-		res.status(404)
-		throw new Error('Cart not found.')
+		res.status(404);
+		throw new Error('Cart not found.');
 	}
-})
+});
 
 //  desc     Get All Carts
 //  route    GET /api/carts/all
 //  access   Private
 const getAllCarts = asyncHandler(async (req, res) => {
-	const carts = await Cart.find()
+	const carts = await Cart.find();
 
-	if (carts) res.status(200).json(carts)
-})
+	if (carts) res.status(200).json(carts);
+});
 
-export { createCart, updateCart, deleteCart, getUserCart, getAllCarts }
+export { createCart, updateCart, deleteCart, getUserCart, getAllCarts };

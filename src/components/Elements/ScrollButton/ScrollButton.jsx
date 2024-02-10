@@ -1,4 +1,4 @@
-import './ScrollButton.scss'
+import './ScrollButton.scss';
 
 const ScrollButton = () => {
 	return (
@@ -7,7 +7,7 @@ const ScrollButton = () => {
 				<div className='scrollButton__icon'></div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default ScrollButton
+export default ScrollButton;

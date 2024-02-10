@@ -9,16 +9,11 @@
 		gap: 1rem;
 		padding-left: 1rem;
 
-		h1 {
-			font-size: 1.25rem;
-		}
-
 		p {
-			font-size: 0.875rem;
 			font-weight: 300;
 			opacity: 0.6;
 			text-decoration: underline;
-			text-underline-offset: 0.35rem;
+			text-underline-offset: 0.5rem;
 			text-decoration-color: rgba(51, 51, 51, 0);
 			transition: text-decoration-color 0.3s ease-out;
 

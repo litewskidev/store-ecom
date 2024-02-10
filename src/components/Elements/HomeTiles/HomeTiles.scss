@@ -2,7 +2,8 @@
 
 .featured {
 	&__wrapper {
-		height: 100svh;
+		min-height: 100vh;
+		max-height: 135vh;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		grid-template-rows: 48% 48%;
@@ -62,10 +63,6 @@
 				color: $seasalt;
 			}
 
-			p {
-				font-size: 0.875rem;
-			}
-
 			p:last-of-type {
 				text-underline-offset: 0.5rem;
 				text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
@@ -98,7 +95,7 @@
 @media screen and (max-width: 600px) {
 	.featured {
 		&__wrapper {
-			height: auto;
+			max-height: none;
 			display: flex;
 			flex-direction: column;
 			padding: 1rem;

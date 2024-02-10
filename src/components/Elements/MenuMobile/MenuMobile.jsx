@@ -1,12 +1,12 @@
-import { NavLink } from 'react-router-dom'
-import useToggle from '../../../hooks/useToggle.js'
-import SocialLinks from '../SocialLinks/SocialLinks.jsx'
-import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom';
+import useToggle from '../../../hooks/useToggle.js';
+import SocialLinks from '../SocialLinks/SocialLinks.jsx';
+import PropTypes from 'prop-types';
 
 const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 	//  BUTTONS HANDLERS
-	const [isWatchesListActive, toggleWatchesList] = useToggle(false)
-	const [isBrandsListActive, toggleBrandsList] = useToggle(false)
+	const [isWatchesListActive, toggleWatchesList] = useToggle(false);
+	const [isBrandsListActive, toggleBrandsList] = useToggle(false);
 
 	return (
 		<>
@@ -149,13 +149,13 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 				</div>
 			</nav>
 		</>
-	)
-}
+	);
+};
 
 MenuMobile.propTypes = {
 	isDropdownActive: PropTypes.bool.isRequired,
 	toggleDropdown: PropTypes.func.isRequired,
 	navbarMenu: PropTypes.object.isRequired,
-}
+};
 
-export default MenuMobile
+export default MenuMobile;

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const paymentModel = mongoose.Schema({
 	userId: {
@@ -36,8 +36,8 @@ const paymentModel = mongoose.Schema({
 	token: {
 		type: String,
 	},
-})
+});
 
-const Payment = mongoose.model('Payment', paymentModel)
+const Payment = mongoose.model('Payment', paymentModel);
 
-export default Payment
+export default Payment;

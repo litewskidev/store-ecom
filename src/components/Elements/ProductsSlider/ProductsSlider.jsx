@@ -1,9 +1,9 @@
-import { useCallback, useMemo } from 'react'
-import Slider from 'react-slick'
-import ProductCard from '../ProductCard/ProductCard.jsx'
-import PropTypes from 'prop-types'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import { useCallback, useMemo } from 'react';
+import Slider from 'react-slick';
+import ProductCard from '../ProductCard/ProductCard.jsx';
+import PropTypes from 'prop-types';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const ProductsSlider = ({ products }) => {
 	const CustomPrevArrow = useCallback(
@@ -11,14 +11,14 @@ const ProductsSlider = ({ products }) => {
 			<div className='slick-arrow arrow-prev' onClick={onClick}></div>
 		),
 		[],
-	)
+	);
 
 	const CustomNextArrow = useCallback(
 		({ onClick }) => (
 			<div className='slick-arrow arrow-next' onClick={onClick}></div>
 		),
 		[],
-	)
+	);
 
 	const settings = useMemo(
 		() => ({
@@ -55,7 +55,7 @@ const ProductsSlider = ({ products }) => {
 			],
 		}),
 		[],
-	)
+	);
 
 	return (
 		<div className='productsSlider_wrapper'>
@@ -65,11 +65,11 @@ const ProductsSlider = ({ products }) => {
 				))}
 			</Slider>
 		</div>
-	)
-}
+	);
+};
 
-export default ProductsSlider
+export default ProductsSlider;
 
 ProductsSlider.propTypes = {
 	products: PropTypes.arrayOf(PropTypes.object),
-}
+};

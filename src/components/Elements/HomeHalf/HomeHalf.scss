@@ -3,7 +3,7 @@
 .heroHalf {
 	&__wrapper {
 		display: flex;
-		margin-top: -75svh;
+		margin-top: -75vh;
 	}
 
 	&__tile {
@@ -25,10 +25,6 @@
 			p,
 			h3 {
 				color: $seasalt;
-			}
-
-			p {
-				font-size: 0.875rem;
 			}
 
 			p:last-of-type {

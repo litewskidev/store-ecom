@@ -9,12 +9,12 @@
 body {
 	margin: 0;
 	padding: 0;
-	cursor: default;
 	background-color: $seasalt;
 	font-family: $font;
 	scroll-behavior: smooth;
 	-ms-overflow-style: none;
 	scrollbar-width: 0;
+	cursor: default;
 
 	&::-webkit-scrollbar {
 		display: none;
@@ -34,6 +34,15 @@ h6 {
 	padding: 0;
 }
 
+p,
+h4 {
+	font-size: 0.875rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+}
+
 a {
 	text-decoration: none;
 	margin: 0;
@@ -44,8 +53,4 @@ ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-}
-
-//  HELPERS
-@mixin scale {
 }

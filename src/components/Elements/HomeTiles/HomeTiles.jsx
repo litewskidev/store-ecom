@@ -1,6 +1,6 @@
-import { useMemo } from 'react'
-import { NavLink } from 'react-router-dom'
-import './HomeTiles.scss'
+import { useMemo } from 'react';
+import { NavLink } from 'react-router-dom';
+import './HomeTiles.scss';
 
 const HomeTiles = () => {
 	const featuredMenu = useMemo(
@@ -43,7 +43,7 @@ const HomeTiles = () => {
 			},
 		],
 		[],
-	)
+	);
 
 	return (
 		<div className='featured__wrapper'>
@@ -60,14 +60,14 @@ const HomeTiles = () => {
 						<div className='featured__tile__info'>
 							<p>{tile?.category}</p>
 							<h3>{tile.title}</h3>
-							<p>&middot;</p>
+							<p>&#8231;</p>
 							<p>{tile.action}</p>
 						</div>
 					</div>
 				</NavLink>
 			))}
 		</div>
-	)
-}
+	);
+};
 
-export default HomeTiles
+export default HomeTiles;
