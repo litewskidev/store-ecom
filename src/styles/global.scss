@@ -12,6 +12,7 @@ body {
 	background-color: $seasalt;
 	font-family: $font;
 	scroll-behavior: smooth;
+	-webkit-font-smoothing: antialiased;
 	-ms-overflow-style: none;
 	scrollbar-width: 0;
 	cursor: default;

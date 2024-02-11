@@ -2,9 +2,8 @@
 
 .scrollButton {
 	&__wrapper {
-		//width: 100%;
 		display: flex;
-		justify-content: start;
+		justify-content: flex-start;
 		margin-top: 1rem;
 	}
 
@@ -15,7 +14,6 @@
 		border: solid 0.063rem $seasalt;
 		background-color: transparent;
 		box-shadow: $shadow-light;
-		border-radius: 0.5rem;
 	}
 
 	&__icon {
@@ -24,7 +22,6 @@
 		left: 50%;
 		width: 0.5rem;
 		height: 0.5rem;
-		border-radius: 50%;
 		background-color: $seasalt;
 		animation: scroll 1.85s ease infinite;
 	}
@@ -38,7 +35,7 @@
 			opacity: 0.85;
 		}
 		100% {
-			transform: translateX(-50%) translateY(1.6rem);
+			transform: translateX(-50%) translateY(1.55rem);
 			opacity: 0;
 		}
 	}

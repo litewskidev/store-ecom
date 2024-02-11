@@ -53,7 +53,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 							<div
 								className={`navbar__item__link__dropdown__list__items__inner ${isWatchesListActive ? 'list-open' : ''}`}
 							>
-								<ul>
+								<ul className={isWatchesListActive ? 'open' : ''}>
 									<h4>{navbarMenu.shopByCategory.title}</h4>
 									{navbarMenu.shopByCategory.links.map((item, index) => (
 										<li key={index}>
@@ -96,7 +96,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 							<div
 								className={`navbar__item__link__dropdown__list__items__inner ${isBrandsListActive ? 'list-open' : ''}`}
 							>
-								<ul>
+								<ul className={isBrandsListActive ? 'open' : ''}>
 									<h4>{navbarMenu.featuredBrands.title}</h4>
 									{navbarMenu.featuredBrands.links.map((item, index) => (
 										<li key={index}>

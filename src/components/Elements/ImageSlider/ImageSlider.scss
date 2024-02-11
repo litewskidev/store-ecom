@@ -56,3 +56,8 @@
 		}
 	}
 }
+
+.slick-dots li button:before {
+	content: '\25FC';
+	font-size: 0.5rem;
+}

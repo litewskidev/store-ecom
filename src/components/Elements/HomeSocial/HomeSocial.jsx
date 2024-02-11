@@ -1,17 +1,20 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import SocialModal from '../SocialModal/SocialModal';
+import useToggle from '../../../hooks/useToggle.js';
+import SocialModal from '../SocialModal/SocialModal.jsx';
 import './HomeSocial.scss';
 
 const HomeSocial = () => {
-	const [isSocialModal, setIsSocialModal] = useState(false);
+	const [isSocialModal, toggleSocialModal] = useToggle(false);
 	const [currentSocial, setCurrentSocial] = useState(null);
+	const [currentIndex, setCurrentIndex] = useState(null);
 
-	const toggleSocialModal = useCallback(
-		social => {
-			setIsSocialModal(!isSocialModal);
-			setCurrentSocial(social);
+	const handleSocialModal = useCallback(
+		(homeSocialMenu, index) => {
+			toggleSocialModal();
+			setCurrentSocial(homeSocialMenu[index]);
+			setCurrentIndex(index);
 		},
-		[isSocialModal],
+		[toggleSocialModal],
 	);
 
 	const homeSocialMenu = useMemo(
@@ -33,16 +36,6 @@ const HomeSocial = () => {
 			},
 			{
 				image: 'instagram_4',
-				href: 'https://www.instagram.com',
-				desc: '',
-			},
-			{
-				image: 'instagram_5',
-				href: 'https://www.instagram.com',
-				desc: '',
-			},
-			{
-				image: 'instagram_6',
 				href: 'https://www.instagram.com',
 				desc: '',
 			},
@@ -73,14 +66,23 @@ const HomeSocial = () => {
 									`/assets/images/instagram/${social.image}.webp`
 								}
 								alt=''
-								onClick={() => toggleSocialModal(social)}
+								onClick={() => {
+									handleSocialModal(homeSocialMenu, index);
+								}}
 							/>
 						</div>
 					))}
 				</div>
 			</div>
 			<div className={`homeSocial__modal ${isSocialModal ? 'active' : ''}`}>
-				<SocialModal social={currentSocial} close={toggleSocialModal} />
+				<SocialModal
+					toggleSocialModal={toggleSocialModal}
+					currentSocial={currentSocial}
+					setCurrentSocial={setCurrentSocial}
+					currentIndex={currentIndex}
+					setCurrentIndex={setCurrentIndex}
+					homeSocialMenu={homeSocialMenu}
+				/>
 			</div>
 		</div>
 	);
