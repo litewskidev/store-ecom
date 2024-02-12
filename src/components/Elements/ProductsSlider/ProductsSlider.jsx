@@ -23,7 +23,7 @@ const ProductsSlider = ({ products }) => {
 	const settings = useMemo(
 		() => ({
 			lazyLoad: true,
-			speed: 800,
+			speed: 600,
 			infinite: true,
 			slidesToShow: 3,
 			slidesToScroll: 1,

@@ -31,14 +31,14 @@ const HomeBenefit = () => {
 			{homeBenefitMenu.map((benefit, index) => (
 				<div className='homeBenefit__box' key={index}>
 					<img
-						src={process.env.PUBLIC_URL + '/assets/icons/asterisk.svg'}
+						src={process.env.PUBLIC_URL + '/assets/icons/star2.svg'}
 						alt=''
 					/>
-					<p>
+					<h5>
 						{benefit.options.first}
 						<br />
 						{benefit.options.second}
-					</p>
+					</h5>
 				</div>
 			))}
 		</div>

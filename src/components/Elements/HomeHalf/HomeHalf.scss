@@ -23,8 +23,8 @@
 			z-index: 2;
 
 			p,
-			h3 {
-				color: $seasalt;
+			h4 {
+				color: $white;
 			}
 
 			p:last-of-type {
@@ -59,7 +59,7 @@
 
 			.heroHalf__tile__info {
 				p:last-of-type {
-					text-decoration-color: $seasalt;
+					text-decoration-color: $white;
 				}
 			}
 		}
@@ -77,7 +77,7 @@
 				gap: 0;
 
 				p:last-of-type {
-					text-decoration: underline 0.063rem $seasalt;
+					text-decoration: underline 0.063rem $white;
 				}
 			}
 		}

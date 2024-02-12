@@ -11,7 +11,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 	return (
 		<>
 			<div className='navbar__modal__inner__header'>
-				<h2>{navbarMenu.title}</h2>
+				<h4>{navbarMenu.title}</h4>
 				<button
 					className={`navbar__item__menu__button ${isDropdownActive ? 'active' : ''}`}
 					onClick={toggleDropdown}>
@@ -50,7 +50,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 							<div
 								className={`navbar__item__link__dropdown__list__items__inner ${isWatchesListActive ? 'list-open' : ''}`}>
 								<ul className={isWatchesListActive ? 'open' : ''}>
-									<h4>{navbarMenu.shopByCategory.title}</h4>
+									<h6>{navbarMenu.shopByCategory.title}</h6>
 									{navbarMenu.shopByCategory.links.map((item, index) => (
 										<li key={index}>
 											<NavLink
@@ -60,7 +60,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 											</NavLink>
 										</li>
 									))}
-									<h4>{navbarMenu.featuredCollections.title}</h4>
+									<h6>{navbarMenu.featuredCollections.title}</h6>
 									{navbarMenu.featuredCollections.links.map((item, index) => (
 										<li key={index}>
 											<NavLink
@@ -89,7 +89,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 							<div
 								className={`navbar__item__link__dropdown__list__items__inner ${isBrandsListActive ? 'list-open' : ''}`}>
 								<ul className={isBrandsListActive ? 'open' : ''}>
-									<h4>{navbarMenu.featuredBrands.title}</h4>
+									<h6>{navbarMenu.featuredBrands.title}</h6>
 									{navbarMenu.featuredBrands.links.map((item, index) => (
 										<li key={index}>
 											<NavLink
@@ -99,7 +99,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 											</NavLink>
 										</li>
 									))}
-									<h4>{navbarMenu.allBrands.title}</h4>
+									<h6>{navbarMenu.allBrands.title}</h6>
 									{navbarMenu.allBrands.links.map((item, index) => (
 										<li key={index}>
 											<NavLink

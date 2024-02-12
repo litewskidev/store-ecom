@@ -24,7 +24,7 @@ const ImageSlider = ({ product }) => {
 		() => ({
 			lazyLoad: true,
 			key: product?._id,
-			speed: 800,
+			speed: 600,
 			infinite: true,
 			slidesToShow: 1,
 			slidesToScroll: 1,

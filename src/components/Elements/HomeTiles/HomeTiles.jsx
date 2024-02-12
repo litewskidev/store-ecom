@@ -59,7 +59,7 @@ const HomeTiles = () => {
 						/>
 						<div className='featured__tile__info'>
 							<p>{tile?.category}</p>
-							<h3>{tile.title}</h3>
+							<h4>{tile.title}</h4>
 							<p>&#8231;</p>
 							<p>{tile.action}</p>
 						</div>

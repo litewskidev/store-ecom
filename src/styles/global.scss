@@ -9,7 +9,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: $seasalt;
+	background-color: $white;
 	font-family: $font;
 	scroll-behavior: smooth;
 	-webkit-font-smoothing: antialiased;
@@ -29,19 +29,39 @@ h3,
 h4,
 h5,
 h6 {
-	color: $jet;
+	color: $black;
 	line-height: 1.6;
 	margin: 0;
 	padding: 0;
 }
 
-p,
-h4 {
-	font-size: 0.875rem;
+h1 {
+	font-size: 2.027rem;
+}
+
+h2 {
+	font-size: 1.802rem;
 }
 
 h3 {
-	font-size: 1.25rem;
+	font-size: 1.602rem;
+}
+
+h4 {
+	font-size: 1.424rem;
+}
+
+h5 {
+	font-size: 1.266rem;
+}
+
+h6 {
+	font-size: 1.125rem;
+}
+
+p {
+	font-size: 1rem;
+	color: $black75;
 }
 
 a {

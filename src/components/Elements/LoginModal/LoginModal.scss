@@ -11,7 +11,7 @@
 		width: 31rem;
 		height: 100dvh;
 		padding: 1rem 2rem;
-		background-color: $seasalt;
+		background-color: $white;
 	}
 
 	&__nav {
@@ -50,14 +50,14 @@
 				&__up {
 					width: 1.5rem;
 					height: 0.1rem;
-					background-color: $jet;
+					background-color: $black;
 					transform: rotate(45deg);
 				}
 
 				&__down {
 					width: 1.5rem;
 					height: 0.1rem;
-					background-color: $jet;
+					background-color: $black;
 					transform: translateY(-0.11rem) rotate(-45deg);
 				}
 			}
@@ -71,11 +71,11 @@
 			input {
 				width: 100%;
 				font-family: $font;
-				font-size: 0.875rem;
+				font-size: 1rem;
 				padding: 1rem 0;
 				background-color: transparent;
 				border: none;
-				border-bottom: solid 0.063rem $jet;
+				border-bottom: solid 0.063rem $black;
 				outline: none;
 
 				&::placeholder {
@@ -85,20 +85,20 @@
 
 			button {
 				font-family: $font;
-				font-size: 0.875rem;
-				color: $jet;
+				font-size: 1rem;
+				color: $black;
 				padding: 1rem;
 				margin-top: 2.5rem;
 				background-color: transparent;
-				border: solid 0.063rem $jet;
+				border: solid 0.063rem $black;
 				cursor: pointer;
 				transition:
 					background-color 0.3s ease-out,
 					color 0.3s ease-out;
 
 				&:hover {
-					color: $seasalt;
-					background-color: $jet;
+					color: $white;
+					background-color: $black;
 				}
 			}
 		}
@@ -115,27 +115,27 @@
 			}
 
 			a {
-				font-size: 0.875rem;
-				color: $jet;
+				font-size: 1rem;
+				color: $black;
 				text-decoration: underline;
 				text-underline-offset: 0.5rem;
 			}
 
 			button {
 				font-family: $font;
-				font-size: 0.875rem;
-				color: $seasalt;
+				font-size: 1rem;
+				color: $white;
 				padding: 1rem;
 				margin-top: 2.5rem;
-				background-color: $jet;
-				border: solid 0.063rem $jet;
+				background-color: $black;
+				border: solid 0.063rem $black;
 				cursor: pointer;
 				transition:
 					background-color 0.3s ease-out,
 					color 0.3s ease-out;
 
 				&:hover {
-					color: $jet;
+					color: $black;
 					background-color: transparent;
 				}
 			}

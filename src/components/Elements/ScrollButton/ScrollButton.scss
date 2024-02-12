@@ -11,7 +11,8 @@
 		position: relative;
 		width: 1.2rem;
 		height: 2.4rem;
-		border: solid 0.063rem $seasalt;
+		border: solid 0.063rem $white;
+		border-radius: 1rem;
 		background-color: transparent;
 		box-shadow: $shadow-light;
 	}
@@ -20,9 +21,10 @@
 		position: absolute;
 		top: 0.1rem;
 		left: 50%;
-		width: 0.5rem;
-		height: 0.5rem;
-		background-color: $seasalt;
+		width: 0.6rem;
+		height: 0.6rem;
+		background-color: $white;
+		border-radius: 50%;
 		animation: scroll 1.85s ease infinite;
 	}
 

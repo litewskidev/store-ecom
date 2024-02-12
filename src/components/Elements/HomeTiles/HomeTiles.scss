@@ -3,11 +3,11 @@
 .featured {
 	&__wrapper {
 		min-height: 100vh;
-		max-height: 135vh;
+		max-height: 150vh;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		grid-template-rows: 48% 48%;
-		gap: 2rem;
+		gap: 1rem;
 		padding: 0 2rem;
 	}
 
@@ -44,7 +44,7 @@
 
 			.featured__tile__info {
 				p:last-of-type {
-					text-decoration-color: $seasalt;
+					text-decoration-color: $white;
 				}
 			}
 		}
@@ -59,8 +59,8 @@
 			z-index: 2;
 
 			p,
-			h3 {
-				color: $seasalt;
+			h4 {
+				color: $white;
 			}
 
 			p:last-of-type {
@@ -85,7 +85,7 @@
 				gap: 0;
 
 				p:last-of-type {
-					text-decoration: underline 0.063rem $seasalt;
+					text-decoration: underline 0.063rem $white;
 				}
 			}
 		}
@@ -98,7 +98,7 @@
 			max-height: none;
 			display: flex;
 			flex-direction: column;
-			padding: 1rem;
+			padding: 0 1rem;
 		}
 	}
 }

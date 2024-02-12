@@ -59,7 +59,7 @@ const HomeSocial = () => {
 						src={process.env.PUBLIC_URL + '/assets/icons/instagram.svg'}
 						alt='instagram icon'
 					/>
-					<h3>@CULTURE</h3>
+					<h4>@CULTURE</h4>
 					<p>&#8231;</p>
 					<a href='https://www.instagram.com' target='_blank' rel='noreferrer'>
 						FOLLOW US

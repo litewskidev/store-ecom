@@ -10,16 +10,12 @@ $shadow-medium:
 	rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 
 //  FONT
-$font: 'Inter', sans-serif;
-$base-size: 0.875rem;
+$font: 'proxima-nova', sans-serif;
 
 //  PALLETTE
-$jet: rgb(51, 51, 51);
-$white: rgb(255, 255, 255);
-$seasalt: rgb(250, 250, 250);
-$timberwolf: rgb(219, 215, 210);
-$cardinal: rgb(186, 59, 70);
-
-$zomp: rgb(83, 153, 135);
-$byzantine: rgb(83, 153, 135);
-$mountbatten: rgb(154, 122, 160);
+$mint: hsl(111, 11%, 86%);
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 20%);
+$black75: hsl(0, 0%, 25%);
+$black25: hsl(0, 0%, 90%);
+$error: hsl(0, 70%, 50%);

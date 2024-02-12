@@ -5,7 +5,7 @@ const Newsletter = () => {
 		<section id='newsletter' className='newsletter__wrapper'>
 			<div className='newsletter__left'>
 				<div className='newsletter__left__header'>
-					<h1>JOIN THE CULTURE</h1>
+					<h2>JOIN THE CULTURE</h2>
 					<p>
 						Immerse yourself in a captivating world of horological charm and
 						magic.
@@ -13,7 +13,7 @@ const Newsletter = () => {
 				</div>
 				<div className='newsletter__left__footer'>
 					<div className='newsletter__left__footer__title'>
-						<h3>Newsletter</h3>
+						<h6>Newsletter</h6>
 						<p>
 							Sign up for our newsletter and enjoy collection previews, new
 							arrivals, events and other exclusive offers.

@@ -55,7 +55,7 @@ const MenuDesktop = ({
 								<div className='navbar__item__link__dropdown__list'>
 									<div className='navbar__item__link__dropdown__list__items'>
 										<div className='navbar__item__link__dropdown__list__items__inner'>
-											<h4>{navbarMenu.shopByCategory.title}</h4>
+											<h5>{navbarMenu.shopByCategory.title}</h5>
 											<ul>
 												{navbarMenu.shopByCategory.links.map((item, index) => (
 													<li key={index}>
@@ -70,7 +70,7 @@ const MenuDesktop = ({
 									<div className='navbar__item__link__dropdown__list__items__pattern'></div>
 									<div className='navbar__item__link__dropdown__list__items'>
 										<div className='navbar__item__link__dropdown__list__items__inner'>
-											<h4>{navbarMenu.featuredCollections.title}</h4>
+											<h5>{navbarMenu.featuredCollections.title}</h5>
 											<ul>
 												{navbarMenu.featuredCollections.links.map(
 													(item, index) => (
@@ -95,7 +95,7 @@ const MenuDesktop = ({
 								<div className='navbar__item__link__dropdown__list'>
 									<div className='navbar__item__link__dropdown__list__items'>
 										<div className='navbar__item__link__dropdown__list__items__inner'>
-											<h4>{navbarMenu.featuredBrands.title}</h4>
+											<h5>{navbarMenu.featuredBrands.title}</h5>
 											<ul>
 												{navbarMenu.featuredBrands.links.map((item, index) => (
 													<li key={index}>
@@ -110,7 +110,7 @@ const MenuDesktop = ({
 									<div className='navbar__item__link__dropdown__list__items__pattern'></div>
 									<div className='navbar__item__link__dropdown__list__items'>
 										<div className='navbar__item__link__dropdown__list__items__inner'>
-											<h4>{navbarMenu.allBrands.title}</h4>
+											<h5>{navbarMenu.allBrands.title}</h5>
 											<ul>
 												{navbarMenu.allBrands.links.map((item, index) => (
 													<li key={index}>

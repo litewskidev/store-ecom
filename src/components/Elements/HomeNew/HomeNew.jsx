@@ -12,7 +12,7 @@ const HomeNew = () => {
 	return (
 		<div className='newArrivals__wrapper'>
 			<div className='newArrivals__title'>
-				<h3>NEW ARRIVALS</h3>
+				<h5>NEW ARRIVALS</h5>
 				<p>&#8231;</p>
 				<NavLink to='/categories/new-arrivals'>
 					<p>VIEW ALL</p>

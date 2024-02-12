@@ -14,7 +14,7 @@
 		align-items: center;
 		width: 50%;
 		height: 50%;
-		background-color: $seasalt;
+		background-color: $white;
 		z-index: 2;
 
 		&__inner {
@@ -34,7 +34,7 @@
 		&:hover {
 			.stickyHalf__info__inner {
 				p:last-of-type {
-					text-decoration-color: $jet;
+					text-decoration-color: $black;
 				}
 			}
 		}
@@ -65,7 +65,7 @@
 		&__info {
 			&__inner {
 				p:last-of-type {
-					text-decoration-color: $jet;
+					text-decoration-color: $black;
 				}
 			}
 		}

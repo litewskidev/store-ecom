@@ -3,7 +3,7 @@
 .homeBrands {
 	&__wrapper {
 		background-color: $white;
-		padding: 3rem 0;
+		padding: 8rem 0;
 	}
 
 	&__brand {
@@ -26,11 +26,20 @@
 	}
 }
 
+@media screen and (max-width: 1200px) {
+	.homeBrands {
+		&__wrapper {
+			background-color: $white;
+			padding: 5.5rem 0;
+		}
+	}
+}
+
 @media screen and (max-width: 600px) {
 	.homeBrands {
 		&__wrapper {
 			background-color: $white;
-			padding: 0;
+			padding: 3rem 0;
 		}
 
 		&__brand {

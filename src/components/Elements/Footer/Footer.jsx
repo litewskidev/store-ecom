@@ -17,7 +17,7 @@ const Footer = () => {
 					<div
 						className='footer__body__item__title'
 						onClick={toggleCompanyList}>
-						<h2>COMPANY</h2>
+						<h5>COMPANY</h5>
 						<div className='footer__body__item__title__icon'>
 							<img
 								className={isCompanyListActive ? 'rotate' : ''}
@@ -56,7 +56,7 @@ const Footer = () => {
 				</div>
 				<div className='footer__body__item'>
 					<div className='footer__body__item__title' onClick={toggleStoresList}>
-						<h2>OUR STORES</h2>
+						<h5>OUR STORES</h5>
 						<div className='footer__body__item__title__icon'>
 							<img
 								className={isStoresListActive ? 'rotate' : ''}
@@ -94,7 +94,7 @@ const Footer = () => {
 					<div
 						className='footer__body__item__title'
 						onClick={toggleCustomerList}>
-						<h2>CUSTOMER CARE</h2>
+						<h5>CUSTOMER CARE</h5>
 						<div className='footer__body__item__title__icon'>
 							<img
 								className={isCustomerListActive ? 'rotate' : ''}
@@ -126,7 +126,7 @@ const Footer = () => {
 					<div
 						className='footer__body__item__title'
 						onClick={toggleContactList}>
-						<h2>GET IN TOUCH</h2>
+						<h5>GET IN TOUCH</h5>
 						<div className='footer__body__item__title__icon'>
 							<img
 								className={isContactListActive ? 'rotate' : ''}
