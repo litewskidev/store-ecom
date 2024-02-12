@@ -3,10 +3,8 @@
 .homeBenefit {
 	&__wrapper {
 		display: flex;
-		padding: 5rem 0;
+		padding: 5.15rem 0;
 		background-color: $white;
-		border-top: solid 0.063rem $jet;
-		border-bottom: solid 0.063rem $jet;
 		z-index: 3;
 	}
 
@@ -32,6 +30,10 @@
 
 @media screen and (max-width: 1200px) {
 	.homeBenefit {
+		&__wrapper {
+			padding: 5.72rem 0;
+		}
+
 		&__box {
 			img {
 				width: 1.7rem;

@@ -133,12 +133,10 @@ const Product = ({ product }) => {
 						</div>
 					</div>
 					<div
-						className={`product__info__desc ${isDescriptionOpen ? 'open' : ''}`}
-					>
+						className={`product__info__desc ${isDescriptionOpen ? 'open' : ''}`}>
 						<div
 							className='product__info__desc__button'
-							onClick={toggleDescription}
-						>
+							onClick={toggleDescription}>
 							<h2>{productMenu.desc.title}</h2>
 							<img
 								className={isDescriptionOpen ? 'rotate' : ''}
@@ -149,12 +147,10 @@ const Product = ({ product }) => {
 						<p>{product?.description}</p>
 					</div>
 					<div
-						className={`product__info__features ${isFeaturesOpen ? 'open' : ''}`}
-					>
+						className={`product__info__features ${isFeaturesOpen ? 'open' : ''}`}>
 						<div
 							className='product__info__features__button'
-							onClick={toggleFeatures}
-						>
+							onClick={toggleFeatures}>
 							<h2>{productMenu.features.title}</h2>
 							<img
 								className={isFeaturesOpen ? 'rotate' : ''}

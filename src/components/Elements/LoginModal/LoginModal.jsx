@@ -18,8 +18,7 @@ const LoginModal = ({ handleBtn }) => {
 								<h2>CREATE ACCOUNT</h2>
 								<button
 									className='loginModal__nav__header__button'
-									onClick={handleBtn}
-								>
+									onClick={handleBtn}>
 									<div className='loginModal__nav__header__button__up'></div>
 									<div className='loginModal__nav__header__button__down'></div>
 								</button>
@@ -61,8 +60,7 @@ const LoginModal = ({ handleBtn }) => {
 								<h2>LOG IN</h2>
 								<button
 									className='loginModal__nav__header__button'
-									onClick={handleBtn}
-								>
+									onClick={handleBtn}>
 									<div className='loginModal__nav__header__button__up'></div>
 									<div className='loginModal__nav__header__button__down'></div>
 								</button>

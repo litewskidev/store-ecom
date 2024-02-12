@@ -18,8 +18,7 @@ const SocialLinks = () => {
 					key={index}
 					href={`https://www.${link}.com`}
 					target='_blank'
-					rel='noreferrer'
-				>
+					rel='noreferrer'>
 					<img
 						src={process.env.PUBLIC_URL + `/assets/icons/${link}.svg`}
 						alt={link}

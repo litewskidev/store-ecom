@@ -7,8 +7,7 @@ const ProductCard = ({ product }) => {
 		<div className='productCard__box'>
 			<NavLink
 				to={`/watches/${product?._id}`}
-				className='productCard__box__inner'
-			>
+				className='productCard__box__inner'>
 				<div className='productCard__box__inner__image'>
 					{product?.images.slice(0, 1).map((image, index) => (
 						<div className='product__images' key={index}>

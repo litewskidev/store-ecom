@@ -36,8 +36,7 @@ const PaymentButton = () => {
 				description='Your Total is $20'
 				amount={2000}
 				token={onToken}
-				stripeKey='pk_test_51OW3nTJWn5wRQhhV9zEz7B9N3SKMO3uECMeUG0bOrQy6aEab6435eKkZTOpz1NPBA2FGJfLfobMJsIoaIbuGoVhx0076K47mNM'
-			>
+				stripeKey='pk_test_51OW3nTJWn5wRQhhV9zEz7B9N3SKMO3uECMeUG0bOrQy6aEab6435eKkZTOpz1NPBA2FGJfLfobMJsIoaIbuGoVhx0076K47mNM'>
 				<button className='payment__btn'>
 					<p>PAY NOW</p>
 				</button>

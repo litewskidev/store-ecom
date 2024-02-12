@@ -13,8 +13,9 @@ const HomeHero = () => {
 					muted
 					playsInline
 					type='video/mp4'
-					src={process.env.PUBLIC_URL + '/assets/videos/video_1_superlow.mp4'}
-				></video>
+					src={
+						process.env.PUBLIC_URL + '/assets/videos/video_1_superlow.mp4'
+					}></video>
 				<div className='hero__hero__title'>
 					<h1>YOUR TIME HAS COME.</h1>
 					<p>

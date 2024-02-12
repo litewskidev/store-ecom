@@ -16,8 +16,7 @@ const Footer = () => {
 				<div className='footer__body__item'>
 					<div
 						className='footer__body__item__title'
-						onClick={toggleCompanyList}
-					>
+						onClick={toggleCompanyList}>
 						<h2>COMPANY</h2>
 						<div className='footer__body__item__title__icon'>
 							<img
@@ -32,8 +31,7 @@ const Footer = () => {
 							isCompanyListActive
 								? 'footer__body__item__list__one open'
 								: 'footer__body__item__list__one'
-						}
-					>
+						}>
 						<ul className='footer__body__item__list__inner'>
 							<li className='footer__body__item__list__inner__link'>
 								<NavLink>ABOUT US</NavLink>
@@ -72,8 +70,7 @@ const Footer = () => {
 							isStoresListActive
 								? 'footer__body__item__list__three open'
 								: 'footer__body__item__list__three'
-						}
-					>
+						}>
 						<ul className='footer__body__item__list__inner'>
 							<li className='footer__body__item__list__inner__link'>
 								<NavLink>NEW YORK</NavLink>
@@ -96,8 +93,7 @@ const Footer = () => {
 				<div className='footer__body__item'>
 					<div
 						className='footer__body__item__title'
-						onClick={toggleCustomerList}
-					>
+						onClick={toggleCustomerList}>
 						<h2>CUSTOMER CARE</h2>
 						<div className='footer__body__item__title__icon'>
 							<img
@@ -112,8 +108,7 @@ const Footer = () => {
 							isCustomerListActive
 								? 'footer__body__item__list__two open'
 								: 'footer__body__item__list__two'
-						}
-					>
+						}>
 						<ul className='footer__body__item__list__inner'>
 							<li className='footer__body__item__list__inner__link'>
 								<NavLink>DELIVERY</NavLink>
@@ -130,8 +125,7 @@ const Footer = () => {
 				<div className='footer__body__item'>
 					<div
 						className='footer__body__item__title'
-						onClick={toggleContactList}
-					>
+						onClick={toggleContactList}>
 						<h2>GET IN TOUCH</h2>
 						<div className='footer__body__item__title__icon'>
 							<img
@@ -146,8 +140,7 @@ const Footer = () => {
 							isContactListActive
 								? 'footer__body__item__list__four open'
 								: 'footer__body__item__list__four'
-						}
-					>
+						}>
 						<ul className='footer__body__item__list__inner'>
 							<li className='footer__body__item__list__inner__link'>
 								<NavLink>CONTACT US</NavLink>

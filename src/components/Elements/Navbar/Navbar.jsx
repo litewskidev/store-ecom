@@ -209,11 +209,9 @@ const Navbar = () => {
 	return (
 		<header
 			id='navbar'
-			className={`navbar ${isScrollingDown && isScrollBelowThreshold ? '' : 'nav-open'}`}
-		>
+			className={`navbar ${isScrollingDown && isScrollBelowThreshold ? '' : 'nav-open'}`}>
 			<nav
-				className={`navbar__wrapper${isHomePage && !isScrollBelowThreshold ? ' nav-top' : ''}${isProductPage ? ' nav-product' : ''}`}
-			>
+				className={`navbar__wrapper${isHomePage && !isScrollBelowThreshold ? ' nav-top' : ''}${isProductPage ? ' nav-product' : ''}`}>
 				{/* MENU DESKTOP */}
 				<MenuDesktop
 					isDropdownActive={isDropdownActive}
@@ -223,10 +221,14 @@ const Navbar = () => {
 					navbarMenu={navbarMenu}
 				/>
 				{/* MENU MOBILE */}
-				<div className={`navbar__modal ${isDropdownActive ? 'active' : ''}`}>
+				<div
+					className={`navbar__modal ${isDropdownActive ? 'active' : ''}`}
+					onClick={toggleDropdown}>
 					<div
 						className={`navbar__modal__inner ${isDropdownActive ? 'open' : ''}`}
-					>
+						onClick={e => {
+							e.stopPropagation();
+						}}>
 						<MenuMobile
 							isDropdownActive={isDropdownActive}
 							toggleDropdown={toggleDropdown}
@@ -235,16 +237,26 @@ const Navbar = () => {
 					</div>
 				</div>
 				{/* LOGIN MODAL */}
-				<div className={`navbar__login ${isLoginActive ? 'active' : ''}`}>
+				<div
+					className={`navbar__login ${isLoginActive ? 'active' : ''}`}
+					onClick={toggleLogin}>
 					<div
 						className={`navbar__login__inner ${isLoginActive ? 'open' : ''}`}
-					>
+						onClick={e => {
+							e.stopPropagation();
+						}}>
 						<LoginModal handleBtn={toggleLogin} />
 					</div>
 				</div>
 				{/* CART MODAL */}
-				<div className={`navbar__cart ${isCartActive ? 'active' : ''}`}>
-					<div className={`navbar__cart__inner ${isCartActive ? 'open' : ''}`}>
+				<div
+					className={`navbar__cart ${isCartActive ? 'active' : ''}`}
+					onClick={toggleCart}>
+					<div
+						className={`navbar__cart__inner ${isCartActive ? 'open' : ''}`}
+						onClick={e => {
+							e.stopPropagation();
+						}}>
 						<CartModal handleBtn={toggleCart} />
 					</div>
 				</div>

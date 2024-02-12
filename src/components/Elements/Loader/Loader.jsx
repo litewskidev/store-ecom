@@ -5,8 +5,7 @@ const Loader = ({ loading }) => {
 	return (
 		<aside
 			id='loader'
-			className={`loader__wrapper ${loading ? 'loading' : ''}`}
-		>
+			className={`loader__wrapper ${loading ? 'loading' : ''}`}>
 			<Loading />
 		</aside>
 	);

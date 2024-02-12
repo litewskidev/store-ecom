@@ -24,7 +24,11 @@ const SocialModal = ({
 	}, [currentIndex, setCurrentSocial, setCurrentIndex, homeSocialMenu]);
 
 	return (
-		<div className='socialModal__wrapper'>
+		<div
+			className='socialModal__wrapper'
+			onClick={e => {
+				e.stopPropagation();
+			}}>
 			<div className='socialModal__left social__desktop'>
 				<img
 					src={
@@ -46,12 +50,13 @@ const SocialModal = ({
 						<a
 							href='https://www.instagram.com'
 							target='_blank'
-							rel='noreferrer'
-						>
+							rel='noreferrer'>
 							culture
 						</a>
 					</div>
-					<div onClick={toggleSocialModal}>X</div>
+					<div onClick={toggleSocialModal}>
+						<p>X</p>
+					</div>
 				</div>
 				<div className='socialModal__left social__mobile'>
 					<img
@@ -77,7 +82,20 @@ const SocialModal = ({
 					</div>
 				</div>
 				<div className='socialModal__right__desc'>
-					<p>{currentSocial?.desc}</p>
+					<div className='socialModal__right__desc__info'>
+						<p>{currentSocial?.desc}</p>
+						<p>{currentSocial?.tag}</p>
+					</div>
+					<div className='socialModal__right__desc__footer'>
+						<p>{currentSocial?.date}</p>
+						<p>&#8231;</p>
+						<a
+							href='https://www.instagram.com'
+							target='_blank'
+							rel='noreferrer'>
+							View on Instagram
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>

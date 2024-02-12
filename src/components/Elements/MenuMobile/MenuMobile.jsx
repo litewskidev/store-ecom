@@ -14,8 +14,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 				<h2>{navbarMenu.title}</h2>
 				<button
 					className={`navbar__item__menu__button ${isDropdownActive ? 'active' : ''}`}
-					onClick={toggleDropdown}
-				>
+					onClick={toggleDropdown}>
 					<div className='navbar__item__menu__button__up__modal__btn'></div>
 					<div className='navbar__item__menu__button__down__modal__btn'></div>
 				</button>
@@ -27,8 +26,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 							<NavLink
 								to='/categories/new-arrivals'
 								className='navbar__modal__inner__links__item__link__button'
-								onClick={toggleDropdown}
-							>
+								onClick={toggleDropdown}>
 								<p>{navbarMenu.categories.new}</p>
 								<img
 									src={process.env.PUBLIC_URL + '/assets/icons/arrow-right.svg'}
@@ -41,8 +39,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 						<div className='navbar__modal__inner__links__item__link'>
 							<div
 								className='navbar__modal__inner__links__item__link__button'
-								onClick={toggleWatchesList}
-							>
+								onClick={toggleWatchesList}>
 								<p>{navbarMenu.categories.all}</p>
 								<img
 									className={isWatchesListActive ? 'rotate' : ''}
@@ -51,16 +48,14 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 								/>
 							</div>
 							<div
-								className={`navbar__item__link__dropdown__list__items__inner ${isWatchesListActive ? 'list-open' : ''}`}
-							>
+								className={`navbar__item__link__dropdown__list__items__inner ${isWatchesListActive ? 'list-open' : ''}`}>
 								<ul className={isWatchesListActive ? 'open' : ''}>
 									<h4>{navbarMenu.shopByCategory.title}</h4>
 									{navbarMenu.shopByCategory.links.map((item, index) => (
 										<li key={index}>
 											<NavLink
 												to={`/categories/${item.id}`}
-												onClick={toggleDropdown}
-											>
+												onClick={toggleDropdown}>
 												{item.name}
 											</NavLink>
 										</li>
@@ -70,8 +65,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 										<li key={index}>
 											<NavLink
 												to={`/collections/${item.id}`}
-												onClick={toggleDropdown}
-											>
+												onClick={toggleDropdown}>
 												{item.name}
 											</NavLink>
 										</li>
@@ -84,8 +78,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 						<div className='navbar__modal__inner__links__item__link'>
 							<div
 								className='navbar__modal__inner__links__item__link__button'
-								onClick={toggleBrandsList}
-							>
+								onClick={toggleBrandsList}>
 								<p>{navbarMenu.categories.brands}</p>
 								<img
 									className={isBrandsListActive ? 'rotate' : ''}
@@ -94,16 +87,14 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 								/>
 							</div>
 							<div
-								className={`navbar__item__link__dropdown__list__items__inner ${isBrandsListActive ? 'list-open' : ''}`}
-							>
+								className={`navbar__item__link__dropdown__list__items__inner ${isBrandsListActive ? 'list-open' : ''}`}>
 								<ul className={isBrandsListActive ? 'open' : ''}>
 									<h4>{navbarMenu.featuredBrands.title}</h4>
 									{navbarMenu.featuredBrands.links.map((item, index) => (
 										<li key={index}>
 											<NavLink
 												to={`/brands/${item.id}`}
-												onClick={toggleDropdown}
-											>
+												onClick={toggleDropdown}>
 												{item.name}
 											</NavLink>
 										</li>
@@ -113,8 +104,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 										<li key={index}>
 											<NavLink
 												to={`/brands/${item.id}`}
-												onClick={toggleDropdown}
-											>
+												onClick={toggleDropdown}>
 												{item.name}
 											</NavLink>
 										</li>

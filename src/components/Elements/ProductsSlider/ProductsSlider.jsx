@@ -25,19 +25,13 @@ const ProductsSlider = ({ products }) => {
 			lazyLoad: true,
 			speed: 800,
 			infinite: true,
-			slidesToShow: 5,
+			slidesToShow: 3,
 			slidesToScroll: 1,
 			dots: false,
 			arrows: true,
 			prevArrow: <CustomPrevArrow />,
 			nextArrow: <CustomNextArrow />,
 			responsive: [
-				{
-					breakpoint: 1800,
-					settings: {
-						slidesToShow: 4,
-					},
-				},
 				{
 					breakpoint: 1200,
 					settings: {

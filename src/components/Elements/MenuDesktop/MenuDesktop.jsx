@@ -16,8 +16,7 @@ const MenuDesktop = ({
 						<li className='navbar__item__menu'>
 							<button
 								className={`navbar__item__menu__button ${isDropdownActive ? 'active' : ''}`}
-								onClick={toggleDropdown}
-							>
+								onClick={toggleDropdown}>
 								<div className='navbar__item__menu__button__up'></div>
 								<div className='navbar__item__menu__button__down'></div>
 							</button>
@@ -195,8 +194,7 @@ const MenuDesktop = ({
 						<li className='navbar__item__menu tablet__only'>
 							<button
 								className={`navbar__item__menu__button ${isDropdownActive ? 'active' : ''}`}
-								onClick={toggleDropdown}
-							>
+								onClick={toggleDropdown}>
 								<div className='navbar__item__menu__button__up'></div>
 								<div className='navbar__item__menu__button__down'></div>
 							</button>
