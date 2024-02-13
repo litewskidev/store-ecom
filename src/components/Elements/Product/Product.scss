@@ -13,17 +13,6 @@
 			position: sticky;
 			top: 2rem;
 			width: 55%;
-
-			&::before {
-				content: '';
-				position: absolute;
-				top: 3.8rem;
-				right: 0;
-				width: 20%;
-				height: 0.063rem;
-				background-color: $black;
-				z-index: 1;
-			}
 		}
 
 		img {
@@ -82,7 +71,6 @@
 
 			&__cart {
 				width: 80%;
-				border-radius: 2rem;
 
 				button {
 					width: 100%;
@@ -94,7 +82,7 @@
 					padding: 0.6rem 0;
 					cursor: pointer;
 					box-shadow: $shadow-medium;
-					border-radius: 2rem;
+					opacity: 0.9;
 				}
 			}
 
@@ -106,12 +94,10 @@
 				border: none;
 				cursor: pointer;
 				box-shadow: $shadow-medium;
-				border-radius: 2rem;
 
 				img {
 					width: 1.75rem;
 					filter: invert(1);
-					border-radius: 2rem;
 				}
 			}
 		}
@@ -136,11 +122,13 @@
 			gap: 1rem;
 
 			&__info {
-				display: grid;
-				grid-template-columns: 50% 50%;
-				grid-template-rows: 60% 40%;
-				column-gap: 1rem;
-				row-gap: 2rem;
+				&__inner {
+					display: grid;
+					grid-template-columns: 50% 50%;
+					grid-template-rows: 60% 40%;
+					column-gap: 1rem;
+					row-gap: 2rem;
+				}
 			}
 
 			&__button {
@@ -170,11 +158,6 @@
 			&__container {
 				width: 47%;
 				margin-bottom: 2rem;
-
-				&::before {
-					top: 3.4rem;
-					right: -1rem;
-				}
 			}
 		}
 
@@ -193,7 +176,7 @@
 		&__wrapper {
 			flex-direction: column;
 			gap: 4rem;
-			min-height: 100vh;
+			min-height: auto;
 		}
 
 		&__images {
@@ -202,13 +185,6 @@
 				top: 0;
 				width: 100%;
 				margin-bottom: 0;
-
-				&::before {
-					top: 101.5%;
-					right: 78.5%;
-					width: 4.5rem;
-					transform: rotate(90deg);
-				}
 			}
 		}
 
@@ -218,9 +194,8 @@
 			}
 
 			&__desc {
-				overflow: hidden;
-				height: 1.75rem;
-				transition: height 0.3s ease-out;
+				gap: 0;
+				padding-bottom: 1rem;
 
 				&__button {
 					display: flex;
@@ -239,15 +214,36 @@
 					}
 				}
 
-				&.open {
-					height: 16rem;
+				&__info {
+					display: grid;
+					grid-template-rows: 0fr;
+					transition: grid-template-rows 0.3s ease-out;
+
+					& > div {
+						overflow: hidden;
+					}
+
+					&.list-open {
+						grid-template-rows: 1fr;
+					}
+
+					&__inner {
+						transform: translateY(1rem);
+						opacity: 0;
+						transition:
+							transform 0.3s ease-out,
+							opacity 0.3s ease-out;
+
+						&.open {
+							opacity: 1;
+							transform: translateY(0);
+						}
+					}
 				}
 			}
 
 			&__features {
-				overflow: hidden;
-				height: 1.75rem;
-				transition: height 0.6s ease-out;
+				gap: 0;
 
 				&__button {
 					display: flex;
@@ -266,8 +262,32 @@
 					}
 				}
 
-				&.open {
-					height: 56rem;
+				&__info {
+					display: grid;
+					grid-template-rows: 0fr;
+					transition: grid-template-rows 0.3s ease-out;
+
+					& > div {
+						overflow: hidden;
+						row-gap: 0;
+					}
+
+					&.list-open {
+						grid-template-rows: 1fr;
+					}
+
+					&__inner {
+						transform: translateY(1rem);
+						opacity: 0;
+						transition:
+							transform 0.3s ease-out,
+							opacity 0.3s ease-out;
+
+						&.open {
+							opacity: 1;
+							transform: translateY(0);
+						}
+					}
 				}
 			}
 		}

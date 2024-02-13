@@ -27,8 +27,8 @@ const Product = ({ product }) => {
 	}, [location]);
 
 	//  BUTTONS HANDLERS
-	const [isDescriptionOpen, toggleDescription] = useToggle(true);
-	const [isFeaturesOpen, toggleFeatures] = useToggle(true);
+	const [isDescriptionOpen, toggleDescription] = useToggle(false);
+	const [isFeaturesOpen, toggleFeatures] = useToggle(false);
 
 	const productMenu = useMemo(
 		() => ({
@@ -132,132 +132,142 @@ const Product = ({ product }) => {
 							/>
 						</div>
 					</div>
-					<div
-						className={`product__info__desc ${isDescriptionOpen ? 'open' : ''}`}>
-						<div
-							className='product__info__desc__button'
-							onClick={toggleDescription}>
-							<h4>{productMenu.desc.title}</h4>
-							<img
-								className={isDescriptionOpen ? 'rotate' : ''}
-								src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'}
-								alt='down arrow'
-							/>
+					<div>
+						<div className='product__info__desc'>
+							<div
+								className='product__info__desc__button'
+								onClick={toggleDescription}>
+								<h4>{productMenu.desc.title}</h4>
+								<img
+									className={isDescriptionOpen ? 'rotate' : ''}
+									src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'}
+									alt='down arrow'
+								/>
+							</div>
+							<div
+								className={`product__info__desc__info ${isDescriptionOpen ? 'list-open' : ''}`}>
+								<div
+									className={`product__info__desc__info__inner ${isDescriptionOpen ? 'open' : ''}`}>
+									<p>{product?.description}</p>
+								</div>
+							</div>
 						</div>
-						<p>{product?.description}</p>
-					</div>
-					<div
-						className={`product__info__features ${isFeaturesOpen ? 'open' : ''}`}>
-						<div
-							className='product__info__features__button'
-							onClick={toggleFeatures}>
-							<h4>{productMenu.features.title}</h4>
-							<img
-								className={isFeaturesOpen ? 'rotate' : ''}
-								src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'}
-								alt='down arrow'
-							/>
-						</div>
-						<div className='product__info__features__info'>
-							<div>
-								<div className='product__info__features__details'>
-									<h5>{productMenu.features.first.title}</h5>
-									<div className='product__info__features__details__box'>
-										<h6>{productMenu.features.first.option_1}:</h6>
-										<p>{product?.sku}</p>
-									</div>
-									<div className='product__info__features__details__box'>
-										<h6>{productMenu.features.first.option_2}:</h6>
-										<p>{product?.reference}</p>
-									</div>
-									<div className='product__info__features__details__box'>
-										<h6>{productMenu.features.first.option_3}:</h6>
-										<p>{product?.year}</p>
-									</div>
-									<div className='product__info__features__details__box'>
-										<h6>{productMenu.features.first.option_4}:</h6>
-										<p>{product?.features.details.origin}</p>
-									</div>
-									<div className='product__info__features__details__box'>
-										<h6>{productMenu.features.first.option_5}:</h6>
-										{product?.features.details.style.map((style, index) => (
-											<p key={index}>{style}</p>
-										))}
-									</div>
-									<div className='product__info__features__details__box'>
-										<h6>{productMenu.features.first.option_6}:</h6>
-										<p>{product?.features.details.gender}</p>
-									</div>
-								</div>
+						<div className='product__info__features'>
+							<div
+								className='product__info__features__button'
+								onClick={toggleFeatures}>
+								<h4>{productMenu.features.title}</h4>
+								<img
+									className={isFeaturesOpen ? 'rotate' : ''}
+									src={process.env.PUBLIC_URL + '/assets/icons/arrow-down.svg'}
+									alt='down arrow'
+								/>
 							</div>
-							<div>
-								<div className='product__info__features__case'>
-									<h5>{productMenu.features.second.title}</h5>
-									<div className='product__info__features__case__box'>
-										<h6>{productMenu.features.second.option_1}:</h6>
-										<p>{product?.features.case.size}</p>
+							<div
+								className={`product__info__features__info ${isFeaturesOpen ? 'list-open' : ''}`}>
+								<div
+									className={`product__info__features__info__inner ${isFeaturesOpen ? 'open' : ''}`}>
+									<div>
+										<div className='product__info__features__details'>
+											<h5>{productMenu.features.first.title}</h5>
+											<div className='product__info__features__details__box'>
+												<h6>{productMenu.features.first.option_1}:</h6>
+												<p>{product?.sku}</p>
+											</div>
+											<div className='product__info__features__details__box'>
+												<h6>{productMenu.features.first.option_2}:</h6>
+												<p>{product?.reference}</p>
+											</div>
+											<div className='product__info__features__details__box'>
+												<h6>{productMenu.features.first.option_3}:</h6>
+												<p>{product?.year}</p>
+											</div>
+											<div className='product__info__features__details__box'>
+												<h6>{productMenu.features.first.option_4}:</h6>
+												<p>{product?.features.details.origin}</p>
+											</div>
+											<div className='product__info__features__details__box'>
+												<h6>{productMenu.features.first.option_5}:</h6>
+												{product?.features.details.style.map((style, index) => (
+													<p key={index}>{style}</p>
+												))}
+											</div>
+											<div className='product__info__features__details__box'>
+												<h6>{productMenu.features.first.option_6}:</h6>
+												<p>{product?.features.details.gender}</p>
+											</div>
+										</div>
 									</div>
-									<div className='product__info__features__case__box'>
-										<h6>{productMenu.features.second.option_2}:</h6>
-										<p>{product?.features.case.material}</p>
+									<div>
+										<div className='product__info__features__case'>
+											<h5>{productMenu.features.second.title}</h5>
+											<div className='product__info__features__case__box'>
+												<h6>{productMenu.features.second.option_1}:</h6>
+												<p>{product?.features.case.size}</p>
+											</div>
+											<div className='product__info__features__case__box'>
+												<h6>{productMenu.features.second.option_2}:</h6>
+												<p>{product?.features.case.material}</p>
+											</div>
+											<div className='product__info__features__case__box'>
+												<h6>{productMenu.features.second.option_3}:</h6>
+												<p>{product?.features.case.back}</p>
+											</div>
+											<div className='product__info__features__case__box'>
+												<h6>{productMenu.features.second.option_4}:</h6>
+												<p>{product?.features.case.shape}</p>
+											</div>
+											<div className='product__info__features__case__box'>
+												<h6>{productMenu.features.second.option_5}:</h6>
+												<p>{product?.features.dial.color}</p>
+											</div>
+											<div className='product__info__features__case__box'>
+												<h6>{productMenu.features.second.option_6}:</h6>
+												<p>{product?.features.dial.hoursMarkers}</p>
+											</div>
+											<div className='product__info__features__case__box'>
+												<h6>{productMenu.features.second.option_7}:</h6>
+												<p>{product?.features.case.waterResistance}</p>
+											</div>
+										</div>
 									</div>
-									<div className='product__info__features__case__box'>
-										<h6>{productMenu.features.second.option_3}:</h6>
-										<p>{product?.features.case.back}</p>
+									<div>
+										<div className='product__info__features__strap'>
+											<h5>{productMenu.features.third.title}</h5>
+											<div className='product__info__features__strap__box'>
+												<h6>{productMenu.features.third.option_1}:</h6>
+												<p>{product?.features.strapBracelet.material}</p>
+											</div>
+											<div className='product__info__features__strap__box'>
+												<h6>{productMenu.features.third.option_2}:</h6>
+												<p>{product?.features.strapBracelet.bandColor}</p>
+											</div>
+											<div className='product__info__features__strap__box'>
+												<h6>{productMenu.features.third.option_3}:</h6>
+												<p>{product?.features.strapBracelet.buckleType}</p>
+											</div>
+											<div className='product__info__features__strap__box'>
+												<h6>{productMenu.features.third.option_4}:</h6>
+												<p>{product?.features.strapBracelet.length}</p>
+											</div>
+										</div>
 									</div>
-									<div className='product__info__features__case__box'>
-										<h6>{productMenu.features.second.option_4}:</h6>
-										<p>{product?.features.case.shape}</p>
-									</div>
-									<div className='product__info__features__case__box'>
-										<h6>{productMenu.features.second.option_5}:</h6>
-										<p>{product?.features.dial.color}</p>
-									</div>
-									<div className='product__info__features__case__box'>
-										<h6>{productMenu.features.second.option_6}:</h6>
-										<p>{product?.features.dial.hoursMarkers}</p>
-									</div>
-									<div className='product__info__features__case__box'>
-										<h6>{productMenu.features.second.option_7}:</h6>
-										<p>{product?.features.case.waterResistance}</p>
-									</div>
-								</div>
-							</div>
-							<div>
-								<div className='product__info__features__strap'>
-									<h5>{productMenu.features.third.title}</h5>
-									<div className='product__info__features__strap__box'>
-										<h6>{productMenu.features.third.option_1}:</h6>
-										<p>{product?.features.strapBracelet.material}</p>
-									</div>
-									<div className='product__info__features__strap__box'>
-										<h6>{productMenu.features.third.option_2}:</h6>
-										<p>{product?.features.strapBracelet.bandColor}</p>
-									</div>
-									<div className='product__info__features__strap__box'>
-										<h6>{productMenu.features.third.option_3}:</h6>
-										<p>{product?.features.strapBracelet.buckleType}</p>
-									</div>
-									<div className='product__info__features__strap__box'>
-										<h6>{productMenu.features.third.option_4}:</h6>
-										<p>{product?.features.strapBracelet.length}</p>
-									</div>
-								</div>
-							</div>
-							<div>
-								<div className='product__info__features__function'>
-									<h5>{productMenu.features.fourth.title}</h5>
-									<div className='product__info__features__function__box'>
-										<h6>{productMenu.features.fourth.option_1}:</h6>
-										<p>{product?.features.function.movement}</p>
-									</div>
-									<div className='product__info__features__function__box'>
-										<h6>{productMenu.features.fourth.option_2}:</h6>
-										{product?.features.function.complications.map(
-											(complication, index) => (
-												<p key={index}>{complication}</p>
-											),
-										)}
+									<div>
+										<div className='product__info__features__function'>
+											<h5>{productMenu.features.fourth.title}</h5>
+											<div className='product__info__features__function__box'>
+												<h6>{productMenu.features.fourth.option_1}:</h6>
+												<p>{product?.features.function.movement}</p>
+											</div>
+											<div className='product__info__features__function__box'>
+												<h6>{productMenu.features.fourth.option_2}:</h6>
+												{product?.features.function.complications.map(
+													(complication, index) => (
+														<p key={index}>{complication}</p>
+													),
+												)}
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

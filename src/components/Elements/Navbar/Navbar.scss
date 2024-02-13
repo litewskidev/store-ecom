@@ -485,20 +485,20 @@
 
 		&__item__link__dropdown__list__items__inner {
 			padding-left: 1rem;
-			height: 0;
-			visibility: hidden;
-			overflow: hidden;
-			transition:
-				height 0.3s ease-out,
-				visibility 0.3s ease-out;
+			display: grid;
+			grid-template-rows: 0fr;
+			transition: grid-template-rows 0.3s ease-out;
+
+			& > ul {
+				overflow: hidden;
+			}
 
 			&.list-open {
-				visibility: visible;
-				height: 36rem;
+				grid-template-rows: 1fr;
 			}
 
 			ul {
-				transform: translateY(5%);
+				transform: translateY(1rem);
 				opacity: 0;
 				transition:
 					transform 0.3s ease-out,

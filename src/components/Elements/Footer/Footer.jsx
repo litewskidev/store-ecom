@@ -29,10 +29,11 @@ const Footer = () => {
 					<div
 						className={
 							isCompanyListActive
-								? 'footer__body__item__list__one open'
-								: 'footer__body__item__list__one'
+								? 'footer__body__item__list list-open'
+								: 'footer__body__item__list'
 						}>
-						<ul className='footer__body__item__list__inner'>
+						<ul
+							className={`footer__body__item__list__inner ${isCompanyListActive ? 'open' : ''}`}>
 							<li className='footer__body__item__list__inner__link'>
 								<NavLink>ABOUT US</NavLink>
 							</li>
@@ -68,10 +69,11 @@ const Footer = () => {
 					<div
 						className={
 							isStoresListActive
-								? 'footer__body__item__list__three open'
-								: 'footer__body__item__list__three'
+								? 'footer__body__item__list list-open'
+								: 'footer__body__item__list'
 						}>
-						<ul className='footer__body__item__list__inner'>
+						<ul
+							className={`footer__body__item__list__inner ${isStoresListActive ? 'open' : ''}`}>
 							<li className='footer__body__item__list__inner__link'>
 								<NavLink>NEW YORK</NavLink>
 							</li>
@@ -106,10 +108,11 @@ const Footer = () => {
 					<div
 						className={
 							isCustomerListActive
-								? 'footer__body__item__list__two open'
-								: 'footer__body__item__list__two'
+								? 'footer__body__item__list list-open'
+								: 'footer__body__item__list'
 						}>
-						<ul className='footer__body__item__list__inner'>
+						<ul
+							className={`footer__body__item__list__inner ${isCustomerListActive ? 'open' : ''}`}>
 							<li className='footer__body__item__list__inner__link'>
 								<NavLink>DELIVERY</NavLink>
 							</li>
@@ -138,10 +141,11 @@ const Footer = () => {
 					<div
 						className={
 							isContactListActive
-								? 'footer__body__item__list__four open'
-								: 'footer__body__item__list__four'
+								? 'footer__body__item__list list-open'
+								: 'footer__body__item__list'
 						}>
-						<ul className='footer__body__item__list__inner'>
+						<ul
+							className={`footer__body__item__list__inner ${isContactListActive ? 'open' : ''}`}>
 							<li className='footer__body__item__list__inner__link'>
 								<NavLink>CONTACT US</NavLink>
 							</li>
