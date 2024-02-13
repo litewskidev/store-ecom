@@ -33,7 +33,7 @@ const HomeBrands = () => {
 			nextArrow: <CustomNextArrow />,
 			responsive: [
 				{
-					breakpoint: 1500,
+					breakpoint: 1800,
 					settings: {
 						slidesToShow: 5,
 					},
@@ -45,7 +45,7 @@ const HomeBrands = () => {
 					},
 				},
 				{
-					breakpoint: 900,
+					breakpoint: 600,
 					settings: {
 						slidesToShow: 3,
 					},

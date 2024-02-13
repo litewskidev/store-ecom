@@ -18,12 +18,24 @@
 				gap: 0.5rem;
 
 				p {
-					font-size: 0.833rem;
+					font-size: 0.889rem;
 				}
 			}
 
 			&:hover {
-				transform: scale(1.03);
+				transform: scale(1.025);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.productCard {
+		&__box {
+			&__inner {
+        &__info {
+          gap: .25rem;
+        }
 			}
 		}
 	}

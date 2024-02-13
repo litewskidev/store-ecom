@@ -1,25 +1,26 @@
+@import '../../../styles/settings.scss';
+
 .newArrivals {
 	&__wrapper {
-		padding: 8rem 1rem;
+		padding: 0 1rem;
 	}
 
 	&__title {
 		display: flex;
 		align-items: center;
 		gap: 1rem;
-		padding-left: 1rem;
+		padding-left: 2rem;
 
-		p {
+		a {
 			font-size: 1.125rem;
 			font-weight: 300;
-			opacity: 0.7;
-			text-decoration: underline;
+			color: $black55;
+			text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
 			text-underline-offset: 0.5rem;
-			text-decoration-color: rgba(51, 51, 51, 0);
 			transition: text-decoration-color 0.3s ease-out;
 
 			&:hover {
-				text-decoration-color: rgba(51, 51, 51, 0.7);
+				text-decoration-color: $black55;
 			}
 		}
 	}
@@ -28,15 +29,23 @@
 @media screen and (max-width: 1200px) {
 	.newArrivals {
 		&__wrapper {
-			padding: 6.5rem 0;
+			padding: 0;
 		}
+
+    &__title {
+      padding-left: 2rem;
+    }
 	}
 }
 
 @media screen and (max-width: 600px) {
 	.newArrivals {
 		&__wrapper {
-			padding: 5rem 0;
+			padding: 0;
 		}
+
+    &__title {
+      padding-left: 1rem;
+    }
 	}
 }

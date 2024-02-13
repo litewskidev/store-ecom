@@ -1,16 +1,10 @@
 @import '../../../styles/settings.scss';
 
 .homeBrands {
-	&__wrapper {
-		background-color: $white;
-		padding: 8rem 0;
-	}
-
 	&__brand {
 		display: flex !important;
 		justify-content: center;
 		align-items: center;
-		padding: 1rem;
 
 		img {
 			display: block;
@@ -20,31 +14,29 @@
 			transition: transform 0.3s ease-out;
 
 			&:hover {
-				transform: scale(1.035);
+				transform: scale(1.025);
 			}
 		}
 	}
 }
 
 @media screen and (max-width: 1200px) {
-	.homeBrands {
-		&__wrapper {
-			background-color: $white;
-			padding: 6.5rem 0;
+  .homeBrands {
+		&__brand {
+			img {
+				width: 7rem;
+        height: 7rem;
+			}
 		}
 	}
 }
 
 @media screen and (max-width: 600px) {
 	.homeBrands {
-		&__wrapper {
-			background-color: $white;
-			padding: 5rem 0;
-		}
-
 		&__brand {
 			img {
 				width: 5rem;
+        height: 5rem;
 			}
 		}
 	}

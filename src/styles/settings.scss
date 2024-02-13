@@ -6,8 +6,8 @@ $sine-out: cubic-bezier(0.39, 0.575, 0.565, 1);
 // SHADOWS
 $shadow-light: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 $shadow-medium:
-	rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-	rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+	rgba(0, 0, 0, 0.16) 0px 3px 6px,
+	rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
 //  FONT
 $font: 'proxima-nova', sans-serif;
@@ -16,7 +16,8 @@ $font: 'proxima-nova', sans-serif;
 $mint: hsl(111, 11%, 86%);
 $white: hsl(0, 0%, 100%);
 $black: hsl(0, 0%, 20%);
-$black75: hsl(0, 0%, 25%);
+$black75: hsl(0, 0%, 30%);
+$black55: hsl(0, 0%, 55%);
 $black25: hsl(0, 0%, 90%);
 $black5: hsl(0, 0%, 98%);
 $error: hsl(0, 70%, 50%);

@@ -3,10 +3,10 @@
 .homeBenefit {
 	&__wrapper {
 		display: flex;
-		padding: 8rem 0;
+		align-items: center;
+		padding: 0 3rem;
 		background-color: $white;
 		z-index: 3;
-		opacity: 0.9;
 	}
 
 	&__box {
@@ -19,15 +19,25 @@
 
 		img {
 			width: 3rem;
+			height: 100%;
 		}
 	}
 }
 
 @media screen and (max-width: 1200px) {
 	.homeBenefit {
+		&__wrapper {
+			padding: 0 2rem;
+		}
 		&__box {
+			gap: 1rem;
+
 			img {
 				width: 2rem;
+			}
+
+			h5 {
+				font-size: 1.125rem;
 			}
 		}
 	}
@@ -38,10 +48,6 @@
 		&__wrapper {
 			flex-direction: column;
 			gap: 3rem;
-		}
-
-		&__box {
-			gap: 1rem;
 		}
 	}
 }

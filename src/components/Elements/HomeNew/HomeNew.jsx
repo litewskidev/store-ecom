@@ -15,7 +15,7 @@ const HomeNew = () => {
 				<h5>NEW ARRIVALS</h5>
 				<p>&#8231;</p>
 				<NavLink to='/categories/new-arrivals'>
-					<p>VIEW ALL</p>
+					VIEW ALL
 				</NavLink>
 			</div>
 			{isLoading && <Loading />}
