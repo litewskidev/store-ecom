@@ -37,9 +37,9 @@ const HomeTiles = () => {
 			},
 			{
 				category: 'COLLECTION',
-				title: 'STAFF PICKS',
+				title: 'INDEPENDENT',
 				action: 'SHOP NOW',
-				href: '/collections/staff-picks',
+				href: '/collections/independent-watches',
 			},
 		],
 		[],
@@ -60,7 +60,7 @@ const HomeTiles = () => {
 						<div className='featured__tile__info'>
 							<p>{tile?.category}</p>
 							<h4>{tile.title}</h4>
-							<p>&#8231;</p>
+							<p>&#183;</p>
 							<p>{tile.action}</p>
 						</div>
 					</div>

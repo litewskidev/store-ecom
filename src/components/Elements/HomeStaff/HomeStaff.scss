@@ -1,8 +1,10 @@
 @import '../../../styles/settings.scss';
 
-.newArrivals {
+.homeStaff {
 	&__wrapper {
-		padding: 0 1rem;
+		padding: 8rem 1rem 0 1rem;
+    background-color: $white;
+    padding-top: 8rem;
 	}
 
 	&__title {
@@ -27,9 +29,9 @@
 }
 
 @media screen and (max-width: 1200px) {
-	.newArrivals {
+	.homeStaff {
 		&__wrapper {
-			padding: 0;
+      padding: 6rem 0 0 0;
 		}
 
 		&__title {
@@ -39,9 +41,9 @@
 }
 
 @media screen and (max-width: 600px) {
-	.newArrivals {
+	.homeStaff {
 		&__wrapper {
-			padding: 0;
+      padding: 4rem 0 1.5rem 0;
 		}
 
 		&__title {

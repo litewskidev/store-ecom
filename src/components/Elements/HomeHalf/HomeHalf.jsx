@@ -31,7 +31,7 @@ const HomeHalf = () => {
 					/>
 					<div className='heroHalf__tile__info'>
 						<h4>{tile.title}</h4>
-						<p>&#8231;</p>
+						<p>&#183;</p>
 						<p>{tile.action}</p>
 					</div>
 				</NavLink>

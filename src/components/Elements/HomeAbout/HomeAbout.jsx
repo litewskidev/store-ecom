@@ -24,7 +24,7 @@ const HomeAbout = () => {
 						</p>
 						<div className='heroAbout__action'>
 							<p>ABOUT US</p>
-							<p>&#8231;</p>
+							<p>&#183;</p>
 							<p>EXPLORE</p>
 						</div>
 					</div>

@@ -88,7 +88,7 @@ const SocialModal = ({
 					</div>
 					<div className='socialModal__right__desc__footer'>
 						<p>{currentSocial?.date}</p>
-						<p>&#8231;</p>
+						<p>&#183;</p>
 						<a
 							href='https://www.instagram.com'
 							target='_blank'

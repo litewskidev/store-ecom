@@ -40,6 +40,7 @@
 			&__box {
 				width: 100%;
 				box-shadow: $shadow-medium;
+        overflow: hidden;
 
 				img {
 					display: block;
@@ -48,6 +49,11 @@
 					object-fit: cover;
 					cursor: pointer;
 					filter: brightness(0.9);
+          transition: transform 0.3s ease-out;
+
+          &:hover {
+            transform: scale(1.025);
+          }
 				}
 			}
 		}

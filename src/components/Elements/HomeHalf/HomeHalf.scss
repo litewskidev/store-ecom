@@ -10,6 +10,7 @@
 		position: relative;
 		width: 50%;
 		overflow: hidden;
+    z-index: 2;
 
 		&__info {
 			position: absolute;
@@ -17,7 +18,7 @@
 			left: 50%;
 			transform: translateX(-50%);
 			text-align: center;
-			z-index: 2;
+
 
 			p,
 			h4 {

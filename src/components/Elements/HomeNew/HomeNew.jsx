@@ -13,10 +13,8 @@ const HomeNew = () => {
 		<div className='newArrivals__wrapper'>
 			<div className='newArrivals__title'>
 				<h5>NEW ARRIVALS</h5>
-				<p>&#8231;</p>
-				<NavLink to='/categories/new-arrivals'>
-					VIEW ALL
-				</NavLink>
+				<p>&#183;</p>
+				<NavLink to='/categories/new-arrivals'>VIEW ALL</NavLink>
 			</div>
 			{isLoading && <Loading />}
 			{isError && (

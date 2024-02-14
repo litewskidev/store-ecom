@@ -60,7 +60,7 @@ const HomeSocial = () => {
 						alt='instagram icon'
 					/>
 					<h4>@CULTURE</h4>
-					<p>&#8231;</p>
+					<p>&#183;</p>
 					<a href='https://www.instagram.com' target='_blank' rel='noreferrer'>
 						FOLLOW US
 					</a>
