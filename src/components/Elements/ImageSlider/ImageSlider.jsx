@@ -34,7 +34,7 @@ const ImageSlider = ({ product }) => {
 			nextArrow: <CustomNextArrow />,
 			responsive: [
 				{
-					breakpoint: 600,
+					breakpoint: 1200,
 					settings: {
 						arrows: false,
 						dots: true,

@@ -51,7 +51,7 @@
 			position: absolute;
 			bottom: 3rem;
 			left: 50%;
-      width: 100%;
+			width: 100%;
 			transform: translateX(-50%);
 			text-align: center;
 			z-index: 2;
@@ -63,7 +63,7 @@
 
 			p:last-of-type {
 				text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
-        text-underline-offset: 0.5rem;
+				text-underline-offset: 0.5rem;
 				transition: text-decoration-color 0.3s ease-out;
 			}
 		}
@@ -75,7 +75,7 @@
 		&__wrapper {
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-rows: repeat(3, 1fr);
-      padding: 0 2rem;
+			padding: 0 2rem;
 		}
 	}
 }

@@ -36,6 +36,7 @@ const ProductsSlider = ({ products }) => {
 					breakpoint: 1200,
 					settings: {
 						slidesToShow: 2,
+						dots: true,
 						arrows: false,
 					},
 				},
@@ -44,6 +45,7 @@ const ProductsSlider = ({ products }) => {
 					settings: {
 						slidesToShow: 1,
 						dots: true,
+						arrows: false,
 					},
 				},
 			],

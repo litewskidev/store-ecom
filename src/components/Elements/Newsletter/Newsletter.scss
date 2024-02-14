@@ -4,57 +4,58 @@
 	&__wrapper {
 		display: flex;
 		background-color: $black5;
-    z-index: 3;
-    margin-top: 8rem;
+		z-index: 3;
+		margin-top: 8rem;
 	}
 
 	&__left {
 		display: flex;
-    align-items: center;
+		align-items: center;
 		padding: 3rem;
 		width: 50%;
 
-    &__inner {
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
+		&__inner {
+			display: flex;
+			flex-direction: column;
+			gap: 4rem;
 
-      &__footer {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+			&__footer {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
 
-        &__form {
-          position: relative;
+				&__form {
+					position: relative;
 
-          input {
-            width: 100%;
-            padding: 0.75rem 0;
-            border: none;
-            border-bottom: solid 0.063rem $black55;
-            background-color: transparent;
-            outline: none;
-            font-family: $font;
-            font-size: 0.889rem;
+					input {
+						width: 100%;
+						padding: 0.75rem 0;
+						border: none;
+						border-bottom: solid 0.063rem $black55;
+						background-color: transparent;
+						outline: none;
+						font-family: $font;
+						font-size: 0.889rem;
 
-            &::placeholder {
-              opacity: 0.6;
-            }
-          }
+						&::placeholder {
+							opacity: 0.6;
+						}
+					}
 
-          button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 0;
-            border: none;
-            background-color: transparent;
-            font-family: $font;
-            font-size: 0.889rem;
-          }
-        }
-      }
-    }
+					button {
+						position: absolute;
+						top: 50%;
+						transform: translateY(-50%);
+						right: 0;
+						border: none;
+						background-color: transparent;
+						font-family: $font;
+						font-size: 0.889rem;
+						cursor: pointer;
+					}
+				}
+			}
+		}
 	}
 
 	&__right {
@@ -64,7 +65,7 @@
 		img {
 			display: block;
 			width: 100%;
-      height: 100%;
+			height: 100%;
 			object-fit: cover;
 		}
 	}
@@ -74,32 +75,32 @@
 	.newsletter {
 		&__wrapper {
 			flex-direction: column-reverse;
-      margin-top: 6rem;
+			margin-top: 6rem;
 		}
 
 		&__left {
 			width: 100%;
-      padding: 2rem;
-      background-color: $black5;
+			padding: 2rem;
+			background-color: $black5;
 
-      &__inner {
-        width: 100%;
-      }
+			&__inner {
+				width: 100%;
+			}
 		}
 
 		&__right {
 			width: 100%;
 			max-height: 75vh;
-      overflow: hidden;
+			overflow: hidden;
 		}
 	}
 }
 
 @media screen and (max-width: 600px) {
 	.newsletter {
-    &__wrapper {
-      margin-top: 4rem;
-    }
+		&__wrapper {
+			margin-top: 4rem;
+		}
 
 		&__left {
 			padding: 1rem;

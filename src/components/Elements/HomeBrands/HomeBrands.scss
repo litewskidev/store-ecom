@@ -21,11 +21,11 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .homeBrands {
+	.homeBrands {
 		&__brand {
 			img {
 				width: 7rem;
-        height: 7rem;
+				height: 7rem;
 			}
 		}
 	}
@@ -36,7 +36,7 @@
 		&__brand {
 			img {
 				width: 5rem;
-        height: 5rem;
+				height: 5rem;
 			}
 		}
 	}
