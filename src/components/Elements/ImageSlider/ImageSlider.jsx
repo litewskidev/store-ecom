@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
 import 'slick-carousel/slick/slick.css';
@@ -20,30 +20,27 @@ const ImageSlider = ({ product }) => {
 		[],
 	);
 
-	const settings = useMemo(
-		() => ({
-			lazyLoad: true,
-			key: product?._id,
-			speed: 600,
-			infinite: true,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			dots: false,
-			arrows: true,
-			prevArrow: <CustomPrevArrow />,
-			nextArrow: <CustomNextArrow />,
-			responsive: [
-				{
-					breakpoint: 1200,
-					settings: {
-						arrows: false,
-						dots: true,
-					},
+	const settings = {
+		lazyLoad: true,
+		key: product?._id,
+		speed: 600,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		dots: false,
+		arrows: true,
+		prevArrow: <CustomPrevArrow />,
+		nextArrow: <CustomNextArrow />,
+		responsive: [
+			{
+				breakpoint: 1200,
+				settings: {
+					arrows: false,
+					dots: true,
 				},
-			],
-		}),
-		[product?._id],
-	);
+			},
+		],
+	};
 
 	return (
 		<Slider {...settings} className='slider__wrapper'>

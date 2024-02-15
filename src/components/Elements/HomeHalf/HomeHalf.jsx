@@ -1,22 +1,22 @@
 import { NavLink } from 'react-router-dom';
 import './HomeHalf.scss';
 
-const heroHalfMenu = [
-	{
-		href: '/categories/women-watches',
-		image: 'img_21',
-		title: 'PICKS FOR HER',
-		action: 'SHOP NOW',
-	},
-	{
-		href: '/categories/men-watches',
-		image: 'img_22',
-		title: 'PICKS FOR HIM',
-		action: 'SHOP NOW',
-	},
-];
-
 const HomeHalf = () => {
+	const heroHalfMenu = [
+		{
+			href: '/categories/women-watches',
+			image: 'img_21',
+			title: 'PICKS FOR HER',
+			action: 'SHOP NOW',
+		},
+		{
+			href: '/categories/men-watches',
+			image: 'img_22',
+			title: 'PICKS FOR HIM',
+			action: 'SHOP NOW',
+		},
+	];
+
 	return (
 		<div className='heroHalf__wrapper'>
 			{heroHalfMenu.map((tile, index) => (

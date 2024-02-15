@@ -6,15 +6,21 @@ import ProductsSlider from '../ProductsSlider/ProductsSlider.jsx';
 import './HomeStaff.scss';
 
 const HomeStaff = () => {
+	const homeStaffMenu = {
+		title: 'STAFF PICKS',
+		action: 'VIEW ALL',
+		href: '/categories/staff-picks',
+	};
+
 	//  FETCH DATA (FOR NOW !! CHANGE TO STAFF PICKS)
 	const { data: staffProducts, isLoading, isError } = useGetAllProductsQuery();
 
 	return (
 		<div className='homeStaff__wrapper'>
 			<div className='homeStaff__title'>
-				<h4>STAFF PICKS</h4>
+				<h4>{homeStaffMenu.title}</h4>
 				<p>&#183;</p>
-				<NavLink to='/categories/staff-picks'>VIEW ALL</NavLink>
+				<NavLink to={homeStaffMenu.href}>{homeStaffMenu.action}</NavLink>
 			</div>
 			{isLoading && <Loading />}
 			{isError && (

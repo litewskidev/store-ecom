@@ -31,6 +31,7 @@
 				width: 100%;
 				padding: 0.5rem 1rem;
 				border: solid 0.063rem $black;
+				box-shadow: $shadow-light;
 				cursor: pointer;
 
 				&.box-active {
@@ -63,6 +64,7 @@
 			padding: 0.5rem 1rem;
 			background-color: $black;
 			text-align: center;
+			box-shadow: $shadow-medium;
 			cursor: pointer;
 
 			p {
@@ -86,9 +88,9 @@
 
 @media screen and (max-width: 1200px) {
 	.homeStores {
-    &__wrapper {
-      padding: 0 2rem 0 2rem;
-    }
+		&__wrapper {
+			padding: 0 2rem 0 2rem;
+		}
 	}
 }
 

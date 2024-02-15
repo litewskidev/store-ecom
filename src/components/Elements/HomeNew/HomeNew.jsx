@@ -6,15 +6,21 @@ import ProductsSlider from '../ProductsSlider/ProductsSlider.jsx';
 import './HomeNew.scss';
 
 const HomeNew = () => {
+	const homeNewMenu = {
+		title: 'NEW ARRIVALS',
+		action: 'VIEW ALL',
+		href: '/categories/new-arrivals',
+	};
+
 	//  FETCH DATA
 	const { data: newProducts, isLoading, isError } = useGetNewProductsQuery();
 
 	return (
 		<div className='newArrivals__wrapper'>
 			<div className='newArrivals__title'>
-				<h4>NEW ARRIVALS</h4>
+				<h4>{homeNewMenu.title}</h4>
 				<p>&#183;</p>
-				<NavLink to='/categories/new-arrivals'>VIEW ALL</NavLink>
+				<NavLink to={homeNewMenu.href}>{homeNewMenu.action}</NavLink>
 			</div>
 			{isLoading && <Loading />}
 			{isError && (

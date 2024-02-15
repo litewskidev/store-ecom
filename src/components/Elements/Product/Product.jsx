@@ -1,4 +1,4 @@
-import { useMemo, useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import useToggle from '../../../hooks/useToggle.js';
@@ -7,6 +7,53 @@ import PropTypes from 'prop-types';
 import './Product.scss';
 
 const Product = ({ product }) => {
+	const productMenu = {
+		reference: {
+			ref: 'REF',
+			sku: 'SKU#',
+		},
+		cart: {
+			button: 'ADD TO CART',
+		},
+		desc: {
+			title: 'DESCRIPTION',
+		},
+		features: {
+			title: 'FEATURES',
+			first: {
+				title: 'WATCH DETAILS',
+				option_1: 'SKU',
+				option_2: 'Reference Number',
+				option_3: 'Year',
+				option_4: 'Origin',
+				option_5: 'Style',
+				option_6: 'Gender',
+			},
+			second: {
+				title: 'CASE & DIAL',
+				option_1: 'Case Size',
+				option_2: 'Case Material',
+				option_3: 'Caseback',
+				option_4: 'Case Shape',
+				option_5: 'Dial Color',
+				option_6: 'Hours Markers',
+				option_7: 'Water Resistance',
+			},
+			third: {
+				title: 'STRAP / BRACELET',
+				option_1: 'Strap/Bracelet Material',
+				option_2: 'Band Color',
+				option_3: 'Buckle Type',
+				option_4: 'Bracelet Length',
+			},
+			fourth: {
+				title: 'FUNCTION',
+				option_1: 'Movement',
+				option_2: 'Complications',
+			},
+		},
+	};
+
 	const location = useLocation();
 
 	//  GSAP
@@ -27,58 +74,8 @@ const Product = ({ product }) => {
 	}, [location]);
 
 	//  BUTTONS HANDLERS
-	const [isDescriptionOpen, toggleDescription] = useToggle(false);
-	const [isFeaturesOpen, toggleFeatures] = useToggle(false);
-
-	const productMenu = useMemo(
-		() => ({
-			reference: {
-				ref: 'REF',
-				sku: 'SKU#',
-			},
-			cart: {
-				button: 'ADD TO CART',
-			},
-			desc: {
-				title: 'DESCRIPTION',
-			},
-			features: {
-				title: 'FEATURES',
-				first: {
-					title: 'WATCH DETAILS',
-					option_1: 'SKU',
-					option_2: 'Reference Number',
-					option_3: 'Year',
-					option_4: 'Origin',
-					option_5: 'Style',
-					option_6: 'Gender',
-				},
-				second: {
-					title: 'CASE & DIAL',
-					option_1: 'Case Size',
-					option_2: 'Case Material',
-					option_3: 'Caseback',
-					option_4: 'Case Shape',
-					option_5: 'Dial Color',
-					option_6: 'Hours Markers',
-					option_7: 'Water Resistance',
-				},
-				third: {
-					title: 'STRAP / BRACELET',
-					option_1: 'Strap/Bracelet Material',
-					option_2: 'Band Color',
-					option_3: 'Buckle Type',
-					option_4: 'Bracelet Length',
-				},
-				fourth: {
-					title: 'FUNCTION',
-					option_1: 'Movement',
-					option_2: 'Complications',
-				},
-			},
-		}),
-		[],
-	);
+	const [isDescriptionOpen, toggleDescription] = useToggle(true);
+	const [isFeaturesOpen, toggleFeatures] = useToggle(true);
 
 	return (
 		<div className='product__wrapper'>

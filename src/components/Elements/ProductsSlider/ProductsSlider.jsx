@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 import Slider from 'react-slick';
 import ProductCard from '../ProductCard/ProductCard.jsx';
 import PropTypes from 'prop-types';
@@ -20,38 +20,35 @@ const ProductsSlider = ({ products }) => {
 		[],
 	);
 
-	const settings = useMemo(
-		() => ({
-			lazyLoad: true,
-			speed: 600,
-			infinite: true,
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			dots: false,
-			arrows: true,
-			prevArrow: <CustomPrevArrow />,
-			nextArrow: <CustomNextArrow />,
-			responsive: [
-				{
-					breakpoint: 1200,
-					settings: {
-						slidesToShow: 2,
-						dots: true,
-						arrows: false,
-					},
+	const settings = {
+		lazyLoad: true,
+		speed: 600,
+		infinite: true,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		dots: false,
+		arrows: true,
+		prevArrow: <CustomPrevArrow />,
+		nextArrow: <CustomNextArrow />,
+		responsive: [
+			{
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 2,
+					dots: true,
+					arrows: false,
 				},
-				{
-					breakpoint: 600,
-					settings: {
-						slidesToShow: 1,
-						dots: true,
-						arrows: false,
-					},
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1,
+					dots: true,
+					arrows: false,
 				},
-			],
-		}),
-		[],
-	);
+			},
+		],
+	};
 
 	return (
 		<div className='productsSlider_wrapper'>

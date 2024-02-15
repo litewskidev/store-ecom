@@ -1,24 +1,20 @@
-import { useMemo } from 'react';
 import { useGetAllProductsQuery } from '../../../redux/slices/productsApiSlice.js';
 import ProductsList from '../../Elements/ProductsList/ProductsList.jsx';
 
 const ProductAll = () => {
+	const productAllMenu = {
+		allProducts: {
+			title: 'ALL WATCHES',
+		},
+	};
+
 	//  FETCH DATA
 	const { data: allProducts, isLoading, isError } = useGetAllProductsQuery();
-
-	const pageMenu = useMemo(
-		() => ({
-			allProducts: {
-				title: 'ALL WATCHES',
-			},
-		}),
-		[],
-	);
 
 	return (
 		<section id='product-all'>
 			<ProductsList
-				title={pageMenu.allProducts.title}
+				title={productAllMenu.allProducts.title}
 				products={allProducts}
 				loading={isLoading}
 				error={isError}

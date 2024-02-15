@@ -9,6 +9,7 @@ const HomeAbout = () => {
 			title: 'ABOUT US',
 			action: 'EXPLORE',
 		},
+		image: 'img_20',
 	};
 
 	return (
@@ -16,7 +17,10 @@ const HomeAbout = () => {
 			<div className='heroAbout__container'>
 				<div className='heroAbout__image'>
 					<img
-						src={process.env.PUBLIC_URL + '/assets/images/img_20.webp'}
+						src={
+							process.env.PUBLIC_URL +
+							`/assets/images/${homeAboutMenu.image}.webp`
+						}
 						alt=''
 					/>
 				</div>

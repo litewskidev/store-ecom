@@ -1,27 +1,27 @@
 import './HomeBenefit.scss';
 
-const homeBenefitMenu = [
-	{
-		options: {
-			first: 'EASY RETURNS',
-			second: '& COLLECTIONS',
-		},
-	},
-	{
-		options: {
-			first: 'FREE WORLDWIDE',
-			second: 'SHIPPING OVER $650',
-		},
-	},
-	{
-		options: {
-			first: 'LOCAL & SECURE',
-			second: 'PAYMENT OPTIONS',
-		},
-	},
-];
-
 const HomeBenefit = () => {
+	const homeBenefitMenu = [
+		{
+			options: {
+				first: 'EASY RETURNS',
+				second: '& COLLECTIONS',
+			},
+		},
+		{
+			options: {
+				first: 'FREE WORLDWIDE',
+				second: 'SHIPPING OVER $650',
+			},
+		},
+		{
+			options: {
+				first: 'LOCAL & SECURE',
+				second: 'PAYMENT OPTIONS',
+			},
+		},
+	];
+
 	return (
 		<div className='homeBenefit__wrapper'>
 			{homeBenefitMenu.map((benefit, index) => (

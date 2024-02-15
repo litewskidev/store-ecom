@@ -12,6 +12,8 @@
 		overflow: hidden;
 		z-index: 2;
 
+		box-shadow: $shadow-medium;
+
 		&__info {
 			position: absolute;
 			bottom: 3rem;
