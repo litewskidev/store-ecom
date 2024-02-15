@@ -1,0 +1,115 @@
+@import '../../../styles/settings.scss';
+
+.homeStores {
+	&__wrapper {
+		padding: 0 3rem 4rem 3rem;
+		height: 50vh;
+	}
+
+	&__title {
+		margin-bottom: 2rem;
+	}
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		gap: 2rem;
+		height: 100%;
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		width: 25%;
+
+		&__stores {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+
+			&__box {
+				width: 100%;
+				padding: 0.5rem 1rem;
+				border: solid 0.053rem $black;
+				text-align: center;
+				cursor: pointer;
+			}
+		}
+	}
+
+	&__image {
+		position: relative;
+		width: 75%;
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.25);
+		}
+
+		&__action {
+			position: absolute;
+			bottom: 1rem;
+			left: 1rem;
+			width: 14rem;
+			padding: 0.5rem 1rem;
+			border: solid 0.053rem $white;
+			z-index: 2;
+
+			p {
+				text-align: center;
+				font-size: 1rem;
+				color: $white;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.homeStores {
+		&__wrapper {
+			padding: 0 1rem;
+			height: auto;
+		}
+
+		&__inner {
+			flex-direction: column-reverse;
+			gap: 2rem;
+		}
+
+		&__info {
+			width: 100%;
+
+			&__stores {
+				&__box {
+					width: 50%;
+					text-align: start;
+				}
+			}
+		}
+
+		&__image {
+			width: 100%;
+
+			&__action {
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				border: none;
+				border-top: solid 0.063rem $white;
+			}
+		}
+	}
+}

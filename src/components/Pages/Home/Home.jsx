@@ -11,6 +11,7 @@ import HomeSocial from '../../Elements/HomeSocial/HomeSocial.jsx';
 import './Home.scss';
 import Container from '../../Elements/Container/Container.jsx';
 import HomeStaff from '../../Elements/HomeStaff/HomeStaff.jsx';
+import HomeStores from '../../Elements/HomeStores/HomeStores.jsx';
 
 const Home = () => {
 	return (
@@ -25,6 +26,7 @@ const Home = () => {
 					<HomeHalf />
 					<HomeStaff />
 				</div>
+        <HomeStores />
 				<HomeBrands />
 				<HomeSocial />
 				<HomeBenefit />
