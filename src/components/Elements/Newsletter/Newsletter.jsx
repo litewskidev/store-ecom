@@ -6,7 +6,7 @@ const Newsletter = () => {
 			<div className='newsletter__left'>
 				<div className='newsletter__left__inner'>
 					<div className='newsletter__left__inner__header'>
-						<h3>JOIN THE CULTURE</h3>
+						<h2>JOIN THE CULTURE</h2>
 						<p>
 							Immerse yourself in a captivating world of horological charm and
 							magic.

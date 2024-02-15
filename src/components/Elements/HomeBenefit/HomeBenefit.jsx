@@ -1,31 +1,27 @@
-import { useMemo } from 'react';
 import './HomeBenefit.scss';
 
-const HomeBenefit = () => {
-	const homeBenefitMenu = useMemo(
-		() => [
-			{
-				options: {
-					first: 'EASY RETURNS',
-					second: '& COLLECTIONS',
-				},
-			},
-			{
-				options: {
-					first: 'FREE WORLDWIDE',
-					second: 'SHIPPING OVER $650',
-				},
-			},
-			{
-				options: {
-					first: 'LOCAL & SECURE',
-					second: 'PAYMENT OPTIONS',
-				},
-			},
-		],
-		[],
-	);
+const homeBenefitMenu = [
+	{
+		options: {
+			first: 'EASY RETURNS',
+			second: '& COLLECTIONS',
+		},
+	},
+	{
+		options: {
+			first: 'FREE WORLDWIDE',
+			second: 'SHIPPING OVER $650',
+		},
+	},
+	{
+		options: {
+			first: 'LOCAL & SECURE',
+			second: 'PAYMENT OPTIONS',
+		},
+	},
+];
 
+const HomeBenefit = () => {
 	return (
 		<div className='homeBenefit__wrapper'>
 			{homeBenefitMenu.map((benefit, index) => (

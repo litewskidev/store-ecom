@@ -2,6 +2,15 @@ import { NavLink } from 'react-router-dom';
 import './HomeAbout.scss';
 
 const HomeAbout = () => {
+	const homeAboutMenu = {
+		title: 'THE VALUE',
+		info: 'Our ethos is deeply intertwined with our journey that extends beyond geographical origins. From our humble beginnings to our present story, we embrace the essence of diverse influences, uniting in a commitment to quality, authenticity, and respect for heritage.',
+		action: {
+			title: 'ABOUT US',
+			action: 'EXPLORE',
+		},
+	};
+
 	return (
 		<div className='heroAbout__wrapper'>
 			<div className='heroAbout__container'>
@@ -13,19 +22,12 @@ const HomeAbout = () => {
 				</div>
 				<NavLink to='/about' className='heroAbout__info'>
 					<div className='heroAbout__info__inner'>
-						<p>THE VALUE</p>
-						<h2>CULTURE</h2>
-						<p>
-							Our ethos is deeply intertwined with our journey that extends
-							beyond geographical origins. From our humble beginnings to our
-							present story, we embrace the essence of diverse influences,
-							uniting in a commitment to quality, authenticity, and respect for
-							heritage.
-						</p>
+						<h2>{homeAboutMenu.title}</h2>
+						<p>{homeAboutMenu.info}</p>
 						<div className='heroAbout__action'>
-							<p>ABOUT US</p>
+							<p>{homeAboutMenu.action.title}</p>
 							<p>&#183;</p>
-							<p>EXPLORE</p>
+							<p>{homeAboutMenu.action.action}</p>
 						</div>
 					</div>
 				</NavLink>

@@ -1,26 +1,22 @@
-import { useMemo } from 'react';
 import { NavLink } from 'react-router-dom';
 import './HomeHalf.scss';
 
-const HomeHalf = () => {
-	const heroHalfMenu = useMemo(
-		() => [
-			{
-				href: '/categories/women-watches',
-				image: 'img_21',
-				title: 'PICKS FOR HER',
-				action: 'SHOP NOW',
-			},
-			{
-				href: '/categories/men-watches',
-				image: 'img_22',
-				title: 'PICKS FOR HIM',
-				action: 'SHOP NOW',
-			},
-		],
-		[],
-	);
+const heroHalfMenu = [
+	{
+		href: '/categories/women-watches',
+		image: 'img_21',
+		title: 'PICKS FOR HER',
+		action: 'SHOP NOW',
+	},
+	{
+		href: '/categories/men-watches',
+		image: 'img_22',
+		title: 'PICKS FOR HIM',
+		action: 'SHOP NOW',
+	},
+];
 
+const HomeHalf = () => {
 	return (
 		<div className='heroHalf__wrapper'>
 			{heroHalfMenu.map((tile, index) => (
@@ -30,7 +26,7 @@ const HomeHalf = () => {
 						alt={tile.title}
 					/>
 					<div className='heroHalf__tile__info'>
-						<h4>{tile.title}</h4>
+						<h5>{tile.title}</h5>
 						<p>&#183;</p>
 						<p>{tile.action}</p>
 					</div>

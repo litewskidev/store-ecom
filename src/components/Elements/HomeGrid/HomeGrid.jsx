@@ -7,7 +7,7 @@ const HomeGrid = () => {
 			<div className='stickyHalf__container'>
 				<NavLink to='/brands/breitling' className='stickyHalf__info'>
 					<div className='stickyHalf__info__inner'>
-						<h3>SINCE 1884</h3>
+						<h4>SINCE 1884</h4>
 						<p>
 							Discover the epitome of Swiss craftsmanship and cutting-edge
 							design with Breitling, a renowned brand synonymous with precision
@@ -32,7 +32,7 @@ const HomeGrid = () => {
 				</div>
 				<NavLink to='/brands/rolex' className='stickyHalf__info'>
 					<div className='stickyHalf__info__inner'>
-						<h3>SINCE 1905</h3>
+						<h4>SINCE 1905</h4>
 						<p>
 							Indulge in the epitome of luxury and prestige with Rolex, a brand
 							synonymous with excellence, innovation, and enduring style.

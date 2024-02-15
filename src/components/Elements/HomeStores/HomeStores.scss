@@ -2,78 +2,93 @@
 
 .homeStores {
 	&__wrapper {
-		padding: 0 3rem 4rem 3rem;
-		height: 50vh;
-	}
-
-	&__title {
-		margin-bottom: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		padding: 0 3rem 0 3rem;
 	}
 
 	&__inner {
 		display: flex;
-		justify-content: space-between;
 		gap: 2rem;
-		height: 100%;
 	}
 
 	&__info {
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
-		width: 25%;
+		width: 30%;
 
 		&__stores {
 			display: flex;
 			flex-direction: column;
-			gap: 0.5rem;
+			gap: 0.75rem;
 
 			&__box {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
 				width: 100%;
 				padding: 0.5rem 1rem;
-				border: solid 0.053rem $black;
-				text-align: center;
+				border: solid 0.063rem $black;
 				cursor: pointer;
+
+				&.box-active {
+					border: solid 0.125rem $black;
+				}
+
+				&__icon {
+					opacity: 0;
+					visibility: 0;
+					transition:
+						opacity 0.1s ease-out,
+						visibility 0.1s ease-out;
+
+					img {
+						display: block;
+						width: 1.5rem;
+						height: 100%;
+					}
+
+					&.icon-active {
+						visibility: visible;
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		&__link {
+			width: 100%;
+			padding: 0.5rem 1rem;
+			background-color: $black;
+			text-align: center;
+			cursor: pointer;
+
+			p {
+				color: $white;
 			}
 		}
 	}
 
 	&__image {
-		position: relative;
-		width: 75%;
+		width: 70%;
 
 		img {
 			display: block;
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			filter: brightness(0.9) contrast(0.9);
 		}
+	}
+}
 
-		&::after {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.25);
-		}
-
-		&__action {
-			position: absolute;
-			bottom: 1rem;
-			left: 1rem;
-			width: 14rem;
-			padding: 0.5rem 1rem;
-			border: solid 0.053rem $white;
-			z-index: 2;
-
-			p {
-				text-align: center;
-				font-size: 1rem;
-				color: $white;
-			}
-		}
+@media screen and (max-width: 1200px) {
+	.homeStores {
+    &__wrapper {
+      padding: 0 2rem 0 2rem;
+    }
 	}
 }
 
@@ -81,7 +96,6 @@
 	.homeStores {
 		&__wrapper {
 			padding: 0 1rem;
-			height: auto;
 		}
 
 		&__inner {
@@ -94,7 +108,7 @@
 
 			&__stores {
 				&__box {
-					width: 50%;
+					width: 100%;
 					text-align: start;
 				}
 			}
@@ -102,14 +116,8 @@
 
 		&__image {
 			width: 100%;
-
-			&__action {
-				bottom: 0;
-				left: 0;
-				width: 100%;
-				border: none;
-				border-top: solid 0.063rem $white;
-			}
+			height: 50vh;
+			overflow-y: hidden;
 		}
 	}
 }

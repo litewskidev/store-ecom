@@ -12,7 +12,7 @@ const HomeStaff = () => {
 	return (
 		<div className='homeStaff__wrapper'>
 			<div className='homeStaff__title'>
-				<h5>STAFF PICKS</h5>
+				<h4>STAFF PICKS</h4>
 				<p>&#183;</p>
 				<NavLink to='/categories/staff-picks'>VIEW ALL</NavLink>
 			</div>
