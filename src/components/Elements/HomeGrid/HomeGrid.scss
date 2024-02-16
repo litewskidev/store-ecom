@@ -1,6 +1,6 @@
 @import '../../../styles/settings.scss';
 
-.stickyHalf {
+.homeGrid {
 	&__container {
 		display: flex;
 		height: 150vh;
@@ -30,7 +30,7 @@
 		}
 
 		&:hover {
-			.stickyHalf__info__inner {
+			.homeGrid__info__inner {
 				p:last-of-type {
 					text-decoration-color: $black;
 				}
@@ -59,7 +59,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-	.stickyHalf {
+	.homeGrid {
 		&__info {
 			&__inner {
 				p:last-of-type {
@@ -71,7 +71,7 @@
 }
 
 @media screen and (max-width: 600px) {
-	.stickyHalf {
+	.homeGrid {
 		&__container {
 			flex-direction: column-reverse;
 			position: relative;

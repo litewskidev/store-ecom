@@ -16,8 +16,8 @@ const HomeNew = () => {
 	const { data: newProducts, isLoading, isError } = useGetNewProductsQuery();
 
 	return (
-		<div className='newArrivals__wrapper'>
-			<div className='newArrivals__title'>
+		<div className='homeNew__wrapper'>
+			<div className='homeNew__title'>
 				<h4>{homeNewMenu.title}</h4>
 				<p>&#183;</p>
 				<NavLink to={homeNewMenu.href}>{homeNewMenu.action}</NavLink>

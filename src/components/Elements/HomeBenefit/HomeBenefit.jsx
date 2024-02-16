@@ -27,7 +27,7 @@ const HomeBenefit = () => {
 			{homeBenefitMenu.map((benefit, index) => (
 				<div className='homeBenefit__box' key={index}>
 					<img
-						src={process.env.PUBLIC_URL + '/assets/icons/star2.svg'}
+						src={process.env.PUBLIC_URL + '/assets/icons/star.svg'}
 						alt=''
 					/>
 					<h5>

@@ -42,10 +42,10 @@ const HomeTiles = () => {
 	];
 
 	return (
-		<div className='featured__wrapper'>
+		<div className='homeTiles__wrapper'>
 			{homeTilesMenu.map((tile, index) => (
 				<NavLink to={tile.href} key={index}>
-					<div className='featured__tile'>
+					<div className='homeTiles__tile'>
 						<img
 							src={
 								process.env.PUBLIC_URL +
@@ -53,7 +53,7 @@ const HomeTiles = () => {
 							}
 							alt=''
 						/>
-						<div className='featured__tile__info'>
+						<div className='homeTiles__tile__info'>
 							<p>{tile?.category}</p>
 							<h5>{tile.title}</h5>
 							<p>&#183;</p>

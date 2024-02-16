@@ -20,16 +20,16 @@ const HomeGrid = () => {
 	};
 
 	return (
-		<div className='stickyHalf__wrapper'>
-			<div className='stickyHalf__container'>
-				<NavLink to={homeGridMenu.option_1.href} className='stickyHalf__info'>
-					<div className='stickyHalf__info__inner'>
+		<div className='homeGrid__wrapper'>
+			<div className='homeGrid__container'>
+				<NavLink to={homeGridMenu.option_1.href} className='homeGrid__info'>
+					<div className='homeGrid__info__inner'>
 						<h4>{homeGridMenu.option_1.title}</h4>
 						<p>{homeGridMenu.option_1.info}</p>
 						<p>{homeGridMenu.option_1.action}</p>
 					</div>
 				</NavLink>
-				<div className='stickyHalf__image'>
+				<div className='homeGrid__image'>
 					<img
 						src={
 							process.env.PUBLIC_URL +
@@ -39,8 +39,8 @@ const HomeGrid = () => {
 					/>
 				</div>
 			</div>
-			<div className='stickyHalf__container half__bottom'>
-				<div className='stickyHalf__image'>
+			<div className='homeGrid__container half__bottom'>
+				<div className='homeGrid__image'>
 					<img
 						src={
 							process.env.PUBLIC_URL +
@@ -49,8 +49,8 @@ const HomeGrid = () => {
 						alt=''
 					/>
 				</div>
-				<NavLink to={homeGridMenu.option_2.href} className='stickyHalf__info'>
-					<div className='stickyHalf__info__inner'>
+				<NavLink to={homeGridMenu.option_2.href} className='homeGrid__info'>
+					<div className='homeGrid__info__inner'>
 						<h4>{homeGridMenu.option_2.title}</h4>
 						<p>{homeGridMenu.option_2.info}</p>
 						<p>{homeGridMenu.option_2.action}</p>

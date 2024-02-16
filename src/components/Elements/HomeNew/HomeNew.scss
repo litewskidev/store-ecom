@@ -1,6 +1,6 @@
 @import '../../../styles/settings.scss';
 
-.newArrivals {
+.homeNew {
 	&__wrapper {
 		padding: 0 1rem;
 	}
@@ -27,7 +27,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-	.newArrivals {
+	.homeNew {
 		&__wrapper {
 			padding: 0 0 1.5rem 0;
 		}
@@ -39,7 +39,7 @@
 }
 
 @media screen and (max-width: 600px) {
-	.newArrivals {
+	.homeNew {
 		&__title {
 			padding-left: 1rem;
 		}

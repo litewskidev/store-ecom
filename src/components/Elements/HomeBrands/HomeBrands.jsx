@@ -111,7 +111,7 @@ const HomeBrands = () => {
 		<div className='homeBrands__wrapper'>
 			<Slider {...settings}>
 				{homeBrandsMenu.list.map(brand => (
-					<div className='homeBrands__brand' key={brand.id}>
+					<div className='homeBrands__box' key={brand.id}>
 						<NavLink to={`/brands/${brand.id}`}>
 							<img
 								src={

@@ -13,9 +13,9 @@ const HomeAbout = () => {
 	};
 
 	return (
-		<div className='heroAbout__wrapper'>
-			<div className='heroAbout__container'>
-				<div className='heroAbout__image'>
+		<div className='homeAbout__wrapper'>
+			<div className='homeAbout__container'>
+				<div className='homeAbout__image'>
 					<img
 						src={
 							process.env.PUBLIC_URL +
@@ -24,11 +24,11 @@ const HomeAbout = () => {
 						alt=''
 					/>
 				</div>
-				<NavLink to='/about' className='heroAbout__info'>
-					<div className='heroAbout__info__inner'>
+				<NavLink to='/about' className='homeAbout__info'>
+					<div className='homeAbout__info__inner'>
 						<h2>{homeAboutMenu.title}</h2>
 						<p>{homeAboutMenu.info}</p>
-						<div className='heroAbout__action'>
+						<div className='homeAbout__action'>
 							<p>{homeAboutMenu.action.title}</p>
 							<p>&#183;</p>
 							<p>{homeAboutMenu.action.action}</p>

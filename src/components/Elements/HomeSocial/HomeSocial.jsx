@@ -70,17 +70,25 @@ const HomeSocial = () => {
 				</div>
 				<div className='homeSocial__inner__images'>
 					{homeSocialList.map((social, index) => (
-						<div className='homeSocial__inner__images__box' key={index}>
+						<div
+							className='homeSocial__inner__images__box'
+							key={index}
+							onClick={() => {
+								handleSocialModal(homeSocialList, index);
+							}}>
 							<img
 								src={
 									process.env.PUBLIC_URL +
 									`/assets/images/instagram/${social.image}.webp`
 								}
 								alt=''
-								onClick={() => {
-									handleSocialModal(homeSocialList, index);
-								}}
 							/>
+							<div className='homeSocial__inner__images__box__icon'>
+								<img
+									src={process.env.PUBLIC_URL + `/assets/icons/instagram.svg`}
+									alt='instagram icon'
+								/>
+							</div>
 						</div>
 					))}
 				</div>

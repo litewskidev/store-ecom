@@ -21,31 +21,37 @@ const ProductCard = ({ product }) => {
 						</div>
 					))}
 				</div>
-				<div className='productCard__box__inner__info'>
-					<div className='productCard__box__inner__info__title'>
-						<p>
-							{product?.brand.name}, {product?.model}
-						</p>
+				<div className='productCard__box__inner__info__container'>
+					<div className='productCard__box__inner__info'>
+						<div className='productCard__box__inner__info__title'>
+							<p>
+								{product?.brand.name}, {product?.model}
+							</p>
+						</div>
+						{product?.price.discount !== 0 ? (
+							<div className='productCard__box__inner__info__price'>
+								<p>
+									{product?.price.currency}
+									{(
+										product?.price.base -
+										product?.price.base / product?.price.discount
+									).toFixed(3)}
+								</p>
+							</div>
+						) : (
+							<div className='productCard__box__inner__info__price'>
+								<p>
+									{product?.price.currency}
+									{(product?.price.base).toFixed(3)}
+								</p>
+							</div>
+						)}
 					</div>
-					{product?.price.discount !== 0 ? (
-						<div className='productCard__box__inner__info__price'>
-							<p>
-								{product?.price.currency}
-								{(
-									product?.price.base -
-									product?.price.base / product?.price.discount
-								).toFixed(3)}
-							</p>
-						</div>
-					) : (
-						<div className='productCard__box__inner__info__price'>
-							<p>
-								{product?.price.currency}
-								{(product?.price.base).toFixed(3)}
-							</p>
-						</div>
-					)}
 				</div>
+        <div className='productCard__box__inner__info__button'>
+            <img src={process.env.PUBLIC_URL + '/assets/icons/clock.svg'} alt='wishlist button'/>
+            <img src={process.env.PUBLIC_URL + '/assets/icons/share.svg'} alt='share button'/>
+          </div>
 			</NavLink>
 		</div>
 	);

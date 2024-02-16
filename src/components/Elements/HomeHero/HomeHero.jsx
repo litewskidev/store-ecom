@@ -12,10 +12,10 @@ const HomeHero = () => {
 	};
 
 	return (
-		<div className='hero__wrapper'>
-			<div className='hero__hero'>
+		<div className='homeHero__wrapper'>
+			<div className='homeHero__inner'>
 				<video
-					className='hero__hero__video'
+					className='homeHero__inner__video'
 					autoPlay
 					loop
 					muted
@@ -24,7 +24,7 @@ const HomeHero = () => {
 					src={
 						process.env.PUBLIC_URL + `/assets/videos/${homeHeroMenu.media}.mp4`
 					}></video>
-				<div className='hero__hero__title'>
+				<div className='homeHero__inner__title'>
 					<h1>{homeHeroMenu.title}</h1>
 					<p>{homeHeroMenu.info}</p>
 					<NavLink to={homeHeroMenu.href}>{homeHeroMenu.action}</NavLink>

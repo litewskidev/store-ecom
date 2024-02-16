@@ -9,6 +9,7 @@
 		border-radius: 1rem;
 		overflow: hidden;
 		z-index: 900;
+    box-shadow: $shadow-medium;
 	}
 
 	&__left {
@@ -130,7 +131,6 @@
 
 			img {
 				border-radius: 0;
-				box-shadow: $shadow-medium;
 			}
 		}
 

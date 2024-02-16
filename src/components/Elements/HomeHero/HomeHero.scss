@@ -1,17 +1,18 @@
 @import '../../../styles/settings.scss';
 
-.hero {
+.homeHero {
 	&__wrapper {
 		box-shadow: $shadow-medium;
+    min-height: 100vh;
 	}
 
-	&__hero {
+	&__inner {
 		position: relative;
 
 		&__video {
 			display: block;
 			width: 100%;
-			height: 100vh;
+      min-height: 100vh;
 			object-fit: cover;
 			z-index: -1;
 			filter: brightness(0.6);
@@ -46,8 +47,8 @@
 }
 
 @media screen and (max-width: 1200px) {
-	.hero {
-		&__hero {
+	.homeHero {
+		&__inner {
 			&__title {
 				left: 5rem;
 				width: 22rem;
@@ -57,8 +58,8 @@
 }
 
 @media screen and (max-width: 600px) {
-	.hero {
-		&__hero {
+	.homeHero {
+		&__inner {
 			&__title {
 				left: 0;
 				gap: 0;

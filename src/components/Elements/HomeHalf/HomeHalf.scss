@@ -1,6 +1,6 @@
 @import '../../../styles/settings.scss';
 
-.heroHalf {
+.homeHalf {
 	&__wrapper {
 		display: flex;
 		margin-top: -75vh;
@@ -57,7 +57,7 @@
 				transform: scale(1.025);
 			}
 
-			.heroHalf__tile__info {
+			.homeHalf__tile__info {
 				p:last-of-type {
 					text-decoration-color: $white;
 				}
@@ -67,7 +67,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-	.heroHalf {
+	.homeHalf {
 		&__wrapper {
 			flex-direction: column;
 		}
@@ -79,7 +79,7 @@
 }
 
 @media screen and (max-width: 600px) {
-	.heroHalf {
+	.homeHalf {
 		&__wrapper {
 			margin-top: 0;
 		}

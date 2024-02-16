@@ -156,7 +156,6 @@ const Navbar = () => {
 	//  STATES
 	const [user, setUser] = useState(false);
 	const [isHomePage, setIsHomePage] = useState(true);
-	const [isProductPage, setIsProductPage] = useState(false);
 	const [isScrollingDown, setIsScrollingDown] = useState(false);
 	const [isScrollBelowThreshold, setIsScrollBelowThreshold] = useState(false);
 	const [bodyOverflowHidden, setBodyOverflowHidden] = useState(false);
@@ -169,7 +168,7 @@ const Navbar = () => {
 	const navbarThreshold = 75;
 
 	//  WINDOW LOCATION
-	useWindowLocation(location, setIsHomePage, setIsProductPage);
+	useWindowLocation(location, setIsHomePage);
 
 	//  SCROLL UPDATE
 	useScrollUpdate(
@@ -208,7 +207,7 @@ const Navbar = () => {
 			id='navbar'
 			className={`navbar ${isScrollingDown && isScrollBelowThreshold ? '' : 'nav-open'}`}>
 			<nav
-				className={`navbar__wrapper${isHomePage && !isScrollBelowThreshold ? ' nav-top' : ''}${isProductPage ? ' nav-product' : ''}`}>
+				className={`navbar__wrapper ${isHomePage && !isScrollBelowThreshold ? 'nav-top' : ''}`}>
 				{/* MENU DESKTOP */}
 				<MenuDesktop
 					isDropdownActive={isDropdownActive}

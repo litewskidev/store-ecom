@@ -1,6 +1,6 @@
 @import '../../../styles/settings.scss';
 
-.featured {
+.homeTiles {
 	&__wrapper {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
@@ -40,7 +40,7 @@
 				transform: scale(1.025);
 			}
 
-			.featured__tile__info {
+			.homeTiles__tile__info {
 				p:last-of-type {
 					text-decoration-color: $white;
 				}
@@ -71,7 +71,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-	.featured {
+	.homeTiles {
 		&__wrapper {
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-rows: repeat(3, 1fr);
@@ -81,7 +81,7 @@
 }
 
 @media screen and (max-width: 600px) {
-	.featured {
+	.homeTiles {
 		&__wrapper {
 			grid-template-columns: 1fr;
 			grid-template-rows: repeat(6, 1fr);
