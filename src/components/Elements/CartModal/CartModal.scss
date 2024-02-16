@@ -23,23 +23,12 @@
 		border-bottom: solid 0.063rem $black25;
 
 		&__button {
-			padding: 0;
-			background-color: transparent;
-			border: none;
 			cursor: pointer;
 
-			&__up {
+			img {
+				display: block;
 				width: 1.5rem;
-				height: 0.1rem;
-				background-color: $black;
-				transform: rotate(45deg);
-			}
-
-			&__down {
-				width: 1.5rem;
-				height: 0.1rem;
-				background-color: $black;
-				transform: translateY(-0.11rem) rotate(-45deg);
+				height: 100%;
 			}
 		}
 
@@ -116,7 +105,7 @@
 				}
 			}
 
-			h5 {
+			h6 {
 				font-weight: 400;
 			}
 		}

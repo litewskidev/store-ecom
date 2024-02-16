@@ -13,35 +13,35 @@
 			transition: transform 0.3s ease-out;
 
 			&__info {
-        &__container {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
+				&__container {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+				}
 
 				display: flex;
 				flex-direction: column;
 				gap: 0.5rem;
 
-        &__button {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          gap: .5rem;
-          z-index: 3;
+				&__button {
+					display: flex;
+					align-items: center;
+					justify-content: flex-end;
+					gap: 0.5rem;
+					z-index: 3;
 
-          img {
-            display: block;
-            width: 1.75rem;
-            height: 100%;
-            opacity: .6;
-            transition: transform .3s ease-out;
+					img {
+						display: block;
+						width: 1.75rem;
+						height: 100%;
+						opacity: 0.6;
+						transition: transform 0.3s ease-out;
 
-            &:hover {
-              transform: scale(1.035);
-            }
-          }
-        }
+						&:hover {
+							transform: scale(1.035);
+						}
+					}
+				}
 
 				p {
 					font-size: 0.889rem;

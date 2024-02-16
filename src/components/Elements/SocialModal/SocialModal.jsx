@@ -54,8 +54,13 @@ const SocialModal = ({
 							culture
 						</a>
 					</div>
-					<div onClick={toggleSocialModal}>
-						<p>X</p>
+					<div
+						className='socialModal__right__header__button'
+						onClick={toggleSocialModal}>
+						<img
+							src={process.env.PUBLIC_URL + '/assets/icons/close.svg'}
+							alt='close button'
+						/>
 					</div>
 				</div>
 				<div className='socialModal__left social__mobile'>

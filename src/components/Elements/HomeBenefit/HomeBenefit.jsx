@@ -26,10 +26,7 @@ const HomeBenefit = () => {
 		<div className='homeBenefit__wrapper'>
 			{homeBenefitMenu.map((benefit, index) => (
 				<div className='homeBenefit__box' key={index}>
-					<img
-						src={process.env.PUBLIC_URL + '/assets/icons/star.svg'}
-						alt=''
-					/>
+					<img src={process.env.PUBLIC_URL + '/assets/icons/star.svg'} alt='' />
 					<h5>
 						{benefit.options.first}
 						<br />

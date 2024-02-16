@@ -48,10 +48,16 @@ const ProductCard = ({ product }) => {
 						)}
 					</div>
 				</div>
-        <div className='productCard__box__inner__info__button'>
-            <img src={process.env.PUBLIC_URL + '/assets/icons/clock.svg'} alt='wishlist button'/>
-            <img src={process.env.PUBLIC_URL + '/assets/icons/share.svg'} alt='share button'/>
-          </div>
+				<div className='productCard__box__inner__info__button'>
+					<img
+						src={process.env.PUBLIC_URL + '/assets/icons/clock.svg'}
+						alt='wishlist button'
+					/>
+					<img
+						src={process.env.PUBLIC_URL + '/assets/icons/share.svg'}
+						alt='share button'
+					/>
+				</div>
 			</NavLink>
 		</div>
 	);

@@ -9,7 +9,7 @@
 		border-radius: 1rem;
 		overflow: hidden;
 		z-index: 900;
-    box-shadow: $shadow-medium;
+		box-shadow: $shadow-medium;
 	}
 
 	&__left {
@@ -60,6 +60,16 @@
 					font-size: 1.25rem;
 					font-weight: 700;
 					color: $black;
+				}
+			}
+
+			&__button {
+				cursor: pointer;
+
+				img {
+					display: block;
+					width: 1.5rem;
+					height: 100%;
 				}
 			}
 

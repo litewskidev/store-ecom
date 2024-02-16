@@ -3,7 +3,7 @@
 .homeHero {
 	&__wrapper {
 		box-shadow: $shadow-medium;
-    min-height: 100vh;
+		min-height: 100vh;
 	}
 
 	&__inner {
@@ -12,7 +12,7 @@
 		&__video {
 			display: block;
 			width: 100%;
-      min-height: 100vh;
+			min-height: 100vh;
 			object-fit: cover;
 			z-index: -1;
 			filter: brightness(0.6);

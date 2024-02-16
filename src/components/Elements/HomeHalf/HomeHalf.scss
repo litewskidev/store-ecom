@@ -39,7 +39,6 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			transition: transform 0.3s ease-out;
 		}
 
 		&::after {
@@ -50,11 +49,12 @@
 			width: 100%;
 			height: 100%;
 			background-color: rgba(0, 0, 0, 0.25);
+			transition: background-color 0.3s ease-out;
 		}
 
 		&:hover {
-			img {
-				transform: scale(1.025);
+			&::after {
+				background-color: rgba(0, 0, 0, 0.4);
 			}
 
 			.homeHalf__tile__info {

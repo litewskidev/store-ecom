@@ -16,12 +16,14 @@ const LoginModal = ({ handleBtn }) => {
 						<div className='loginModal__nav'>
 							<div className='loginModal__nav__header'>
 								<h2>CREATE ACCOUNT</h2>
-								<button
+								<div
 									className='loginModal__nav__header__button'
 									onClick={handleBtn}>
-									<div className='loginModal__nav__header__button__up'></div>
-									<div className='loginModal__nav__header__button__down'></div>
-								</button>
+									<img
+										src={process.env.PUBLIC_URL + '/assets/icons/close.svg'}
+										alt='close button'
+									/>
+								</div>
 							</div>
 							<div className='loginModal__nav__scroll'>
 								<form className='loginModal__nav__form'>
@@ -58,12 +60,14 @@ const LoginModal = ({ handleBtn }) => {
 						<div className='loginModal__nav'>
 							<div className='loginModal__nav__header'>
 								<h2>LOG IN</h2>
-								<button
+								<div
 									className='loginModal__nav__header__button'
 									onClick={handleBtn}>
-									<div className='loginModal__nav__header__button__up'></div>
-									<div className='loginModal__nav__header__button__down'></div>
-								</button>
+									<img
+										src={process.env.PUBLIC_URL + '/assets/icons/close.svg'}
+										alt='close button'
+									/>
+								</div>
 							</div>
 							<div className='loginModal__nav__scroll'>
 								<form className='loginModal__nav__form'>

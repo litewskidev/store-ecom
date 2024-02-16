@@ -12,10 +12,12 @@ const CartModal = ({ handleBtn }) => {
 					<NavLink to='/cart' onClick={handleBtn}>
 						YOUR CART
 					</NavLink>
-					<button className='cartModal__header__button' onClick={handleBtn}>
-						<div className='cartModal__header__button__up'></div>
-						<div className='cartModal__header__button__down'></div>
-					</button>
+					<div className='cartModal__header__button' onClick={handleBtn}>
+						<img
+							src={process.env.PUBLIC_URL + '/assets/icons/close.svg'}
+							alt='close button'
+						/>
+					</div>
 				</div>
 				<div className='cartModal__bag'>
 					<div className='cartModal__bag__items'>
@@ -32,7 +34,7 @@ const CartModal = ({ handleBtn }) => {
 						)}
 					</div>
 					<div className='cartModal__bag__images'>
-						<h5>WHY NOT START SHOPPING HERE</h5>
+						<h6>WHY NOT START SHOPPING HERE</h6>
 						<div className='cartModal__bag__images__inner'>
 							<div className='cartModal__bag__images__inner__img'>
 								<img
