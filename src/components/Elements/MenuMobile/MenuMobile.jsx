@@ -12,12 +12,12 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 		<>
 			<div className='navbar__modal__inner__header'>
 				<h4>{navbarMenu.title}</h4>
-				<button
-					className={`navbar__item__menu__button ${isDropdownActive ? 'active' : ''}`}
-					onClick={toggleDropdown}>
-					<div className='navbar__item__menu__button__up__modal__btn'></div>
-					<div className='navbar__item__menu__button__down__modal__btn'></div>
-				</button>
+				<div className='navbar__modal__inner__header__button' onClick={toggleDropdown}>
+					<img
+						src={process.env.PUBLIC_URL + '/assets/icons/close.svg'}
+						alt='close button'
+					/>
+				</div>
 			</div>
 			<nav className='navbar__modal__inner__scroll'>
 				<ul className='navbar__modal__inner__links'>

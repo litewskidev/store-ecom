@@ -3,20 +3,26 @@
 .products {
 	&__wrapper {
 		display: grid;
-		grid-template-columns: 20% 20% 20% 20% 20%;
+		grid-template-columns: repeat(5, 1fr);
 		justify-content: space-between;
 		width: 100%;
-		padding: 0 8rem;
+		padding: 0 2rem;
 		min-height: 100vh;
 	}
 }
 
-@media screen and (max-width: 1800px) {
+@media screen and (max-width: 1921px) {
 	.products {
 		&__wrapper {
-			display: grid;
-			grid-template-columns: 25% 25% 25% 25%;
-			padding: 0 4rem;
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+}
+
+@media screen and (max-width: 1441px) {
+	.products {
+		&__wrapper {
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 }
@@ -24,8 +30,8 @@
 @media screen and (max-width: 1200px) {
 	.products {
 		&__wrapper {
-			grid-template-columns: 50% 50%;
-			padding: 0 2rem;
+			grid-template-columns: repeat(2, 1fr);
+			padding: 0 1rem;
 		}
 	}
 }

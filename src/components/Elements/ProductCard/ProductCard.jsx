@@ -5,10 +5,10 @@ import './ProductCard.scss';
 const ProductCard = ({ product }) => {
 	return (
 		<div className='productCard__box'>
-			<NavLink
-				to={`/watches/${product?._id}`}
-				className='productCard__box__inner'>
-				<div className='productCard__box__inner__image'>
+			<div className='productCard__box__inner'>
+				<NavLink
+					to={`/watches/${product?._id}`}
+					className='productCard__box__inner__image'>
 					{product?.images.slice(0, 1).map((image, index) => (
 						<div className='product__images' key={index}>
 							<img
@@ -20,14 +20,14 @@ const ProductCard = ({ product }) => {
 							/>
 						</div>
 					))}
-				</div>
-				<div className='productCard__box__inner__info__container'>
-					<div className='productCard__box__inner__info'>
-						<div className='productCard__box__inner__info__title'>
-							<p>
-								{product?.brand.name}, {product?.model}
-							</p>
-						</div>
+				</NavLink>
+				<div className='productCard__box__inner__info'>
+					<div className='productCard__box__inner__info__title'>
+						<p>
+							{product?.brand.name}, {product?.model}
+						</p>
+					</div>
+					<div className='productCard__box__inner__info__bottom'>
 						{product?.price.discount !== 0 ? (
 							<div className='productCard__box__inner__info__price'>
 								<p>
@@ -46,19 +46,23 @@ const ProductCard = ({ product }) => {
 								</p>
 							</div>
 						)}
+						<div className='productCard__box__inner__info__buttons'>
+							<div className='productCard__box__inner__info__buttons__wishlist'>
+								<img
+									src={process.env.PUBLIC_URL + '/assets/icons/clock.svg'}
+									alt='wishlist button'
+								/>
+							</div>
+							<div className='productCard__box__inner__info__buttons__cart'>
+								<img
+									src={process.env.PUBLIC_URL + '/assets/icons/add.svg'}
+									alt='share button'
+								/>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div className='productCard__box__inner__info__button'>
-					<img
-						src={process.env.PUBLIC_URL + '/assets/icons/clock.svg'}
-						alt='wishlist button'
-					/>
-					<img
-						src={process.env.PUBLIC_URL + '/assets/icons/share.svg'}
-						alt='share button'
-					/>
-				</div>
-			</NavLink>
+			</div>
 		</div>
 	);
 };

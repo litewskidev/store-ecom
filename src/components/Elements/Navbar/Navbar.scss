@@ -45,6 +45,8 @@
 
 	&__item {
 		&__icon {
+      display: flex;
+
 			img {
 				display: block;
 				width: 1.5rem;
@@ -400,8 +402,16 @@
 
 				&__header {
 					display: flex;
-					align-items: center;
+					align-items: flex-start;
 					justify-content: space-between;
+
+          &__button {
+            img {
+              display: block;
+              width: 1.5rem;
+              height: 100%;
+            }
+          }
 				}
 
 				&__links {
