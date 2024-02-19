@@ -2,17 +2,17 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './CartModal.scss';
 
-const CartModal = ({ handleBtn }) => {
+const CartModal = ({ closeCart }) => {
 	const cart = [];
 
 	return (
 		<div id='cart-modal'>
 			<div className='cartModal__wrapper'>
 				<div className='cartModal__header'>
-					<NavLink to='/cart' onClick={handleBtn}>
+					<NavLink to='/cart' onClick={closeCart}>
 						YOUR CART
 					</NavLink>
-					<div className='cartModal__header__button' onClick={handleBtn}>
+					<div className='cartModal__header__button' onClick={closeCart}>
 						<img
 							src={process.env.PUBLIC_URL + '/assets/icons/close.svg'}
 							alt='close button'
@@ -43,7 +43,7 @@ const CartModal = ({ handleBtn }) => {
 								/>
 								<div className='cartModal__bag__images__inner__img__link'>
 									<p></p>
-									<NavLink to='/categories/women-watches' onClick={handleBtn}>
+									<NavLink to='/categories/women-watches' onClick={closeCart}>
 										SHOP NOW
 									</NavLink>
 								</div>
@@ -55,7 +55,7 @@ const CartModal = ({ handleBtn }) => {
 								/>
 								<div className='cartModal__bag__images__inner__img__link'>
 									<p></p>
-									<NavLink to='/categories/men-watches' onClick={handleBtn}>
+									<NavLink to='/categories/men-watches' onClick={closeCart}>
 										SHOP NOW
 									</NavLink>
 								</div>
@@ -81,7 +81,7 @@ const CartModal = ({ handleBtn }) => {
 };
 
 CartModal.propTypes = {
-	handleBtn: PropTypes.func.isRequired,
+
 };
 
 export default CartModal;

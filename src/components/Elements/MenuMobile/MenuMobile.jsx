@@ -3,7 +3,7 @@ import useToggle from '../../../hooks/useToggle.js';
 import SocialLinks from '../SocialLinks/SocialLinks.jsx';
 import PropTypes from 'prop-types';
 
-const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
+const MenuMobile = ({ closeDropdown, navbarMenu }) => {
 	//  BUTTONS HANDLERS
 	const [isWatchesListActive, toggleWatchesList] = useToggle(false);
 	const [isBrandsListActive, toggleBrandsList] = useToggle(false);
@@ -14,7 +14,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 				<h4>{navbarMenu.title}</h4>
 				<div
 					className='navbar__modal__inner__header__button'
-					onClick={toggleDropdown}>
+					onClick={closeDropdown}>
 					<img
 						src={process.env.PUBLIC_URL + '/assets/icons/close.svg'}
 						alt='close button'
@@ -28,7 +28,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 							<NavLink
 								to='/categories/new-arrivals'
 								className='navbar__modal__inner__links__item__link__button'
-								onClick={toggleDropdown}>
+								onClick={closeDropdown}>
 								<p>{navbarMenu.categories.new}</p>
 								<img
 									src={process.env.PUBLIC_URL + '/assets/icons/arrow-right.svg'}
@@ -57,7 +57,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 										<li key={index}>
 											<NavLink
 												to={`/categories/${item.id}`}
-												onClick={toggleDropdown}>
+												onClick={closeDropdown}>
 												{item.name}
 											</NavLink>
 										</li>
@@ -67,7 +67,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 										<li key={index}>
 											<NavLink
 												to={`/collections/${item.id}`}
-												onClick={toggleDropdown}>
+												onClick={closeDropdown}>
 												{item.name}
 											</NavLink>
 										</li>
@@ -96,7 +96,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 										<li key={index}>
 											<NavLink
 												to={`/brands/${item.id}`}
-												onClick={toggleDropdown}>
+												onClick={closeDropdown}>
 												{item.name}
 											</NavLink>
 										</li>
@@ -106,7 +106,7 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 										<li key={index}>
 											<NavLink
 												to={`/brands/${item.id}`}
-												onClick={toggleDropdown}>
+												onClick={closeDropdown}>
 												{item.name}
 											</NavLink>
 										</li>
@@ -124,16 +124,16 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 						/>
 					</div>
 					<div className='navbar__modal__inner__footer'>
-						<NavLink to='/contact' onClick={toggleDropdown}>
+						<NavLink to='/contact' onClick={closeDropdown}>
 							{navbarMenu.footer.contact}
 						</NavLink>
-						<NavLink to='/about' onClick={toggleDropdown}>
+						<NavLink to='/about' onClick={closeDropdown}>
 							{navbarMenu.footer.about}
 						</NavLink>
-						<NavLink to='/stores' onClick={toggleDropdown}>
+						<NavLink to='/stores' onClick={closeDropdown}>
 							{navbarMenu.footer.stores}
 						</NavLink>
-						<NavLink to='/faq' onClick={toggleDropdown}>
+						<NavLink to='/faq' onClick={closeDropdown}>
 							{navbarMenu.footer.faq}
 						</NavLink>
 					</div>
@@ -145,9 +145,57 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 };
 
 MenuMobile.propTypes = {
-	isDropdownActive: PropTypes.bool.isRequired,
-	toggleDropdown: PropTypes.func.isRequired,
-	navbarMenu: PropTypes.object.isRequired,
+  closeDropdown: PropTypes.func.isRequired,
+  navbarMenu: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      categories: PropTypes.shape({
+          new: PropTypes.string.isRequired,
+          all: PropTypes.string.isRequired,
+          brands: PropTypes.string.isRequired,
+      }).isRequired,
+      shopByCategory: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          links: PropTypes.arrayOf(
+              PropTypes.shape({
+                  id: PropTypes.string.isRequired,
+                  name: PropTypes.string.isRequired,
+              })
+          ).isRequired,
+      }).isRequired,
+      featuredCollections: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          links: PropTypes.arrayOf(
+              PropTypes.shape({
+                  id: PropTypes.string.isRequired,
+                  name: PropTypes.string.isRequired,
+              })
+          ).isRequired,
+      }).isRequired,
+      featuredBrands: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          links: PropTypes.arrayOf(
+              PropTypes.shape({
+                  id: PropTypes.string.isRequired,
+                  name: PropTypes.string.isRequired,
+              })
+          ).isRequired,
+      }).isRequired,
+      allBrands: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          links: PropTypes.arrayOf(
+              PropTypes.shape({
+                  id: PropTypes.string.isRequired,
+                  name: PropTypes.string.isRequired,
+              })
+          ).isRequired,
+      }).isRequired,
+      footer: PropTypes.shape({
+          contact: PropTypes.string.isRequired,
+          about: PropTypes.string.isRequired,
+          stores: PropTypes.string.isRequired,
+          faq: PropTypes.string.isRequired,
+      }).isRequired,
+  }).isRequired,
 };
 
 export default MenuMobile;

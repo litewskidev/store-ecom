@@ -4,10 +4,10 @@ const useScrollUpdate = (
 	isScrollingDown,
 	setIsScrollingDown,
 	setIsScrollBelowThreshold,
-	scrollThreshold,
 	navbarThreshold,
 ) => {
 	useLayoutEffect(() => {
+		const scrollThreshold = 5;
 		let lastScrollY = window.scrollY;
 		let ticking = false;
 
@@ -50,7 +50,6 @@ const useScrollUpdate = (
 		isScrollingDown,
 		setIsScrollingDown,
 		setIsScrollBelowThreshold,
-		scrollThreshold,
 		navbarThreshold,
 	]);
 };

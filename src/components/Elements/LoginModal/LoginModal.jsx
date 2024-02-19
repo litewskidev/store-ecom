@@ -3,7 +3,7 @@ import useToggle from '../../../hooks/useToggle.js';
 import PropTypes from 'prop-types';
 import './LoginModal.scss';
 
-const LoginModal = ({ handleBtn }) => {
+const LoginModal = ({ closeLogin }) => {
 	//  BUTTONS HANDLERS
 	const [registerPage, toggleRegisterPage] = useToggle(false);
 
@@ -18,7 +18,7 @@ const LoginModal = ({ handleBtn }) => {
 								<h2>CREATE ACCOUNT</h2>
 								<div
 									className='loginModal__nav__header__button'
-									onClick={handleBtn}>
+									onClick={closeLogin}>
 									<img
 										src={process.env.PUBLIC_URL + '/assets/icons/close.svg'}
 										alt='close button'
@@ -45,7 +45,7 @@ const LoginModal = ({ handleBtn }) => {
 									</div>
 									<p>
 										Already have an account?{' '}
-										<NavLink to='/login' onClick={handleBtn}>
+										<NavLink to='/login' onClick={closeLogin}>
 											Login here
 										</NavLink>
 									</p>
@@ -62,7 +62,7 @@ const LoginModal = ({ handleBtn }) => {
 								<h2>LOG IN</h2>
 								<div
 									className='loginModal__nav__header__button'
-									onClick={handleBtn}>
+									onClick={closeLogin}>
 									<img
 										src={process.env.PUBLIC_URL + '/assets/icons/close.svg'}
 										alt='close button'
@@ -78,7 +78,7 @@ const LoginModal = ({ handleBtn }) => {
 								<div className='loginModal__nav__footer'>
 									<p>
 										Don't have an account yet?{' '}
-										<NavLink to='/register' onClick={handleBtn}>
+										<NavLink to='/register' onClick={closeLogin}>
 											Sign up
 										</NavLink>{' '}
 										and take advantage of these benefits:
@@ -102,7 +102,7 @@ const LoginModal = ({ handleBtn }) => {
 };
 
 LoginModal.propTypes = {
-	handleBtn: PropTypes.func.isRequired,
+
 };
 
 export default LoginModal;

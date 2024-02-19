@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-const useWindowLocation = (location, setIsHomePage) => {
+const useWindowLocation = (setWindowPage, page) => {
+  const location = useLocation();
+
 	useEffect(() => {
-		setIsHomePage(location.pathname === '/');
+		setWindowPage(location.pathname === page);
 		window.scrollTo(0, 0);
-	}, [location, setIsHomePage]);
+	}, [location, setWindowPage, page]);
 };
 
 export default useWindowLocation;

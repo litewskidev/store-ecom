@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useWindowLocation from '../../../hooks/useWindowLocation.js';
 import useScrollUpdate from '../../../hooks/useScrollUpdate.js';
 import useBodyOverflow from '../../../hooks/useBodyOverflow.js';
@@ -7,8 +7,8 @@ import MenuDesktop from '../MenuDesktop/MenuDesktop.jsx';
 import MenuMobile from '../MenuMobile/MenuMobile.jsx';
 import LoginModal from '../LoginModal/LoginModal.jsx';
 import CartModal from '../CartModal/CartModal.jsx';
-import './Navbar.scss';
 import SearchModal from '../SearchModal/SearchModal.jsx';
+import './Navbar.scss';
 
 const Navbar = () => {
 	const navbarMenu = {
@@ -151,7 +151,6 @@ const Navbar = () => {
 		},
 	};
 
-	const location = useLocation();
 	const navigate = useNavigate();
 
 	//  STATES
@@ -165,19 +164,17 @@ const Navbar = () => {
 	const [isCartActive, setIsCartActive] = useState(false);
 	const [isSearchActive, setIsSearchActive] = useState(false);
 
-	//  CONSTANTS
-	const scrollThreshold = 5;
+	//  NAVBAR THRESHOLD
 	const navbarThreshold = 75;
 
 	//  WINDOW LOCATION
-	useWindowLocation(location, setIsHomePage);
+	useWindowLocation(setIsHomePage, '/');
 
 	//  SCROLL UPDATE
 	useScrollUpdate(
 		isScrollingDown,
 		setIsScrollingDown,
 		setIsScrollBelowThreshold,
-		scrollThreshold,
 		navbarThreshold,
 	);
 
@@ -185,35 +182,64 @@ const Navbar = () => {
 	useBodyOverflow(bodyOverflowHidden);
 
 	//  BUTTONS HANDLERS
-	const toggleDropdown = useCallback(() => {
-		setBodyOverflowHidden(!bodyOverflowHidden);
-		setIsDropdownActive(!isDropdownActive);
-	}, [isDropdownActive, bodyOverflowHidden]);
-
-	const toggleLogin = useCallback(() => {
-		if (user) {
-			navigate('/profile');
-		} else {
-			setBodyOverflowHidden(!bodyOverflowHidden);
-			setIsLoginActive(!isLoginActive);
-		}
-	}, [user, navigate, isLoginActive, bodyOverflowHidden]);
-
-	const toggleCart = useCallback(() => {
-		setBodyOverflowHidden(!bodyOverflowHidden);
-		setIsCartActive(!isCartActive);
-	}, [isCartActive, bodyOverflowHidden]);
-
 	const openSearch = useCallback(() => {
-		setBodyOverflowHidden(true);
 		setIsScrollBelowThreshold(true);
+		setBodyOverflowHidden(true);
 		setIsSearchActive(true);
 	}, []);
 
 	const closeSearch = useCallback(() => {
+		if (window.scrollY <= navbarThreshold) {
+			setIsScrollBelowThreshold(false);
+		}
 		setBodyOverflowHidden(false);
-		setIsScrollBelowThreshold(false);
 		setIsSearchActive(false);
+	}, []);
+
+	const openDropdown = useCallback(() => {
+		if (isSearchActive) {
+			closeSearch();
+		}
+		setBodyOverflowHidden(true);
+		setIsDropdownActive(true);
+	}, [isSearchActive, closeSearch]);
+
+	const closeDropdown = useCallback(() => {
+		setBodyOverflowHidden(false);
+		setIsDropdownActive(false);
+	}, []);
+
+	const openLogin = useCallback(() => {
+		if (user) {
+			if (isSearchActive) {
+				closeSearch();
+			}
+			navigate('/profile');
+		} else {
+			if (isSearchActive) {
+				closeSearch();
+			}
+			setBodyOverflowHidden(true);
+			setIsLoginActive(true);
+		}
+	}, [user, navigate, isSearchActive, closeSearch]);
+
+	const closeLogin = useCallback(() => {
+		setBodyOverflowHidden(false);
+		setIsLoginActive(false);
+	}, []);
+
+	const openCart = useCallback(() => {
+		if (isSearchActive) {
+			closeSearch();
+		}
+		setBodyOverflowHidden(true);
+		setIsCartActive(true);
+	}, [isSearchActive, closeSearch]);
+
+	const closeCart = useCallback(() => {
+		setBodyOverflowHidden(false);
+		setIsCartActive(false);
 	}, []);
 
 	return (
@@ -225,9 +251,9 @@ const Navbar = () => {
 				{/* MENU DESKTOP */}
 				<MenuDesktop
 					isDropdownActive={isDropdownActive}
-					toggleDropdown={toggleDropdown}
-					toggleLogin={toggleLogin}
-					toggleCart={toggleCart}
+					openDropdown={openDropdown}
+					openLogin={openLogin}
+					openCart={openCart}
 					openSearch={openSearch}
 					closeSearch={closeSearch}
 					navbarMenu={navbarMenu}
@@ -235,41 +261,37 @@ const Navbar = () => {
 				{/* MENU MOBILE */}
 				<div
 					className={`navbar__modal ${isDropdownActive ? 'active' : ''}`}
-					onClick={toggleDropdown}>
+					onClick={closeDropdown}>
 					<div
 						className={`navbar__modal__inner ${isDropdownActive ? 'open' : ''}`}
 						onClick={e => {
 							e.stopPropagation();
 						}}>
-						<MenuMobile
-							isDropdownActive={isDropdownActive}
-							toggleDropdown={toggleDropdown}
-							navbarMenu={navbarMenu}
-						/>
+						<MenuMobile closeDropdown={closeDropdown} navbarMenu={navbarMenu} />
 					</div>
 				</div>
 				{/* LOGIN MODAL */}
 				<div
 					className={`navbar__login ${isLoginActive ? 'active' : ''}`}
-					onClick={toggleLogin}>
+					onClick={closeLogin}>
 					<div
 						className={`navbar__login__inner ${isLoginActive ? 'open' : ''}`}
 						onClick={e => {
 							e.stopPropagation();
 						}}>
-						<LoginModal handleBtn={toggleLogin} />
+						<LoginModal closeLogin={closeLogin} />
 					</div>
 				</div>
 				{/* CART MODAL */}
 				<div
 					className={`navbar__cart ${isCartActive ? 'active' : ''}`}
-					onClick={toggleCart}>
+					onClick={closeCart}>
 					<div
 						className={`navbar__cart__inner ${isCartActive ? 'open' : ''}`}
 						onClick={e => {
 							e.stopPropagation();
 						}}>
-						<CartModal handleBtn={toggleCart} />
+						<CartModal closeCart={closeCart} />
 					</div>
 				</div>
 				{/* SEARCH MODAL */}

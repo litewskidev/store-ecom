@@ -3,22 +3,22 @@ import PropTypes from 'prop-types';
 
 const MenuDesktop = ({
 	isDropdownActive,
-	toggleDropdown,
-	toggleLogin,
-	toggleCart,
+	openDropdown,
+	openLogin,
+	openCart,
 	openSearch,
 	closeSearch,
 	navbarMenu,
 }) => {
 	return (
 		<>
-			<div className='navbar__body' onClick={closeSearch}>
+			<div className='navbar__body'>
 				<nav className='navbar__body__left'>
 					<ul className='navbar__items'>
 						<li className='navbar__item__menu'>
 							<button
 								className={`navbar__item__menu__button ${isDropdownActive ? 'active' : ''}`}
-								onClick={toggleDropdown}>
+								onClick={openDropdown}>
 								<div className='navbar__item__menu__button__up'></div>
 								<div className='navbar__item__menu__button__down'></div>
 							</button>
@@ -186,7 +186,7 @@ const MenuDesktop = ({
 							</NavLink>
 						</li>
 						<li className='navbar__item__icon'>
-							<button onClick={toggleLogin}>
+							<button onClick={openLogin}>
 								<img
 									src={process.env.PUBLIC_URL + '/assets/icons/user.svg'}
 									alt='account button'
@@ -194,7 +194,7 @@ const MenuDesktop = ({
 							</button>
 						</li>
 						<li className='navbar__item__icon'>
-							<button onClick={toggleCart}>
+							<button onClick={openCart}>
 								<img
 									src={process.env.PUBLIC_URL + '/assets/icons/cart.svg'}
 									alt='cart button'
@@ -204,7 +204,7 @@ const MenuDesktop = ({
 						<li className='navbar__item__menu tablet__only'>
 							<button
 								className={`navbar__item__menu__button ${isDropdownActive ? 'active' : ''}`}
-								onClick={toggleDropdown}>
+								onClick={openDropdown}>
 								<div className='navbar__item__menu__button__up'></div>
 								<div className='navbar__item__menu__button__down'></div>
 							</button>
@@ -237,48 +237,56 @@ const MenuDesktop = ({
 };
 
 MenuDesktop.propTypes = {
-	isDropdownActive: PropTypes.bool.isRequired,
-	toggleDropdown: PropTypes.func.isRequired,
-	toggleLogin: PropTypes.func.isRequired,
-	toggleCart: PropTypes.func.isRequired,
-	navbarMenu: PropTypes.shape({
-		shopByCategory: PropTypes.shape({
-			title: PropTypes.string.isRequired,
-			links: PropTypes.arrayOf(
-				PropTypes.shape({
-					id: PropTypes.string.isRequired,
-					name: PropTypes.string.isRequired,
-				}),
-			).isRequired,
-		}).isRequired,
-		featuredCollections: PropTypes.shape({
-			title: PropTypes.string.isRequired,
-			links: PropTypes.arrayOf(
-				PropTypes.shape({
-					id: PropTypes.string.isRequired,
-					name: PropTypes.string.isRequired,
-				}),
-			).isRequired,
-		}).isRequired,
-		featuredBrands: PropTypes.shape({
-			title: PropTypes.string.isRequired,
-			links: PropTypes.arrayOf(
-				PropTypes.shape({
-					id: PropTypes.string.isRequired,
-					name: PropTypes.string.isRequired,
-				}),
-			).isRequired,
-		}).isRequired,
-		allBrands: PropTypes.shape({
-			title: PropTypes.string.isRequired,
-			links: PropTypes.arrayOf(
-				PropTypes.shape({
-					id: PropTypes.string.isRequired,
-					name: PropTypes.string.isRequired,
-				}),
-			).isRequired,
-		}).isRequired,
-	}).isRequired,
+  isDropdownActive: PropTypes.bool.isRequired,
+  openDropdown: PropTypes.func.isRequired,
+  openLogin: PropTypes.func.isRequired,
+  openCart: PropTypes.func.isRequired,
+  openSearch: PropTypes.func.isRequired,
+  closeSearch: PropTypes.func.isRequired,
+  navbarMenu: PropTypes.shape({
+      company: PropTypes.string.isRequired,
+      categories: PropTypes.shape({
+          new: PropTypes.string.isRequired,
+          all: PropTypes.string.isRequired,
+          brands: PropTypes.string.isRequired,
+      }).isRequired,
+      shopByCategory: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          links: PropTypes.arrayOf(
+              PropTypes.shape({
+                  id: PropTypes.string.isRequired,
+                  name: PropTypes.string.isRequired,
+              })
+          ).isRequired,
+      }).isRequired,
+      featuredCollections: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          links: PropTypes.arrayOf(
+              PropTypes.shape({
+                  id: PropTypes.string.isRequired,
+                  name: PropTypes.string.isRequired,
+              })
+          ).isRequired,
+      }).isRequired,
+      featuredBrands: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          links: PropTypes.arrayOf(
+              PropTypes.shape({
+                  id: PropTypes.string.isRequired,
+                  name: PropTypes.string.isRequired,
+              })
+          ).isRequired,
+      }).isRequired,
+      allBrands: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          links: PropTypes.arrayOf(
+              PropTypes.shape({
+                  id: PropTypes.string.isRequired,
+                  name: PropTypes.string.isRequired,
+              })
+          ).isRequired,
+      }).isRequired,
+  }).isRequired,
 };
 
 export default MenuDesktop;
