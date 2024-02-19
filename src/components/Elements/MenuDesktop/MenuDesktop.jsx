@@ -6,11 +6,13 @@ const MenuDesktop = ({
 	toggleDropdown,
 	toggleLogin,
 	toggleCart,
+	openSearch,
+	closeSearch,
 	navbarMenu,
 }) => {
 	return (
 		<>
-			<div className='navbar__body'>
+			<div className='navbar__body' onClick={closeSearch}>
 				<nav className='navbar__body__left'>
 					<ul className='navbar__items'>
 						<li className='navbar__item__menu'>
@@ -132,10 +134,14 @@ const MenuDesktop = ({
 							</div>
 						</li>
 						<li className='navbar__item__link'>
-							<div className='navbar__search__container'>
+							<div
+								className='navbar__search__container'
+								onClick={e => {
+									e.stopPropagation();
+								}}>
 								<form className='navbar__search__form'>
 									<div className='navbar__search__form__field'>
-										<input type='text'></input>
+										<input type='text' onClick={openSearch}></input>
 										<label></label>
 									</div>
 									<button className='navbar__search__form__button'>
@@ -152,10 +158,14 @@ const MenuDesktop = ({
 				<nav className='navbar__body__right'>
 					<ul className='navbar__items'>
 						<li className='navbar__item__icon tablet__only'>
-							<div className='navbar__search__container'>
+							<div
+								className='navbar__search__container'
+								onClick={e => {
+									e.stopPropagation();
+								}}>
 								<form className='navbar__search__form'>
 									<div className='navbar__search__form__field'>
-										<input type='text'></input>
+										<input type='text' onClick={openSearch}></input>
 										<label></label>
 									</div>
 									<button className='navbar__search__form__button'>
@@ -203,10 +213,14 @@ const MenuDesktop = ({
 				</nav>
 			</div>
 			<div className='navbar__footer'>
-				<div className='navbar__search__container'>
+				<div
+					className='navbar__search__container'
+					onClick={e => {
+						e.stopPropagation();
+					}}>
 					<form className='navbar__search__form'>
 						<div className='navbar__search__form__field'>
-							<input type='text'></input>
+							<input type='text' onClick={openSearch}></input>
 							<label></label>
 						</div>
 						<button className='navbar__search__form__button'>

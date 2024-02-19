@@ -8,6 +8,7 @@ import MenuMobile from '../MenuMobile/MenuMobile.jsx';
 import LoginModal from '../LoginModal/LoginModal.jsx';
 import CartModal from '../CartModal/CartModal.jsx';
 import './Navbar.scss';
+import SearchModal from '../SearchModal/SearchModal.jsx';
 
 const Navbar = () => {
 	const navbarMenu = {
@@ -162,6 +163,7 @@ const Navbar = () => {
 	const [isDropdownActive, setIsDropdownActive] = useState(false);
 	const [isLoginActive, setIsLoginActive] = useState(false);
 	const [isCartActive, setIsCartActive] = useState(false);
+	const [isSearchActive, setIsSearchActive] = useState(false);
 
 	//  CONSTANTS
 	const scrollThreshold = 5;
@@ -202,6 +204,18 @@ const Navbar = () => {
 		setIsCartActive(!isCartActive);
 	}, [isCartActive, bodyOverflowHidden]);
 
+	const openSearch = useCallback(() => {
+		setBodyOverflowHidden(true);
+		setIsScrollBelowThreshold(true);
+		setIsSearchActive(true);
+	}, []);
+
+	const closeSearch = useCallback(() => {
+		setBodyOverflowHidden(false);
+		setIsScrollBelowThreshold(false);
+		setIsSearchActive(false);
+	}, []);
+
 	return (
 		<header
 			id='navbar'
@@ -214,6 +228,8 @@ const Navbar = () => {
 					toggleDropdown={toggleDropdown}
 					toggleLogin={toggleLogin}
 					toggleCart={toggleCart}
+					openSearch={openSearch}
+					closeSearch={closeSearch}
 					navbarMenu={navbarMenu}
 				/>
 				{/* MENU MOBILE */}
@@ -254,6 +270,18 @@ const Navbar = () => {
 							e.stopPropagation();
 						}}>
 						<CartModal handleBtn={toggleCart} />
+					</div>
+				</div>
+				{/* SEARCH MODAL */}
+				<div
+					className={`navbar__search ${isSearchActive ? 'active' : ''}`}
+					onClick={closeSearch}>
+					<div
+						className={`navbar__search__inner ${isSearchActive ? 'open' : ''}`}
+						onClick={e => {
+							e.stopPropagation();
+						}}>
+						<SearchModal closeSearch={closeSearch} />
 					</div>
 				</div>
 			</nav>

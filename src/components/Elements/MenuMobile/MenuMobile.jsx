@@ -12,7 +12,9 @@ const MenuMobile = ({ isDropdownActive, toggleDropdown, navbarMenu }) => {
 		<>
 			<div className='navbar__modal__inner__header'>
 				<h4>{navbarMenu.title}</h4>
-				<div className='navbar__modal__inner__header__button' onClick={toggleDropdown}>
+				<div
+					className='navbar__modal__inner__header__button'
+					onClick={toggleDropdown}>
 					<img
 						src={process.env.PUBLIC_URL + '/assets/icons/close.svg'}
 						alt='close button'

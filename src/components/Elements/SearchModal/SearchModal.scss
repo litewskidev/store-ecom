@@ -1,0 +1,42 @@
+@import '../../../styles/settings.scss';
+
+.searchModal {
+	&__wrapper {
+		width: 100%;
+		height: 60vh;
+		background-color: $white;
+		border-top: solid 0.063rem $black25;
+		border-bottom: solid 0.063rem $black25;
+		padding: 1rem;
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		&__button {
+			img {
+				display: block;
+				width: 1.5rem;
+				height: 100%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.searchModal {
+		&__wrapper {
+			height: 100dvh;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.searchModal {
+		&__wrapper {
+			border: none;
+		}
+	}
+}

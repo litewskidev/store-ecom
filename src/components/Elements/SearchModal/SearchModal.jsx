@@ -1,9 +1,17 @@
 import './SearchModal.scss';
 
-const SearchModal = () => {
+const SearchModal = ({ closeSearch }) => {
 	return (
 		<div className='searchModal__wrapper'>
-			<h1>SEARCH MODAL</h1>
+			<div className='searchModal__header'>
+				<h5>SEARCH MODAL</h5>
+				<div className='searchModal__header__button' onClick={closeSearch}>
+					<img
+						src={process.env.PUBLIC_URL + '/assets/icons/close.svg'}
+						alt='close button'
+					/>
+				</div>
+			</div>
 		</div>
 	);
 };
