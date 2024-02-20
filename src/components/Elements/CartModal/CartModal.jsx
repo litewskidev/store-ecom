@@ -81,7 +81,7 @@ const CartModal = ({ closeCart }) => {
 };
 
 CartModal.propTypes = {
-
+	closeCart: PropTypes.func.isRequired,
 };
 
 export default CartModal;

@@ -237,56 +237,56 @@ const MenuDesktop = ({
 };
 
 MenuDesktop.propTypes = {
-  isDropdownActive: PropTypes.bool.isRequired,
-  openDropdown: PropTypes.func.isRequired,
-  openLogin: PropTypes.func.isRequired,
-  openCart: PropTypes.func.isRequired,
-  openSearch: PropTypes.func.isRequired,
-  closeSearch: PropTypes.func.isRequired,
-  navbarMenu: PropTypes.shape({
-      company: PropTypes.string.isRequired,
-      categories: PropTypes.shape({
-          new: PropTypes.string.isRequired,
-          all: PropTypes.string.isRequired,
-          brands: PropTypes.string.isRequired,
-      }).isRequired,
-      shopByCategory: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          links: PropTypes.arrayOf(
-              PropTypes.shape({
-                  id: PropTypes.string.isRequired,
-                  name: PropTypes.string.isRequired,
-              })
-          ).isRequired,
-      }).isRequired,
-      featuredCollections: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          links: PropTypes.arrayOf(
-              PropTypes.shape({
-                  id: PropTypes.string.isRequired,
-                  name: PropTypes.string.isRequired,
-              })
-          ).isRequired,
-      }).isRequired,
-      featuredBrands: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          links: PropTypes.arrayOf(
-              PropTypes.shape({
-                  id: PropTypes.string.isRequired,
-                  name: PropTypes.string.isRequired,
-              })
-          ).isRequired,
-      }).isRequired,
-      allBrands: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          links: PropTypes.arrayOf(
-              PropTypes.shape({
-                  id: PropTypes.string.isRequired,
-                  name: PropTypes.string.isRequired,
-              })
-          ).isRequired,
-      }).isRequired,
-  }).isRequired,
+	isDropdownActive: PropTypes.bool.isRequired,
+	openDropdown: PropTypes.func.isRequired,
+	openLogin: PropTypes.func.isRequired,
+	openCart: PropTypes.func.isRequired,
+	openSearch: PropTypes.func.isRequired,
+	closeSearch: PropTypes.func.isRequired,
+	navbarMenu: PropTypes.shape({
+		company: PropTypes.string.isRequired,
+		categories: PropTypes.shape({
+			new: PropTypes.string.isRequired,
+			all: PropTypes.string.isRequired,
+			brands: PropTypes.string.isRequired,
+		}).isRequired,
+		shopByCategory: PropTypes.shape({
+			title: PropTypes.string.isRequired,
+			links: PropTypes.arrayOf(
+				PropTypes.shape({
+					id: PropTypes.string.isRequired,
+					name: PropTypes.string.isRequired,
+				}),
+			).isRequired,
+		}).isRequired,
+		featuredCollections: PropTypes.shape({
+			title: PropTypes.string.isRequired,
+			links: PropTypes.arrayOf(
+				PropTypes.shape({
+					id: PropTypes.string.isRequired,
+					name: PropTypes.string.isRequired,
+				}),
+			).isRequired,
+		}).isRequired,
+		featuredBrands: PropTypes.shape({
+			title: PropTypes.string.isRequired,
+			links: PropTypes.arrayOf(
+				PropTypes.shape({
+					id: PropTypes.string.isRequired,
+					name: PropTypes.string.isRequired,
+				}),
+			).isRequired,
+		}).isRequired,
+		allBrands: PropTypes.shape({
+			title: PropTypes.string.isRequired,
+			links: PropTypes.arrayOf(
+				PropTypes.shape({
+					id: PropTypes.string.isRequired,
+					name: PropTypes.string.isRequired,
+				}),
+			).isRequired,
+		}).isRequired,
+	}).isRequired,
 };
 
 export default MenuDesktop;

@@ -10,14 +10,14 @@
 
 	&__inner {
 		display: flex;
-		gap: 2rem;
+		gap: 3rem;
 	}
 
 	&__info {
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
-		width: 30%;
+		width: 25%;
 
 		&__stores {
 			display: flex;
@@ -84,7 +84,7 @@
 	}
 
 	&__image {
-		width: 70%;
+		width: 75%;
 
 		img {
 			display: block;
@@ -101,6 +101,18 @@
 		&__wrapper {
 			padding: 0 2rem 0 2rem;
 		}
+
+		&__inner {
+			gap: 2rem;
+		}
+
+		&__info {
+			&__stores {
+				&__box {
+					padding: 0.5rem;
+				}
+			}
+		}
 	}
 }
 
@@ -112,7 +124,6 @@
 
 		&__inner {
 			flex-direction: column-reverse;
-			gap: 2rem;
 		}
 
 		&__info {
@@ -121,6 +132,7 @@
 			&__stores {
 				&__box {
 					width: 100%;
+					padding: 0.5rem 1rem;
 					text-align: start;
 				}
 			}

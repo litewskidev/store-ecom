@@ -7,7 +7,7 @@
 		background-color: $white;
 		border-top: solid 0.063rem $black25;
 		border-bottom: solid 0.063rem $black25;
-		padding: 1rem;
+		padding: 2rem 3rem;
 	}
 
 	&__header {
@@ -29,6 +29,7 @@
 	.searchModal {
 		&__wrapper {
 			height: 100dvh;
+			padding: 1rem 2rem;
 		}
 	}
 }
@@ -36,6 +37,7 @@
 @media screen and (max-width: 600px) {
 	.searchModal {
 		&__wrapper {
+			padding: 1rem;
 			border: none;
 		}
 	}

@@ -102,7 +102,7 @@ const LoginModal = ({ closeLogin }) => {
 };
 
 LoginModal.propTypes = {
-
+	closeLogin: PropTypes.func.isRequired,
 };
 
 export default LoginModal;

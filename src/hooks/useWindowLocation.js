@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const useWindowLocation = (setWindowPage, page) => {
-  const location = useLocation();
+	const location = useLocation();
 
 	useEffect(() => {
 		setWindowPage(location.pathname === page);

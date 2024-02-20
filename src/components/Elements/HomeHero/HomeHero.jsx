@@ -21,6 +21,9 @@ const HomeHero = () => {
 					muted
 					playsInline
 					type='video/mp4'
+					poster={
+						process.env.PUBLIC_URL + `/assets/videos/${homeHeroMenu.media}.webp`
+					}
 					src={
 						process.env.PUBLIC_URL + `/assets/videos/${homeHeroMenu.media}.mp4`
 					}></video>

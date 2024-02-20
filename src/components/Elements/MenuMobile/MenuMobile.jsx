@@ -145,57 +145,57 @@ const MenuMobile = ({ closeDropdown, navbarMenu }) => {
 };
 
 MenuMobile.propTypes = {
-  closeDropdown: PropTypes.func.isRequired,
-  navbarMenu: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      categories: PropTypes.shape({
-          new: PropTypes.string.isRequired,
-          all: PropTypes.string.isRequired,
-          brands: PropTypes.string.isRequired,
-      }).isRequired,
-      shopByCategory: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          links: PropTypes.arrayOf(
-              PropTypes.shape({
-                  id: PropTypes.string.isRequired,
-                  name: PropTypes.string.isRequired,
-              })
-          ).isRequired,
-      }).isRequired,
-      featuredCollections: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          links: PropTypes.arrayOf(
-              PropTypes.shape({
-                  id: PropTypes.string.isRequired,
-                  name: PropTypes.string.isRequired,
-              })
-          ).isRequired,
-      }).isRequired,
-      featuredBrands: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          links: PropTypes.arrayOf(
-              PropTypes.shape({
-                  id: PropTypes.string.isRequired,
-                  name: PropTypes.string.isRequired,
-              })
-          ).isRequired,
-      }).isRequired,
-      allBrands: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          links: PropTypes.arrayOf(
-              PropTypes.shape({
-                  id: PropTypes.string.isRequired,
-                  name: PropTypes.string.isRequired,
-              })
-          ).isRequired,
-      }).isRequired,
-      footer: PropTypes.shape({
-          contact: PropTypes.string.isRequired,
-          about: PropTypes.string.isRequired,
-          stores: PropTypes.string.isRequired,
-          faq: PropTypes.string.isRequired,
-      }).isRequired,
-  }).isRequired,
+	closeDropdown: PropTypes.func.isRequired,
+	navbarMenu: PropTypes.shape({
+		title: PropTypes.string.isRequired,
+		categories: PropTypes.shape({
+			new: PropTypes.string.isRequired,
+			all: PropTypes.string.isRequired,
+			brands: PropTypes.string.isRequired,
+		}).isRequired,
+		shopByCategory: PropTypes.shape({
+			title: PropTypes.string.isRequired,
+			links: PropTypes.arrayOf(
+				PropTypes.shape({
+					id: PropTypes.string.isRequired,
+					name: PropTypes.string.isRequired,
+				}),
+			).isRequired,
+		}).isRequired,
+		featuredCollections: PropTypes.shape({
+			title: PropTypes.string.isRequired,
+			links: PropTypes.arrayOf(
+				PropTypes.shape({
+					id: PropTypes.string.isRequired,
+					name: PropTypes.string.isRequired,
+				}),
+			).isRequired,
+		}).isRequired,
+		featuredBrands: PropTypes.shape({
+			title: PropTypes.string.isRequired,
+			links: PropTypes.arrayOf(
+				PropTypes.shape({
+					id: PropTypes.string.isRequired,
+					name: PropTypes.string.isRequired,
+				}),
+			).isRequired,
+		}).isRequired,
+		allBrands: PropTypes.shape({
+			title: PropTypes.string.isRequired,
+			links: PropTypes.arrayOf(
+				PropTypes.shape({
+					id: PropTypes.string.isRequired,
+					name: PropTypes.string.isRequired,
+				}),
+			).isRequired,
+		}).isRequired,
+		footer: PropTypes.shape({
+			contact: PropTypes.string.isRequired,
+			about: PropTypes.string.isRequired,
+			stores: PropTypes.string.isRequired,
+			faq: PropTypes.string.isRequired,
+		}).isRequired,
+	}).isRequired,
 };
 
 export default MenuMobile;
