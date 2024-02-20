@@ -2,8 +2,8 @@ import { useParams } from 'react-router-dom';
 import { useGetProductsByIdQuery } from '../../../redux/slices/productsApiSlice.js';
 import Loading from '../../Elements/Loading/Loading.jsx';
 import Error from '../../Elements/Error/Error.jsx';
-import Product from '../../Elements/Product/Product.jsx';
 import './ProductSingle.scss';
+import ProductNew from '../../Elements/ProductNew/ProductNew.jsx';
 
 const ProductSingle = () => {
 	const params = useParams();
@@ -23,7 +23,7 @@ const ProductSingle = () => {
 							: 'An unexpected error occurred. Please try again later.'}
 					</Error>
 				)}
-				{!isLoading && !isError && <Product product={product} />}
+				{!isLoading && !isError && <ProductNew product={product} />}
 			</div>
 		</section>
 	);

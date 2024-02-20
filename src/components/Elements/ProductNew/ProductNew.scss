@@ -1,0 +1,17 @@
+@import '../../../styles/settings.scss';
+
+.productNew {
+	&__wrapper {
+    display: flex;
+    flex-direction: column;
+		background-color: $black5;
+	}
+}
+
+@media screen and (max-width: 600px) {
+  .productNew {
+    &__wrapper {
+      background-color: $white;
+    }
+  }
+}

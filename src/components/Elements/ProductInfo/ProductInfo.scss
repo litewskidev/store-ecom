@@ -1,0 +1,26 @@
+.productInfo {
+	&__wrapper {
+		display: flex;
+		gap: 2rem;
+		padding: 3rem;
+		height: 75vh;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.productInfo {
+		&__wrapper {
+			flex-direction: column;
+			padding: 2rem;
+			height: auto;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.productInfo {
+		&__wrapper {
+			padding: 0;
+		}
+	}
+}

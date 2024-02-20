@@ -1,0 +1,57 @@
+@import '../../../styles/settings.scss';
+
+.productGallery {
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 23.5% 75%;
+		grid-template-rows: 100%;
+    justify-content: space-between;
+		width: 50%;
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: repeat(4, 24%);
+    align-content: space-between;
+
+		&__item {
+			box-shadow: $shadow-light;
+			border: solid 0.063rem;
+			border-color: $white;
+			cursor: pointer;
+			transition: border-color 0.3s ease-out;
+
+			&.active {
+				border-color: $black75;
+			}
+
+			img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+
+	&__show {
+		box-shadow: $shadow-light;
+		border: solid 0.063rem $white;
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+  .productGallery {
+    &__wrapper {
+      width: 100%;
+    }
+  }
+}

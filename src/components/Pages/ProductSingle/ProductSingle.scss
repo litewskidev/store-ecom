@@ -2,16 +2,22 @@
 
 .productSingle {
 	&__wrapper {
-		min-height: 100vh;
-		padding: 8rem 2rem 2rem 2rem;
-		background-color: $white;
+		padding: 8rem 3rem 0 3rem;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.productSingle {
+		&__wrapper {
+			padding: 6rem 2rem 0 2rem;
+		}
 	}
 }
 
 @media screen and (max-width: 600px) {
 	.productSingle {
 		&__wrapper {
-			padding: 8rem 1rem 2rem 1rem;
+			padding: 8rem 1rem 0 1rem;
 		}
 	}
 }

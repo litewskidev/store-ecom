@@ -1,0 +1,142 @@
+@import '../../../styles/settings.scss';
+
+.productActions {
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		width: 50%;
+		padding: 3rem;
+		background-color: $white;
+	}
+
+	&__title {
+		h3 {
+			line-height: 1.4;
+		}
+	}
+
+	&__reference {
+		p {
+			font-size: 0.889rem;
+			color: $black55;
+		}
+	}
+
+	&__price {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+
+		h3 {
+			color: $black55;
+			text-decoration: line-through;
+			font-weight: 400;
+		}
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		padding: 2rem 0;
+		border-top: solid 0.063rem $black25;
+		border-bottom: solid 0.063rem $black25;
+
+		&____quantity {
+			width: 25%;
+		}
+
+		&__buttons {
+			display: flex;
+			width: 75%;
+			gap: 1rem;
+
+			button {
+				font-family: $font;
+				font-size: 1rem;
+				font-weight: 900;
+				padding: 0.5rem 0;
+				border-radius: 2rem;
+				cursor: pointer;
+				box-shadow: $shadow-medium;
+			}
+
+			&__cart {
+				width: 80%;
+				background-color: $mint;
+				border: solid 0.063rem $mint;
+				transition:
+					background-color 0.3s ease-out,
+					border 0.3s ease-out;
+
+				&:hover {
+					background-color: $white;
+					border: solid 0.063rem $black75;
+				}
+			}
+
+			&__wishlist {
+				display: flex;
+				justify-content: center;
+				width: 20%;
+				background-color: $black;
+				border: solid 0.063rem $black75;
+				transition: background-color 0.3s ease-out;
+
+				img {
+					display: block;
+					width: 1.85rem;
+					height: 100%;
+					filter: invert(1);
+					transition: filter 0.3s ease-out;
+				}
+
+				&:hover {
+					background-color: $white;
+
+					img {
+						filter: invert(0);
+					}
+				}
+			}
+		}
+	}
+
+	&__description {
+		h5 {
+			margin-bottom: 0.5rem;
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.productActions {
+		&__wrapper {
+			width: 100%;
+			padding: 2rem;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.productActions {
+		&__wrapper {
+			padding: 1rem;
+		}
+
+		&__actions {
+			flex-direction: column-reverse;
+
+			&____quantity {
+				width: 100%;
+			}
+
+			&__buttons {
+				width: 100%;
+				gap: 0.5rem;
+			}
+		}
+	}
+}
