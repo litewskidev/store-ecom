@@ -4,13 +4,24 @@
 	&__wrapper {
     display: flex;
     flex-direction: column;
+    gap: 3rem;
 		background-color: $black5;
+    padding: 3rem;
 	}
+}
+
+@media screen and (max-width: 1200px) {
+  .productNew {
+    &__wrapper {
+      padding: 2rem;
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
   .productNew {
     &__wrapper {
+      padding: 0;
       background-color: $white;
     }
   }

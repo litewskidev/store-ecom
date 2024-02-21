@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
 					to={`/watches/${product?._id}`}
 					className='productCard__box__inner__image'>
 					{product?.images.slice(0, 1).map((image, index) => (
-						<div className='product__images' key={index}>
+						<div className='productCard__box__inner__image__images' key={index}>
 							<img
 								src={
 									process.env.PUBLIC_URL +

@@ -1,0 +1,96 @@
+@import '../../../styles/settings.scss';
+
+.productTabs {
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		gap: 2rem;
+
+		&__button {
+			width: 50%;
+			text-align: center;
+			border: solid 0.063rem $black25;
+      border-radius: 2rem;
+			background-color: $white;
+			cursor: pointer;
+			padding: 0.5rem 0;
+			box-shadow: $shadow-light;
+			transition:
+				background-color 0.3s ease-out,
+				border 0.3s ease-out;
+
+			&.active {
+				background-color: $black;
+				border: solid 0.063rem $black;
+
+				h6 {
+					color: $white;
+				}
+			}
+		}
+	}
+
+	&__body {
+		border: solid 0.063rem $black25;
+		background-color: $white;
+		padding: 3rem;
+
+		&__tab {
+			display: none;
+
+			&.active {
+				display: block;
+			}
+
+			&__features {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-rows: repeat(2, auto);
+				gap: 2rem;
+			}
+		}
+	}
+}
+
+.tab__title {
+	font-weight: 300;
+	text-decoration: underline;
+	text-underline-offset: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+.shipping__info {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	&__tab {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.productTabs {
+		&__header {
+			gap: 1rem;
+
+			&__button {
+				h6 {
+					font-size: 0.889rem;
+				}
+			}
+		}
+
+		&__body {
+			padding: 1rem;
+		}
+	}
+}

@@ -7,7 +7,7 @@ const ProductNew = ({ product }) => {
 	return (
 		<div className='productNew__wrapper'>
 			<ProductInfo product={product} />
-			<ProductTabs />
+			<ProductTabs product={product} />
 			<ProductCompany />
 		</div>
 	);

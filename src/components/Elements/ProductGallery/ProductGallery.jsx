@@ -5,6 +5,7 @@ import ProductModal from '../ProductModal/ProductModal';
 
 const ProductGallery = ({ product }) => {
 	const [currentImage, setCurrentImage] = useState(product?.images[0]);
+  const [currentProduct, setCurrentProduct] = useState(product?.sku);
 	const [isProductModalActive, toggleProductModal] = useToggle(false);
 
 	const handleCurrentImage = useCallback(image => {
@@ -29,7 +30,7 @@ const ProductGallery = ({ product }) => {
 						<img
 							src={
 								process.env.PUBLIC_URL +
-								`/assets/images/watches/${product?.sku}/${image}.webp`
+								`/assets/images/watches/${currentProduct}/${image}.webp`
 							}
 							alt=''
 						/>
@@ -45,10 +46,16 @@ const ProductGallery = ({ product }) => {
 					alt=''
 				/>
 			</div>
-			<div className={'productGallery__productModal'}>
-				<div className='productGallery__productModal__inner'>
-          <ProductModal />
-        </div>
+			<div
+				className={`productGallery__productModal ${isProductModalActive ? 'active' : ''}`}
+				onClick={toggleProductModal}>
+				<div
+					className={`productGallery__productModal__inner ${isProductModalActive ? 'open' : ''}`}
+					onClick={e => {
+						e.stopPropagation();
+					}}>
+					<ProductModal currentImage={currentImage} currentProduct={currentProduct} toggleProductModal={toggleProductModal} />
+				</div>
 			</div>
 		</div>
 	);

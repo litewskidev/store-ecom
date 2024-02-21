@@ -12,6 +12,26 @@
 			cursor: pointer;
 			transition: transform 0.3s ease-out;
 
+      &__image {
+        &__images {
+          &__container {
+            position: sticky;
+            top: 2rem;
+            width: 55%;
+          }
+
+          img {
+            width: 100%;
+            max-height: 65vh;
+            object-fit: contain;
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
 			&__info {
 				display: flex;
 				flex-direction: column;
