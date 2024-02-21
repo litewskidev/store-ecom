@@ -5,7 +5,7 @@ import ProductModal from '../ProductModal/ProductModal';
 
 const ProductGallery = ({ product }) => {
 	const [currentImage, setCurrentImage] = useState(product?.images[0]);
-  const [currentProduct, setCurrentProduct] = useState(product?.sku);
+	const [currentProduct, setCurrentProduct] = useState(product?.sku);
 	const [isProductModalActive, toggleProductModal] = useToggle(false);
 
 	const handleCurrentImage = useCallback(image => {
@@ -54,7 +54,11 @@ const ProductGallery = ({ product }) => {
 					onClick={e => {
 						e.stopPropagation();
 					}}>
-					<ProductModal currentImage={currentImage} currentProduct={currentProduct} toggleProductModal={toggleProductModal} />
+					<ProductModal
+						currentImage={currentImage}
+						currentProduct={currentProduct}
+						toggleProductModal={toggleProductModal}
+					/>
 				</div>
 			</div>
 		</div>

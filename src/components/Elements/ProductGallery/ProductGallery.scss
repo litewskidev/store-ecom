@@ -96,16 +96,16 @@
 	.productGallery {
 		&__wrapper {
 			width: 100%;
-      display: flex;
-      flex-direction: column-reverse;
-      gap: 1rem;
+			display: flex;
+			flex-direction: column-reverse;
+			gap: 1rem;
 		}
 
-    &__list {
-      grid-template-columns: repeat(4, 24%);
-      grid-template-rows: 100%;
-      justify-content: space-between;
-    }
+		&__list {
+			grid-template-columns: repeat(4, 24%);
+			grid-template-rows: 100%;
+			justify-content: space-between;
+		}
 
 		&__productModal {
 			&__inner {

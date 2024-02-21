@@ -4,7 +4,7 @@
 	&__wrapper {
 		display: flex;
 		margin-top: -75vh;
-    height: 75vh;
+		height: 75vh;
 	}
 
 	&__tile {
@@ -71,7 +71,7 @@
 	.homeHalf {
 		&__wrapper {
 			flex-direction: column;
-      height: 100vh;
+			height: 100vh;
 		}
 
 		&__tile {
@@ -83,7 +83,7 @@
 @media screen and (max-width: 600px) {
 	.homeHalf {
 		&__wrapper {
-      height: auto;
+			height: auto;
 			margin-top: 0;
 		}
 	}

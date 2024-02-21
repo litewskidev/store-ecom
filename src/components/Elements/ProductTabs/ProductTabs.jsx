@@ -92,7 +92,9 @@ const ProductTabs = ({ product }) => {
 					<div className='productTabs__body__tab__features'>
 						<div>
 							<div className='features__details'>
-								<h6 className='tab__title'>{productMenu.features.first.title}</h6>
+								<h6 className='tab__title'>
+									{productMenu.features.first.title}
+								</h6>
 								<div className='features__details__box'>
 									<h6>{productMenu.features.first.option_1}:</h6>
 									<p>{product?.sku}</p>
@@ -123,7 +125,9 @@ const ProductTabs = ({ product }) => {
 						</div>
 						<div>
 							<div className='features__case'>
-								<h6 className='tab__title'>{productMenu.features.second.title}</h6>
+								<h6 className='tab__title'>
+									{productMenu.features.second.title}
+								</h6>
 								<div className='features__case__box'>
 									<h6>{productMenu.features.second.option_1}:</h6>
 									<p>{product?.features.case.size}</p>
@@ -156,7 +160,9 @@ const ProductTabs = ({ product }) => {
 						</div>
 						<div>
 							<div className='features__strap'>
-								<h6 className='tab__title'>{productMenu.features.third.title}</h6>
+								<h6 className='tab__title'>
+									{productMenu.features.third.title}
+								</h6>
 								<div className='features__strap__box'>
 									<h6>{productMenu.features.third.option_1}:</h6>
 									<p>{product?.features.strapBracelet.material}</p>
@@ -177,7 +183,9 @@ const ProductTabs = ({ product }) => {
 						</div>
 						<div>
 							<div className='features__function'>
-								<h6 className='tab__title'>{productMenu.features.fourth.title}</h6>
+								<h6 className='tab__title'>
+									{productMenu.features.fourth.title}
+								</h6>
 								<div className='features__function__box'>
 									<h6>{productMenu.features.fourth.option_1}:</h6>
 									<p>{product?.features.function.movement}</p>
