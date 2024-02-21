@@ -10,17 +10,18 @@ const SocialModal = ({
 	setCurrentIndex,
 	homeSocialMenu,
 }) => {
-	const handleNextSocial = useCallback(() => {
-		const nextIndex = (currentIndex + 1) % homeSocialMenu.length;
-		setCurrentSocial(homeSocialMenu[nextIndex]);
-		setCurrentIndex(nextIndex);
-	}, [currentIndex, setCurrentSocial, setCurrentIndex, homeSocialMenu]);
-
+	//  BUTTONS HANDLERS
 	const handlePrevSocial = useCallback(() => {
 		const prevIndex =
 			(currentIndex - 1 + homeSocialMenu.length) % homeSocialMenu.length;
 		setCurrentSocial(homeSocialMenu[prevIndex]);
 		setCurrentIndex(prevIndex);
+	}, [currentIndex, setCurrentSocial, setCurrentIndex, homeSocialMenu]);
+
+	const handleNextSocial = useCallback(() => {
+		const nextIndex = (currentIndex + 1) % homeSocialMenu.length;
+		setCurrentSocial(homeSocialMenu[nextIndex]);
+		setCurrentIndex(nextIndex);
 	}, [currentIndex, setCurrentSocial, setCurrentIndex, homeSocialMenu]);
 
 	return (
@@ -114,6 +115,8 @@ SocialModal.propTypes = {
 	currentSocial: PropTypes.shape({
 		image: PropTypes.string,
 		desc: PropTypes.string,
+		tag: PropTypes.string,
+		date: PropTypes.string,
 	}),
 	setCurrentSocial: PropTypes.func.isRequired,
 	currentIndex: PropTypes.number,
@@ -121,8 +124,9 @@ SocialModal.propTypes = {
 	homeSocialMenu: PropTypes.arrayOf(
 		PropTypes.shape({
 			image: PropTypes.string,
-			href: PropTypes.string,
 			desc: PropTypes.string,
+			tag: PropTypes.string,
+			date: PropTypes.string,
 		}),
 	).isRequired,
 };

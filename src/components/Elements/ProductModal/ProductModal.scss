@@ -1,3 +1,5 @@
+@import '../../../styles/settings.scss';
+
 .productModal {
 	&__wrapper {
 		position: relative;
@@ -11,29 +13,27 @@
 		justify-content: center;
 		width: 100%;
 		height: 100%;
-		overflow: scroll;
-		-ms-overflow-style: none;
-		scrollbar-width: 0;
-
-		&::-webkit-scrollbar {
-			display: none;
-		}
-
-		img {
-			object-fit: contain;
-		}
 	}
 
-	&__button {
+	&__navigation {
 		position: absolute;
 		bottom: 1rem;
 		right: 1rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+    padding: 0.5rem 1rem;
+		background-color: $white;
+		border-radius: 2rem;
 
-		img {
-			display: block;
-			width: 2rem;
-			height: 100%;
-			z-index: 12;
+		&__button {
+			cursor: pointer;
+
+			img {
+				display: block;
+				width: 1.5rem;
+				height: 100%;
+			}
 		}
 	}
 }

@@ -53,12 +53,23 @@
 		align-items: center;
 		gap: 1rem;
 
-		p:last-of-type {
-			font-weight: 300;
-			color: $black55;
-			text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
-			text-underline-offset: 0.5rem;
-			transition: text-decoration-color 0.3s ease-out;
+		button {
+			font-family: $font;
+			font-size: 0.889rem;
+			color: $white;
+			border: solid 0.063rem $black;
+			border-radius: 2rem;
+			background-color: $black;
+			padding: 0.5rem 2rem;
+			cursor: pointer;
+			transition:
+				background-color 0.3s ease-out,
+				color 0.3s ease-out;
+
+			&:hover {
+				background-color: $white;
+				color: $black;
+			}
 		}
 	}
 }

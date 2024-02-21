@@ -24,17 +24,19 @@ const HomeAbout = () => {
 						alt=''
 					/>
 				</div>
-				<NavLink to='/about' className='homeAbout__info'>
+				<div className='homeAbout__info'>
 					<div className='homeAbout__info__inner'>
 						<h2>{homeAboutMenu.title}</h2>
 						<p>{homeAboutMenu.info}</p>
 						<div className='homeAbout__action'>
 							<p>{homeAboutMenu.action.title}</p>
 							<p>&#183;</p>
-							<p>{homeAboutMenu.action.action}</p>
+							<NavLink to='/about'>
+								<button>{homeAboutMenu.action.action}</button>
+							</NavLink>
 						</div>
 					</div>
-				</NavLink>
+				</div>
 			</div>
 		</div>
 	);

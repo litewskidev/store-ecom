@@ -206,7 +206,7 @@ const ProductTabs = ({ product }) => {
 					className={`productTabs__body__tab ${tabIndex === 2 ? 'active' : ''}`}>
 					<div className='shipping__info'>
 						{productMenu.shipping.info.map((info, index) => (
-							<div className='shipping__info__tab'>
+							<div className='shipping__info__tab' key={index}>
 								<h6>{info.title}</h6>
 								<p>{info.info}</p>
 							</div>

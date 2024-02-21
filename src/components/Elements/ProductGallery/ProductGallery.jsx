@@ -1,15 +1,22 @@
 import { useCallback, useState } from 'react';
+import useToggle from '../../../hooks/useToggle.js';
+import ProductModal from '../ProductModal/ProductModal.jsx';
 import './ProductGallery.scss';
-import useToggle from '../../../hooks/useToggle';
-import ProductModal from '../ProductModal/ProductModal';
 
 const ProductGallery = ({ product }) => {
+	//  STATES
 	const [currentImage, setCurrentImage] = useState(product?.images[0]);
-	const [currentProduct, setCurrentProduct] = useState(product?.sku);
+	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isProductModalActive, toggleProductModal] = useToggle(false);
 
-	const handleCurrentImage = useCallback(image => {
+	//  CONSTANTS
+	const currentProduct = product?.sku;
+	const imagesList = product?.images;
+
+	//  BUTTONS HANDLERS
+	const handleCurrentImage = useCallback((image, index) => {
 		setCurrentImage(image);
+		setCurrentIndex(index);
 	}, []);
 
 	const handleProductModal = useCallback(
@@ -22,11 +29,11 @@ const ProductGallery = ({ product }) => {
 	return (
 		<div className='productGallery__wrapper'>
 			<div className='productGallery__list'>
-				{product?.images.map((image, index) => (
+				{imagesList.map((image, index) => (
 					<div
 						className={`productGallery__list__item ${currentImage === image ? 'active' : ''}`}
 						key={index}
-						onClick={() => handleCurrentImage(image)}>
+						onClick={() => handleCurrentImage(image, index)}>
 						<img
 							src={
 								process.env.PUBLIC_URL +
@@ -41,10 +48,16 @@ const ProductGallery = ({ product }) => {
 				<img
 					src={
 						process.env.PUBLIC_URL +
-						`/assets/images/watches/${product?.sku}/${currentImage}.webp`
+						`/assets/images/watches/${currentProduct}/${currentImage}.webp`
 					}
 					alt=''
 				/>
+				<div className='productGallery__show__loupe'>
+					<img
+						src={process.env.PUBLIC_URL + '/assets/icons/search.svg'}
+						alt='loupe icon'
+					/>
+				</div>
 			</div>
 			<div
 				className={`productGallery__productModal ${isProductModalActive ? 'active' : ''}`}
@@ -55,7 +68,11 @@ const ProductGallery = ({ product }) => {
 						e.stopPropagation();
 					}}>
 					<ProductModal
+						imagesList={imagesList}
+						currentIndex={currentIndex}
+						setCurrentIndex={setCurrentIndex}
 						currentImage={currentImage}
+						setCurrentImage={setCurrentImage}
 						currentProduct={currentProduct}
 						toggleProductModal={toggleProductModal}
 					/>
