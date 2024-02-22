@@ -4,34 +4,33 @@
 	&__wrapper {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
 	}
 
 	&__header {
 		display: flex;
 		justify-content: space-between;
 		gap: 2rem;
+		margin-bottom: -0.075rem;
 
 		&__button {
 			width: 50%;
+			padding: 0.5rem 0 1rem 0;
 			text-align: center;
 			border: solid 0.063rem $black25;
-			border-radius: 2rem;
-			background-color: $white;
+			border-bottom: none;
+			border-top-left-radius: 1rem;
+			border-top-right-radius: 1rem;
+			background-color: $black25;
+			opacity: 0.5;
 			cursor: pointer;
-			padding: 0.5rem 0;
-			box-shadow: $shadow-light;
 			transition:
-				background-color 0.3s ease-out,
-				border 0.3s ease-out;
+				background-color 0.15s ease-out,
+				opacity 0.15s ease-out;
 
 			&.active {
-				background-color: $black;
-				border: solid 0.063rem $black;
-
-				h6 {
-					color: $white;
-				}
+				opacity: 1;
+				background-color: $white;
+				z-index: 3;
 			}
 		}
 	}
@@ -40,6 +39,7 @@
 		border: solid 0.063rem $black25;
 		background-color: $white;
 		padding: 3rem;
+		z-index: 2;
 
 		&__tab {
 			display: none;
@@ -77,20 +77,43 @@
 	}
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1200px) {
 	.productTabs {
 		&__header {
 			gap: 1rem;
+		}
+	}
+}
 
-			&__button {
-				h6 {
-					font-size: 0.889rem;
-				}
+@media screen and (max-width: 600px) {
+	.productTabs {
+		&__header {
+			gap: 0.5rem;
+
+			h6 {
+				font-size: 0.889rem;
 			}
 		}
 
 		&__body {
 			padding: 1rem;
+
+			h6,
+			p {
+				font-size: 0.889rem;
+			}
+		}
+	}
+
+	.shipping__info {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		&__tab {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
 		}
 	}
 }

@@ -16,9 +16,9 @@
 		align-content: space-between;
 
 		&__item {
-			box-shadow: $shadow-medium;
 			border: solid 0.063rem;
 			border-color: $white;
+			box-shadow: $shadow-medium;
 			cursor: pointer;
 			transition: border-color 0.3s ease-out;
 
@@ -52,12 +52,24 @@
 			right: 1rem;
 			background-color: $white;
 			border-radius: 50%;
+			box-shadow: $shadow-light;
+			padding: 0.15rem;
 			cursor: pointer;
+			transition: background-color 0.3s ease-out;
 
 			img {
 				display: block;
-				width: 2.25rem;
+				width: 2rem;
 				height: 100%;
+				transition: filter 0.3s ease-out;
+			}
+
+			&:hover {
+				background-color: $black;
+
+				img {
+					filter: invert(1);
+				}
 			}
 		}
 	}
@@ -120,6 +132,14 @@
 			grid-template-columns: repeat(4, 24%);
 			grid-template-rows: 100%;
 			justify-content: space-between;
+		}
+
+		&__show {
+			&__loupe {
+				img {
+					width: 1.5rem;
+				}
+			}
 		}
 	}
 }

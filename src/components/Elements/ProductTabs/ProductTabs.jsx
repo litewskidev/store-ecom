@@ -18,7 +18,7 @@ const ProductTabs = ({ product }) => {
 			first: {
 				title: 'WATCH DETAILS',
 				option_1: 'SKU',
-				option_2: 'Reference Number',
+				option_2: 'REF',
 				option_3: 'Year',
 				option_4: 'Origin',
 				option_5: 'Style',
@@ -28,7 +28,7 @@ const ProductTabs = ({ product }) => {
 				title: 'CASE & DIAL',
 				option_1: 'Case Size',
 				option_2: 'Case Material',
-				option_3: 'Caseback',
+				option_3: 'Case Back',
 				option_4: 'Case Shape',
 				option_5: 'Dial Color',
 				option_6: 'Hours Markers',
@@ -36,7 +36,7 @@ const ProductTabs = ({ product }) => {
 			},
 			third: {
 				title: 'STRAP / BRACELET',
-				option_1: 'Strap/Bracelet Material',
+				option_1: 'Material',
 				option_2: 'Band Color',
 				option_3: 'Buckle Type',
 				option_4: 'Bracelet Length',

@@ -14,7 +14,7 @@
 		border: solid 0.063rem $black55;
 
 		p {
-			font-size: 1.424rem;
+			font-size: 1.266rem;
 		}
 	}
 
@@ -26,16 +26,6 @@
 			display: block;
 			width: 1.5rem;
 			height: 100%;
-		}
-	}
-}
-
-@media screen and (max-width: 1200px) {
-	.quantity {
-		&__view {
-			p {
-				font-size: 1.266rem;
-			}
 		}
 	}
 }

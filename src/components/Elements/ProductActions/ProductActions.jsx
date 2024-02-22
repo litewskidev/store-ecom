@@ -9,7 +9,7 @@ const ProductActions = ({ product }) => {
 			sku: 'SKU#',
 		},
 		cart: {
-			button: 'ADD TO CART',
+			button: 'ADD TO BAG',
 		},
 		desc: {
 			title: 'DESCRIPTION',
@@ -64,9 +64,17 @@ const ProductActions = ({ product }) => {
 
 	return (
 		<div className='productActions__wrapper'>
-			<div className='productActions__title'>
-				<h1>{product?.brand.name}</h1>
-				<h3>{product?.model}</h3>
+			<div className='productActions__header'>
+				<div className='productActions__header__title'>
+					<h1>{product?.brand.name}</h1>
+					<h3>{product?.model}</h3>
+				</div>
+				<div className='productActions__header__socials'>
+					<img
+						src={process.env.PUBLIC_URL + '/assets/icons/share.svg'}
+						alt='share button'
+					/>
+				</div>
 			</div>
 			<div className='productActions__reference'>
 				<p>
@@ -109,7 +117,11 @@ const ProductActions = ({ product }) => {
 				</div>
 				<div className='productActions__actions__buttons'>
 					<button className='productActions__actions__buttons__cart'>
-						{productMenu.cart.button}
+						<p>{productMenu.cart.button}</p>
+						<img
+							src={process.env.PUBLIC_URL + '/assets/icons/add.svg'}
+							alt='add to bag button'
+						/>
 					</button>
 					<button className='productActions__actions__buttons__wishlist'>
 						<img
