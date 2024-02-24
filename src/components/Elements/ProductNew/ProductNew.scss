@@ -7,12 +7,12 @@
 		gap: 3rem;
 		padding: 3rem;
 		background-color: $black5;
-    min-height: 150vh;
+		min-height: 150vh;
 	}
 
-  &__similar {
-    margin: 0 -1rem;
-  }
+	&__similar {
+		margin: 0 -1rem;
+	}
 }
 
 @media screen and (max-width: 1200px) {
