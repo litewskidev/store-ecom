@@ -9,6 +9,7 @@ const getAllProducts = asyncHandler(async (req, res) => {
 	const queryCategory = req.query.category;
 	const queryCollection = req.query.collection;
 	const queryBrand = req.query.brand;
+	const queryStyle = req.query.style;
 	let products;
 
 	if (queryNew) {
@@ -28,6 +29,12 @@ const getAllProducts = asyncHandler(async (req, res) => {
 	} else if (queryBrand) {
 		products = await Product.find({
 			'brand.href': queryBrand,
+		});
+	} else if (queryStyle) {
+		products = await Product.find({
+			'features.details.style': {
+				$in: [queryStyle],
+			},
 		});
 	} else {
 		products = await Product.find();

@@ -1,23 +1,8 @@
-import { useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
 import './HomeBrands.scss';
 
 const HomeBrands = () => {
-	const CustomPrevArrow = useCallback(
-		({ onClick }) => (
-			<div className='slick-arrow arrow-prev' onClick={onClick}></div>
-		),
-		[],
-	);
-
-	const CustomNextArrow = useCallback(
-		({ onClick }) => (
-			<div className='slick-arrow arrow-next' onClick={onClick}></div>
-		),
-		[],
-	);
-
 	const settings = {
 		lazyLoad: true,
 		speed: 1000,
@@ -28,8 +13,6 @@ const HomeBrands = () => {
 		autoplaySpeed: 2000,
 		dots: false,
 		arrows: false,
-		prevArrow: <CustomPrevArrow />,
-		nextArrow: <CustomNextArrow />,
 		responsive: [
 			{
 				breakpoint: 1800,

@@ -2,8 +2,8 @@ import { useParams } from 'react-router-dom';
 import { useGetProductsByIdQuery } from '../../../redux/slices/productsApiSlice.js';
 import Loading from '../../Elements/Loading/Loading.jsx';
 import Error from '../../Elements/Error/Error.jsx';
-import './ProductSingle.scss';
 import ProductNew from '../../Elements/ProductNew/ProductNew.jsx';
+import './ProductSingle.scss';
 
 const ProductSingle = () => {
 	const params = useParams();

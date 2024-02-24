@@ -9,7 +9,7 @@
 	&__header {
 		display: flex;
 		justify-content: space-between;
-		gap: 2rem;
+		gap: 0.5rem;
 		margin-bottom: -0.075rem;
 
 		&__button {
@@ -80,7 +80,7 @@
 @media screen and (max-width: 1200px) {
 	.productTabs {
 		&__header {
-			gap: 1rem;
+			gap: 0.25rem;
 		}
 	}
 }
@@ -88,8 +88,6 @@
 @media screen and (max-width: 600px) {
 	.productTabs {
 		&__header {
-			gap: 0.5rem;
-
 			h6 {
 				font-size: 0.889rem;
 			}

@@ -37,6 +37,13 @@ export const productsApiSlice = apiSlice.injectEndpoints({
 			},
 			providesTags: [{ type: 'Products', id: 'BY_BRAND' }],
 		}),
+		getProductsByStyle: builder.query({
+			query: style => `products?style=${style}`,
+			validateStatus: (response, result) => {
+				return response.status === 200 && !result.isError;
+			},
+			providesTags: [{ type: 'Products', id: 'BY_STYLE' }],
+		}),
 		getProductsById: builder.query({
 			query: id => `products/${id}`,
 			validateStatus: (response, result) => {
@@ -53,5 +60,6 @@ export const {
 	useGetProductsByCategoryQuery,
 	useGetProductsByCollectionQuery,
 	useGetProductsByBrandQuery,
+	useGetProductsByStyleQuery,
 	useGetProductsByIdQuery,
 } = productsApiSlice;

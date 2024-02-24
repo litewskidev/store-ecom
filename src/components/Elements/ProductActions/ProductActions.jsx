@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
+import QuantityInput from '../QuantityInput/QuantityInput.jsx';
 import './ProductActions.scss';
-import QuantityInput from '../QuantityInput/QuantityInput';
 
 const ProductActions = ({ product }) => {
 	const productMenu = {
@@ -50,8 +50,10 @@ const ProductActions = ({ product }) => {
 		},
 	};
 
+	//  STATE
 	const [productQuantity, setProductQuantity] = useState(1);
 
+	//  BUTTONS HANDLERS
 	const handleIncrementProductQuantity = useCallback(() => {
 		setProductQuantity(productQuantity + 1);
 	}, [productQuantity]);
@@ -66,8 +68,8 @@ const ProductActions = ({ product }) => {
 		<div className='productActions__wrapper'>
 			<div className='productActions__header'>
 				<div className='productActions__header__title'>
-					<h1>{product?.brand.name}</h1>
-					<h3>{product?.model}</h3>
+					<h1>{product.brand.name}</h1>
+					<h3>{product.model}</h3>
 				</div>
 				<div className='productActions__header__socials'>
 					<img
@@ -78,32 +80,32 @@ const ProductActions = ({ product }) => {
 			</div>
 			<div className='productActions__reference'>
 				<p>
-					{productMenu.reference.ref} {product?.reference}
+					{productMenu.reference.ref} {product.reference}
 				</p>
 				<p>
 					{productMenu.reference.sku}
-					{product?.sku}
+					{product.sku}
 				</p>
 			</div>
 			<div className='productActions__price'>
-				{product?.price.discount !== 0 ? (
+				{product.price.discount !== 0 ? (
 					<>
 						<h2>
-							{product?.price.currency}
+							{product.price.currency}
 							{(
-								product?.price.base -
-								product?.price.base / product?.price.discount
+								product.price.base -
+								product.price.base / product.price.discount
 							).toFixed(3)}
 						</h2>
 						<h3>
-							{product?.price.currency}
-							{(product?.price.base).toFixed(3)}
+							{product.price.currency}
+							{product.price.base.toFixed(3)}
 						</h3>
 					</>
 				) : (
 					<h2>
-						{product?.price.currency}
-						{(product?.price.base).toFixed(3)}
+						{product.price.currency}
+						{product.price.base.toFixed(3)}
 					</h2>
 				)}
 			</div>
@@ -133,7 +135,7 @@ const ProductActions = ({ product }) => {
 			</div>
 			<div className='productActions__description'>
 				<h5>{productMenu.desc.title}</h5>
-				<p>{product?.description}</p>
+				<p>{product.description}</p>
 			</div>
 		</div>
 	);

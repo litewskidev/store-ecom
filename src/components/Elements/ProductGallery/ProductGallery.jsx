@@ -1,30 +1,27 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import useToggle from '../../../hooks/useToggle.js';
 import ProductModal from '../ProductModal/ProductModal.jsx';
 import './ProductGallery.scss';
 
 const ProductGallery = ({ product }) => {
 	//  STATES
-	const [currentImage, setCurrentImage] = useState(product?.images[0]);
+	const [currentProduct, setCurrentProduct] = useState(product.sku);
+	const [imagesList, setImagesList] = useState(product.images);
+	const [currentImage, setCurrentImage] = useState(product.images[0]);
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isProductModalActive, toggleProductModal] = useToggle(false);
 
-	//  CONSTANTS
-	const currentProduct = product?.sku;
-	const imagesList = product?.images;
+	useEffect(() => {
+		setCurrentProduct(product.sku);
+		setImagesList(product.images);
+		setCurrentImage(product.images[0]);
+	}, [product.sku, product.images]);
 
 	//  BUTTONS HANDLERS
 	const handleCurrentImage = useCallback((image, index) => {
 		setCurrentImage(image);
 		setCurrentIndex(index);
 	}, []);
-
-	const handleProductModal = useCallback(
-		(list, index) => {
-			toggleProductModal();
-		},
-		[toggleProductModal],
-	);
 
 	return (
 		<div className='productGallery__wrapper'>
@@ -44,7 +41,7 @@ const ProductGallery = ({ product }) => {
 					</div>
 				))}
 			</div>
-			<div className='productGallery__show' onClick={handleProductModal}>
+			<div className='productGallery__show' onClick={toggleProductModal}>
 				<img
 					src={
 						process.env.PUBLIC_URL +

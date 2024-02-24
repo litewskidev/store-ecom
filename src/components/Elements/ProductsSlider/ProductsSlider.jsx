@@ -4,6 +4,7 @@ import ProductCard from '../ProductCard/ProductCard.jsx';
 import PropTypes from 'prop-types';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import './ProductsSlider.scss';
 
 const ProductsSlider = ({ products }) => {
 	const CustomPrevArrow = useCallback(

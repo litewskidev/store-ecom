@@ -66,8 +66,10 @@ const ProductTabs = ({ product }) => {
 		},
 	};
 
+	//  STATE
 	const [tabIndex, setTabIndex] = useState(1);
 
+	//  BUTTON HANDLER
 	const handleTabIndex = useCallback(index => {
 		setTabIndex(index);
 	}, []);
@@ -97,29 +99,29 @@ const ProductTabs = ({ product }) => {
 								</h6>
 								<div className='features__details__box'>
 									<h6>{productMenu.features.first.option_1}:</h6>
-									<p>{product?.sku}</p>
+									<p>{product.sku}</p>
 								</div>
 								<div className='features__details__box'>
 									<h6>{productMenu.features.first.option_2}:</h6>
-									<p>{product?.reference}</p>
+									<p>{product.reference}</p>
 								</div>
 								<div className='features__details__box'>
 									<h6>{productMenu.features.first.option_3}:</h6>
-									<p>{product?.year}</p>
+									<p>{product.year}</p>
 								</div>
 								<div className='features__details__box'>
 									<h6>{productMenu.features.first.option_4}:</h6>
-									<p>{product?.features.details.origin}</p>
+									<p>{product.features.details.origin}</p>
 								</div>
 								<div className='features__details__box'>
 									<h6>{productMenu.features.first.option_5}:</h6>
-									{product?.features.details.style.map((style, index) => (
+									{product.features.details.style.map((style, index) => (
 										<p key={index}>{style}</p>
 									))}
 								</div>
 								<div className='features__details__box'>
 									<h6>{productMenu.features.first.option_6}:</h6>
-									<p>{product?.features.details.gender}</p>
+									<p>{product.features.details.gender}</p>
 								</div>
 							</div>
 						</div>
@@ -130,31 +132,31 @@ const ProductTabs = ({ product }) => {
 								</h6>
 								<div className='features__case__box'>
 									<h6>{productMenu.features.second.option_1}:</h6>
-									<p>{product?.features.case.size}</p>
+									<p>{product.features.case.size}</p>
 								</div>
 								<div className='features__case__box'>
 									<h6>{productMenu.features.second.option_2}:</h6>
-									<p>{product?.features.case.material}</p>
+									<p>{product.features.case.material}</p>
 								</div>
 								<div className='features__case__box'>
 									<h6>{productMenu.features.second.option_3}:</h6>
-									<p>{product?.features.case.back}</p>
+									<p>{product.features.case.back}</p>
 								</div>
 								<div className='features__case__box'>
 									<h6>{productMenu.features.second.option_4}:</h6>
-									<p>{product?.features.case.shape}</p>
+									<p>{product.features.case.shape}</p>
 								</div>
 								<div className='features__case__box'>
 									<h6>{productMenu.features.second.option_5}:</h6>
-									<p>{product?.features.dial.color}</p>
+									<p>{product.features.dial.color}</p>
 								</div>
 								<div className='features__case__box'>
 									<h6>{productMenu.features.second.option_6}:</h6>
-									<p>{product?.features.dial.hoursMarkers}</p>
+									<p>{product.features.dial.hoursMarkers}</p>
 								</div>
 								<div className='features__case__box'>
 									<h6>{productMenu.features.second.option_7}:</h6>
-									<p>{product?.features.case.waterResistance}</p>
+									<p>{product.features.case.waterResistance}</p>
 								</div>
 							</div>
 						</div>
@@ -165,19 +167,19 @@ const ProductTabs = ({ product }) => {
 								</h6>
 								<div className='features__strap__box'>
 									<h6>{productMenu.features.third.option_1}:</h6>
-									<p>{product?.features.strapBracelet.material}</p>
+									<p>{product.features.strapBracelet.material}</p>
 								</div>
 								<div className='features__strap__box'>
 									<h6>{productMenu.features.third.option_2}:</h6>
-									<p>{product?.features.strapBracelet.bandColor}</p>
+									<p>{product.features.strapBracelet.bandColor}</p>
 								</div>
 								<div className='features__strap__box'>
 									<h6>{productMenu.features.third.option_3}:</h6>
-									<p>{product?.features.strapBracelet.buckleType}</p>
+									<p>{product.features.strapBracelet.buckleType}</p>
 								</div>
 								<div className='features__strap__box'>
 									<h6>{productMenu.features.third.option_4}:</h6>
-									<p>{product?.features.strapBracelet.length}</p>
+									<p>{product.features.strapBracelet.length}</p>
 								</div>
 							</div>
 						</div>
@@ -188,11 +190,11 @@ const ProductTabs = ({ product }) => {
 								</h6>
 								<div className='features__function__box'>
 									<h6>{productMenu.features.fourth.option_1}:</h6>
-									<p>{product?.features.function.movement}</p>
+									<p>{product.features.function.movement}</p>
 								</div>
 								<div className='features__function__box'>
 									<h6>{productMenu.features.fourth.option_2}:</h6>
-									{product?.features.function.complications.map(
+									{product.features.function.complications.map(
 										(complication, index) => (
 											<p key={index}>{complication}</p>
 										),

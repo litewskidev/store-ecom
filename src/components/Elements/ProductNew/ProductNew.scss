@@ -5,9 +5,14 @@
 		display: flex;
 		flex-direction: column;
 		gap: 3rem;
-		background-color: $black5;
 		padding: 3rem;
+		background-color: $black5;
+    min-height: 150vh;
 	}
+
+  &__similar {
+    margin: 0 -1rem;
+  }
 }
 
 @media screen and (max-width: 1200px) {
