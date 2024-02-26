@@ -11,7 +11,7 @@ const getAllBrands = asyncHandler(async (rea, res) => {
 });
 
 //  desc     Get brand
-//  route    GET /api/brands
+//  route    GET /api/brands/:id
 //  access   Public
 const getBrand = asyncHandler(async (req, res) => {
 	const id = req.params.id;
@@ -56,7 +56,7 @@ const updateBrand = asyncHandler(async (req, res) => {
 	);
 
 	if (updatedBrand) {
-		res.status(200).json({ message: 'Brands updated successfully.' });
+		res.status(200).json({ message: 'Brand updated successfully.' });
 	} else {
 		res.status(404);
 		throw new Error('Brand not found.');
