@@ -22,6 +22,7 @@ import BrandAll from './components/Pages/BrandAll/BrandAll.jsx';
 import BrandSingle from './components/Pages/BrandSingle/BrandSingle.jsx';
 import CollectionAll from './components/Pages/CollectionAll/CollectionAll.jsx';
 import CollectionSingle from './components/Pages/CollectionSingle/CollectionSingle.jsx';
+import Store from './components/Pages/Store/Store.jsx';
 import E404 from './components/Pages/E404/E404.jsx';
 
 const router = createBrowserRouter(
@@ -40,6 +41,7 @@ const router = createBrowserRouter(
 			<Route path='/brands/:id' element={<BrandSingle />} />
 			<Route path='/collections/all-collections' element={<CollectionAll />} />
 			<Route path='/collections/:id' element={<CollectionSingle />} />
+			<Route path='/stores/:id' element={<Store />} />
 			<Route path='*' element={<E404 />} />
 		</Route>,
 	),

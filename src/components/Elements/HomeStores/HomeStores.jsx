@@ -8,29 +8,24 @@ const HomeStores = () => {
 		action: 'EXPLORE',
 		list: [
 			{
+				id: 'new-york',
 				city: 'NEW YORK',
-				href: '/stores/new-york',
-				image: 'new-york',
 			},
 			{
+				id: 'london',
 				city: 'LONDON',
-				href: '/stores/london',
-				image: 'london',
 			},
 			{
+				id: 'tokyo',
 				city: 'TOKYO',
-				href: '/stores/tokyo',
-				image: 'tokyo',
 			},
 			{
+				id: 'paris',
 				city: 'PARIS',
-				href: '/stores/paris',
-				image: 'paris',
 			},
 			{
+				id: 'rome',
 				city: 'ROME',
-				href: '/stores/rome',
-				image: 'rome',
 			},
 		],
 	};
@@ -71,7 +66,7 @@ const HomeStores = () => {
 						))}
 					</div>
 					<div className='homeStores__info__link'>
-						<NavLink to={currentStore.href}>
+						<NavLink to={`/stores/${currentStore.id}`}>
 							<p>{homeStoresMenu.action}</p>
 						</NavLink>
 					</div>
@@ -80,7 +75,7 @@ const HomeStores = () => {
 					<img
 						src={
 							process.env.PUBLIC_URL +
-							`/assets/images/stores/${currentStoreIndex + 1}.webp`
+							`/assets/images/stores/${currentStore.id}/${currentStore.id}_1.webp`
 						}
 						alt={`${currentStore.city} store`}
 					/>
