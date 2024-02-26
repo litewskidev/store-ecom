@@ -11,6 +11,7 @@ import cartRouter from './routes/cartRoutes.js';
 import orderRouter from './routes/orderRoutes.js';
 import paymentRouter from './routes/paymentRoutes.js';
 import brandRouter from './routes/brandRoutes.js';
+import storeRouter from './routes/storeRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -28,6 +29,7 @@ app.use(cookieParser());
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRouter);
 app.use('/api/brands', brandRouter);
+app.use('/api/stores', storeRouter);
 app.use('/api/carts', cartRouter);
 app.use('/api/orders', orderRouter);
 app.use('/api/payments', paymentRouter);
