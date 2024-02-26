@@ -253,8 +253,47 @@ const brandSchema = mongoose.Schema(
 		timestamps: true,
 	},
 );
-
 const Brand = mongoose.model('Brand', brandSchema);
+
+//  STORE MODEL
+const storeSchema = mongoose.Schema(
+	{
+		id: {
+			type: String,
+			unique: true,
+		},
+		city: {
+			type: String,
+		},
+		contact: {
+			address: {
+				type: String,
+			},
+			openHours: {
+				type: String,
+			},
+			phoneNumber: {
+				type: String,
+			},
+			email: {
+				type: String,
+			},
+			href: {
+				type: String,
+			},
+		},
+		info: {
+			type: Array,
+		},
+		details: {
+			type: String,
+		},
+	},
+	{
+		timestamps: true,
+	},
+);
+const Store = mongoose.model('Store', storeSchema);
 
 //  order model
 
@@ -608,6 +647,83 @@ const deleteBrand = asyncHandler(async (req, res) => {
 	}
 });
 
+//  STORE CONTROLLERS
+//  desc     Get all stores
+//  route    GET /api/stores
+//  access   Public
+const getAllStores = asyncHandler(async (req, res) => {
+	const stores = await Store.find();
+
+	if (stores) res.status(200).json(stores);
+});
+
+//  desc     Get store
+//  route    GET /api/stores/:id
+//  access   Public
+const getStore = asyncHandler(async (req, res) => {
+	const id = req.params.id;
+	const store = await Store.findOne({ id });
+
+	if (store) {
+		res.status(200).json(store);
+	} else {
+		res.status(404);
+		throw new Error('Store not found.');
+	}
+});
+
+//  desc     Add new store
+//  route    POST /api/stores/add
+//  access   Private
+const addStore = asyncHandler(async (req, res) => {
+	const { id } = req.body;
+	const storeExists = await Store.findOne({ id });
+
+	if (storeExists) {
+		res.status(400);
+		throw new Error('Store already exists.');
+	}
+
+	const store = new Store(req.body);
+	const newStore = store.save();
+
+	if (newStore) res.status(200).json({ message: 'Store added successfully.' });
+});
+
+//  desc     Update store
+//  route    PUT /api/stores/update
+//  access   Private
+const updateStore = asyncHandler(async (req, res) => {
+	const updatedStore = await Store.findByIdAndUpdate(
+		req.body.id,
+		{
+			$set: req.body,
+		},
+		{ new: true },
+	);
+
+	if (updatedStore) {
+		res.status(200).json({ message: 'Store updated successfully.' });
+	} else {
+		res.status(404);
+		throw new Error('Store not found.');
+	}
+});
+
+//  desc     Delete store
+//  route    DELETE /api/stores/delete
+//  access   Private
+const deleteStore = asyncHandler(async (req, res) => {
+	const deletedStore = await Store.findByIdAndDelete(req.body.id);
+
+	if (deletedStore) {
+		res.status(200).json({ message: 'Store deleted successfully.' });
+	} else {
+		res.status(404);
+		throw new Error('Store not found.');
+	}
+});
+
 //  order controller
 
 //  payment controller
@@ -663,6 +779,14 @@ brandRouter.get('/:id', getBrand);
 brandRouter.post('/add', protect, addBrand);
 brandRouter.put('/update', protect, updateBrand);
 brandRouter.delete('/delete', protect, deleteBrand);
+
+//  STORE ROUTES
+const storeRouter = express.Router();
+storeRouter.get('/', getAllStores);
+storeRouter.get('/:id', getStore);
+storeRouter.post('/add', protect, addStore);
+storeRouter.put('/update', protect, updateStore);
+storeRouter.delete('/delete', protect, deleteStore);
 
 //  order routes
 
@@ -721,6 +845,7 @@ app.get('/api', (req, res) => {
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
 app.use('/api/brands', brandRouter);
+app.use('/api/stores', storeRouter);
 
 //  *
 app.get('*', (req, res) => {
