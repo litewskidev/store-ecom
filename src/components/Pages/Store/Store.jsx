@@ -1,7 +1,9 @@
 import { useParams } from 'react-router-dom';
+import { useGetStoresByIdQuery } from '../../../redux/slices/storesApiSlice.js';
 import Loading from '../../Elements/Loading/Loading.jsx';
 import Error from '../../Elements/Error/Error.jsx';
 import StoreInfo from '../../Elements/StoreInfo/StoreInfo.jsx';
+import './Store.scss';
 
 const Store = () => {
 	const params = useParams();

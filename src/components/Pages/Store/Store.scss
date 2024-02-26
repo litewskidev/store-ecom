@@ -1,0 +1,22 @@
+.store {
+	&__wrapper {
+		padding: 8rem 3rem 0 3rem;
+		min-height: 100vh;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.store {
+		&__wrapper {
+			padding: 6rem 2rem 0 2rem;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.store {
+		&__wrapper {
+			padding: 7rem 1rem 0 1rem;
+		}
+	}
+}
