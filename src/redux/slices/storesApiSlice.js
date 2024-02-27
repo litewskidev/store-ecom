@@ -3,7 +3,7 @@ import { apiSlice } from './apiSlice.js';
 export const storesApiSlice = apiSlice.injectEndpoints({
 	endpoints: builder => ({
 		getAllStores: builder.query({
-			query: () => 'stores',
+			query: () => 'stores/',
 			validateStatus: (response, result) => {
 				return response.status === 200 && !result.isError;
 			},

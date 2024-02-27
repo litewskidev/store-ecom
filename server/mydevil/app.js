@@ -822,32 +822,26 @@ dotenv.config();
 connectDB();
 const app = express();
 
-//  cors
+//  middleware
 app.use(
 	cors({ origin: 'https://culture.litewskidev.usermd.net', credentials: true }),
 );
-
-//  parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 //  static
-app.use(express.static(path.join(__dirname, 'build')));
-
-//  api
-app.get('/api', (req, res) => {
-	console.log(req);
-	res.send('Server is ready.');
-});
+app.use(
+	express.static(path.join(__dirname, 'public'), {
+		maxAge: 31536000,
+	}),
+);
 
 //  routes
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
 app.use('/api/brands', brandRouter);
 app.use('/api/stores', storeRouter);
-
-//  *
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'public/index.html'));
 });

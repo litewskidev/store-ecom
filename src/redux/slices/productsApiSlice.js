@@ -3,18 +3,25 @@ import { apiSlice } from './apiSlice.js';
 export const productsApiSlice = apiSlice.injectEndpoints({
 	endpoints: builder => ({
 		getAllProducts: builder.query({
-			query: () => 'products',
+			query: () => 'products/',
 			validateStatus: (response, result) => {
 				return response.status === 200 && !result.isError;
 			},
 			providesTags: [{ type: 'Products', id: 'ALL' }],
 		}),
 		getNewProducts: builder.query({
-			query: () => 'products?new=true',
+			query: () => 'products/new',
 			validateStatus: (response, result) => {
 				return response.status === 200 && !result.isError;
 			},
 			providesTags: [{ type: 'Products', id: 'NEW' }],
+		}),
+		getProductsById: builder.query({
+			query: id => `products/${id}`,
+			validateStatus: (response, result) => {
+				return response.status === 200 && !result.isError;
+			},
+			providesTags: [{ type: 'Products', id: 'BY_ID' }],
 		}),
 		getProductsByCategory: builder.query({
 			query: category => `products?category=${category}`,
@@ -44,22 +51,15 @@ export const productsApiSlice = apiSlice.injectEndpoints({
 			},
 			providesTags: [{ type: 'Products', id: 'BY_STYLE' }],
 		}),
-		getProductsById: builder.query({
-			query: id => `products/${id}`,
-			validateStatus: (response, result) => {
-				return response.status === 200 && !result.isError;
-			},
-			providesTags: [{ type: 'Products', id: 'BY_ID' }],
-		}),
 	}),
 });
 
 export const {
 	useGetAllProductsQuery,
 	useGetNewProductsQuery,
+	useGetProductsByIdQuery,
 	useGetProductsByCategoryQuery,
 	useGetProductsByCollectionQuery,
 	useGetProductsByBrandQuery,
 	useGetProductsByStyleQuery,
-	useGetProductsByIdQuery,
 } = productsApiSlice;

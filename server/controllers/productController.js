@@ -5,16 +5,13 @@ import Product from '../models/productModel.js';
 //  route    GET /api/products
 //  access   Public
 const getAllProducts = asyncHandler(async (req, res) => {
-	const queryNew = req.query.new;
 	const queryCategory = req.query.category;
 	const queryCollection = req.query.collection;
 	const queryBrand = req.query.brand;
 	const queryStyle = req.query.style;
 	let products;
 
-	if (queryNew) {
-		products = await Product.find().sort({ createdAt: -1 }).limit(10);
-	} else if (queryCategory) {
+	if (queryCategory) {
 		products = await Product.find({
 			categories: {
 				$in: [queryCategory],
@@ -43,8 +40,17 @@ const getAllProducts = asyncHandler(async (req, res) => {
 	if (products) res.status(200).json(products);
 });
 
+//  desc     Get new products
+//  route    GET /api/products/new
+//  access   Public
+const getNewProducts = asyncHandler(async (req, res) => {
+	const products = await Product.find().sort({ createdAt: -1 }).limit(10);
+
+	if (products) res.status(200).json(products);
+});
+
 //  desc     Get product
-//  route    GET /api/products
+//  route    GET /api/products/:id
 //  access   Public
 const getProduct = asyncHandler(async (req, res) => {
 	const product = await Product.findById(req.params.id);
@@ -105,4 +111,4 @@ const deleteProduct = asyncHandler(async (req, res) => {
 	}
 });
 
-export { getAllProducts, getProduct, addProduct, updateProduct, deleteProduct };
+export { getAllProducts, getNewProducts, getProduct, addProduct, updateProduct, deleteProduct };
