@@ -1,0 +1,192 @@
+@import '../../../styles/settings.scss';
+
+.storeInfo {
+	&__header {
+		position: relative;
+		height: 75vh;
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: bottom;
+			filter: brightness(0.85);
+		}
+
+		&__title {
+			position: absolute;
+			top: 3%;
+			left: 3%;
+			width: 94%;
+			border-top: solid 0.063rem $white;
+
+			h1 {
+				font-size: 3.6rem;
+				color: $white;
+			}
+		}
+	}
+
+	&__body,
+	&__footer {
+		padding: 0 3rem;
+	}
+
+	&__body {
+		display: flex;
+		gap: 2rem;
+
+		&__address,
+		&__info {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		&__address {
+			width: 30%;
+
+			&__button {
+				button {
+					padding: 0.5rem 1.5rem;
+					background-color: $black;
+					border: none;
+					border-radius: 2rem;
+					box-shadow: $shadow-medium;
+
+					a {
+						font-family: $font;
+						color: $white;
+						font-size: 0.889rem;
+						text-decoration: none;
+					}
+				}
+			}
+
+			a {
+				text-decoration: underline;
+				text-underline-offset: 0.5rem;
+			}
+		}
+
+		&__info {
+			width: 70%;
+		}
+	}
+
+	&__footer {
+		display: flex;
+		flex-direction: row-reverse;
+		gap: 2rem;
+
+		&__info {
+			width: 30%;
+
+			&__inner {
+				h3 {
+					text-transform: uppercase;
+					font-size: 2.027rem;
+				}
+			}
+		}
+
+		&__image {
+			width: 70%;
+			height: 75vh;
+
+			img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: bottom;
+				filter: brightness(0.9);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.storeInfo {
+		&__header {
+			&__title {
+				top: 4%;
+				left: 4%;
+				width: 92%;
+
+				h1 {
+					font-size: 2.88rem;
+				}
+			}
+		}
+
+		&__body {
+			flex-direction: column;
+			gap: 6rem;
+			padding: 0 2rem;
+
+			&__address,
+			&__info {
+				gap: 1.5rem;
+			}
+
+			&__address {
+				width: 100%;
+			}
+
+			&__info {
+				width: 100%;
+			}
+		}
+
+		&__footer {
+			flex-direction: column;
+			padding: 0;
+
+			&__info {
+				width: 100%;
+				padding: 0 2rem;
+
+				&__inner {
+					h3 {
+						font-size: 1.602rem;
+					}
+				}
+			}
+
+			&__image {
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.storeInfo {
+		&__header {
+			&__title {
+				h1 {
+					font-size: 2.027rem;
+				}
+			}
+		}
+
+		&__body {
+			gap: 4rem;
+			padding: 0 1rem;
+		}
+
+		&__footer {
+			&__info {
+				padding: 0 1rem;
+
+				&__inner {
+					h3 {
+						font-size: 1.266rem;
+					}
+				}
+			}
+		}
+	}
+}

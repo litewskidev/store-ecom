@@ -86,7 +86,7 @@
 
 	&__image {
 		width: 75%;
-    max-height: 75vh;
+		max-height: 75vh;
 
 		img {
 			display: block;
@@ -116,9 +116,9 @@
 			}
 		}
 
-    &__image {
-      max-height: none;
-    }
+		&__image {
+			max-height: none;
+		}
 	}
 }
 

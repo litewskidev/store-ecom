@@ -48,7 +48,7 @@ const addStore = asyncHandler(async (req, res) => {
 //  access   Private
 const updateStore = asyncHandler(async (req, res) => {
 	const updatedStore = await Store.findByIdAndUpdate(
-		req.body.id,
+		req.body._id,
 		{
 			$set: req.body,
 		},
