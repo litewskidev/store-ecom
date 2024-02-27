@@ -477,15 +477,13 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 //  route    GET /api/products
 //  access   Public
 const getAllProducts = asyncHandler(async (req, res) => {
-	const queryNew = req.query.new;
 	const queryCategory = req.query.category;
 	const queryCollection = req.query.collection;
 	const queryBrand = req.query.brand;
+	const queryStyle = req.query.style;
 	let products;
 
-	if (queryNew) {
-		products = await Product.find().sort({ createdAt: -1 }).limit(10);
-	} else if (queryCategory) {
+	if (queryCategory) {
 		products = await Product.find({
 			categories: {
 				$in: [queryCategory],
@@ -501,9 +499,24 @@ const getAllProducts = asyncHandler(async (req, res) => {
 		products = await Product.find({
 			'brand.href': queryBrand,
 		});
+	} else if (queryStyle) {
+		products = await Product.find({
+			'features.details.style': {
+				$in: [queryStyle],
+			},
+		});
 	} else {
 		products = await Product.find();
 	}
+
+	if (products) res.status(200).json(products);
+});
+
+//  desc     Get new products
+//  route    GET /api/products/new
+//  access   Public
+const getNewProducts = asyncHandler(async (req, res) => {
+	const products = await Product.find().sort({ createdAt: -1 }).limit(10);
 
 	if (products) res.status(200).json(products);
 });
@@ -767,6 +780,7 @@ userRouter
 //  PRODUCT ROUTES
 const productRouter = express.Router();
 productRouter.get('/', getAllProducts);
+productRouter.get('/new', getNewProducts);
 productRouter.get('/:id', getProduct);
 productRouter.post('/add', protect, addProduct);
 productRouter.put('/update', protect, updateProduct);
