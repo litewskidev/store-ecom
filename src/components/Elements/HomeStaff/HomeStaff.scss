@@ -19,7 +19,7 @@
 			color: $black55;
 			text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
 			text-underline-offset: 0.5rem;
-			transition: text-decoration-color 0.3s ease-out;
+			transition: text-decoration-color 0.3s $sine-out;
 
 			&:hover {
 				text-decoration-color: $black55;

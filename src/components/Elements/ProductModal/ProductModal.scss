@@ -28,14 +28,14 @@
 		box-shadow: $shadow-light;
 
 		&__button {
-			transition: transform 0.3s ease-out;
+			transition: transform 0.3s $sine-out;
 			cursor: pointer;
 
 			img {
 				display: block;
 				width: 1.5rem;
 				height: 100%;
-				transition: filter 0.3s ease-out;
+				transition: filter 0.3s $sine-out;
 			}
 
 			&:hover {

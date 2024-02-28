@@ -15,7 +15,7 @@
 			width: 10rem;
 			height: 10rem;
 			object-fit: contain;
-			transition: transform 0.3s ease-out;
+			transition: transform 0.3s $sine-out;
 
 			&:hover {
 				transform: scale(1.035);

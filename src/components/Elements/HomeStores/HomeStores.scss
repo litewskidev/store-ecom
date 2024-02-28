@@ -41,8 +41,8 @@
 					opacity: 0;
 					visibility: 0;
 					transition:
-						opacity 0.1s ease-out,
-						visibility 0.1s ease-out;
+						opacity 0.1s $sine-out,
+						visibility 0.1s $sine-out;
 
 					img {
 						display: block;
@@ -67,11 +67,11 @@
 			text-align: center;
 			box-shadow: $shadow-medium;
 			cursor: pointer;
-			transition: background-color 0.3s ease-out;
+			transition: background-color 0.3s $sine-out;
 
 			p {
 				color: $white;
-				transition: color 0.3s ease-out;
+				transition: color 0.3s $sine-out;
 			}
 
 			&:hover {

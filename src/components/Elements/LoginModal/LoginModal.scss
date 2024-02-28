@@ -82,8 +82,8 @@
 				border: solid 0.063rem $black;
 				cursor: pointer;
 				transition:
-					background-color 0.3s ease-out,
-					color 0.3s ease-out;
+					background-color 0.3s $sine-out,
+					color 0.3s $sine-out;
 
 				&:hover {
 					color: $white;
@@ -120,8 +120,8 @@
 				border: solid 0.063rem $black;
 				cursor: pointer;
 				transition:
-					background-color 0.3s ease-out,
-					color 0.3s ease-out;
+					background-color 0.3s $sine-out,
+					color 0.3s $sine-out;
 
 				&:hover {
 					color: $black;

@@ -1,13 +1,29 @@
+import { useLocation } from 'react-router-dom';
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 import Container from '../Container/Container.jsx';
 import './StoreInfo.scss';
 
 const StoreInfo = ({ store }) => {
+	const location = useLocation();
+
+	//  GSAP
+	const storeRef = useRef(null);
+	useGSAP(() => {
+		gsap.fromTo(
+			storeRef.current,
+			{ opacity: 0, y: '1%' },
+			{ opacity: 1, y: 0, duration: 0.5, ease: 'sine.out', force3D: true },
+		);
+	}, [location]);
+
 	const storeMenu = {
 		action: 'GET DIRECTIONS',
 	};
 
 	return (
-		<div className='storeInfo__wrapper'>
+		<div className='storeInfo__wrapper' ref={storeRef}>
 			<Container>
 				<div className='storeInfo__header'>
 					<img

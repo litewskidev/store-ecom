@@ -21,7 +21,7 @@
 			background-color: $white;
 			box-shadow: $shadow-medium;
 			cursor: pointer;
-			transition: border-color 0.3s ease-out;
+			transition: border-color 0.3s $sine-out;
 
 			&.active {
 				border-color: $black75;
@@ -57,13 +57,13 @@
 			box-shadow: $shadow-light;
 			padding: 0.15rem;
 			cursor: pointer;
-			transition: background-color 0.3s ease-out;
+			transition: background-color 0.3s $sine-out;
 
 			img {
 				display: block;
 				width: 2rem;
 				height: 100%;
-				transition: filter 0.3s ease-out;
+				transition: filter 0.3s $sine-out;
 			}
 
 			&:hover {
@@ -88,8 +88,8 @@
 		opacity: 0;
 		visibility: hidden;
 		transition:
-			opacity 0.3s ease-out,
-			visibility 0.3s ease-out;
+			opacity 0.3s $sine-out,
+			visibility 0.3s $sine-out;
 		z-index: 999;
 
 		&.active {

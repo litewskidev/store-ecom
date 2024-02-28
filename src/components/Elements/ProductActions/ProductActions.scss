@@ -86,8 +86,8 @@
 				background-color: $mint;
 				border: solid 0.063rem $mint;
 				transition:
-					background-color 0.3s ease-out,
-					border 0.3s ease-out;
+					background-color 0.3s $sine-out,
+					border 0.3s $sine-out;
 
 				&:hover {
 					background-color: $white;
@@ -108,14 +108,14 @@
 				width: 20%;
 				background-color: $black;
 				border: solid 0.063rem $black75;
-				transition: background-color 0.3s ease-out;
+				transition: background-color 0.3s $sine-out;
 
 				img {
 					display: block;
 					width: 1.85rem;
 					height: 100%;
 					filter: invert(1);
-					transition: filter 0.3s ease-out;
+					transition: filter 0.3s $sine-out;
 				}
 
 				&:hover {

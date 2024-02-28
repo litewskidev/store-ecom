@@ -32,7 +32,7 @@
 			height: 100%;
 			background-color: rgba(0, 0, 0, 0.25);
 			z-index: 1;
-			transition: background-color 0.3s ease-out;
+			transition: background-color 0.3s $sine-out;
 		}
 
 		&:hover {
@@ -64,7 +64,7 @@
 			p:last-of-type {
 				text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
 				text-underline-offset: 0.5rem;
-				transition: text-decoration-color 0.3s ease-out;
+				transition: text-decoration-color 0.3s $sine-out;
 			}
 		}
 	}

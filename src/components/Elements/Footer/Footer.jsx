@@ -75,19 +75,19 @@ const Footer = () => {
 						<ul
 							className={`footer__body__item__list__inner ${isStoresListActive ? 'open' : ''}`}>
 							<li className='footer__body__item__list__inner__link'>
-								<NavLink>NEW YORK</NavLink>
+								<NavLink to='/stores/new-york'>NEW YORK</NavLink>
 							</li>
 							<li className='footer__body__item__list__inner__link'>
-								<NavLink>LONDON</NavLink>
+								<NavLink to='/stores/london'>LONDON</NavLink>
 							</li>
 							<li className='footer__body__item__list__inner__link'>
-								<NavLink>PARIS</NavLink>
+								<NavLink to='/stores/tokyo'>TOKYO</NavLink>
 							</li>
 							<li className='footer__body__item__list__inner__link'>
-								<NavLink>ROME</NavLink>
+								<NavLink to='/stores/paris'>PARIS</NavLink>
 							</li>
 							<li className='footer__body__item__list__inner__link'>
-								<NavLink>TOKYO</NavLink>
+								<NavLink to='/stores/rome'>ROME</NavLink>
 							</li>
 						</ul>
 					</div>

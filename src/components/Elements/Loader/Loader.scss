@@ -13,8 +13,8 @@
 		opacity: 0;
 		visibility: hidden;
 		transition:
-			opacity 0.3s ease-out,
-			visibility 0.3s ease-out;
+			opacity 0.3s cubic-bezier(0.39, 0.575, 0.565, 1),
+			visibility 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
 
 		&.loading {
 			visibility: visible;
