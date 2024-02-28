@@ -1,5 +1,6 @@
-import { useLayoutEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ProductCard from '../ProductCard/ProductCard.jsx';
 import PropTypes from 'prop-types';
@@ -10,11 +11,11 @@ const Products = ({ products }) => {
 
 	//  GSAP
 	const productsRef = useRef(null);
-	useLayoutEffect(() => {
+	useGSAP(() => {
 		gsap.fromTo(
 			productsRef.current,
 			{ opacity: 0, x: '-2%' },
-			{ opacity: 1, x: 0, duration: 0.5, force3D: true },
+			{ opacity: 1, x: 0, duration: 0.5, ease: 'sine.out', force3D: true },
 		);
 	}, [location]);
 
