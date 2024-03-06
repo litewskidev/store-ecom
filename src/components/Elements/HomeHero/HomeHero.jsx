@@ -5,7 +5,7 @@ import './HomeHero.scss';
 const HomeHero = () => {
 	const homeHeroMenu = {
 		title: 'YOUR TIME HAS COME.',
-		info: 'Our curated selection of timepieces seamlessly amalgamates diverse inspirations, embodying the discerning character, soul, and spirit of those who choose CULTURE.',
+		info: 'Curated selection of timepieces seamlessly amalgamates diverse inspirations, embodying the discerning character, soul, and spirit.',
 		action: 'DISCOVER NOW',
 		href: '/categories/all-watches',
 		media: 'video_1',

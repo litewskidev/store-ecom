@@ -72,7 +72,6 @@
 			padding: 0.5rem 1rem;
 			background-color: $mint;
 			border: solid 0.063rem $mint;
-			border-radius: 2rem;
 			text-align: center;
 			box-shadow: $shadow-light;
 			cursor: pointer;
@@ -120,6 +119,10 @@
 			&__stores {
 				&__box {
 					padding: 0.5rem;
+
+					&__icon {
+						transform: rotate(-90deg);
+					}
 				}
 			}
 		}
