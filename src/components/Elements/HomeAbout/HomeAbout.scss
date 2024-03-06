@@ -56,20 +56,21 @@
 		button {
 			font-family: $font;
 			font-size: 0.889rem;
-      font-weight: 900;
-      color: $black75;
+			font-weight: 800;
+			color: $black75;
 			border: solid 0.063rem $mint;
 			border-radius: 2rem;
 			background-color: $mint;
 			padding: 0.5rem 2.5rem;
+			box-shadow: $shadow-light;
 			cursor: pointer;
 			transition:
 				background-color 0.3s $sine-out,
-				color 0.3s $sine-out;
+				border 0.3s $sine-out;
 
 			&:hover {
 				background-color: $white;
-				color: $black;
+				border: solid 0.063rem $black75;
 			}
 		}
 	}

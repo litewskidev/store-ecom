@@ -16,13 +16,13 @@
 		a {
 			font-size: 1.266rem;
 			font-weight: 300;
-			color: $mint75;
+			color: $mint70;
 			text-decoration: underline 0.063rem rgba(0, 0, 0, 0);
 			text-underline-offset: 0.5rem;
 			transition: text-decoration-color 0.3s $sine-out;
 
 			&:hover {
-				text-decoration-color: $mint85;
+				text-decoration-color: $mint80;
 			}
 		}
 	}

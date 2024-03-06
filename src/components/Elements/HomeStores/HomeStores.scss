@@ -35,7 +35,7 @@
 				transition: border 0.1s $sine-out;
 
 				&:hover {
-					border: solid 0.063rem $mint75;
+					border: solid 0.063rem $mint70;
 				}
 
 				&.box-active {
@@ -74,22 +74,20 @@
 			border: solid 0.063rem $mint;
 			border-radius: 2rem;
 			text-align: center;
-			box-shadow: $shadow-medium;
+			box-shadow: $shadow-light;
 			cursor: pointer;
-			transition: background-color 0.3s $sine-out;
+			transition:
+				background-color 0.3s $sine-out,
+				border 0.3s $sine-out;
 
 			p {
-				font-weight: 900;
+				font-weight: 800;
 				color: $black75;
-				transition: color 0.3s $sine-out;
 			}
 
 			&:hover {
 				background-color: $white;
-
-				p {
-					color: $black;
-				}
+				border: solid 0.063rem $black75;
 			}
 		}
 	}

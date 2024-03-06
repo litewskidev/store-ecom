@@ -9,14 +9,16 @@ $shadow-light:
 $shadow-medium:
 	rgba(0, 0, 0, 0.16) 0px 3px 6px,
 	rgba(0, 0, 0, 0.23) 0px 3px 6px;
+$shadow-top: rgba(0, 0, 0, 0.35) 0 -5px 15px -12.5px;
+$shadow-inset: rgba(0, 0, 0, 0.2) 0px -50px 36px -28px inset;
 
 //  FONT
 $font: 'proxima-nova', sans-serif;
 
 //  PALLETTE
-$mint: hsl(111, 11%, 86%);
-$mint85: hsl(111, 11%, 75.25%);
-$mint75: hsl(111, 11%, 64.5%);
+$mint: hsl(111, 11%, 90%);
+$mint80: hsl(111, 11%, 78.75%);
+$mint70: hsl(111, 11%, 67.5%);
 $white: hsl(0, 0%, 100%);
 $black: hsl(0, 0%, 20%);
 $black75: hsl(0, 0%, 30%);

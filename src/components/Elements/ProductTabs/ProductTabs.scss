@@ -21,16 +21,19 @@
 			border-top-left-radius: 1rem;
 			border-top-right-radius: 1rem;
 			background-color: $black25;
-			opacity: 0.5;
+			opacity: 0.4;
+			box-shadow: $shadow-inset;
 			cursor: pointer;
 			transition:
 				background-color 0.15s $sine-out,
-				opacity 0.15s $sine-out;
+				opacity 0.15s $sine-out,
+				box-shadow 0.15s $sine-out;
 
 			&.active {
 				opacity: 1;
 				background-color: $white;
 				z-index: 3;
+				box-shadow: $shadow-top;
 			}
 		}
 	}

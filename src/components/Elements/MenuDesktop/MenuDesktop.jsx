@@ -39,12 +39,16 @@ const MenuDesktop = ({
 				<nav className='navbar__body__center'>
 					<ul className='navbar__items'>
 						<li className='navbar__item__link'>
-							<NavLink to='/categories/new-arrivals'>
+							<NavLink
+								to='/categories/new-arrivals'
+								className={({ isActive }) => (isActive ? 'link-active' : '')}>
 								{navbarMenu.categories.new}
 							</NavLink>
 						</li>
 						<li className='navbar__item__link'>
-							<NavLink to='/categories/all-watches'>
+							<NavLink
+								to='/categories/all-watches'
+								className={({ isActive }) => (isActive ? 'link-active' : '')}>
 								{navbarMenu.categories.all}
 							</NavLink>
 							<div className='navbar__item__link__dropdown'>
@@ -90,7 +94,9 @@ const MenuDesktop = ({
 							</div>
 						</li>
 						<li className='navbar__item__link'>
-							<NavLink to='/brands/all-brands'>
+							<NavLink
+								to='/brands/all-brands'
+								className={({ isActive }) => (isActive ? 'link-active' : '')}>
 								{navbarMenu.categories.brands}
 							</NavLink>
 							<div className='navbar__item__link__dropdown'>

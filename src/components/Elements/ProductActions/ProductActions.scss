@@ -70,11 +70,11 @@
 			button {
 				font-family: $font;
 				font-size: 1rem;
-				font-weight: 900;
+				font-weight: 800;
 				padding: 0.5rem 0;
 				border-radius: 2rem;
 				cursor: pointer;
-				box-shadow: $shadow-medium;
+				box-shadow: $shadow-light;
 			}
 
 			&__cart {

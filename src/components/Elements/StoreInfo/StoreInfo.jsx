@@ -42,14 +42,12 @@ const StoreInfo = ({ store }) => {
 						<p>{store.contact.address}</p>
 						<p>{store.contact.phoneNumber}</p>
 						<div className='storeInfo__body__address__button'>
-							<button>
-								<a
-									target='_blank'
-									rel='noreferrer'
-									href={`${store.contact.href}`}>
-									{storeMenu.action}
-								</a>
-							</button>
+							<a
+								target='_blank'
+								rel='noreferrer'
+								href={`${store.contact.href}`}>
+								{storeMenu.action}
+							</a>
 						</div>
 						<p>{store.contact.openHours}</p>
 						<a href={`mailto:${store.contact.email}`}>{store.contact.email}</a>

@@ -46,27 +46,32 @@
 
 		&__address {
 			width: 30%;
-
-			&__button {
-				button {
-					padding: 0.5rem 1.5rem;
-					background-color: $black;
-					border: none;
-					border-radius: 2rem;
-					box-shadow: $shadow-medium;
-
-					a {
-						font-family: $font;
-						color: $white;
-						font-size: 0.889rem;
-						text-decoration: none;
-					}
-				}
-			}
-
 			a {
 				text-decoration: underline;
 				text-underline-offset: 0.5rem;
+			}
+
+			&__button {
+				a {
+					padding: 0.5rem 2rem;
+					background-color: $mint;
+					border: solid 0.063rem $mint;
+					border-radius: 2rem;
+					font-family: $font;
+					font-weight: 700;
+					font-size: 0.889rem;
+					color: $black75;
+					text-decoration: none;
+					box-shadow: $shadow-light;
+					transition:
+						background-color 0.3s $sine-out,
+						border 0.3s $sine-out;
+
+					&:hover {
+						background-color: $white;
+						border: solid 0.063rem $black75;
+					}
+				}
 			}
 		}
 

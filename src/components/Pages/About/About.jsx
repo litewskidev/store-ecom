@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -48,6 +48,7 @@ const About = () => {
 				info: 'We are sharing a passion for enduring beauty of timepieces.',
 			},
 		],
+		action: 'DISCOVER NOW',
 	};
 
 	return (
@@ -60,6 +61,11 @@ const About = () => {
 							{aboutMenu.mainInfo.map((p, index) => (
 								<p key={index}>{p.info}</p>
 							))}
+						</div>
+						<div className='about__top__inner__button'>
+							<NavLink to={'/categories/all-watches'}>
+								{aboutMenu.action}
+							</NavLink>
 						</div>
 					</div>
 				</div>

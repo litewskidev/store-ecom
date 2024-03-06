@@ -26,6 +26,7 @@
 			flex-direction: column;
 			align-items: flex-start;
 			gap: 3rem;
+			padding-bottom: 1rem;
 			overflow-y: scroll;
 			-ms-overflow-style: none;
 			scrollbar-width: none;
@@ -64,7 +65,7 @@
 				padding: 1rem 0;
 				background-color: transparent;
 				border: none;
-				border-bottom: solid 0.063rem $black;
+				border-bottom: solid 0.063rem $black75;
 				outline: none;
 
 				&::placeholder {
@@ -75,19 +76,22 @@
 			button {
 				font-family: $font;
 				font-size: 1rem;
-				color: $black;
+				font-weight: 800;
+				color: $black75;
 				padding: 1rem;
-				margin-top: 2.5rem;
-				background-color: transparent;
-				border: solid 0.063rem $black;
+				margin: 2.5rem 0.5rem 0 0.5rem;
+				background-color: $mint;
+				border: solid 0.063rem $mint;
+				border-radius: 2rem;
+				box-shadow: $shadow-light;
 				cursor: pointer;
 				transition:
 					background-color 0.3s $sine-out,
-					color 0.3s $sine-out;
+					border 0.3s $sine-out;
 
 				&:hover {
-					color: $white;
-					background-color: $black;
+					background-color: $white;
+					border: solid 0.063rem $black75;
 				}
 			}
 		}
@@ -113,19 +117,22 @@
 			button {
 				font-family: $font;
 				font-size: 1rem;
-				color: $white;
+				font-weight: 800;
+				color: $black75;
 				padding: 1rem;
-				margin-top: 2.5rem;
-				background-color: $black;
-				border: solid 0.063rem $black;
+				margin: 2.5rem 0.5rem 0 0.5rem;
+				background-color: transparent;
+				border: solid 0.063rem $black75;
+				border-radius: 2rem;
+				box-shadow: $shadow-light;
 				cursor: pointer;
 				transition:
 					background-color 0.3s $sine-out,
-					color 0.3s $sine-out;
+					border 0.3s $sine-out;
 
 				&:hover {
-					color: $black;
-					background-color: transparent;
+					background-color: $mint;
+					border: solid 0.063rem $mint;
 				}
 			}
 		}
