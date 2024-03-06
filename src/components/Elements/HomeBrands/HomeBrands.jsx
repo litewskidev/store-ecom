@@ -10,7 +10,7 @@ const HomeBrands = () => {
 		slidesToShow: 6,
 		slidesToScroll: 1,
 		autoplay: true,
-		autoplaySpeed: 2000,
+		autoplaySpeed: 1500,
 		dots: false,
 		arrows: false,
 		responsive: [

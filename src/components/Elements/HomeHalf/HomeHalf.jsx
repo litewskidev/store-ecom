@@ -7,13 +7,13 @@ const HomeHalf = () => {
 			href: '/categories/women-watches',
 			image: 'img_21',
 			title: 'PICKS FOR HER',
-			action: 'SHOP NOW',
+			action: 'SHOP WOMEN',
 		},
 		{
 			href: '/categories/men-watches',
 			image: 'img_22',
 			title: 'PICKS FOR HIM',
-			action: 'SHOP NOW',
+			action: 'SHOP MEN',
 		},
 	];
 

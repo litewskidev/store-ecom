@@ -21,6 +21,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			transition: transform 0.3s $sine-out;
 		}
 
 		&::after {
@@ -36,6 +37,10 @@
 		}
 
 		&:hover {
+			img {
+				transform: scale(1.025);
+			}
+
 			&::after {
 				background-color: rgba(0, 0, 0, 0.4);
 			}

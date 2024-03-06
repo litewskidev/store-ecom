@@ -79,12 +79,11 @@
 	&__productModal {
 		position: fixed;
 		top: 0;
-		left: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100vw;
-		background-color: rgba(0, 0, 0, 0.6);
+		left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 35%;
+    border: solid 0.063rem $black75;
 		opacity: 0;
 		visibility: hidden;
 		transition:
@@ -98,8 +97,8 @@
 		}
 
 		&__inner {
-			width: 80%;
-			height: 80%;
+      width: 100%;
+      height: 100%;
 			background-color: $white;
 		}
 	}

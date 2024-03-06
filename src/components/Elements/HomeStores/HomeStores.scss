@@ -32,9 +32,18 @@
 				padding: 0.5rem 1rem;
 				border: solid 0.063rem $black;
 				cursor: pointer;
+				transition: border 0.1s $sine-out;
+
+				&:hover {
+					border: solid 0.063rem $mint75;
+				}
 
 				&.box-active {
 					box-shadow: $shadow-light;
+
+					&:hover {
+						border: solid 0.063rem $black;
+					}
 				}
 
 				&__icon {
@@ -61,8 +70,8 @@
 		&__link {
 			width: 100%;
 			padding: 0.5rem 1rem;
-			background-color: $black;
-			border: solid 0.063rem $black;
+			background-color: $mint;
+			border: solid 0.063rem $mint;
 			border-radius: 2rem;
 			text-align: center;
 			box-shadow: $shadow-medium;
@@ -70,7 +79,8 @@
 			transition: background-color 0.3s $sine-out;
 
 			p {
-				color: $white;
+				font-weight: 900;
+				color: $black75;
 				transition: color 0.3s $sine-out;
 			}
 
