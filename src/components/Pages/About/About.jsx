@@ -70,15 +70,24 @@ const About = () => {
 					</div>
 				</div>
 				<div className='about__bottom'>
-					<img
-						src={process.env.PUBLIC_URL + '/assets/images/img_27.webp'}
-						alt=''
-					/>
+					<div className='about__bottom__background'>
+						<img
+							src={process.env.PUBLIC_URL + '/assets/images/img_29.webp'}
+							alt=''
+						/>
+					</div>
 					<div className='about__bottom__inner'>
 						<h2>{aboutMenu.subTitle}</h2>
 						<div className='about__bottom__inner__grid'>
 							{aboutMenu.subInfo.map((box, index) => (
 								<div className='about__bottom__inner__grid__box' key={index}>
+									<img
+										src={
+											process.env.PUBLIC_URL +
+											`/assets/images/img_3${index}.webp`
+										}
+										alt=''
+									/>
 									<h6>{box.title}</h6>
 									<p>{box.info}</p>
 								</div>
