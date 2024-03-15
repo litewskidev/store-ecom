@@ -1,25 +1,24 @@
 import jwt from 'jsonwebtoken';
 import asyncHandler from 'express-async-handler';
-import User from '../models/userModel.js';
 
 const protect = asyncHandler(async (req, res, next) => {
-	let token;
-	token = req.cookies.token;
+	const authHeader = req.headers.authorization || req.headers.Authorization;
 
-	if (token) {
-		try {
-			const verified = jwt.verify(token, process.env.JWT_SECRET);
-
-			req.user = await User.findById(verified.userId).select('-password');
-			next();
-		} catch (err) {
-			res.status(403);
-			throw new Error('Not authorized. Invalid token.');
-		}
-	} else {
-		res.status(401);
-		throw new Error('Not authorized. Token not found.');
+	if (!authHeader?.startsWith('Bearer ')) {
+		return res.status(401).json({ message: 'Unauthorized.' });
 	}
+
+	const token = authHeader.split(' ')[1];
+
+	jwt.verify(token, process.env.JWT_ACCESS, (err, decoded) => {
+		if (err) {
+			return res.status(403).json({ message: 'Forbidden.' });
+		}
+
+		req.email = decoded.userInfo.email;
+		req.admin = decoded.userInfo.admin;
+		next();
+	});
 });
 
 export { protect };

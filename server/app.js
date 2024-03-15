@@ -12,6 +12,7 @@ import orderRouter from './routes/orderRoutes.js';
 import paymentRouter from './routes/paymentRoutes.js';
 import brandRouter from './routes/brandRoutes.js';
 import storeRouter from './routes/storeRoutes.js';
+import authRouter from './routes/authRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 //  ROUTES
+app.use('/api/auth', authRouter);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRouter);
 app.use('/api/brands', brandRouter);
