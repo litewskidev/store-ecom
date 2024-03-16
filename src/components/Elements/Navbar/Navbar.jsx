@@ -1,5 +1,7 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectCurrentToken } from '../../../redux/slices/authSlice.js';
 import useWindowLocation from '../../../hooks/useWindowLocation.js';
 import useScrollUpdate from '../../../hooks/useScrollUpdate.js';
 import useBodyOverflow from '../../../hooks/useBodyOverflow.js';
@@ -154,7 +156,7 @@ const Navbar = () => {
 	const navigate = useNavigate();
 
 	//  STATES
-	const [user, setUser] = useState(false);
+	const [isUserLogged, setIsUserLogged] = useState(false);
 	const [isHomePage, setIsHomePage] = useState(true);
 	const [isScrollingDown, setIsScrollingDown] = useState(false);
 	const [isScrollBelowThreshold, setIsScrollBelowThreshold] = useState(false);
@@ -163,6 +165,16 @@ const Navbar = () => {
 	const [isLoginActive, setIsLoginActive] = useState(false);
 	const [isCartActive, setIsCartActive] = useState(false);
 	const [isSearchActive, setIsSearchActive] = useState(false);
+
+	//  USER
+	const user = useSelector(selectCurrentToken);
+	useEffect(() => {
+		if (user != null) {
+			setIsUserLogged(true);
+		} else {
+			setIsUserLogged(false);
+		}
+	}, [user]);
 
 	//  NAVBAR THRESHOLD
 	const navbarThreshold = 75;
@@ -210,7 +222,7 @@ const Navbar = () => {
 	}, []);
 
 	const openLogin = useCallback(() => {
-		if (user) {
+		if (isUserLogged) {
 			if (isSearchActive) {
 				closeSearch();
 			}
@@ -222,7 +234,7 @@ const Navbar = () => {
 			setBodyOverflowHidden(true);
 			setIsLoginActive(true);
 		}
-	}, [user, navigate, isSearchActive, closeSearch]);
+	}, [isUserLogged, navigate, isSearchActive, closeSearch]);
 
 	const closeLogin = useCallback(() => {
 		setBodyOverflowHidden(false);
@@ -250,6 +262,7 @@ const Navbar = () => {
 				className={`navbar__wrapper ${isHomePage && !isScrollBelowThreshold ? 'nav-top' : ''}`}>
 				{/* MENU DESKTOP */}
 				<MenuDesktop
+					isUserLogged={isUserLogged}
 					isDropdownActive={isDropdownActive}
 					openDropdown={openDropdown}
 					openLogin={openLogin}
@@ -279,7 +292,7 @@ const Navbar = () => {
 						onClick={e => {
 							e.stopPropagation();
 						}}>
-						<LoginModal closeLogin={closeLogin} />
+						<LoginModal closeModal={closeLogin} />
 					</div>
 				</div>
 				{/* CART MODAL */}
