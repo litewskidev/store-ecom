@@ -1,41 +1,56 @@
 import asyncHandler from 'express-async-handler';
 import User from '../models/userModel.js';
+import bcrypt from 'bcryptjs';
 
 //  desc     Register a new user
-//  route    POST /api/users
+//  route    POST /api/users/register
 //  access   Public
 const registerUser = asyncHandler(async (req, res) => {
 	const { email, password } = req.body;
 
-	const userExists = await User.findOne({ email });
-	if (userExists) {
-		res.status(400);
-		throw new Error('User already exists.');
+	if (!email || !password) {
+		return res.status(400).json({ message: 'All fields are required.' });
 	}
+
+	const userExists = await User.findOne({ email }).lean().exec();
+
+	if (userExists) {
+		return res.status(409).json({ message: 'User already exists.' });
+	}
+
+	const hashedPassword = await bcrypt.hash(password, 10);
 
 	const user = await User.create({
 		email,
-		password,
+		hashedPassword,
 	});
 
-	if (user) res.status(200).json({ message: 'User registered.' });
+	if (user) {
+		res.status(200).json({ message: 'User registered.' });
+	} else {
+		res.status(400).json({ message: 'Invalid user data.' });
+	}
 });
 
-//  desc     Get user profile
-//  route    GET /api/users/profile
+//  desc     Get all users
+//  route    GET /api/users/all
 //  access   Private
-const getUserProfile = asyncHandler(async (req, res) => {
-	const { userInfo } = req.body;
-	const user = await User.findOne(userInfo.email);
+const getAllUsers = asyncHandler(async (req, res) => {
+	const users = await User.find().select('-password').lean();
 
-	res.status(200).json(user);
+	if (!users) {
+		return res.status(400).json({ message: 'No users found.' });
+	}
+
+	res.status(200).json(users);
 });
 
 //  desc     Update user profile
-//  route    PUT /api/users/profile
+//  route    PUT /api/users/update
 //  access   Private
 const updateUserProfile = asyncHandler(async (req, res) => {
-	const user = await User.findById(req.user._id);
+	const { email } = req.body;
+	const user = await User.findOne({ email }).select('-password').lean().exec();
 
 	if (user) {
 		user.name = req.body.name || user.name;
@@ -66,38 +81,22 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 
 		const updatedUser = await user.save();
 
-		res.status(200).json({
-			id: user._id,
-			email: user.email,
-			emailVerified: user.emailVerified,
-			name: updatedUser.name,
-			surname: updatedUser.surname,
-			address: {
-				country: updatedUser.address.country,
-				street1: updatedUser.address.street1,
-				street2: updatedUser.address.street2,
-				city: updatedUser.address.city,
-				state: updatedUser.address.state,
-				zip: updatedUser.address.zip,
-			},
-			addressShipping: {
-				country: updatedUser.addressShipping.country,
-				street1: updatedUser.addressShipping.street1,
-				street2: updatedUser.addressShipping.street2,
-				city: updatedUser.addressShipping.city,
-				state: updatedUser.addressShipping.state,
-				zip: updatedUser.addressShipping.zip,
-			},
-			image: updatedUser.image,
-			history: updatedUser.history,
-			wishlist: updatedUser.wishlist,
-		});
+		res.status(200).json({ message: `${updatedUser.name} profile updated.` });
 	} else {
-		res.status(404);
-		throw new Error('User not found.');
+		res.status(404).json({ message: 'User not found.' });
 	}
-
-	res.status(200).json({ message: 'User profile updated.' });
 });
 
-export { registerUser, getUserProfile, updateUserProfile };
+/*
+//  desc     Get user profile
+//  route    GET /api/users/profile
+//  access   Private
+const getUserProfile = asyncHandler(async (req, res) => {
+	const { email } = req.body;
+	const user = await User.findOne({ email }).select('-password');
+
+	res.status(200).json(user);
+});
+*/
+
+export { getAllUsers, registerUser, updateUserProfile };

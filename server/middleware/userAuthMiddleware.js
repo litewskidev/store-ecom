@@ -15,7 +15,7 @@ const protect = asyncHandler(async (req, res, next) => {
 			return res.status(403).json({ message: 'Forbidden.' });
 		}
 
-		req.email = decoded.userInfo.email;
+		req.user = decoded.userInfo.email;
 		req.admin = decoded.userInfo.admin;
 		next();
 	});
